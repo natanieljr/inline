@@ -1,0 +1,322 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ApkXmlReporter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.report</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ApkXmlReporter (org.droidmate.report)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApkXmlReporter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.6%
+  </span>
+  <span class="absValue">
+    (43/ 45)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ApkXmlReporter$$FastClassByGuice$$69148bf</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$_buildReport_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$_buildReportStub_closure4</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$_computeCoverageLogsHit_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$_computeExplorationActionsCount_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$computeCoverageLogsHit$1</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$computeExplorationActionsCount$2</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$extractExplReportValues$0</td>
+  </tr>
+  <tr>
+    <td class="name">ApkXmlReporter$extractInstrReportValues</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96.5%
+  </span>
+  <span class="absValue">
+    (55/ 57)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.report
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Singleton
+<i>14</i>&nbsp;import groovy.util.slurpersupport.GPathResult
+<i>15</i>&nbsp;import groovy.xml.MarkupBuilder
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import static org.droidmate.report.XmlReportsConstants.*
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;@Singleton
+<i>20</i>&nbsp;class ApkXmlReporter implements IApkXmlReporter
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;  @Override
+<i>23</i>&nbsp;  void report(Reader instrReportReader, Reader explReportReader, String apkPackageName, Writer apkReportWriter)
+<i>24</i>&nbsp;  {
+<b class="fc"><i>25</i>&nbsp;    assert apkReportWriter != null</b>
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;    Map&lt;String, String&gt; instrReport</b>
+<b class="fc"><i>28</i>&nbsp;    if (instrReportReader == null)</b>
+<i>29</i>&nbsp;    {
+<b class="fc"><i>30</i>&nbsp;      buildReportStub(apkPackageName, STATUS_FAILED, STATUS_DESC_INSTRUMENTATION_REPORT_MISSING, apkReportWriter)</b>
+<b class="fc"><i>31</i>&nbsp;      return</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;    else
+<i>34</i>&nbsp;    {
+<b class="fc"><i>35</i>&nbsp;      instrReport = extractInstrReportValues(instrReportReader)</b>
+<b class="fc"><i>36</i>&nbsp;      if (instrReport[&quot;${NAME_STATUS}&quot;] in [STATUS_FAILED])</b>
+<i>37</i>&nbsp;      {
+<b class="fc"><i>38</i>&nbsp;        buildReportStub(apkPackageName, STATUS_FAILED, STATUS_DESC_INSTRUMENTATION_FAILED, apkReportWriter)</b>
+<b class="fc"><i>39</i>&nbsp;        return</b>
+<i>40</i>&nbsp;      }
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    // doc-assert: instrumentation report is non-null and non-crashed (because the method hasn&#39;t returned yet).
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;    Map&lt;String, String&gt; explReport</b>
+<b class="fc"><i>46</i>&nbsp;    if (explReportReader == null)</b>
+<i>47</i>&nbsp;    {
+<b class="nc"><i>48</i>&nbsp;      buildReportStub(apkPackageName, STATUS_FAILED, STATUS_DESC_EXPLORATION_REPORT_MISSING, apkReportWriter)</b>
+<b class="nc"><i>49</i>&nbsp;      return</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;    else
+<i>52</i>&nbsp;    {
+<b class="fc"><i>53</i>&nbsp;      explReport = extractExplReportValues(explReportReader)</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;      if (explReport[&quot;${NAME_STATUS}&quot;] in [STATUS_FAILED])</b>
+<i>56</i>&nbsp;      {
+<b class="fc"><i>57</i>&nbsp;        buildReportStub(apkPackageName, STATUS_FAILED, STATUS_DESC_EXPLORATION_FAILED, apkReportWriter)</b>
+<b class="fc"><i>58</i>&nbsp;        return</b>
+<i>59</i>&nbsp;      }
+<b class="fc"><i>60</i>&nbsp;      explReport &lt;&lt; [coverageLogsHitPercentage:</b>
+<b class="fc"><i>61</i>&nbsp;        sprintf(&quot;%.4f&quot;, explReport[&#39;coverageLogsHit&#39;].toInteger() / instrReport[&#39;coverageLogsTotal&#39;].toInteger()) as String]</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    // doc-assert: everything is OK with exploration report.
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;    buildReport(instrReport, explReport, apkPackageName, apkReportWriter)</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;    instrReportReader.close()</b>
+<b class="fc"><i>69</i>&nbsp;    explReportReader.close()</b>
+<b class="fc"><i>70</i>&nbsp;    apkReportWriter.close()</b>
+<i>71</i>&nbsp;  }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;  static Map&lt;String, String&gt; extractInstrReportValues(Reader instrReportReader)
+<i>74</i>&nbsp;  {
+<b class="fc"><i>75</i>&nbsp;    assert instrReportReader != null</b>
+<b class="fc"><i>76</i>&nbsp;    final GPathResult instrReport = new XmlSlurper().parse(instrReportReader)</b>
+<i>77</i>&nbsp;
+<b class="fc"><i>78</i>&nbsp;    if (isCrashedReport(instrReport))</b>
+<b class="fc"><i>79</i>&nbsp;      return [(NAME_STATUS): STATUS_FAILED]</b>
+<i>80</i>&nbsp;
+<b class="fc"><i>81</i>&nbsp;    return [</b>
+<i>82</i>&nbsp;      (NAME_STATUS): STATUS_SUCCESS,
+<b class="fc"><i>83</i>&nbsp;      unitsTotal: instrReport.jimpleStats.includedTotals.units.text() as String,</b>
+<b class="fc"><i>84</i>&nbsp;      coverageLogsTotal: instrReport.jimpleStats.insertedLogCallsTotal.text() as String</b>
+<i>85</i>&nbsp;    ]
+<i>86</i>&nbsp;  }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;  static Map&lt;String, String&gt; extractExplReportValues(Reader explReportReader)
+<i>89</i>&nbsp;  {
+<b class="fc"><i>90</i>&nbsp;    assert explReportReader != null</b>
+<b class="fc"><i>91</i>&nbsp;    final GPathResult explReport = new XmlSlurper().parse(explReportReader)</b>
+<i>92</i>&nbsp;
+<b class="fc"><i>93</i>&nbsp;    if (isCrashedReport(explReport))</b>
+<b class="fc"><i>94</i>&nbsp;      return [(NAME_STATUS): STATUS_FAILED]</b>
+<i>95</i>&nbsp;
+<b class="fc"><i>96</i>&nbsp;    return [</b>
+<i>97</i>&nbsp;      (NAME_STATUS): STATUS_SUCCESS,
+<b class="fc"><i>98</i>&nbsp;      coverageLogsHit: computeCoverageLogsHit(explReport),</b>
+<b class="fc"><i>99</i>&nbsp;      explorationActionsCount: computeExplorationActionsCount(explReport)</b>
+<i>100</i>&nbsp;    ]
+<i>101</i>&nbsp;  }
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;  protected void buildReport(Map&lt;String, String&gt; instrReport, Map&lt;String, String&gt; explReport,  String packageNameVal, Writer apkReportWriter)
+<i>104</i>&nbsp;  {
+<b class="fc"><i>105</i>&nbsp;    final MarkupBuilder reportBuilder = new MarkupBuilder(apkReportWriter)</b>
+<i>106</i>&nbsp;
+<b class="fc"><i>107</i>&nbsp;    reportBuilder.DroidMateApkReport {</b>
+<b class="fc"><i>108</i>&nbsp;      packageName(packageNameVal)</b>
+<b class="fc"><i>109</i>&nbsp;      &quot;${NAME_STATUS}&quot;(STATUS_SUCCESS)</b>
+<b class="fc"><i>110</i>&nbsp;      unitsTotal(instrReport[&quot;unitsTotal&quot;])</b>
+<b class="fc"><i>111</i>&nbsp;      coverageLogsTotal(instrReport[&quot;coverageLogsTotal&quot;])</b>
+<b class="fc"><i>112</i>&nbsp;      coverageLogsHit(explReport[&quot;coverageLogsHit&quot;])</b>
+<b class="fc"><i>113</i>&nbsp;      coverageLogsHitPercentage(explReport[&quot;coverageLogsHitPercentage&quot;])</b>
+<b class="fc"><i>114</i>&nbsp;      explorationActionsCount(explReport[&quot;explorationActionsCount&quot;])</b>
+<i>115</i>&nbsp;    }
+<i>116</i>&nbsp;  }
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;  static String computeCoverageLogsHit(GPathResult explReport)
+<i>119</i>&nbsp;  {
+<b class="fc"><i>120</i>&nbsp;    List&lt;String&gt; coverageLogs = explReport.depthFirst().findAll { it.name() == &#39;coverageLog&#39;}*.text()</b>
+<i>121</i>&nbsp;
+<b class="fc"><i>122</i>&nbsp;    return coverageLogs.unique().size().toString()</b>
+<i>123</i>&nbsp;  }
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;  static String computeExplorationActionsCount(GPathResult explReport)
+<i>126</i>&nbsp;  {
+<b class="fc"><i>127</i>&nbsp;    int guiActionsCount = explReport.depthFirst().findAll { it.name() == &#39;guiAction&#39; &amp;&amp; it.text() != &#39;null&#39;}.size()</b>
+<i>128</i>&nbsp;
+<b class="fc"><i>129</i>&nbsp;    return guiActionsCount.toString()</b>
+<i>130</i>&nbsp;  }
+<i>131</i>&nbsp;
+<i>132</i>&nbsp;  protected static void buildReportStub(String packageNameVal, String statusVal, String statusDescVal, Writer apkReportWriter)
+<i>133</i>&nbsp;  {
+<b class="fc"><i>134</i>&nbsp;    final MarkupBuilder reportBuilder = new MarkupBuilder(apkReportWriter)</b>
+<b class="fc"><i>135</i>&nbsp;    reportBuilder.DroidMateApkReport {</b>
+<b class="fc"><i>136</i>&nbsp;      packageName(packageNameVal)</b>
+<b class="fc"><i>137</i>&nbsp;      &quot;${NAME_STATUS}&quot;(statusVal)</b>
+<b class="fc"><i>138</i>&nbsp;      &quot;${NAME_STATUS_DESC}&quot;(statusDescVal)</b>
+<i>139</i>&nbsp;    }
+<i>140</i>&nbsp;  }
+<i>141</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

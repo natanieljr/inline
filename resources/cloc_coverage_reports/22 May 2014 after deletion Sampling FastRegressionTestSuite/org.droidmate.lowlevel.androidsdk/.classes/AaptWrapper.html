@@ -1,0 +1,251 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AaptWrapper</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.lowlevel.androidsdk</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AaptWrapper (org.droidmate.lowlevel.androidsdk)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AaptWrapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    76.7%
+  </span>
+  <span class="absValue">
+    (33/ 43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AaptWrapper$$FastClassByGuice$$f61e6db3</td>
+  </tr>
+  <tr>
+    <td class="name">AaptWrapper$_closure1</td>
+  </tr>
+  <tr>
+    <td class="name">AaptWrapper$aaptDumpBadging$0</td>
+  </tr>
+  <tr>
+    <td class="name">AaptWrapper$getLaunchableActivityComponentNameFromBadgingDump</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    76.7%
+  </span>
+  <span class="absValue">
+    (33/ 43)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.lowlevel.androidsdk
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.transform.Memoized
+<i>16</i>&nbsp;import groovy.util.logging.Slf4j
+<i>17</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>18</i>&nbsp;import org.droidmate.exceptions.NoLaunchableActivityNameException
+<i>19</i>&nbsp;import org.droidmate.exceptions.SysCmdExecutorException
+<i>20</i>&nbsp;import org.droidmate.frontend.configuration.Configuration
+<i>21</i>&nbsp;import org.droidmate.lowlevel.ISysCmdExecutor
+<i>22</i>&nbsp;import org.droidmate.lowlevel.apk.Apk
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;import java.util.regex.Matcher
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;import static org.droidmate.lowlevel.Utils.getAndValidateFirstMatch
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;/**
+<i>29</i>&nbsp; * Wrapper for the {@code aapt} tool from Android SDK.
+<i>30</i>&nbsp; */
+<i>31</i>&nbsp;@Singleton
+<i>32</i>&nbsp;@Slf4j
+<i>33</i>&nbsp;public class AaptWrapper implements IAaptWrapper
+<i>34</i>&nbsp;{
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  private Configuration config;
+<i>37</i>&nbsp;  private ISysCmdExecutor sysCmdExecutor;
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  @Inject
+<i>40</i>&nbsp;  AaptWrapper(Configuration config, ISysCmdExecutor sysCmdExecutor)
+<i>41</i>&nbsp;  {
+<b class="fc"><i>42</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>43</i>&nbsp;    this.sysCmdExecutor = sysCmdExecutor;</b>
+<i>44</i>&nbsp;  }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;  static String getLaunchableActivityComponentNameFromBadgingDump(String aaptBadgingDump)
+<i>47</i>&nbsp;  {
+<b class="fc"><i>48</i>&nbsp;    return getPackageNameFromBadgingDump(aaptBadgingDump) + &quot;/&quot; + getLaunchableActivityNameFromBadgingDump(aaptBadgingDump)</b>
+<i>49</i>&nbsp;  }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;  private static String getPackageNameFromBadgingDump(String aaptBadgingDump)
+<i>52</i>&nbsp;  {
+<b class="fc"><i>53</i>&nbsp;    assert aaptBadgingDump?.length() &gt; 0</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;    Matcher matcher = aaptBadgingDump =~ /(?:.*)package: name=&#39;(\S*)&#39;.*/</b>
+<i>56</i>&nbsp;
+<b class="fc"><i>57</i>&nbsp;    if (matcher.size() == 0)</b>
+<b class="nc"><i>58</i>&nbsp;      throw new DroidmateException(&quot;No package name found in &#39;aapt dump badging&#39;&quot;)</b>
+<b class="fc"><i>59</i>&nbsp;    else if (matcher.size() &gt; 1)</b>
+<b class="nc"><i>60</i>&nbsp;      throw new DroidmateException(&quot;More than one package name found in &#39;aapt dump badging&#39;&quot;)</b>
+<i>61</i>&nbsp;    else
+<i>62</i>&nbsp;    {
+<b class="fc"><i>63</i>&nbsp;      String packageName = getAndValidateFirstMatch(matcher)</b>
+<b class="fc"><i>64</i>&nbsp;      return packageName</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;  }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;  private static String getLaunchableActivityNameFromBadgingDump(String aaptBadgingDump)
+<i>70</i>&nbsp;  {
+<b class="fc"><i>71</i>&nbsp;    assert aaptBadgingDump?.length() &gt; 0</b>
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;    Matcher matcher = aaptBadgingDump =~ /(?:.*)launchable-activity: name=&#39;(\S*)&#39;.*/</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;    if (matcher.size() == 0)</b>
+<b class="nc"><i>76</i>&nbsp;      throw new NoLaunchableActivityNameException()</b>
+<b class="fc"><i>77</i>&nbsp;    else if (matcher.size() &gt; 1)</b>
+<b class="nc"><i>78</i>&nbsp;      throw new DroidmateException(&quot;More than one launchable activity found! While some apks have more than one launchable activities, DroidMate doesn&#39;t know how to handle such situations.&quot;)</b>
+<i>79</i>&nbsp;    else
+<i>80</i>&nbsp;    {
+<b class="fc"><i>81</i>&nbsp;      String launchableActivityName = getAndValidateFirstMatch(matcher)</b>
+<b class="fc"><i>82</i>&nbsp;      return launchableActivityName</b>
+<i>83</i>&nbsp;    }
+<i>84</i>&nbsp;  }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;  @Override
+<i>87</i>&nbsp;  String getPackageName(Apk apk) throws DroidmateException
+<i>88</i>&nbsp;  {
+<b class="fc"><i>89</i>&nbsp;    assert apk?.file;</b>
+<i>90</i>&nbsp;
+<b class="fc"><i>91</i>&nbsp;    String aaptBadgingDump = aaptDumpBadging(apk);</b>
+<b class="fc"><i>92</i>&nbsp;    String packageName = getPackageNameFromBadgingDump(aaptBadgingDump)</b>
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;    assert packageName?.length() &gt; 0;</b>
+<b class="fc"><i>95</i>&nbsp;    return packageName;</b>
+<i>96</i>&nbsp;  }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;  @Override
+<i>99</i>&nbsp;  String getLaunchableActivityName(Apk apk) throws DroidmateException
+<i>100</i>&nbsp;  {
+<b class="nc"><i>101</i>&nbsp;    assert apk?.file;</b>
+<i>102</i>&nbsp;
+<b class="nc"><i>103</i>&nbsp;    String aaptBadgingDump = aaptDumpBadging(apk)</b>
+<b class="nc"><i>104</i>&nbsp;    String launchableActivityName = getLaunchableActivityNameFromBadgingDump(aaptBadgingDump)</b>
+<i>105</i>&nbsp;
+<b class="nc"><i>106</i>&nbsp;    assert launchableActivityName?.length() &gt; 0;</b>
+<b class="nc"><i>107</i>&nbsp;    return launchableActivityName</b>
+<i>108</i>&nbsp;  }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;  @Override
+<i>111</i>&nbsp;  String getLaunchableActivityComponentName(Apk apk) throws DroidmateException
+<i>112</i>&nbsp;  {
+<b class="fc"><i>113</i>&nbsp;    assert apk?.file</b>
+<i>114</i>&nbsp;
+<b class="fc"><i>115</i>&nbsp;    String aaptBadgingDump = aaptDumpBadging(apk);</b>
+<b class="fc"><i>116</i>&nbsp;    String launchableActivityComponentName = getLaunchableActivityComponentNameFromBadgingDump(aaptBadgingDump)</b>
+<i>117</i>&nbsp;
+<b class="fc"><i>118</i>&nbsp;    assert launchableActivityComponentName?.length() &gt; 0</b>
+<b class="fc"><i>119</i>&nbsp;    return launchableActivityComponentName</b>
+<i>120</i>&nbsp;  }
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;  @Memoized
+<i>123</i>&nbsp;  public String aaptDumpBadging(File instrumentedApk)
+<i>124</i>&nbsp;  {
+<b class="fc"><i>125</i>&nbsp;    assert config?.aaptCommand != null;</b>
+<b class="fc"><i>126</i>&nbsp;    assert instrumentedApk?.file</b>
+<i>127</i>&nbsp;
+<b class="fc"><i>128</i>&nbsp;    String commandDescription = String.format(</b>
+<i>129</i>&nbsp;      &quot;Executing aapt (Android Asset Packaging Tool) to extract package name of apk %s.&quot;,
+<i>130</i>&nbsp;      instrumentedApk.absolutePath);
+<i>131</i>&nbsp;
+<b class="fc"><i>132</i>&nbsp;    String[] outputStreams;</b>
+<i>133</i>&nbsp;
+<i>134</i>&nbsp;    try
+<i>135</i>&nbsp;    {
+<b class="fc"><i>136</i>&nbsp;      outputStreams = sysCmdExecutor.execute(</b>
+<i>137</i>&nbsp;        commandDescription, config.aaptCommand, &quot;dump badging&quot;, instrumentedApk.absolutePath);
+<i>138</i>&nbsp;
+<i>139</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>140</i>&nbsp;    {
+<b class="nc"><i>141</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>142</i>&nbsp;    }
+<i>143</i>&nbsp;
+<b class="fc"><i>144</i>&nbsp;    String aaptBadgingDump = outputStreams[0];</b>
+<i>145</i>&nbsp;
+<b class="fc"><i>146</i>&nbsp;    assert aaptBadgingDump?.length() &gt; 0</b>
+<b class="fc"><i>147</i>&nbsp;    return aaptBadgingDump</b>
+<i>148</i>&nbsp;  }
+<i>149</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

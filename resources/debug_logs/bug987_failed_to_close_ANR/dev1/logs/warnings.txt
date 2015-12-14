@@ -1,0 +1,1 @@
+2015-12-01 18:02:23.285 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.

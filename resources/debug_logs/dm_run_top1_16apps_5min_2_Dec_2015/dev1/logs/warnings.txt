@@ -1,0 +1,154 @@
+2015-12-02 17:28:04.969 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:28:04.969 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:29:16.027 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:29:16.027 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:30:32.742 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of animaonline.android.wikiexplorer after already obtaining some exploration output.
+2015-12-02 17:31:06.757 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:31:06.757 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:31:53.493 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:31:53.493 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:32:36.405 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:32:36.405 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:33:21.840 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:33:21.840 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:34:06.987 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:34:06.987 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:34:54.662 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:34:54.662 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:35:37.585 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:35:37.585 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:36:23.501 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:36:23.501 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:37:21.964 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:37:21.964 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:38:19.866 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:38:19.866 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:39:30.514 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:39:30.514 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:40:37.856 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:40:37.856 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:41:28.089 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:41:28.089 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:42:46.290 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:42:46.290 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:43:43.408 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:43:43.408 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:44:58.305 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:44:58.305 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:45:58.330 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:45:58.330 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:46:40.562 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:46:40.562 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:47:55.387 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of com.almalence.opencam after already obtaining some exploration output.
+2015-12-02 17:48:33.397 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:48:33.397 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:49:46.423 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:49:46.423 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:50:42.284 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:50:42.284 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:51:54.391 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of com.baviux.pillreminder after already obtaining some exploration output.
+2015-12-02 17:52:35.574 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:52:35.574 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:53:48.381 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:53:48.381 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:55:05.962 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:55:05.962 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:55:57.798 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:55:57.798 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:57:16.597 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:57:16.597 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:58:38.271 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:58:38.271 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 17:59:40.570 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 17:59:40.570 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:01:08.386 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of com.ebay.kleinanzeigen after already obtaining some exploration output.
+2015-12-02 18:01:43.674 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:01:43.674 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:02:37.557 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:02:37.557 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:03:35.472 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:03:35.472 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:04:25.571 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of com.frogsparks.mytrails after already obtaining some exploration output.
+2015-12-02 18:05:04.737 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:05:04.737 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:06:16.788 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:06:16.788 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:08:07.781 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:08:07.781 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:09:38.031 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:09:38.031 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:11:46.161 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:11:46.161 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:13:10.977 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:13:10.977 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:14:23.104 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of com.paypal.android.p2pmobile after already obtaining some exploration output.
+2015-12-02 18:15:20.065 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:15:20.065 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:16:31.553 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:16:31.553 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:17:39.803 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:17:39.803 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:18:05.402 WARN  From uiautomator-daemon logcat           The operation ui.getUiDevice().click(560, 140) failed (the 'click' method returned 'false'). Retrying after 2 seconds.
+2015-12-02 18:18:05.402 WARN  From uiautomator-daemon logcat           The click retry attempt succeeded!
+2015-12-02 18:18:49.738 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:18:49.738 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:19:41.762 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:19:41.762 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:20:13.926 WARN  From uiautomator-daemon logcat           The operation ui.getUiDevice().click(80, 140) failed (the 'click' method returned 'false'). Retrying after 2 seconds.
+2015-12-02 18:20:13.926 WARN  From uiautomator-daemon logcat           The click retry attempt succeeded!
+2015-12-02 18:21:29.507 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:21:29.507 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:22:23.842 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:22:23.842 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:23:19.201 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:23:19.201 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:24:13.735 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:24:13.735 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:25:05.074 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:25:05.074 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:26:13.554 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:26:13.554 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:27:01.433 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:27:01.433 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:28:03.400 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:28:03.400 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:28:53.574 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:28:53.574 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:30:07.436 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:30:07.436 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:31:20.246 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:31:20.246 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:32:37.949 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:32:37.949 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:34:01.525 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:34:01.525 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:35:25.862 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:35:25.862 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:35:54.502 WARN  From uiautomator-daemon logcat           Caught NPE while dumping window hierarchy. Msg: null
+2015-12-02 18:35:54.502 WARN  From uiautomator-daemon logcat           UiDevice.dumpWindowHierarchy() failed. Attempts left: 4
+2015-12-02 18:36:46.666 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:36:46.666 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:38:10.747 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:38:10.747 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:38:38.631 WARN  From uiautomator-daemon logcat           Caught NPE while dumping window hierarchy. Msg: null
+2015-12-02 18:38:38.631 WARN  From uiautomator-daemon logcat           UiDevice.dumpWindowHierarchy() failed. Attempts left: 4
+2015-12-02 18:39:08.530 WARN  From uiautomator-daemon logcat           The operation ui.getUiDevice().click(400, 329) failed (the 'click' method returned 'false'). Retrying after 2 seconds.
+2015-12-02 18:39:08.530 WARN  From uiautomator-daemon logcat           The click retry attempt succeeded!
+2015-12-02 18:39:34.501 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:39:34.501 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:40:34.108 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:40:34.108 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:41:25.478 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:41:25.478 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:42:38.600 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:42:38.600 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:43:29.552 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:43:29.552 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:45:09.655 WARN  From uiautomator-daemon logcat           No 'settings' to click found, while in the process of ensuring that wifi is on!
+2015-12-02 18:45:09.655 WARN  From uiautomator-daemon logcat           No wifi switch found while in the process of ensuring that wifi is on!
+2015-12-02 18:45:58.323 WARN  o.d.d.ApkExplorationOutput               One of the API calls logged after 9-th exploration action has earlier time than the 9-th exploration action, even with allowed clock imprecision.
+The offending API call has time   of 2015-12-02T18:16:53.288,
+the exploration action time       is 2015-12-02T18:16:58.393,
+and the allowed clock imprecision is 3000 ms.
+There might be more offending API calls logged, after the same or other exploration actions. If this is the case, the information about them won't be output to avoid spamming diagnostic output.
+2015-12-02 18:45:58.599 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.

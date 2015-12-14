@@ -1,0 +1,139 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DecodedApkFileStructure</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.instrumentation</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DecodedApkFileStructure (org.droidmate.instrumentation)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DecodedApkFileStructure</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (9/ 10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.instrumentation
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.common.io.Files
+<i>14</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;/**
+<i>17</i>&nbsp; * Aggregates {@link File} handles to directories and files resulting from decoding an APK file using
+<i>18</i>&nbsp; * {@link org.droidmate.utils.ApkToolWrapper ApkToolWrapper}.
+<i>19</i>&nbsp; *
+<i>20</i>&nbsp; * @author Konrad Jamrozik
+<i>21</i>&nbsp; *
+<i>22</i>&nbsp; */
+<i>23</i>&nbsp;public class DecodedApkFileStructure
+<i>24</i>&nbsp;{
+<i>25</i>&nbsp;  public File rootDir;
+<i>26</i>&nbsp;  public File bytecode;
+<i>27</i>&nbsp;  public File bytecodeOriginalBackup;
+<i>28</i>&nbsp;  public File manifest;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  public DecodedApkFileStructure(File rootDir) throws DroidmateException
+<i>31</i>&nbsp;  {
+<b class="fc"><i>32</i>&nbsp;    assert rootDir?.exists(): String.format(</b>
+<i>33</i>&nbsp;      &quot;Missing directory %s. Expected apktool to generate it while decoding apk.&quot;, rootDir.absolutePath);
+<i>34</i>&nbsp;
+<b class="fc"><i>35</i>&nbsp;    this.rootDir = rootDir;</b>
+<b class="fc"><i>36</i>&nbsp;    this.manifest = new File(rootDir, &quot;AndroidManifest.xml&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;    this.bytecode = new File(rootDir, &quot;classes.dex&quot;);</b>
+<b class="fc"><i>38</i>&nbsp;    this.bytecodeOriginalBackup = new File(rootDir, &quot;classes-original.dex&quot;);</b>
+<i>39</i>&nbsp;
+<b class="fc"><i>40</i>&nbsp;    assert manifest.exists(): &quot;Missing AndroidManifest.xml. Expected apktool to generate it while decoding apk.&quot;;</b>
+<b class="fc"><i>41</i>&nbsp;    assert bytecode.exists(): &quot;Missing classes.dex. Expected apktool to generate it while decoding apk.&quot;;</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    try
+<i>44</i>&nbsp;    {
+<i>45</i>&nbsp;      // Create a backup of the original bytecode file (classes.dex)
+<b class="fc"><i>46</i>&nbsp;      Files.copy(this.bytecode, this.bytecodeOriginalBackup);</b>
+<i>47</i>&nbsp;    } catch (IOException e)
+<i>48</i>&nbsp;    {
+<b class="nc"><i>49</i>&nbsp;      throw new DroidmateException(&quot;Failed while creating file structure to hold results of decoding apk with apktool&quot; +</b>
+<i>50</i>&nbsp;        &quot;. Reason: IOException was thrown while trying to copy original bytecode to a backup file.&quot;, e);
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;    assert bytecodeOriginalBackup.exists();</b>
+<i>54</i>&nbsp;  }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+2015-09-01 16:12:35.205 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-09-01 16:12:35.209 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\dev1\logs.
+2015-09-01 16:12:35.230 INFO  o.d.f.configuration.ConfigurationBuilder memoizedBuildConfiguration(args, fs)
+2015-09-01 16:12:35.865 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-09-01 16:12:35.870 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Tue Sep 01 16:12:35 CEST 2015
+2015-09-01 16:12:36.114 INFO  o.droidmate.device.AndroidDeviceDeployer withSetupDevice(deviceIndex: 0, computation)
+2015-09-01 16:12:42.608 INFO  org.droidmate.ExploreCommand             Processing 1 out of 1 apks: com.picsart.studio-inlined.apk
+2015-09-01 16:12:42.656 INFO  org.droidmate.lowlevel.apk.ApkDeployer   Installing com.picsart.studio-inlined.apk
+2015-09-01 16:13:05.686 INFO  org.droidmate.exploration.Exploration    run(com.picsart.studio, device)
+2015-09-01 16:13:32.588 INFO  o.d.exploration.ExplorationStrategy        0m  0s /   1m  0s i:    2 <ExplAct LC? 0 Wdgt:Button/"Close"/"com.picsart.studio:id/whats_new_closeButton"/[249,992]>
+2015-09-01 16:13:34.828 INFO  o.d.exploration.ExplorationStrategy        0m  2s /   1m  0s i:    3 <ExplAct LC? 0 Wdgt:TextView/""/""/[757,37]>
+2015-09-01 16:13:37.146 INFO  o.d.exploration.ExplorationStrategy        0m  4s /   1m  0s i:    4 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[654,107]>
+2015-09-01 16:13:41.878 INFO  o.d.exploration.ExplorationStrategy        0m  9s /   1m  0s i:    5 <ExplAct Reset app>
+2015-09-01 16:14:27.862 INFO  o.d.exploration.ExplorationStrategy        0m 55s /   1m  0s i:    6 <ExplAct LC? 0 Wdgt:Button/"Try"/"com.picsart.studio:id/whats_new_actionButton"/[549,992]>
+2015-09-01 16:14:29.938 INFO  o.d.exploration.ExplorationStrategy        0m 57s /   1m  0s i:    7 <ExplAct LC? 0 Wdgt:Button/"Close"/"com.picsart.studio:id/whats_new_closeButton"/[249,992]>
+2015-09-01 16:14:30.067 INFO  org.droidmate.lowlevel.apk.ApkDeployer   Uninstalling com.picsart.studio-inlined.apk
+2015-09-01 16:14:33.815 ERROR org.droidmate.frontend.DroidmateFrontend AssertionError was thrown and propagated to the entry method (main). Please contact the DroidMate developer, Konrad Jamrozik, at jamrozik@st.cs.uni-saarland.de. Please include the output dir (by default set to .\dev1). A cookie for you, brave human.
+The error:
+Assertion failed: 
+
+assert messages.empty
+       |        |
+       |        false
+       [09-01 16:14:08.091 I/Instrumentation(25009): Redirected android.location.LocationManager->getProvider, 09-01 16:14:08.101 I/Instrumentation(25009): Redirected android.location.LocationManager->getProviders, 09-01 16:14:08.111 I/Instrumentation(25009): Redirected android.location.LocationManager->getProviders, 09-01 16:14:08.111 I/Instrumentation(25009): Redirected android.location.LocationManager->isProviderEnabled, 09-01 16:14:08.121 I/Instrumentation(25009): Redirected android.location.LocationManager->removeTestProvider, 09-01 16:14:08.131 I/Instrumentation(25009): Redirected android.location.LocationManager->requestLocationUpdates, 09-01 16:14:08.141 I/Instrumentation(25009): Redirected android.location.LocationManager->requestLocationUpdates, 09-01 16:14:08.151 I/Instrumentation(25009): Redirected android.location.LocationManager->requestLocationUpdates, 09-01 16:14:08.161 I/Instrumentation(25009): Redirected android.location.LocationManager->requestLocationUpdates, 09-01 16:14:08.171 I/Instrumentation(25009): Redirected android.location.LocationManager->requestLocationUpdates, 09-01 16:14:08.181 I/Instrumentation(25009): Redirected android.location.LocationManager->requestSingleUpdate, 09-01 16:14:08.181 I/Instrumentation(25009): Redirected android.location.LocationManager->requestSingleUpdate]
+
+2015-09-01 16:14:33.832 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because an Exception or AssertionError was propagated to main method. See previous logs for details on the Throwable.
+2015-09-01 16:14:33.834 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Sep 01 16:14:33. DroidMate ran for 1 minutes, 58.660 seconds.
+2015-09-01 16:14:33.835 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-09-01 16:14:33.835 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\dev1\logs directory.

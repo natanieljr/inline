@@ -1,0 +1,161 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: JarsignerWrapper</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: JarsignerWrapper (org.droidmate.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JarsignerWrapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/ 9)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">JarsignerWrapper$$FastClassByGuice$$423f9a62</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/ 9)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.utils
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>15</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>16</i>&nbsp;import org.droidmate.exceptions.SysCmdExecutorException
+<i>17</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>18</i>&nbsp;import org.slf4j.Logger
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;public class JarsignerWrapper implements IJarsignerWrapper
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  private Configuration config;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  private ISysCmdExecutor sysCmdExecutor;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  @SuppressWarnings(&quot;unused&quot;)
+<i>29</i>&nbsp;  @InjectLogger
+<i>30</i>&nbsp;  private static Logger log;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  @Inject
+<i>33</i>&nbsp;  JarsignerWrapper(Configuration config, ISysCmdExecutor sysCmdExecutor)
+<i>34</i>&nbsp;  {
+<b class="fc"><i>35</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>36</i>&nbsp;    this.sysCmdExecutor = sysCmdExecutor;</b>
+<i>37</i>&nbsp;  }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  @Override
+<i>40</i>&nbsp;  public void signWithDebugKey(File apkFile) throws DroidmateException
+<i>41</i>&nbsp;  {
+<b class="fc"><i>42</i>&nbsp;    assert config?.jarsignerPath != null;</b>
+<b class="fc"><i>43</i>&nbsp;    assert config?.debugKeystore != null;</b>
+<b class="fc"><i>44</i>&nbsp;    assert apkFile?.isFile();</b>
+<i>45</i>&nbsp;
+<b class="fc"><i>46</i>&nbsp;    String commandDescription = String.format(&quot;Executing jarsigner to sign apk %s.&quot;, apkFile.absolutePath);</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    try
+<i>49</i>&nbsp;    {
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;      // this command is based on:
+<i>52</i>&nbsp;      // http://developer.android.com/tools/publishing/app-signing.html#debugmode
+<i>53</i>&nbsp;      // http://developer.android.com/tools/publishing/app-signing.html#signapp
+<b class="fc"><i>54</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.jarsignerPath,</b>
+<i>55</i>&nbsp;        &quot;-sigalg MD5withRSA -digestalg SHA1&quot;,
+<i>56</i>&nbsp;        &quot;-keystore&quot;, config.debugKeystore.absolutePath,
+<i>57</i>&nbsp;        &quot;-storepass android -keypass android &quot;,
+<i>58</i>&nbsp;        apkFile.absolutePath,
+<i>59</i>&nbsp;        &quot;androiddebugkey&quot;);
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>62</i>&nbsp;    {
+<b class="nc"><i>63</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;    assert apkFile?.isFile();</b>
+<i>67</i>&nbsp;  }
+<i>68</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

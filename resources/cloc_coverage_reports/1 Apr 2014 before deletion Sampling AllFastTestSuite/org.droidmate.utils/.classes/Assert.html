@@ -1,0 +1,133 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Assert</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Assert (org.droidmate.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Assert</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/ 8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Assert$checkClosureFirstParameterSignature$0</td>
+  </tr>
+  <tr>
+    <td class="name">Assert$noHelpWasDisplayed</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/ 8)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.utils
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;// WISH kill this class, move the method to the class in which it is used (if there are multiple classes: refactor!)
+<i>16</i>&nbsp;class Assert
+<i>17</i>&nbsp;{
+<i>18</i>&nbsp;  public static void noHelpWasDisplayed(Configuration config)
+<i>19</i>&nbsp;  {
+<b class="fc"><i>20</i>&nbsp;    assert !config.displayHelp: &quot;By the time configuration was obtained from DroidMate args and help has been &quot; +</b>
+<b class="nc"><i>21</i>&nbsp;      &quot;displayed to stdout, DroidMate should have exited instead of reaching this assertion. If you are reading this &quot; +</b>
+<i>22</i>&nbsp;      &quot;message on stdout and there is no trace of help: that&#39;s a bug, Madam/Sir)&quot;;
+<i>23</i>&nbsp;  }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;  public static void checkClosureFirstParameterSignature(Closure closure, Class clazz)
+<i>26</i>&nbsp;  {
+<b class="fc"><i>27</i>&nbsp;    assert closure != null</b>
+<b class="fc"><i>28</i>&nbsp;    assert clazz != null</b>
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;    def assertFailMsgPrefix = &quot;The supplied closure is expected to operate on ${clazz.simpleName}, &quot; +</b>
+<i>31</i>&nbsp;      &quot;which is to be given to it as a first parameter.&quot;
+<b class="fc"><i>32</i>&nbsp;    assert closure.parameterTypes.size() &gt;= 1: &quot;$assertFailMsgPrefix However, the closure doesn&#39;t accept any parameters.&quot;</b>
+<b class="fc"><i>33</i>&nbsp;    assert closure.parameterTypes[0] == clazz: &quot;$assertFailMsgPrefix However, the type of the first parameter accepted by &quot; +</b>
+<b class="nc"><i>34</i>&nbsp;      &quot;the closure is instead ${closure.parameterTypes[0].simpleName}&quot;</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  }
+<i>37</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

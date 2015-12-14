@@ -1,0 +1,104 @@
+# minDate: 2014-01-22 (inferred from apk metadata) 
+# maxDate: 2015-05-26 (inferred from apk metadata) 
+Books & Reference       |     Top Free | 1 | 2014-07-09 | /jacobs/APKs/an/anim/animaonl/animaonline.android.wikiexplorer/1.5.5/animaonline.android.wikiexplorer.apk                          
+Business                |     Top Free | 1 | 2015-02-25 | /jacobs/APKs/co/com./com.infr/com.infraware.office.link/6.0.9/com.infraware.office.link.apk                                        
+Comics                  |     Top Free | 1 | 2014-02-02 | /jacobs/APKs/ar/arli/arlind.S/arlind.Shqip/2.0/arlind.Shqip.apk                                                                    
+Communication           |     Top Free | 1 | 2014-03-19 | /jacobs/APKs/co/com./com.skyp/com.skype.raider/4.7.0.43514/com.skype.raider.apk                                                    
+Education               |     Top Free | 1 | 2014-08-21 | /jacobs/APKs/co/com./com.duol/com.duolingo/2.7.2/com.duolingo.apk                                                                  
+Entertainment           |     Top Free | 1 | 2014-02-24 | /jacobs/APKs/co/com./com.outf/com.outfit7.talkingangelafree/2.2/com.outfit7.talkingangelafree.apk                                  
+Finance                 |     Top Free | 1 | 2015-03-10 | /jacobs/APKs/co/com./com.payp/com.paypal.android.p2pmobile/5.11.3/com.paypal.android.p2pmobile.apk                                 
+Games                   |     Top Free | 1 | 2014-05-29 | /jacobs/APKs/co/com./com.frea/com.freaxator.game100balls/1.2/com.freaxator.game100balls.apk                                        
+Games > Action          |     Top Free | 1 | 2014-05-09 | /jacobs/APKs/co/com./com.chil/com.chillingo.ironforce.android.rowgplay/1.5.2/com.chillingo.ironforce.android.rowgplay.apk          
+Games > Adventure       |     Top Free | 1 | 2014-08-03 | /jacobs/APKs/mi/mine/minecraf/minecraft.pixelmon.wikicraftnew/1.0/minecraft.pixelmon.wikicraftnew.apk                              
+Games > Arcade          |     Top Free | 1 | 2014-05-29 | /jacobs/APKs/co/com./com.frea/com.freaxator.game100balls/1.2/com.freaxator.game100balls.apk                                        
+Games > Arcade & Action |     Top Free | 1 | 2014-03-12 | /jacobs/APKs/co/com./com.kilo/com.kiloo.subwaysurf/1.20.1/com.kiloo.subwaysurf.apk                                                 
+Games > Board           |     Top Free | 1 | 2014-04-08 | /jacobs/APKs/co/com./com.bavi/com.baviux.connect4baviux/2.1.6/com.baviux.connect4baviux.apk                                        
+Games > Brain & Puzzle  |     Top Free | 1 | 2014-01-22 | /jacobs/APKs/se/se.f/se.feome/se.feomedia.quizkampen.de.lite/1.3.2/se.feomedia.quizkampen.de.lite.apk                              
+Games > Card            |     Top Free | 1 | 2014-04-07 | /jacobs/APKs/nl/nl.o/nl.omniv/nl.omnivision.halligalliFREE/1.1.0.0/nl.omnivision.halligalliFREE.apk                                
+Games > Cards & Casino  |     Top Free | 1 | 2014-02-10 | /jacobs/APKs/co/com./com.mobi/com.mobilityware.solitaire/3.0/com.mobilityware.solitaire.apk                                        
+Games > Casino          |     Top Free | 1 | 2015-04-19 | /jacobs/APKs/co/com./com.funs/com.funstage.gta.ma.bookofradeluxe/2.2.2/com.funstage.gta.ma.bookofradeluxe.apk                      
+Games > Casual          |     Top Free | 1 | 2014-08-26 | /jacobs/APKs/co/com./com.mida/com.midasplayer.apps.bubblewitchsaga2/1.7.6/com.midasplayer.apps.bubblewitchsaga2.apk                
+Games > Educational     |     Top Free | 1 | 2014-07-06 | /jacobs/APKs/ca/ca.j/ca.jason/ca.jasonrtbond.shusgarden/1.3.2/ca.jasonrtbond.shusgarden.apk                                        
+Games > Family          |     Top Free | 1 | 2014-04-24 | /jacobs/APKs/co/com./com.zyng/com.zynga.FarmVille2CountryEscape/1.5.46/com.zynga.FarmVille2CountryEscape.apk                       
+Games > Live Wallpaper  |     Top Free | 1 | 2014-04-30 | /jacobs/APKs/co/com./com.aspi/com.aspiredwallpapers.pixelmonminecraft/1.0/com.aspiredwallpapers.pixelmonminecraft.apk              
+Games > Music           |     Top Free | 1 | 2014-09-05 | /jacobs/APKs/co/com./com.gril/com.grillgames.guitarrockhero/1.0.8/com.grillgames.guitarrockhero.apk                                
+Games > Puzzle          |     Top Free | 1 | 2014-03-31 | /jacobs/APKs/bi/biz./biz.mtoy/biz.mtoy.blockpuzzle.revolution/4.9/biz.mtoy.blockpuzzle.revolution.apk                              
+Games > Racing          |     Top Free | 1 | 2014-04-28 | /jacobs/APKs/co/com./com.ScnS/com.ScnStudios.PoliceCarDriver3D/1.0.2/com.ScnStudios.PoliceCarDriver3D.apk                          
+Games > Role Playing    |     Top Free | 1 | 2014-07-01 | /jacobs/APKs/co/com./com.rovi/com.rovio.gold/1.0.10/com.rovio.gold.apk                                                             
+Games > Simulation      |     Top Free | 1 | 2014-04-19 | /jacobs/APKs/co/com./com.ther/com.therisgames.fs2014.free/3.3/com.therisgames.fs2014.free.apk                                      
+Games > Sports          |     Top Free | 1 | 2014-05-23 | /jacobs/APKs/co/com./com.fifa/com.fifa.stickeralbum.android/1.0/com.fifa.stickeralbum.android.apk                                  
+Games > Sports Games    |     Top Free | 1 | 2014-03-01 | /jacobs/APKs/co/com./com.gira/com.giraffegames.realtabletennis/1.5/com.giraffegames.realtabletennis.apk                            
+Games > Strategy        |     Top Free | 1 | 2014-09-17 | /jacobs/APKs/co/com./com.supe/com.supercell.clashofclans/6.253.5/com.supercell.clashofclans.apk                                    
+Games > Trivia          |     Top Free | 1 | 2014-08-13 | /jacobs/APKs/se/se.f/se.feome/se.feomedia.quizkampen.de.lite/1.4.9/se.feomedia.quizkampen.de.lite.apk                              
+Games > Widgets         |     Top Free | 1 | 2014-06-21 | /jacobs/APKs/es/es.s/es.socia/es.socialpoint.DragonCity/2.8/es.socialpoint.DragonCity.apk                                          
+Games > Word            |     Top Free | 1 | 2014-09-06 | /jacobs/APKs/de/de.l/de.lotum/de.lotum.whatsinthefoto.de/2.7/de.lotum.whatsinthefoto.de.apk                                        
+Health & Fitness        |     Top Free | 1 | 2014-08-22 | /jacobs/APKs/co/com./com.cayn/com.caynax.a6w/8.1/com.caynax.a6w.apk                                                                
+Libraries & Demo        |     Top Free | 1 | 2014-09-11 | /jacobs/APKs/ch/ch.t/ch.three/ch.threema.qrscannerplugin/1.1/ch.threema.qrscannerplugin.apk                                        
+Lifestyle               |     Top Free | 1 | 2014-08-19 | /jacobs/APKs/co/com./com.ebay/com.ebay.kleinanzeigen/5.0.3/com.ebay.kleinanzeigen.apk                                              
+Live Wallpaper          |     Top Free | 1 | 2014-10-15 | /jacobs/APKs/co/com./com.pics/com.picsart.studio/4.6.12/com.picsart.studio.apk                                                     
+Media & Video           |     Top Free | 1 | 2014-02-18 | /jacobs/APKs/co/com./com.zatt/com.zattoo.player/1.4.3/com.zattoo.player.apk                                                        
+Medical                 |     Top Free | 1 | 2014-08-16 | /jacobs/APKs/co/com./com.bavi/com.baviux.pillreminder/2.1.2/com.baviux.pillreminder.apk                                            
+Music & Audio           |     Top Free | 1 | 2014-09-04 | /jacobs/APKs/co/com./com.spot/com.spotify.music/1.4.0.631/com.spotify.music.apk                                                    
+News & Magazines        |     Top Free | 1 | 2014-07-03 | /jacobs/APKs/co/com./com.ng.d/com.ng.dailynews/1.13/com.ng.dailynews.apk                                                           
+Personalization         |     Top Free | 1 | 2015-05-09 | /jacobs/APKs/ne/net./net.zedg/net.zedge.android/4.10.2/net.zedge.android.apk                                                       
+Photography             |     Top Free | 1 | 2014-08-02 | /jacobs/APKs/co/com./com.alma/com.almalence.opencam/3.24/com.almalence.opencam.apk                                                 
+Productivity            |     Top Free | 1 | 2014-08-30 | /jacobs/APKs/co/com./com.adob/com.adobe.reader/11.5.0.1/com.adobe.reader.apk                                                       
+Shopping                |     Top Free | 1 | 2014-11-20 | /jacobs/APKs/co/com./com.ebay/com.ebay.mobile/2.8.2.1/com.ebay.mobile.apk                                                          
+Social                  |     Top Free | 1 | 2015-03-06 | /jacobs/APKs/co/com./com.face/com.facebook.katana/28.0.0.20.16/com.facebook.katana.apk                                             
+Sports                  |     Top Free | 1 | 2014-03-14 | /jacobs/APKs/co/com./com.frog/com.frogsparks.mytrails/1.4.5/com.frogsparks.mytrails.apk                                            
+Tools                   |     Top Free | 1 | 2014-08-02 | /jacobs/APKs/co/com./com.goog/com.google.android.apps.translate/3.0.10/com.google.android.apps.translate.apk                       
+Transportation          |     Top Free | 1 | 2015-04-17 | /jacobs/APKs/de/de.h/de.hafas/de.hafas.android.db/15.04.p06.00/de.hafas.android.db.apk                                             
+Travel & Local          |     Top Free | 1 | 2014-08-02 | /jacobs/APKs/co/com./com.goog/com.google.earth/7.1.3.1255/com.google.earth.apk                                                     
+Weather                 |     Top Free | 1 | 2015-05-22 | /jacobs/APKs/co/com./com.wett/com.wetter.androidclient/2.3.1/com.wetter.androidclient.apk                                          
+Widgets                 |     Top Free | 1 | 2014-08-30 | /jacobs/APKs/co/com./com.face/com.facebook.katana/16.0.0.20.15/com.facebook.katana.apk                                             
+Books & Reference       | Top New Free | 1 | 2014-02-03 | /jacobs/APKs/ic/icyk/icykum.J/icykum.JasonSafaiyeh.cocg/1.2/icykum.JasonSafaiyeh.cocg.apk                                          
+Business                | Top New Free | 1 | 2014-08-20 | /jacobs/APKs/ne/next/nextapp./nextapp.atlas/0.98/nextapp.atlas.apk                                                                 
+Comics                  | Top New Free | 1 | 2014-11-27 | /jacobs/APKs/pi/pira/pirates./pirates.anime.pic/1.0/pirates.anime.pic.apk                                                          
+Communication           | Top New Free | 1 | 2014-07-04 | /jacobs/APKs/ch/ch.t/ch.three/ch.threema.voicemessageplugin/1.0/ch.threema.voicemessageplugin.apk                                  
+Education               | Top New Free | 1 | 2014-07-14 | /jacobs/APKs/ne/net./net.clou/net.cloudapp.fetchclimate.climatology/1.0.0/net.cloudapp.fetchclimate.climatology.apk                
+Entertainment           | Top New Free | 1 | 2014-06-28 | /jacobs/APKs/me/me.i/me.insid/me.insidetv.german/1.3/me.insidetv.german.apk                                                        
+Finance                 | Top New Free | 1 | 2015-04-25 | /jacobs/APKs/fo/fore/forex.fi/forex.financialnews.trading/1.6/forex.financialnews.trading.apk                                      
+Games                   | Top New Free | 1 | 2014-05-29 | /jacobs/APKs/co/com./com.frea/com.freaxator.game100balls/1.2/com.freaxator.game100balls.apk                                        
+Games > Action          | Top New Free | 1 | 2014-10-08 | /jacobs/APKs/ne/net./net.froe/net.froemling.bombsquad/1.4.5/net.froemling.bombsquad.apk                                            
+Games > Adventure       | Top New Free | 1 | 2014-04-07 | /jacobs/APKs/no/not./not.pris/not.prison.breakin.happy/1.0/not.prison.breakin.happy.apk                                            
+Games > Arcade          | Top New Free | 1 | 2014-05-29 | /jacobs/APKs/co/com./com.frea/com.freaxator.game100balls/1.2/com.freaxator.game100balls.apk                                        
+Games > Arcade & Action | Top New Free | 1 | 2014-02-18 | /jacobs/APKs/co/com./com.lego/com.lego.city.my_city/1.0.0/com.lego.city.my_city.apk                                                
+Games > Board           | Top New Free | 1 | 2014-07-11 | /jacobs/APKs/ch/ches/chess.fr/chess.free/1.15/chess.free.apk                                                                       
+Games > Brain & Puzzle  | Top New Free | 1 | 2014-02-24 | /jacobs/APKs/we/wer./wer.wird/wer.wird.millionaer.zwei/1.1.4/wer.wird.millionaer.zwei.apk                                          
+Games > Card            | Top New Free | 1 | 2014-04-01 | /jacobs/APKs/nl/nl.o/nl.omniv/nl.omnivision.halligalliFREE/1.1.0.0/nl.omnivision.halligalliFREE.apk                                
+Games > Cards & Casino  | Top New Free | 1 | 2014-01-30 | /jacobs/APKs/co/com./com.kath/com.kathleenOswald.pyramidGooglePlay/1.01/com.kathleenOswald.pyramidGooglePlay.apk                   
+Games > Casino          | Top New Free | 1 | 2014-03-23 | /jacobs/APKs/co/com./com.doub/com.doubleugames.DoubleUCasino/1.3.3/com.doubleugames.DoubleUCasino.apk                              
+Games > Casual          | Top New Free | 1 | 2014-09-19 | /jacobs/APKs/co/com./com.froj/com.frojo.moy3.android/1.2/com.frojo.moy3.android.apk                                                
+Games > Educational     | Top New Free | 1 | 2014-09-26 | /jacobs/APKs/co/com./com.hugs/com.hugsnhearts.android_mynewbaby/1.0.0.0/com.hugsnhearts.android_mynewbaby.apk                      
+Games > Family          | Top New Free | 1 | 2014-03-18 | /jacobs/APKs/co/com./com.rsm./com.rsm.catchcandies/1.3/com.rsm.catchcandies.apk                                                    
+Games > Live Wallpaper  | Top New Free | 1 | 2014-05-27 | /jacobs/APKs/co/com./com.spx./com.spx.ing004.google.s0/1.5.9/com.spx.ing004.google.s0.apk                                          
+Games > Music           | Top New Free | 1 | 2014-06-01 | /jacobs/APKs/kl/klb./klb.andr/klb.android.lovelive_en/1.6.3/klb.android.lovelive_en.apk                                            
+Games > Puzzle          | Top New Free | 1 | 2014-09-04 | /jacobs/APKs/co/com./com.lcmo/com.lcmobileapp.escapetheprisonroom/3.0/com.lcmobileapp.escapetheprisonroom.apk                      
+Games > Racing          | Top New Free | 1 | 2014-04-19 | /jacobs/APKs/co/com./com.ScnS/com.ScnStudios.PoliceCarDriver3D/1.0.2/com.ScnStudios.PoliceCarDriver3D.apk                          
+Games > Role Playing    | Top New Free | 1 | 2014-05-24 | /jacobs/APKs/co/com./com.kong/com.kongregate.mobile.tinydicedungeon.google/1.19.33/com.kongregate.mobile.tinydicedungeon.google.apk
+Games > Simulation      | Top New Free | 1 | 2014-06-02 | /jacobs/APKs/co/com./com.i6.F/com.i6.FlightSimulatorAirplane3D/1.05/com.i6.FlightSimulatorAirplane3D.apk                           
+Games > Sports          | Top New Free | 1 | 2014-05-23 | /jacobs/APKs/co/com./com.fifa/com.fifa.stickeralbum.android/1.0/com.fifa.stickeralbum.android.apk                                  
+Games > Sports Games    | Top New Free | 1 | 2014-01-22 | /jacobs/APKs/co/com./com.Pixe/com.PixelPerfectDude.SkiJump/1.10.1/com.PixelPerfectDude.SkiJump.apk                                 
+Games > Strategy        | Top New Free | 1 | 2014-10-08 | /jacobs/APKs/co/com./com.luca/com.lucasarts.starts_goo/2.1.3/com.lucasarts.starts_goo.apk                                          
+Games > Trivia          | Top New Free | 1 | 2014-09-09 | /jacobs/APKs/co/com./com.spot/com.spotgun.spotgun/1.03/com.spotgun.spotgun.apk                                                     
+Games > Widgets         | Top New Free | 1 | 2014-05-27 | /jacobs/APKs/co/com./com.spx./com.spx.ing004.google.s0/1.5.9/com.spx.ing004.google.s0.apk                                          
+Games > Word            | Top New Free | 1 | 2014-09-13 | /jacobs/APKs/cz/cz.f/cz.flows/cz.flowstudio.iconic/1.3/cz.flowstudio.iconic.apk                                                    
+Health & Fitness        | Top New Free | 1 | 2014-05-18 | /jacobs/APKs/se/se.p/se.perig/se.perigee.android.seven/1.1.3/se.perigee.android.seven.apk                                          
+Libraries & Demo        | Top New Free | 1 | 2014-02-14 | /jacobs/APKs/ww/www./www.play/www.playrust.com.rustnews/14011512/www.playrust.com.rustnews.apk                                     
+Lifestyle               | Top New Free | 1 | 2014-08-22 | /jacobs/APKs/da/dail/daily.ho/daily.horoscope.horoscopo.diario/1.1/daily.horoscope.horoscopo.diario.apk                            
+Live Wallpaper          | Top New Free | 1 | 2014-08-21 | /jacobs/APKs/yo/yo.a/yo.app.f/yo.app.free/1.0.17/yo.app.free.apk                                                                   
+Media & Video           | Top New Free | 1 | 2014-05-14 | /jacobs/APKs/mu/musi/music.pl/music.player.equalizer/1.0.1/music.player.equalizer.apk                                              
+Medical                 | Top New Free | 1 | 2014-03-11 | /jacobs/APKs/tv/tv.s/tv.shqip/tv.shqip1/2.0/tv.shqip1.apk                                                                          
+Music & Audio           | Top New Free | 1 | 2014-09-29 | /jacobs/APKs/mu/musi/musicpla/musicplayer.audio.equalizer/1.0/musicplayer.audio.equalizer.apk                                      
+News & Magazines        | Top New Free | 1 | 2014-06-19 | /jacobs/APKs/ne/net./net.faz./net.faz.FAZ/1.0.0/net.faz.FAZ.apk                                                                    
+Personalization         | Top New Free | 1 | 2014-05-09 | /jacobs/APKs/te/tecn/tecnolog/tecnology.angs.knockr/1.2.1/tecnology.angs.knockr.apk                                                
+Photography             | Top New Free | 1 | 2014-07-10 | /jacobs/APKs/sl/slid/slide.ca/slide.camZoomFree/5.3.5/slide.camZoomFree.apk                                                        
+Productivity            | Top New Free | 1 | 2014-02-18 | /jacobs/APKs/mr/mrig/mrigapps/mrigapps.andriod.breakfree.deux/1.9/mrigapps.andriod.breakfree.deux.apk                              
+Shopping                | Top New Free | 1 | 2014-01-28 | /jacobs/APKs/pl/pl.c/pl.com.a/pl.com.androidapps.mcdonaldskupony/3.4/pl.com.androidapps.mcdonaldskupony.apk                        
+Social                  | Top New Free | 1 | 2015-05-02 | /jacobs/APKs/me/me.d/me.doubl/me.doubledutch.videodays/5.9.2.0/me.doubledutch.videodays.apk                                        
+Sports                  | Top New Free | 1 | 2014-05-29 | /jacobs/APKs/ne/net./net.atos/net.atos.rg/1.4/net.atos.rg.apk                                                                      
+Tools                   | Top New Free | 1 | 2014-05-05 | /jacobs/APKs/co/com./com.Sand/com.Sandpiper.SamyGoRemote/1.3/com.Sandpiper.SamyGoRemote.apk                                        
+Transportation          | Top New Free | 1 | 2014-05-29 | /jacobs/APKs/ap/appi/appinven/appinventor.ai_Tobias_Lillig.Bussgeld2014/1.02/appinventor.ai_Tobias_Lillig.Bussgeld2014.apk         
+Travel & Local          | Top New Free | 1 | 2014-04-15 | /jacobs/APKs/ne/net./net.trav/net.traveldeals24.main/1.2.3/net.traveldeals24.main.apk                                              
+Weather                 | Top New Free | 1 | 2014-08-21 | /jacobs/APKs/yo/yo.a/yo.app.f/yo.app.free/1.0.17/yo.app.free.apk                                                                   
+Widgets                 | Top New Free | 1 | 2014-08-21 | /jacobs/APKs/yo/yo.a/yo.app.f/yo.app.free/1.0.17/yo.app.free.apk                                                                   

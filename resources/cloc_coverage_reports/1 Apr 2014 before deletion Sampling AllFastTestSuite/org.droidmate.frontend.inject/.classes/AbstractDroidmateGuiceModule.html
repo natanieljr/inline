@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AbstractDroidmateGuiceModule</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.inject</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AbstractDroidmateGuiceModule (org.droidmate.frontend.inject)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AbstractDroidmateGuiceModule</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.7%
+  </span>
+  <span class="absValue">
+    (22/ 24)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AbstractDroidmateGuiceModule$_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AbstractDroidmateGuiceModule$overriddableClass</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92%
+  </span>
+  <span class="absValue">
+    (23/ 25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.inject
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.AbstractModule
+<i>14</i>&nbsp;import com.google.inject.assistedinject.FactoryModuleBuilder
+<i>15</i>&nbsp;import org.droidmate.device.*
+<i>16</i>&nbsp;import sun.reflect.generics.scope.ClassScope
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;public abstract class AbstractDroidmateGuiceModule extends AbstractModule
+<i>19</i>&nbsp;{
+<i>20</i>&nbsp;  protected Map&lt;Class, Class&gt; bindingOverrides = null
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;  public AbstractDroidmateGuiceModule(Map&lt;Class, Class&gt; bindingOverrides)
+<i>23</i>&nbsp;  {
+<b class="fc"><i>24</i>&nbsp;    assert bindingOverrides != null</b>
+<b class="fc"><i>25</i>&nbsp;    assert bindingOverrides?.keySet()?.every {it instanceof Class}</b>
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;    this.bindingOverrides = bindingOverrides</b>
+<i>28</i>&nbsp;  }
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  abstract void configureWithValidationOfBindingOverrides()
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  @Override
+<i>33</i>&nbsp;  protected void configure()
+<i>34</i>&nbsp;  {
+<b class="fc"><i>35</i>&nbsp;    configureWithValidationOfBindingOverrides()</b>
+<b class="fc"><i>36</i>&nbsp;    assert bindingOverrides.size() == 0: &quot;Not all binding overrides have been applied. Remaining binding overrides: &quot; +</b>
+<i>37</i>&nbsp;      &quot;${bindingOverrides}&quot;
+<i>38</i>&nbsp;  }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  public Class overriddableClass(Class classToBeOverridden)
+<i>41</i>&nbsp;  {
+<b class="fc"><i>42</i>&nbsp;    if (bindingOverrides.keySet().contains(classToBeOverridden))</b>
+<i>43</i>&nbsp;    {
+<b class="fc"><i>44</i>&nbsp;      Class classOverride = bindingOverrides[classToBeOverridden]</b>
+<b class="fc"><i>45</i>&nbsp;      bindingOverrides.remove(classToBeOverridden)</b>
+<b class="fc"><i>46</i>&nbsp;      return classOverride</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;    else
+<b class="fc"><i>49</i>&nbsp;      return AndroidDevice</b>
+<i>50</i>&nbsp;  }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;  protected void overriddableBinding(Class classToBeBound, Class implementingClass)
+<i>53</i>&nbsp;  {
+<b class="fc"><i>54</i>&nbsp;    if (bindingOverrides.keySet().contains(classToBeBound))</b>
+<i>55</i>&nbsp;    {
+<b class="fc"><i>56</i>&nbsp;      if (bindingOverrides[classToBeBound] instanceof Class)</b>
+<b class="fc"><i>57</i>&nbsp;        bind(classToBeBound).to(bindingOverrides[classToBeBound])</b>
+<i>58</i>&nbsp;      else
+<b class="fc"><i>59</i>&nbsp;        bind(classToBeBound).toInstance(bindingOverrides[classToBeBound])</b>
+<b class="fc"><i>60</i>&nbsp;      bindingOverrides.remove(classToBeBound)</b>
+<i>61</i>&nbsp;    } else
+<b class="fc"><i>62</i>&nbsp;      bind(classToBeBound).to(implementingClass)</b>
+<i>63</i>&nbsp;  }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;  protected void overriddableAnnotatedBinding(Class classToBeBound, Class classToBeBoundAnnotation, Object implementingInstance)
+<i>66</i>&nbsp;  {
+<b class="fc"><i>67</i>&nbsp;    if (bindingOverrides.keySet().contains(classToBeBoundAnnotation))</b>
+<i>68</i>&nbsp;    {
+<b class="fc"><i>69</i>&nbsp;      bind(classToBeBound).annotatedWith(classToBeBoundAnnotation).toInstance(bindingOverrides[classToBeBoundAnnotation])</b>
+<b class="fc"><i>70</i>&nbsp;      bindingOverrides.remove(classToBeBoundAnnotation)</b>
+<i>71</i>&nbsp;    } else
+<b class="fc"><i>72</i>&nbsp;      bind(classToBeBound).annotatedWith(classToBeBoundAnnotation).toInstance(implementingInstance)</b>
+<i>73</i>&nbsp;  }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;  protected void overriddableFactoryBinding(Class classToBeBound, Class implementingClass, Class factoryClass)
+<i>77</i>&nbsp;  {
+<b class="fc"><i>78</i>&nbsp;    if (bindingOverrides.keySet().contains(factoryClass))</b>
+<i>79</i>&nbsp;    {
+<b class="nc"><i>80</i>&nbsp;      bind(factoryClass).toInstance(bindingOverrides[factoryClass])</b>
+<b class="nc"><i>81</i>&nbsp;      bindingOverrides.remove(factoryClass)</b>
+<i>82</i>&nbsp;    } else
+<i>83</i>&nbsp;    {
+<i>84</i>&nbsp;      // Reference:
+<i>85</i>&nbsp;      // http://beust.com/weblog/2012/08/21/advanced-dependency-injection-with-guice/
+<i>86</i>&nbsp;      // http://code.google.com/p/google-guice/wiki/AssistedInject
+<b class="fc"><i>87</i>&nbsp;      install(new FactoryModuleBuilder()</b>
+<i>88</i>&nbsp;        .implement(classToBeBound, implementingClass)
+<i>89</i>&nbsp;        .build(factoryClass))
+<i>90</i>&nbsp;    }
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;  }
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;}
+<i>95</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

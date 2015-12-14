@@ -1,0 +1,21 @@
+2015-11-30 19:08:47.142 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-11-30 19:08:47.154 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\dev1\logs.
+2015-11-30 19:08:47.756 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-11-30 19:08:47.761 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Mon Nov 30 19:08:47 CET 2015
+2015-11-30 19:08:47.948 INFO  o.droidmate.tools.AndroidDeviceDeployer  withSetupDevice(deviceIndex: 0, computation)
+2015-11-30 19:08:50.421 INFO  org.droidmate.command.ExploreCommand     Processing 1 out of 1 apks: net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:08:50.454 INFO  org.droidmate.tools.ApkDeployer          Reinstalling net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:09:01.111 INFO  o.d.command.exploration.Exploration      run(net.zedge.android, device)
+2015-11-30 19:09:02.370 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-11-30 19:09:28.329 INFO  o.d.e.strategy.ExplorationStrategy       1/1 <ExplAct LC? 0 Wdgt:Button/"Terms of Service"/""/[400,631]>
+2015-11-30 19:09:32.275 INFO  o.d.e.strategy.ExplorationStrategy       Terminating exploration: No actions left.
+2015-11-30 19:09:32.278 INFO  o.d.e.strategy.ExplorationStrategy       <ExplAct Terminate exploration>
+2015-11-30 19:09:33.810 INFO  org.droidmate.storage.Storage2           Serializing ApkExplorationOutput2 to .\dev1\2015 Nov 30 1909 net.zedge.android.ser2
+2015-11-30 19:09:33.905 INFO  org.droidmate.tools.ApkDeployer          Uninstalling net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:09:37.933 ERROR o.d.d.ApkExplorationOutput               Verification of exploration output from net.zedge.android failed with: <exception message cut out due to IntelliJ hanging on too long stdout>. As a consequence, the output is malformed and attempts of further processing will either throw an exception or result in bogus results. Please see .\dev1\logs\exceptions.txt log for details.
+2015-11-30 19:09:37.939 INFO  o.d.d.ExplorationOutputAnalysisPersister Persisting data from exploration output for net.zedge.android.
+2015-11-30 19:09:37.939 INFO  o.d.d.ExplorationOutputAnalysisPersister Persisting summary for net.zedge.android.
+2015-11-30 19:09:38.042 INFO  org.droidmate.frontend.DroidmateFrontend DroidMate run finished successfully.
+2015-11-30 19:09:38.044 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Nov 30 19:09:38. DroidMate ran for 50.934 seconds.
+2015-11-30 19:09:38.045 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-11-30 19:09:38.046 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\dev1\logs directory.

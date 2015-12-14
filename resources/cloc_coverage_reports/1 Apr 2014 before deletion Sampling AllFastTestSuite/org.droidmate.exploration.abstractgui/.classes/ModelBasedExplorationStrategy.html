@@ -1,0 +1,232 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ModelBasedExplorationStrategy</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration.abstractgui</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ModelBasedExplorationStrategy (org.droidmate.exploration.abstractgui)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ModelBasedExplorationStrategy</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71%
+  </span>
+  <span class="absValue">
+    (22/ 31)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ModelBasedExplorationStrategy$$FastClassByGuice$$b48d715</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71%
+  </span>
+  <span class="absValue">
+    (22/ 31)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration.abstractgui
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import groovy.transform.TypeChecked
+<i>15</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>16</i>&nbsp;import org.droidmate.exceptions.UnexpectedAbstractGuiModelException
+<i>17</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>18</i>&nbsp;import org.slf4j.Logger
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;import static org.droidmate.exploration.abstractgui.GuiTransition.*
+<i>21</i>&nbsp;import static org.droidmate.logging.Markers.MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS
+<i>22</i>&nbsp;import static org.droidmate.logging.Markers.MARKER_GUI_STATE
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;/**
+<i>25</i>&nbsp; * &lt;p&gt;
+<i>26</i>&nbsp; * &lt;i&gt; --- This doc was last reviewed on 01 Jan 2014.&lt;/i&gt;
+<i>27</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>28</i>&nbsp; *
+<i>29</i>&nbsp; * Underlying mathematical model names mapping:
+<i>30</i>&nbsp; * &lt;dl&gt;
+<i>31</i>&nbsp; * &lt;dt&gt;GuiModel&lt;/dt&gt;
+<i>32</i>&nbsp; * &lt;dd&gt;A directed graph.&lt;/dd&gt;
+<i>33</i>&nbsp; * &lt;dt&gt;PartialGuiModel&lt;/dt&gt;
+<i>34</i>&nbsp; * &lt;dd&gt;A directed graph approximating the GuiModel. It might be incomplete or (partially) incorrect.&lt;/dd&gt;
+<i>35</i>&nbsp; * &lt;dt&gt;GuiState&lt;/dt&gt;
+<i>36</i>&nbsp; * &lt;dd&gt;A vertex in the GuiModel directed graph.&lt;/dd&gt;
+<i>37</i>&nbsp; * &lt;dt&gt;GuiTransition&lt;/dt&gt;
+<i>38</i>&nbsp; * &lt;dd&gt;An arc (directed edge) in the GuiModel directed graph.&lt;/dd&gt;
+<i>39</i>&nbsp; * &lt;/dl&gt;
+<i>40</i>&nbsp; *
+<i>41</i>&nbsp; * &lt;/p&gt;
+<i>42</i>&nbsp; *
+<i>43</i>&nbsp; */
+<i>44</i>&nbsp;import com.google.inject.Singleton
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;@Singleton
+<i>47</i>&nbsp;@TypeChecked
+<i>48</i>&nbsp;class ModelBasedExplorationStrategy implements IExplorationStrategy
+<i>49</i>&nbsp;{
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;  private final Configuration         config
+<i>52</i>&nbsp;  private final IGuiTransitionChooser transitionChooser
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  @InjectLogger
+<i>55</i>&nbsp;  private static Logger log;
+<i>56</i>&nbsp;
+<b class="fc"><i>57</i>&nbsp;  private IPartialGuiModel model                   = PartialGuiModel.createEmptyPartialGuiModel()</b>
+<i>58</i>&nbsp;  private GuiTransition    lastChosenGuiTransition = null
+<i>59</i>&nbsp;  private GuiState         lastActiveGuiState      = null
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;  @Inject
+<i>62</i>&nbsp;  ModelBasedExplorationStrategy(Configuration config, IGuiTransitionChooser transitionChooser)
+<i>63</i>&nbsp;  {
+<b class="fc"><i>64</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>65</i>&nbsp;    this.transitionChooser = transitionChooser</b>
+<i>66</i>&nbsp;  }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;  @Override
+<i>69</i>&nbsp;  public GuiTransition provideTransition(GuiState guiState)
+<i>70</i>&nbsp;  {
+<b class="fc"><i>71</i>&nbsp;    log.debug(&quot;Input guiState: $guiState\n&quot;)</b>
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;    assert guiState != null</b>
+<b class="fc"><i>74</i>&nbsp;    assert model?.activeGuiState == lastActiveGuiState</b>
+<i>75</i>&nbsp;
+<b class="fc"><i>76</i>&nbsp;    if (model.isEmpty())</b>
+<b class="fc"><i>77</i>&nbsp;      model.updateWithInitState(guiState)</b>
+<i>78</i>&nbsp;    else
+<i>79</i>&nbsp;    {
+<b class="fc"><i>80</i>&nbsp;      model.update(Edge.createEdge(lastActiveGuiState, lastChosenGuiTransition, guiState))</b>
+<i>81</i>&nbsp;      try
+<i>82</i>&nbsp;      {
+<b class="fc"><i>83</i>&nbsp;        model.transit(lastChosenGuiTransition)</b>
+<i>84</i>&nbsp;      } catch (UnexpectedAbstractGuiModelException e)
+<i>85</i>&nbsp;      {
+<b class="nc"><i>86</i>&nbsp;        return handleUnexpectedAbstractGuiModelException(e)</b>
+<i>87</i>&nbsp;      }
+<i>88</i>&nbsp;    }
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;    // MBStr Bug. Appears in &quot;magic trick&quot; app or &quot;realcalc&quot; app. Caused by non-determinism: after DroidMate clicks for the second time on the same button, it ends up on a state that it considers to be different.
+<b class="fc"><i>91</i>&nbsp;    assert model.activeGuiState == guiState</b>
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;    GuiTransition guiTransition</b>
+<i>95</i>&nbsp;    try
+<i>96</i>&nbsp;    {
+<b class="fc"><i>97</i>&nbsp;      guiTransition = transitionChooser.choose(model)</b>
+<i>98</i>&nbsp;    } catch (UnexpectedAbstractGuiModelException e)
+<i>99</i>&nbsp;    {
+<b class="nc"><i>100</i>&nbsp;      return handleUnexpectedAbstractGuiModelException(e)</b>
+<i>101</i>&nbsp;    }
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;    lastChosenGuiTransition = guiTransition</b>
+<b class="fc"><i>104</i>&nbsp;    lastActiveGuiState = model.activeGuiState</b>
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;
+<b class="fc"><i>107</i>&nbsp;    log.debug(&quot;Output guiTransition: $guiTransition\n&quot;)</b>
+<i>108</i>&nbsp;
+<b class="fc"><i>109</i>&nbsp;    assert guiTransition != null</b>
+<b class="fc"><i>110</i>&nbsp;    return guiTransition</b>
+<i>111</i>&nbsp;  }
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;  @Override
+<i>114</i>&nbsp;  void resetForNewApp()
+<i>115</i>&nbsp;  {
+<i>116</i>&nbsp;    // MBStr test for a bug: the fields were not reset between apps. The bug is already fixed, but there is no test for it. Create a test running the strategy on two different apps, restore the bug by commenting these 3 lines, see the test fails, remove the bug.
+<b class="fc"><i>117</i>&nbsp;    this.model = PartialGuiModel.createEmptyPartialGuiModel()</b>
+<b class="fc"><i>118</i>&nbsp;    this.lastChosenGuiTransition = null</b>
+<b class="fc"><i>119</i>&nbsp;    this.lastActiveGuiState = null</b>
+<i>120</i>&nbsp;
+<b class="fc"><i>121</i>&nbsp;    this.transitionChooser.resetForNewApp()</b>
+<i>122</i>&nbsp;  }
+<i>123</i>&nbsp;
+<i>124</i>&nbsp;  GuiTransition handleUnexpectedAbstractGuiModelException(UnexpectedAbstractGuiModelException e)
+<i>125</i>&nbsp;  {
+<b class="nc"><i>126</i>&nbsp;    log.warn(&quot;Encountered ${e.class.simpleName} while computing next ${GuiTransition.simpleName} with ${ModelBasedExplorationStrategy.simpleName}. Returning none-transition.\n&quot; +</b>
+<b class="nc"><i>127</i>&nbsp;      &quot;The exception message: ${e.message}\n&quot; +</b>
+<b class="nc"><i>128</i>&nbsp;      &quot;The app under test package name (taken from model): ${model.appPackageName}\n&quot; +</b>
+<i>129</i>&nbsp;      &quot;See the ${Configuration.APPENDER_FILE_NAME_ABSTRACT_GUI_MODEL_DIAGNOSTICS} log in ${Configuration.LOGS_DIR_PATH} dir &quot; +
+<i>130</i>&nbsp;      &quot;for details, including the full exception stack trace.&quot;);
+<i>131</i>&nbsp;
+<b class="nc"><i>132</i>&nbsp;    log.warn(MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS, &quot;Exception thrown:\n&quot;, e);</b>
+<i>133</i>&nbsp;
+<b class="nc"><i>134</i>&nbsp;    if (config.failHard)</b>
+<b class="nc"><i>135</i>&nbsp;      throw e</b>
+<i>136</i>&nbsp;
+<b class="nc"><i>137</i>&nbsp;    return createNoneGuiTransition()</b>
+<i>138</i>&nbsp;  }
+<i>139</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

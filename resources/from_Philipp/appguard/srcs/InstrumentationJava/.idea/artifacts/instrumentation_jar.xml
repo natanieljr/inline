@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="instrumentation:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Instrumentation</output-path>
+    <root id="archive" name="instrumentation.jar">
+      <element id="module-output" name="InstrumentationJava" />
+    </root>
+  </artifact>
+</component>

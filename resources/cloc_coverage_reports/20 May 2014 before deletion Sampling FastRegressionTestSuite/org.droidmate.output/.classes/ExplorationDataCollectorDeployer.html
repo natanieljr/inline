@@ -1,0 +1,140 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExplorationDataCollectorDeployer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.output</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExplorationDataCollectorDeployer (org.droidmate.output)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExplorationDataCollectorDeployer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (6/ 7)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExplorationDataCollectorDeployer$$FastClassByGuice$$96dc0a</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (6/ 7)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.output
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import org.droidmate.exceptions.ComputationWithExplorationDataCollectorException
+<i>15</i>&nbsp;import org.droidmate.utils.Apk
+<i>16</i>&nbsp;import org.droidmate.utils.Assert
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;class ExplorationDataCollectorDeployer implements IExplorationDataCollectorDeployer
+<i>19</i>&nbsp;{
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;  private final IExplorationDataCollectorFactory collectorFactory
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  @Inject
+<i>24</i>&nbsp;  public ExplorationDataCollectorDeployer(IExplorationDataCollectorFactory collectorFactory)
+<i>25</i>&nbsp;  {
+<b class="fc"><i>26</i>&nbsp;    this.collectorFactory = collectorFactory</b>
+<i>27</i>&nbsp;  }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  ExplorationData collectFor(Apk apk, Closure computationWithCollector)
+<i>30</i>&nbsp;  {
+<b class="fc"><i>31</i>&nbsp;    assert apk?.packageName?.size() &gt; 0</b>
+<b class="fc"><i>32</i>&nbsp;    Assert.checkClosureFirstParameterSignature(computationWithCollector, IExplorationDataCollector)</b>
+<i>33</i>&nbsp;
+<b class="fc"><i>34</i>&nbsp;    IExplorationDataCollector collector = collectorFactory.create(apk.packageName)</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    try
+<i>37</i>&nbsp;    {
+<b class="fc"><i>38</i>&nbsp;      computationWithCollector(collector)</b>
+<i>39</i>&nbsp;    } catch (Exception e)
+<i>40</i>&nbsp;    {
+<b class="nc"><i>41</i>&nbsp;      throw new ComputationWithExplorationDataCollectorException(collector.collectedData, e)</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;    return collector.collectedData</b>
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;  }
+<i>47</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

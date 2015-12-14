@@ -1,0 +1,8 @@
+2015-09-01 18:35:07.706 INFO  org.droidmate.ExploreCommand             Processing 7 out of 10 apks: com.indeed.android.jobsearch-inlined.apk
+2015-09-01 18:35:07.732 INFO  org.droidmate.lowlevel.apk.ApkDeployer   Installing com.indeed.android.jobsearch-inlined.apk
+2015-09-01 18:35:13.056 INFO  org.droidmate.exploration.Exploration    run(com.indeed.android.jobsearch, device)
+2015-09-01 18:35:34.655 INFO  o.d.exploration.ExplorationStrategy      Terminating exploration: Initial GUI state doesn't belong to the app. The GUI state: org.droidmate.exploration.datatypes.AppHasStoppedDialogBoxGuiState()
+2015-09-01 18:35:34.656 INFO  o.d.exploration.ExplorationStrategy      <ExplAct Terminate exploration>
+2015-09-01 18:35:36.063 ERROR o.d.e.datatypes.ApkExplorationOutput     Verification of exploration output from com.indeed.android.jobsearch failed with: <exception message cut out due to IntelliJ hanging on too long stdout>. As a consequence, the output is malformed and attempts of further processing will either throw an exception or result in bogus results. Please see .\dev1\logs\exceptions.txt log for details on the exception.
+2015-09-01 18:35:36.073 INFO  o.droidmate.lowlevel.filesystem.Storage  Serializing exploration output of apk com.indeed.android.jobsearch to .\dev1\2015 Sep 01 1835 com.indeed.android.jobsearch.ser
+2015-09-01 18:35:36.074 ERROR o.d.e.datatypes.ApkExplorationOutput     Verification of exploration output from com.indeed.android.jobsearch failed with: <exception message cut out due to IntelliJ hanging on too long stdout>. As a consequence, the output is malformed and attempts of further processing will either throw an exception or result in bogus results. Please see .\dev1\logs\exceptions.txt log for details on the exception.

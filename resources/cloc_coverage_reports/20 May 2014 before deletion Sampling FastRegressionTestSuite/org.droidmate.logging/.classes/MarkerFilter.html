@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MarkerFilter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.logging</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MarkerFilter (org.droidmate.logging)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MarkerFilter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84.6%
+  </span>
+  <span class="absValue">
+    (11/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.logging
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import ch.qos.logback.classic.spi.ILoggingEvent
+<i>14</i>&nbsp;import ch.qos.logback.core.filter.AbstractMatcherFilter
+<i>15</i>&nbsp;import ch.qos.logback.core.spi.FilterReply
+<i>16</i>&nbsp;import org.slf4j.Marker
+<i>17</i>&nbsp;import org.slf4j.MarkerFactory
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;/**
+<i>20</i>&nbsp; * &lt;p&gt;
+<i>21</i>&nbsp; * Logback filter for matching logged message marker against given marker.
+<i>22</i>&nbsp; *
+<i>23</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>24</i>&nbsp; * Based on &lt;a href=&quot;http://stackoverflow.com/a/8759210/986533&quot;&gt;stack overflow answer&lt;/a&gt;.
+<i>25</i>&nbsp; *
+<i>26</i>&nbsp; * &lt;/p&gt;
+<i>27</i>&nbsp; */
+<i>28</i>&nbsp;public class MarkerFilter extends AbstractMatcherFilter&lt;ILoggingEvent&gt;
+<i>29</i>&nbsp;{
+<i>30</i>&nbsp;  private Marker markerToMatch = null;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  @Override
+<i>33</i>&nbsp;  public void start()
+<i>34</i>&nbsp;  {
+<b class="fc"><i>35</i>&nbsp;    if (this.markerToMatch != null)</b>
+<b class="fc"><i>36</i>&nbsp;      super.start();</b>
+<i>37</i>&nbsp;    else
+<b class="nc"><i>38</i>&nbsp;      addError(&quot;Marker to match doesn&#39;t exist yet.&quot;);</b>
+<i>39</i>&nbsp;  }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  @Override
+<i>42</i>&nbsp;  public FilterReply decide(ILoggingEvent event)
+<i>43</i>&nbsp;  {
+<b class="fc"><i>44</i>&nbsp;    Marker marker = event.getMarker();</b>
+<b class="fc"><i>45</i>&nbsp;    if (!isStarted())</b>
+<b class="nc"><i>46</i>&nbsp;      return FilterReply.NEUTRAL;</b>
+<b class="fc"><i>47</i>&nbsp;    if (marker == null)</b>
+<b class="fc"><i>48</i>&nbsp;      return onMismatch;</b>
+<b class="fc"><i>49</i>&nbsp;    if (markerToMatch.contains(marker))</b>
+<b class="fc"><i>50</i>&nbsp;      return onMatch;</b>
+<b class="fc"><i>51</i>&nbsp;    return onMismatch;</b>
+<i>52</i>&nbsp;  }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  // SuppressWarnings reason: used in logback.groovy, but not recognized by IntelliJ IDEA.
+<i>55</i>&nbsp;  @SuppressWarnings(&quot;GroovyUnusedDeclaration&quot;)
+<i>56</i>&nbsp;  public void setMarker(String markerStr)
+<i>57</i>&nbsp;  {
+<b class="fc"><i>58</i>&nbsp;    if (null != markerStr)</b>
+<b class="fc"><i>59</i>&nbsp;      markerToMatch = MarkerFactory.getMarker(markerStr);</b>
+<i>60</i>&nbsp;  }
+<i>61</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

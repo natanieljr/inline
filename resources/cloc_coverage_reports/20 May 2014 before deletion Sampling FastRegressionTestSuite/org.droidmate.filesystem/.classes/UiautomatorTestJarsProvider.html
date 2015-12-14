@@ -1,0 +1,179 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UiautomatorTestJarsProvider</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.filesystem</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UiautomatorTestJarsProvider (org.droidmate.filesystem)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UiautomatorTestJarsProvider</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 10)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UiautomatorTestJarsProvider$$FastClassByGuice$$1145b86f</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorTestJarsProvider$_getUiautomatorTestJars_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 11)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.filesystem
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.util.logging.Slf4j
+<i>16</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;@Slf4j
+<i>19</i>&nbsp;@Singleton
+<i>20</i>&nbsp;public class UiautomatorTestJarsProvider implements IUiautomatorTestJarsProvider
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  public final String DIR_NAME_UIAUTOMATOR_TESTS = &quot;uiautomator_tests&quot;;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;  private final Configuration config
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  private final IFilesystemProxy filesystemProxy;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  @Inject
+<i>30</i>&nbsp;  UiautomatorTestJarsProvider(Configuration config, IFilesystemProxy filesystemProxy)
+<i>31</i>&nbsp;  {
+<b class="nc"><i>32</i>&nbsp;    this.config = config;</b>
+<b class="nc"><i>33</i>&nbsp;    this.filesystemProxy = filesystemProxy</b>
+<i>34</i>&nbsp;  }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  @Override
+<i>37</i>&nbsp;  List&lt;File&gt; getUiautomatorTestJars()
+<i>38</i>&nbsp;  {
+<b class="nc"><i>39</i>&nbsp;    final File uiautomatorTestsDir = getUiautomatorTestsDirSafe();</b>
+<b class="nc"><i>40</i>&nbsp;    final File[] jarFiles = uiautomatorTestsDir.listFiles(</b>
+<b class="nc"><i>41</i>&nbsp;      [accept: {File file -&gt; file.getPath().endsWith(&quot;.jar&quot;)}] as FileFilter</b>
+<i>42</i>&nbsp;    )
+<i>43</i>&nbsp;
+<b class="nc"><i>44</i>&nbsp;    assert jarFiles*.isFile().every()</b>
+<i>45</i>&nbsp;
+<b class="nc"><i>46</i>&nbsp;    return jarFiles.toList();</b>
+<i>47</i>&nbsp;  }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  /**
+<i>50</i>&nbsp;   * @see #getUiautomatorTestsDir()
+<i>51</i>&nbsp;   */
+<i>52</i>&nbsp;  private File getUiautomatorTestsDirSafe()
+<i>53</i>&nbsp;  {
+<b class="nc"><i>54</i>&nbsp;    final File uiautomatorTestsDir = getUiautomatorTestsDir()</b>
+<b class="nc"><i>55</i>&nbsp;    assert uiautomatorTestsDir?.isDirectory();</b>
+<b class="nc"><i>56</i>&nbsp;    return uiautomatorTestsDir;</b>
+<i>57</i>&nbsp;  }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  /**
+<i>60</i>&nbsp;   * Example:&lt;br/&gt;
+<i>61</i>&nbsp;   * ./artifacts/uiautomator_tests&lt;br/&gt;
+<i>62</i>&nbsp;   */
+<i>63</i>&nbsp;  private File getUiautomatorTestsDir()
+<i>64</i>&nbsp;  {
+<b class="nc"><i>65</i>&nbsp;    return new File(filesystemProxy.getArtifactsDirSafe(), DIR_NAME_UIAUTOMATOR_TESTS)</b>
+<i>66</i>&nbsp;  }
+<i>67</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

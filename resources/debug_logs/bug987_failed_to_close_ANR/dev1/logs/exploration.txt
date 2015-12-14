@@ -1,0 +1,37 @@
+2015-12-01 18:01:50.718 TRACE o.d.exploration.device.RobustDevice      IDeviceGuiSnapshot guiSnapshot = this.getRetryValidGuiSnapshot()
+2015-12-01 18:01:51.089 TRACE o.d.exploration.device.RobustDevice      guiSnapshot=UiautomatorWindowDump{home screen} guiSnapshot.validationResult.valid=true
+2015-12-01 18:01:51.090 TRACE o.d.exploration.device.RobustDevice      if (guiSnapshot.guiState.isAppHasStoppedDialogBox()) ? -> false}
+2015-12-01 18:01:51.092 TRACE o.d.exploration.device.RobustDevice      assert (!(guiSnapshot.guiState.isAppHasStoppedDialogBox()))
+2015-12-01 18:01:51.134 TRACE o.d.e.actions.RunnableExplorationAction  RunnableResetAppExplorationAction.performDeviceActions(app=com.infraware.office.link_v6.0.9-inlined.apk, device)
+2015-12-01 18:01:51.135 DEBUG o.d.e.a.RunnableResetAppExplorationAction 1. Reset package com.infraware.office.link
+2015-12-01 18:01:51.948 TRACE o.d.exploration.device.RobustDevice      IDeviceGuiSnapshot guiSnapshot = this.getRetryValidGuiSnapshot()
+2015-12-01 18:01:52.016 TRACE o.d.exploration.device.RobustDevice      guiSnapshot=UiautomatorWindowDump{home screen} guiSnapshot.validationResult.valid=true
+2015-12-01 18:01:52.017 TRACE o.d.exploration.device.RobustDevice      if (guiSnapshot.guiState.isAppHasStoppedDialogBox()) ? -> false}
+2015-12-01 18:01:52.018 TRACE o.d.exploration.device.RobustDevice      assert (!(guiSnapshot.guiState.isAppHasStoppedDialogBox()))
+2015-12-01 18:01:56.892 TRACE o.d.exploration.device.RobustDevice      IDeviceGuiSnapshot guiSnapshot = this.getRetryValidGuiSnapshot()
+2015-12-01 18:01:56.965 TRACE o.d.exploration.device.RobustDevice      guiSnapshot=UiautomatorWindowDump{home screen} guiSnapshot.validationResult.valid=true
+2015-12-01 18:01:56.965 TRACE o.d.exploration.device.RobustDevice      if (guiSnapshot.guiState.isAppHasStoppedDialogBox()) ? -> false}
+2015-12-01 18:01:56.965 TRACE o.d.exploration.device.RobustDevice      assert (!(guiSnapshot.guiState.isAppHasStoppedDialogBox()))
+2015-12-01 18:01:57.058 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-12-01 18:01:57.068 DEBUG o.d.exploration.device.DeviceLogsHandler Caught TcpServerUnreachableException from messagesReader.getAndClearCurrentApiLogsFromMonitorTcpServer(). Because app is allowed to be unreachable: 1. ignoring the exception instead of rethrowing, 2. returning null api logs.
+2015-12-01 18:01:57.174 DEBUG o.d.e.a.RunnableResetAppExplorationAction 2. Launch main activity
+2015-12-01 18:02:13.339 DEBUG o.d.e.a.RunnableResetAppExplorationAction 3. Log uia-daemon logs from logcat
+2015-12-01 18:02:13.394 DEBUG o.d.e.a.RunnableResetAppExplorationAction 4. Read monitor init logs and clear logcat
+2015-12-01 18:02:13.395 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(deviceTimeDiff)
+2015-12-01 18:02:15.471 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): obtained messages
+2015-12-01 18:02:15.472 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): syncing time
+2015-12-01 18:02:15.493 TRACE o.d.exploration.device.DeviceTimeDiff    computeDiff(device) result:
+Current time   : 2015-12-01 18:02:15.491
+Device time    : 2015-12-01 17:59:16.116
+Resulting diff : PT-3M0.625S
+2015-12-01 18:02:15.496 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): returning monitorInitTime: 2015-12-01T18:01:59.200
+2015-12-01 18:02:15.497 DEBUG o.d.exploration.device.InitMsgsReader    readInstrumentationMessages(deviceTimeDiff)
+2015-12-01 18:02:15.651 DEBUG o.d.e.a.RunnableResetAppExplorationAction 5. Read and clear api logs, then seal reading
+2015-12-01 18:02:15.651 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-12-01 18:02:15.672 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 0
+2015-12-01 18:02:15.673 DEBUG o.d.e.a.RunnableResetAppExplorationAction 6. Get GUI snapshot, then log uia-daemon logs, then clear logcat
+2015-12-01 18:02:15.673 TRACE o.d.exploration.device.RobustDevice      IDeviceGuiSnapshot guiSnapshot = this.getRetryValidGuiSnapshot()
+2015-12-01 18:02:18.050 TRACE o.d.exploration.device.RobustDevice      guiSnapshot=UiautomatorWindowDump{"App has stopped" dialog box. OK widget enabled: false} guiSnapshot.validationResult.valid=true
+2015-12-01 18:02:18.050 TRACE o.d.exploration.device.RobustDevice      if (guiSnapshot.guiState.isAppHasStoppedDialogBox()) ? -> true}
+2015-12-01 18:02:19.732 TRACE o.d.exploration.device.RobustDevice      After performing 'close ANR': guiSnapshot = this.getRetryValidGuiSnapshot()
+2015-12-01 18:02:19.777 TRACE o.d.exploration.device.RobustDevice      assert (!(guiSnapshot.guiState.isAppHasStoppedDialogBox()))

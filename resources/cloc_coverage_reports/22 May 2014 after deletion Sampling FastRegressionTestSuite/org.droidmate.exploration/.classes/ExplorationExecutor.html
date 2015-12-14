@@ -1,0 +1,197 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExplorationExecutor</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExplorationExecutor (org.droidmate.exploration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExplorationExecutor</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.1%
+  </span>
+  <span class="absValue">
+    (16/ 17)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExplorationExecutor$$FastClassByGuice$$c656eeb4</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationExecutor$_explore_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationExecutor$verifyDeviceDisplaysHomeScreen</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.8%
+  </span>
+  <span class="absValue">
+    (23/ 24)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import groovy.util.logging.Slf4j
+<i>15</i>&nbsp;import org.droidmate.device.IAndroidDevice
+<i>16</i>&nbsp;import org.droidmate.exploration.datatypes.GuiState
+<i>17</i>&nbsp;import org.droidmate.exploration.datatypes.IApkExplorationData
+<i>18</i>&nbsp;import org.droidmate.exploration.datatypes.ResetAppExplorationAction
+<i>19</i>&nbsp;import org.droidmate.exploration.datatypes.TerminateExplorationAction
+<i>20</i>&nbsp;import org.droidmate.lowlevel.apk.Apk
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;import static org.droidmate.exploration.datatypes.ExplorationAction.newResetAppExplorationAction
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;@Slf4j
+<i>25</i>&nbsp;class ExplorationExecutor implements IExplorationExecutor
+<i>26</i>&nbsp;{
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  private final IExplorationComponentsFactory componentsFactory
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  @Inject
+<i>31</i>&nbsp;  ExplorationExecutor(IExplorationComponentsFactory componentsFactory)
+<i>32</i>&nbsp;  {
+<b class="fc"><i>33</i>&nbsp;    this.componentsFactory = componentsFactory</b>
+<i>34</i>&nbsp;  }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  @Override
+<i>37</i>&nbsp;  IApkExplorationData explore(Apk apk, IAndroidDevice device)
+<i>38</i>&nbsp;  {
+<b class="fc"><i>39</i>&nbsp;    log.debug(&quot;Exploring ${apk.packageName}&quot;)</b>
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;    assert apk?.file</b>
+<i>42</i>&nbsp;    // doc-assert apk is installed on the device
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;    verifyDeviceDisplaysHomeScreen(device, apk)</b>
+<i>45</i>&nbsp;
+<b class="fc"><i>46</i>&nbsp;    def collector = componentsFactory.createExplorationDataCollector(apk.packageName)</b>
+<b class="fc"><i>47</i>&nbsp;    def explorationStrategy = componentsFactory.createStrategy(apk.packageName)</b>
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;    def currentExplAct = newResetAppExplorationAction()</b>
+<b class="fc"><i>50</i>&nbsp;    def explData = collector.collect {IApkExplorationData explData -&gt;</b>
+<i>51</i>&nbsp;
+<b class="fc"><i>52</i>&nbsp;      def deviceExplorationDriver = componentsFactory.createDriver(device, apk.packageName, apk.launchableActivityComponentName, explData)</b>
+<i>53</i>&nbsp;
+<b class="fc"><i>54</i>&nbsp;      explData.actions &lt;&lt; currentExplAct</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;      while (!(currentExplAct instanceof TerminateExplorationAction))</b>
+<i>57</i>&nbsp;      {
+<b class="fc"><i>58</i>&nbsp;        GuiState guiState = deviceExplorationDriver.execute(currentExplAct)</b>
+<b class="fc"><i>59</i>&nbsp;        currentExplAct = explorationStrategy.process(guiState)</b>
+<b class="fc"><i>60</i>&nbsp;        explData.actions &lt;&lt; currentExplAct</b>
+<i>61</i>&nbsp;      }
+<b class="fc"><i>62</i>&nbsp;      deviceExplorationDriver.execute(currentExplAct)</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<b class="fc"><i>65</i>&nbsp;    assert explData != null</b>
+<b class="fc"><i>66</i>&nbsp;    if (explData.caughtException == null)</b>
+<i>67</i>&nbsp;    {
+<b class="fc"><i>68</i>&nbsp;      assert explData.actions?.size() &gt; 0</b>
+<b class="fc"><i>69</i>&nbsp;      assert explData.actions.first() instanceof ResetAppExplorationAction</b>
+<b class="fc"><i>70</i>&nbsp;      assert explData.actions.last() instanceof TerminateExplorationAction</b>
+<i>71</i>&nbsp;    }
+<b class="fc"><i>72</i>&nbsp;    return explData</b>
+<i>73</i>&nbsp;  }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;  static void verifyDeviceDisplaysHomeScreen(IAndroidDevice device, Apk apk)
+<i>76</i>&nbsp;  {
+<b class="fc"><i>77</i>&nbsp;    def guiSnapshot = device?.guiSnapshot</b>
+<i>78</i>&nbsp;
+<b class="fc"><i>79</i>&nbsp;    if (!guiSnapshot.guiState.isHomeScreen())</b>
+<b class="nc"><i>80</i>&nbsp;      log.warn(&quot;An exploration process for {$apk.packageName} is about to start but the device doesn&#39;t display home screen. Instead, its GUI state is: ${guiSnapshot.guiState}. Continuing the exploration nevertheless, hoping that the first, \&quot;reset app\&quot; exploration action will force the device into home screen.&quot;)</b>
+<i>81</i>&nbsp;  }
+<i>82</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.picsart.studio-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" devices
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f forward tcp:59778 tcp:59778
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f forward tcp:59776 tcp:59776
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f push C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar /data/local/tmp/
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f push C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk /data/local/tmp/
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell uiautomator runtest uiautomator-daemon.jar -c org.droidmate.uiautomatordaemon.UiAutomatorDaemon#init -e wait_for_gui_to_stabilize true -e wait_for_window_update_timeout 1200 -e uiadaemon_server_tcp_port 59778
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s uiautomator-daemon_server_start_tag
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.picsart.studio
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.picsart.studio-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.picsart.studio
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.picsart.studio/com.socialin.android.photo.picsinphoto.MainPagerActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.picsart.studio
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.picsart.studio/com.socialin.android.photo.picsinphoto.MainPagerActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.picsart.studio
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.picsart.studio
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell rm /data/local/tmp/uiautomator-daemon.jar
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell rm /data/local/tmp/uiautomator-daemon.jar

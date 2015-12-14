@@ -1,0 +1,114 @@
+2015-10-14 14:18:47.243 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-10-14 14:18:47.257 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\dev1\logs.
+2015-10-14 14:18:47.893 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-10-14 14:18:47.901 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Wed Oct 14 14:18:47 CEST 2015
+2015-10-14 14:18:49.119 INFO  o.droidmate.tools.AndroidDeviceDeployer  withSetupDevice(deviceIndex: 0, computation)
+2015-10-14 14:18:56.014 INFO  org.droidmate.command.ExploreCommand     Processing 1 out of 9 apks: at.markushi.expensemanager-inlined.apk
+2015-10-14 14:18:56.061 INFO  org.droidmate.tools.ApkDeployer          Reinstalling at.markushi.expensemanager-inlined.apk
+2015-10-14 14:19:03.522 INFO  o.d.command.exploration.Exploration      run(at.markushi.expensemanager, device)
+2015-10-14 14:19:05.339 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-10-14 14:19:25.449 INFO  o.d.e.strategy.ExplorationStrategy         0m  0s /   1m  0s i:    2 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[67,70]>
+2015-10-14 14:19:27.700 INFO  o.d.e.strategy.ExplorationStrategy         0m  2s /   1m  0s i:    3 <ExplAct LC? 0 Wdgt:TextView/"Statistics"/"at.markushi.expensemanager:id/txt_menu_home_stats"/[148,449]>
+2015-10-14 14:19:30.567 INFO  o.d.e.strategy.ExplorationStrategy         0m  5s /   1m  0s i:    4 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[118,70]>
+2015-10-14 14:19:32.771 INFO  o.d.e.strategy.ExplorationStrategy         0m  7s /   1m  0s i:    5 <ExplAct LC? 0 Wdgt:TextView/"Budget"/"at.markushi.expensemanager:id/txt_menu_home_limits"/[148,297]>
+2015-10-14 14:19:35.737 INFO  o.d.e.strategy.ExplorationStrategy         0m 10s /   1m  0s i:    6 <ExplAct LC? 0 Wdgt:FrameLayout/""/""/[400,667]>
+2015-10-14 14:19:38.198 INFO  o.d.e.strategy.ExplorationStrategy         0m 12s /   1m  0s i:    7 <ExplAct LC? 0 Wdgt:Button/"7"/"at.markushi.expensemanager:id/digit_7"/[157,657]>
+2015-10-14 14:19:40.359 INFO  o.d.e.strategy.ExplorationStrategy         0m 14s /   1m  0s i:    8 <ExplAct LC? 0 Wdgt:Button/"8"/"at.markushi.expensemanager:id/digit_8"/[399,657]>
+2015-10-14 14:19:42.525 INFO  o.d.e.strategy.ExplorationStrategy         0m 17s /   1m  0s i:    9 <ExplAct LC? 0 Wdgt:Button/"0"/"at.markushi.expensemanager:id/digit_0"/[399,722]>
+2015-10-14 14:19:44.706 INFO  o.d.e.strategy.ExplorationStrategy         0m 19s /   1m  0s i:   10 <ExplAct LC? 0 Wdgt:Button/"2"/"at.markushi.expensemanager:id/digit_2"/[399,527]>
+2015-10-14 14:19:46.844 INFO  o.d.e.strategy.ExplorationStrategy         0m 21s /   1m  0s i:   11 <ExplAct LC? 0 Wdgt:Button/"5"/"at.markushi.expensemanager:id/digit_5"/[399,592]>
+2015-10-14 14:19:49.024 INFO  o.d.e.strategy.ExplorationStrategy         0m 23s /   1m  0s i:   12 <ExplAct LC? 0 Wdgt:Button/"9"/"at.markushi.expensemanager:id/digit_9"/[642,657]>
+2015-10-14 14:19:51.174 INFO  o.d.e.strategy.ExplorationStrategy         0m 25s /   1m  0s i:   13 <ExplAct LC? 0 Wdgt:Button/"3"/"at.markushi.expensemanager:id/digit_3"/[642,527]>
+2015-10-14 14:19:53.337 INFO  o.d.e.strategy.ExplorationStrategy         0m 27s /   1m  0s i:   14 <ExplAct LC? 0 Wdgt:ImageButton/""/"at.markushi.expensemanager:id/btn_delete"/[710,451]>
+2015-10-14 14:19:55.470 INFO  o.d.e.strategy.ExplorationStrategy         0m 30s /   1m  0s i:   15 <ExplAct LC? 0 Wdgt:Button/"Cancel"/"android:id/button2"/[217,792]>
+2015-10-14 14:19:57.216 INFO  o.d.e.strategy.ExplorationStrategy       Forward exploration reset.
+2015-10-14 14:19:57.217 INFO  o.d.e.strategy.ExplorationStrategy         0m 31s /   1m  0s i:   16 <ExplAct Reset app>
+2015-10-14 14:20:16.692 INFO  o.d.e.strategy.ExplorationStrategy         0m 51s /   1m  0s i:   17 <ExplAct LC? 0 Wdgt:ImageButton/""/""/[757,70]>
+2015-10-14 14:20:19.002 INFO  o.d.e.strategy.ExplorationStrategy         0m 53s /   1m  0s i:   18 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[653,205]>
+2015-10-14 14:20:21.389 INFO  o.d.e.strategy.ExplorationStrategy         0m 55s /   1m  0s i:   19 <ExplAct LC? 0 Wdgt:Button/"Cancel"/"android:id/button2"/[217,529]>
+2015-10-14 14:20:23.816 INFO  o.d.e.strategy.ExplorationStrategy         0m 58s /   1m  0s i:   20 <ExplAct LC? 0 Wdgt:TextView/""/"at.markushi.expensemanager:id/menu_new_expense_only"/[672,70]>
+2015-10-14 14:20:26.360 INFO  o.d.e.strategy.ExplorationStrategy       Terminating exploration: Allocated exploration time exhausted.
+2015-10-14 14:20:26.366 INFO  o.d.e.strategy.ExplorationStrategy       <ExplAct Terminate exploration>
+2015-10-14 14:20:27.799 INFO  org.droidmate.storage.Storage2           Serializing ApkExplorationOutput2 to .\dev1\2015 Oct 14 1420 at.markushi.expensemanager.ser2
+2015-10-14 14:20:28.006 INFO  org.droidmate.tools.ApkDeployer          Uninstalling at.markushi.expensemanager-inlined.apk
+2015-10-14 14:20:30.137 INFO  org.droidmate.command.ExploreCommand     Processing 2 out of 9 apks: com.adobe.reader-inlined.apk
+2015-10-14 14:20:30.165 INFO  org.droidmate.tools.ApkDeployer          Reinstalling com.adobe.reader-inlined.apk
+2015-10-14 14:20:43.580 INFO  o.d.command.exploration.Exploration      run(com.adobe.reader, device)
+2015-10-14 14:20:44.503 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-10-14 14:21:04.066 INFO  o.d.e.strategy.ExplorationStrategy         0m  0s /   1m  0s i:    2 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[400,290]>
+2015-10-14 14:21:06.503 INFO  o.d.e.strategy.ExplorationStrategy         0m  2s /   1m  0s i:    3 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[400,290]>
+2015-10-14 14:21:08.250 INFO  o.d.e.strategy.ExplorationStrategy         0m  4s /   1m  0s i:    4 <ExplAct LC? 0 Wdgt:ListView/""/"com.adobe.reader:id/help_listView"/[400,235]>
+2015-10-14 14:21:10.543 INFO  o.d.e.strategy.ExplorationStrategy         0m  6s /   1m  0s i:    5 <ExplAct LC? 0 Wdgt:View/""/""/[395,309]>
+2015-10-14 14:21:12.781 INFO  o.d.e.strategy.ExplorationStrategy         0m  8s /   1m  0s i:    6 <ExplAct LC? 0 Wdgt:RelativeLayout/""/"com.adobe.reader:id/shareButton"/[400,409]>
+2015-10-14 14:21:14.514 INFO  o.d.e.strategy.ExplorationStrategy         0m 10s /   1m  0s i:    7 <ExplAct LC? 0 Wdgt:View/""/""/[399,150]>
+2015-10-14 14:21:16.768 INFO  o.d.e.strategy.ExplorationStrategy         0m 12s /   1m  0s i:    8 <ExplAct LC? 0 Wdgt:ImageButton/""/""/[757,70]>
+2015-10-14 14:21:19.055 INFO  o.d.e.strategy.ExplorationStrategy         0m 14s /   1m  0s i:    9 <ExplAct LC? 0 Wdgt:ListView/""/""/[655,172]>
+2015-10-14 14:21:20.798 INFO  o.d.e.strategy.ExplorationStrategy         0m 16s /   1m  0s i:   10 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[655,205]>
+2015-10-14 14:21:23.251 INFO  o.d.e.strategy.ExplorationStrategy         0m 19s /   1m  0s i:   11 <ExplAct LC? 0 Wdgt:TextView/"Privacy Policy: http://www.adobe.com/special/misc/privacy.html"/"com.adobe.reader:id/privacyPolicyTextID"/[400,542]>
+2015-10-14 14:21:28.812 INFO  o.d.e.strategy.ExplorationStrategy         0m 24s /   1m  0s i:   12 <ExplAct Reset app>
+2015-10-14 14:21:53.824 INFO  o.d.e.strategy.ExplorationStrategy         0m 49s /   1m  0s i:   13 <ExplAct LC? 0 Wdgt:RelativeLayout/""/"com.adobe.reader:id/shareButton"/[400,409]>
+2015-10-14 14:21:56.163 INFO  o.d.e.strategy.ExplorationStrategy         0m 52s /   1m  0s i:   14 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[400,182]>
+2015-10-14 14:21:58.543 INFO  o.d.e.strategy.ExplorationStrategy         0m 54s /   1m  0s i:   15 <ExplAct LC? 0 Wdgt:View/""/""/[158,286]>
+2015-10-14 14:22:00.972 INFO  o.d.e.strategy.ExplorationStrategy         0m 56s /   1m  0s i:   16 <ExplAct LC? 0 Wdgt:View/""/""/[387,262]>
+2015-10-14 14:22:03.298 INFO  o.d.e.strategy.ExplorationStrategy         0m 59s /   1m  0s i:   17 <ExplAct LC? 0 Wdgt:View/""/""/[378,843]>
+2015-10-14 14:22:05.577 INFO  o.d.e.strategy.ExplorationStrategy       Terminating exploration: Allocated exploration time exhausted.
+2015-10-14 14:22:05.578 INFO  o.d.e.strategy.ExplorationStrategy       <ExplAct Terminate exploration>
+2015-10-14 14:22:07.031 INFO  org.droidmate.storage.Storage2           Serializing ApkExplorationOutput2 to .\dev1\2015 Oct 14 1420 com.adobe.reader.ser2
+2015-10-14 14:22:07.153 INFO  org.droidmate.tools.ApkDeployer          Uninstalling com.adobe.reader-inlined.apk
+2015-10-14 14:22:09.231 INFO  org.droidmate.command.ExploreCommand     Processing 3 out of 9 apks: com.antivirus-inlined.apk
+2015-10-14 14:22:09.258 INFO  org.droidmate.tools.ApkDeployer          Reinstalling com.antivirus-inlined.apk
+2015-10-14 14:22:22.693 INFO  o.d.command.exploration.Exploration      run(com.antivirus, device)
+2015-10-14 14:22:23.637 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-10-14 14:22:44.882 INFO  o.d.e.strategy.ExplorationStrategy         0m  0s /   1m  0s i:    2 <ExplAct LC? 0 Wdgt:CheckBox/"Use recommended settings"/"com.antivirus:id/use_settings_cb"/[301,487]>
+2015-10-14 14:22:47.049 INFO  o.d.e.strategy.ExplorationStrategy         0m  2s /   1m  0s i:    3 <ExplAct LC? 0 Wdgt:Button/"Activate"/"com.antivirus:id/activate_button"/[399,843]>
+2015-10-14 14:22:50.063 INFO  o.d.e.strategy.ExplorationStrategy         0m  5s /   1m  0s i:    4 <ExplAct LC? 0 Wdgt:Button/""/"com.antivirus:id/options"/[768,73]>
+2015-10-14 14:22:52.892 INFO  o.d.e.strategy.ExplorationStrategy         0m  8s /   1m  0s i:    5 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[658,397]>
+2015-10-14 14:22:55.798 INFO  o.d.e.strategy.ExplorationStrategy         0m 10s /   1m  0s i:    6 <ExplAct LC? 0 Wdgt:RelativeLayout/""/""/[400,299]>
+2015-10-14 14:23:01.513 INFO  o.d.e.strategy.ExplorationStrategy         0m 16s /   1m  0s i:    7 <ExplAct Reset app>
+2015-10-14 14:23:30.500 INFO  o.d.e.strategy.ExplorationStrategy         0m 45s /   1m  0s i:    8 <ExplAct LC? 0 Wdgt:TextView/"Terms of Service and Privacy Policy "/"com.antivirus:id/text_terms_and_privacy_hyperlink"/[334,752]>
+2015-10-14 14:23:32.644 INFO  o.d.e.strategy.ExplorationStrategy         0m 47s /   1m  0s i:    9 <ExplAct LC? 0 Wdgt:Button/"Activate"/"com.antivirus:id/activate_button"/[399,843]>
+2015-10-14 14:23:35.782 INFO  o.d.e.strategy.ExplorationStrategy         0m 50s /   1m  0s i:   10 <ExplAct LC? 0 Wdgt:LinearLayout/""/"com.antivirus:id/protection"/[201,194]>
+2015-10-14 14:23:39.871 INFO  o.d.e.strategy.ExplorationStrategy         0m 54s /   1m  0s i:   11 <ExplAct LC? 0 Wdgt:RelativeLayout/""/""/[400,286]>
+2015-10-14 14:23:42.279 INFO  o.d.e.strategy.ExplorationStrategy         0m 57s /   1m  0s i:   12 <ExplAct LC? 0 Wdgt:CheckedTextView/"Never"/"android:id/text1"/[400,728]>
+2015-10-14 14:23:44.841 INFO  o.d.e.strategy.ExplorationStrategy         0m 59s /   1m  0s i:   13 <ExplAct LC? 0 Wdgt:RelativeLayout/""/""/[400,143]>
+2015-10-14 14:23:47.431 INFO  o.d.e.strategy.ExplorationStrategy       Terminating exploration: Allocated exploration time exhausted.
+2015-10-14 14:23:47.432 INFO  o.d.e.strategy.ExplorationStrategy       <ExplAct Terminate exploration>
+2015-10-14 14:23:49.000 INFO  org.droidmate.storage.Storage2           Serializing ApkExplorationOutput2 to .\dev1\2015 Oct 14 1420 com.antivirus.ser2
+2015-10-14 14:23:49.084 INFO  org.droidmate.tools.ApkDeployer          Uninstalling com.antivirus-inlined.apk
+2015-10-14 14:23:51.529 INFO  org.droidmate.command.ExploreCommand     Processing 4 out of 9 apks: com.ebay.mobile-inlined.apk
+2015-10-14 14:23:51.557 INFO  org.droidmate.tools.ApkDeployer          Reinstalling com.ebay.mobile-inlined.apk
+2015-10-14 14:24:07.985 INFO  o.d.command.exploration.Exploration      run(com.ebay.mobile, device)
+2015-10-14 14:24:08.941 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-10-14 14:24:32.780 INFO  o.d.e.strategy.ExplorationStrategy         0m  0s /   1m  0s i:    2 <ExplAct LC? 0 Wdgt:WebView/""/"com.ebay.mobile:id/eula_webview"/[400,656]>
+2015-10-14 14:24:34.609 INFO  o.d.e.strategy.ExplorationStrategy         0m  1s /   1m  0s i:    3 <ExplAct LC? 0 Wdgt:Button/"Agree"/"com.ebay.mobile:id/accept_btn"/[600,1173]>
+2015-10-14 14:24:38.725 INFO  o.d.e.strategy.ExplorationStrategy         0m  5s /   1m  0s i:    4 <ExplAct LC? 0 Wdgt:LinearLayout/""/"com.ebay.mobile:id/home_rtm"/[400,1024]>
+2015-10-14 14:24:41.401 INFO  o.d.e.strategy.ExplorationStrategy         0m  8s /   1m  0s i:    5 <ExplAct LC? 0 Wdgt:ImageButton/""/""/[757,70]>
+2015-10-14 14:24:44.158 INFO  o.d.e.strategy.ExplorationStrategy         0m 11s /   1m  0s i:    6 <ExplAct LC? 0 Wdgt:LinearLayout/""/""/[658,205]>
+2015-10-14 14:24:47.613 INFO  o.d.e.strategy.ExplorationStrategy         0m 14s /   1m  0s i:    7 <ExplAct LC? 0 Wdgt:FrameLayout/""/""/[600,138]>
+2015-10-14 14:24:50.033 INFO  o.d.e.strategy.ExplorationStrategy         0m 17s /   1m  0s i:    8 <ExplAct LC? 0 Wdgt:Button/"Get started"/"com.ebay.mobile:id/register_button"/[400,411]>
+2015-10-14 14:24:56.379 INFO  o.d.e.strategy.ExplorationStrategy         0m 23s /   1m  0s i:    9 <ExplAct LC? 0 Wdgt:Button/""/""/[400,191]>
+2015-10-14 14:24:59.393 INFO  o.d.e.strategy.ExplorationStrategy         0m 26s /   1m  0s i:   10 <ExplAct LC? 0 Wdgt:TextView/"Albania"/"android:id/text1"/[400,401]>
+2015-10-14 14:25:03.730 INFO  o.d.e.strategy.ExplorationStrategy         0m 30s /   1m  0s i:   11 <ExplAct LC? 0 Wdgt:Button/""/""/[400,191]>
+2015-10-14 14:25:06.467 INFO  o.d.e.strategy.ExplorationStrategy         0m 33s /   1m  0s i:   12 <ExplAct LC? 0 Wdgt:TextView/"Belarus"/"android:id/text1"/[400,1177]>
+2015-10-14 14:25:10.387 INFO  o.d.e.strategy.ExplorationStrategy         0m 37s /   1m  0s i:   13 <ExplAct LC? 0 Wdgt:View/""/""/[59,516]>
+2015-10-14 14:25:13.093 INFO  o.d.e.strategy.ExplorationStrategy         0m 40s /   1m  0s i:   14 <ExplAct LC? 0 Wdgt:Button/""/""/[400,191]>
+2015-10-14 14:25:15.944 INFO  o.d.e.strategy.ExplorationStrategy         0m 43s /   1m  0s i:   15 <ExplAct LC? 0 Wdgt:TextView/"Bolivia"/"android:id/text1"/[400,466]>
+2015-10-14 14:25:19.753 INFO  o.d.e.strategy.ExplorationStrategy       Forward exploration reset.
+2015-10-14 14:25:19.754 INFO  o.d.e.strategy.ExplorationStrategy         0m 46s /   1m  0s i:   16 <ExplAct Reset app>
+2015-10-14 14:25:26.049 INFO  org.droidmate.tools.ApkDeployer          Uninstalling com.ebay.mobile-inlined.apk
+2015-10-14 14:25:28.450 ERROR org.droidmate.frontend.ExceptionHandler  A fatal Throwable was thrown during DroidMate run. This is a bug in the code. Sorry!
+Please contact the DroidMate developer, Konrad Jamrozik, at jamrozik@st.cs.uni-saarland.de.
+Please include the output dir (by default set to .\dev1).
+A cookie for you, brave human.
+Assertion failed: 
+
+assert messages.empty
+       |        |
+       |        false
+       [10-14 14:24:37.871 I/Monitor_init(28665): Monitor constructed successfully., 10-14 14:24:38.871 I/Monitor_init(28665): Monitor initialized for package com.ebay.mobile]
+
+2015-10-14 14:25:28.462 ERROR org.droidmate.frontend.ExceptionHandler  Please see .\dev1\logs\exceptions.txt log for details.
+2015-10-14 14:25:28.477 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.
+2015-10-14 14:25:28.483 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Oct 14 14:25:28. DroidMate ran for 6 minutes, 41.282 seconds.
+2015-10-14 14:25:28.484 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-10-14 14:25:28.486 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\dev1\logs directory.

@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DroidmateClassAdapter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.instrumentation.asmdex</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DroidmateClassAdapter (org.droidmate.instrumentation.asmdex)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DroidmateClassAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 28)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.instrumentation.asmdex;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.common.base.Joiner;
+<i>14</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger;
+<i>15</i>&nbsp;import org.ow2.asmdex.ClassVisitor;
+<i>16</i>&nbsp;import org.ow2.asmdex.MethodVisitor;
+<i>17</i>&nbsp;import org.ow2.asmdex.Opcodes;
+<i>18</i>&nbsp;import org.slf4j.Logger;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;public class DroidmateClassAdapter extends ClassVisitor {
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;  @InjectLogger
+<i>23</i>&nbsp;  private static Logger log;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;  public DroidmateClassAdapter(int api, ClassVisitor cv) {
+<b class="nc"><i>26</i>&nbsp;    super(api, cv);</b>
+<i>27</i>&nbsp;  }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  @Override
+<i>30</i>&nbsp;  public MethodVisitor visitMethod(int access, String name, String desc, String[] signature, String[] exceptions) {
+<i>31</i>&nbsp;
+<b class="nc"><i>32</i>&nbsp;    MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);</b>
+<i>33</i>&nbsp;
+<b class="nc"><i>34</i>&nbsp;    if (name.equals(&quot;onCreate&quot;) &amp;&amp; desc.equals(&quot;VLandroid/os/Bundle;&quot;))</b>
+<i>35</i>&nbsp;    {
+<b class="nc"><i>36</i>&nbsp;      log.debug(&quot;Visiting method: access: {}, name: {}, desc: {}, signature: {}&quot;, getOpcodeStringForAccess(access),</b>
+<i>37</i>&nbsp;          name, desc, signature != null ? Joiner.on(&#39; &#39;).join(signature) : &quot;null&quot;);
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;      // WISH here we also need to parse the number of parameters from variable &quot;desc&quot;, as the .parameters command
+<i>42</i>&nbsp;      // visited by visitParameters()
+<i>43</i>&nbsp;      // is a debug symbol not always available. By parsing &quot;desc&quot;, we can be sure we will also get the parameters.
+<i>44</i>&nbsp;      // See Krishna&#39;s DalvikParsingTools.java for some hints on how to do this.
+<i>45</i>&nbsp;      // WISH the method adapter needs to know if the method call is static, as this will influence the number of
+<i>46</i>&nbsp;      // registers!
+<i>47</i>&nbsp;      // The &#39;this&#39; instance is given in first parameter register if the call is non-static
+<i>48</i>&nbsp;      // WISH remember about the cases that (a) there is no &quot;onCreate&quot; method (b) it cannot be extended because it is
+<i>49</i>&nbsp;      // final in super class.
+<i>50</i>&nbsp;      // WISH now all &quot;onCreate&quot; are crawled, which may mean inserting the call multiple times, if multiple
+<i>51</i>&nbsp;      // classes in the same inheritance hierarchy have body of on create.
+<i>52</i>&nbsp;      // WISH application adapter expects from the class to inherit from Activity, but other classes may be in-between
+<i>53</i>&nbsp;      // in inheritance hierarchy, due to obfuscation or whatnot.
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;      // WISH uncomment to add tracing of called visitXXX methods when visiting given method.
+<i>56</i>&nbsp;//       DebugMethodAdapter ma = new DebugMethodAdapter(api, mv);
+<b class="nc"><i>57</i>&nbsp;      MethodVisitor ma = mv;</b>
+<b class="nc"><i>58</i>&nbsp;      return new DroidmateMethodAdapter(api, ma);</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;    else
+<b class="nc"><i>61</i>&nbsp;      return mv;</b>
+<i>62</i>&nbsp;  }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;  private static String getOpcodeStringForAccess(int accessOpcode) {
+<i>65</i>&nbsp;
+<b class="nc"><i>66</i>&nbsp;    StringBuilder sb = new StringBuilder();</b>
+<i>67</i>&nbsp;
+<b class="nc"><i>68</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_CONSTRUCTOR) == Opcodes.ACC_CONSTRUCTOR)</b>
+<b class="nc"><i>69</i>&nbsp;      sb.append(&quot;ACC_CONSTRUCTOR &quot;);</b>
+<i>70</i>&nbsp;
+<b class="nc"><i>71</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_ABSTRACT) == Opcodes.ACC_ABSTRACT)</b>
+<b class="nc"><i>72</i>&nbsp;      sb.append(&quot;ACC_ABSTRACT &quot;);</b>
+<i>73</i>&nbsp;
+<b class="nc"><i>74</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_INTERFACE) == Opcodes.ACC_INTERFACE)</b>
+<b class="nc"><i>75</i>&nbsp;      sb.append(&quot;ACC_INTERFACE &quot;);</b>
+<i>76</i>&nbsp;
+<b class="nc"><i>77</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_NATIVE) == Opcodes.ACC_NATIVE)</b>
+<b class="nc"><i>78</i>&nbsp;      sb.append(&quot;ACC_NATIVE &quot;);</b>
+<i>79</i>&nbsp;
+<b class="nc"><i>80</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_FINAL) == Opcodes.ACC_FINAL)</b>
+<b class="nc"><i>81</i>&nbsp;      sb.append(&quot;ACC_FINAL &quot;);</b>
+<i>82</i>&nbsp;
+<b class="nc"><i>83</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_STATIC) == Opcodes.ACC_STATIC)</b>
+<b class="nc"><i>84</i>&nbsp;      sb.append(&quot;ACC_STATIC &quot;);</b>
+<i>85</i>&nbsp;
+<b class="nc"><i>86</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_PUBLIC) == Opcodes.ACC_PUBLIC)</b>
+<b class="nc"><i>87</i>&nbsp;      sb.append(&quot;ACC_PUBLIC &quot;);</b>
+<i>88</i>&nbsp;
+<b class="nc"><i>89</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_PROTECTED) == Opcodes.ACC_PROTECTED)</b>
+<b class="nc"><i>90</i>&nbsp;      sb.append(&quot;ACC_PROTECTED &quot;);</b>
+<i>91</i>&nbsp;
+<b class="nc"><i>92</i>&nbsp;    if ((accessOpcode &amp; Opcodes.ACC_PRIVATE) == Opcodes.ACC_PRIVATE)</b>
+<b class="nc"><i>93</i>&nbsp;      sb.append(&quot;ACC_PRIVATE &quot;);</b>
+<i>94</i>&nbsp;
+<b class="nc"><i>95</i>&nbsp;    sb.deleteCharAt(sb.length() - 1);</b>
+<i>96</i>&nbsp;
+<b class="nc"><i>97</i>&nbsp;    return sb.toString();</b>
+<i>98</i>&nbsp;  }
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

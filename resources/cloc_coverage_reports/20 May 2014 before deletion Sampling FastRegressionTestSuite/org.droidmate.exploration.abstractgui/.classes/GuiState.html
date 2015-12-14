@@ -1,0 +1,257 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: GuiState</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration.abstractgui</a> ]
+</div>
+
+<h1>Coverage Summary for Class: GuiState (org.droidmate.exploration.abstractgui)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GuiState</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.7%
+  </span>
+  <span class="absValue">
+    (18/ 19)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GuiState$_isAppHasStoppedDialogBox_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$_isAppHasStoppedDialogBox_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$_isCompleteActionUsingDialogBox_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$canEqual$3</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$getTopNodePackageName$4</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$getWidgets$5</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$isAppHasStoppedDialogBox</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$isCompleteActionUsingDialogBox$6</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$isHomeScreen$0</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$isInScope$2</td>
+  </tr>
+  <tr>
+    <td class="name">GuiState$isOutOfScope$1</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    90.9%
+  </span>
+  <span class="absValue">
+    (10/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.5%
+  </span>
+  <span class="absValue">
+    (21/ 22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration.abstractgui
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import groovy.transform.Canonical
+<i>14</i>&nbsp;import org.droidmate.exploration.AppHasStoppedDialogBoxGuiState
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;@Canonical
+<i>17</i>&nbsp;class GuiState implements Cloneable
+<i>18</i>&nbsp;{
+<i>19</i>&nbsp;  private static final String PACKAGE_ANDROID_LAUNCHER           = &quot;com.android.launcher&quot;
+<i>20</i>&nbsp;  private static final String PACKAGE_ANDROID_APP_STOPPED_DIALOG = &quot;android&quot;
+<i>21</i>&nbsp;  private static final String PACKAGE_ANDROID_COMPLETE_ACTION_USING_DIALOG = &quot;android&quot;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  final String topNodePackageName
+<i>24</i>&nbsp;  final List&lt;Widget&gt; widgets
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  GuiState(String topNodePackageName, List&lt;Widget&gt; widgets)
+<i>27</i>&nbsp;  {
+<b class="fc"><i>28</i>&nbsp;    this.topNodePackageName = topNodePackageName</b>
+<b class="fc"><i>29</i>&nbsp;    this.widgets = widgets</b>
+<i>30</i>&nbsp;
+<b class="fc"><i>31</i>&nbsp;    assert !this.topNodePackageName?.empty</b>
+<b class="fc"><i>32</i>&nbsp;    assert widgets != null</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  @Override
+<i>37</i>&nbsp;  protected GuiState clone() throws CloneNotSupportedException
+<i>38</i>&nbsp;  {
+<b class="nc"><i>39</i>&nbsp;    return new GuiState(this.topNodePackageName, widgets.collect())</b>
+<i>40</i>&nbsp;  }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;  @Override
+<i>44</i>&nbsp;  public String toString()
+<i>45</i>&nbsp;  {
+<b class="fc"><i>46</i>&nbsp;      if (this.isHomeScreen())</b>
+<b class="fc"><i>47</i>&nbsp;        return &quot;GUI state: home screen&quot;</b>
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;      if (this instanceof AppHasStoppedDialogBoxGuiState)</b>
+<b class="fc"><i>50</i>&nbsp;        return &quot;GUI state of \&quot;App has stopped\&quot; dialog box. OK widget enabled: ${(this as AppHasStoppedDialogBoxGuiState).OKWidget.enabled}}&quot;</b>
+<i>51</i>&nbsp;
+<b class="fc"><i>52</i>&nbsp;    return &quot;GuiState pkg=$topNodePackageName Widgets count = ${widgets.size()}&quot;</b>
+<i>53</i>&nbsp;  }
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;  boolean isHomeScreen()
+<i>56</i>&nbsp;  {
+<b class="fc"><i>57</i>&nbsp;    return this.topNodePackageName == PACKAGE_ANDROID_LAUNCHER</b>
+<i>58</i>&nbsp;  }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;  boolean isAppHasStoppedDialogBox()
+<i>61</i>&nbsp;  {
+<b class="fc"><i>62</i>&nbsp;    return topNodePackageName == PACKAGE_ANDROID_APP_STOPPED_DIALOG &amp;&amp;</b>
+<b class="fc"><i>63</i>&nbsp;      widgets.any { it.text == &quot;OK&quot; } &amp;&amp;</b>
+<b class="fc"><i>64</i>&nbsp;      !widgets.any { it.text == &quot;Just once&quot; }</b>
+<i>65</i>&nbsp;  }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  boolean isCompleteActionUsingDialogBox()
+<i>68</i>&nbsp;  {
+<b class="fc"><i>69</i>&nbsp;    return topNodePackageName == PACKAGE_ANDROID_COMPLETE_ACTION_USING_DIALOG &amp;&amp;</b>
+<b class="fc"><i>70</i>&nbsp;      widgets.any { it.text == &quot;Just once&quot; }</b>
+<i>71</i>&nbsp;  }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;  boolean isOutOfScope(String appPackageName)
+<i>75</i>&nbsp;  {
+<b class="fc"><i>76</i>&nbsp;    return this.topNodePackageName != appPackageName &amp;&amp; !this.isHomeScreen() &amp;&amp; !this.isAppHasStoppedDialogBox()</b>
+<i>77</i>&nbsp;  }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;  boolean isInScope(String appPackageName)
+<i>80</i>&nbsp;  {
+<b class="fc"><i>81</i>&nbsp;    return this.topNodePackageName == appPackageName &amp;&amp;</b>
+<b class="fc"><i>82</i>&nbsp;      !this.isOutOfScope(appPackageName) &amp;&amp; !this.isHomeScreen() &amp;&amp; !this.isAppHasStoppedDialogBox()</b>
+<i>83</i>&nbsp;  }
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

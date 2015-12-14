@@ -1,0 +1,108 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IDependencyInjectionContainer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.inject</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IDependencyInjectionContainer (org.droidmate.frontend.inject)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$clearCachedInjector$5</td>
+  </tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$clearCachedInjectorAndConfigsAndBindingOverrides$2</td>
+  </tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$forceCacheInjector$4</td>
+  </tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$get$1</td>
+  </tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$setup</td>
+  </tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$setup$3</td>
+  </tr>
+  <tr>
+    <td class="name">IDependencyInjectionContainer$setupFromConfigs$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.inject;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.configuration.IConfiguration;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import java.io.PrintWriter;
+<i>16</i>&nbsp;import java.io.Reader;
+<i>17</i>&nbsp;import java.util.List;
+<i>18</i>&nbsp;import java.util.Map;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;public interface IDependencyInjectionContainer
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  void setup(String[] args, Map&lt;Class, Class&gt; bindingOverrides);
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;  void setup(String[] args);
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  void setupFromConfigs(List&lt;IConfiguration&gt; configs, Map&lt;Class, Class&gt; bindingOverrides);
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  &lt;T&gt; T get(Class&lt;T&gt; targetClass);
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;  Reader getUserInputReader();
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;  PrintWriter getProgramOutputWriter();
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;  void forceCacheInjector();
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;  void clearCachedInjector();
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  void clearCachedInjectorAndConfigsAndBindingOverrides();
+<i>40</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

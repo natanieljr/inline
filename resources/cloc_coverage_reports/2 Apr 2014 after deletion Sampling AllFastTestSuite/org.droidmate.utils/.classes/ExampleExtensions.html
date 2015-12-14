@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExampleExtensions</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExampleExtensions (org.droidmate.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExampleExtensions</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExampleExtensions$_likeAPirate_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.utils
+<i>12</i>&nbsp;/**
+<i>13</i>&nbsp; * This class is not used in DroidMate. I didn&#39;t deleted it because configuring gradle and IntelliJ to work with
+<i>14</i>&nbsp; * groovy extension classes is nontrivial, and this class codifies that knowledge.
+<i>15</i>&nbsp; *
+<i>16</i>&nbsp; * -----
+<i>17</i>&nbsp; *
+<i>18</i>&nbsp; * For this to be recognizable by IDEA, following has to be setup:
+<i>19</i>&nbsp; * In IDEA: project structure -&gt; modules -&gt; &lt;this module&gt; -&gt; dependencies
+<i>20</i>&nbsp; * -&gt; Add a &quot;folder&quot; entry with name &quot;groovyExtension&quot; having in it:
+<i>21</i>&nbsp; *
+<i>22</i>&nbsp; *   ./META-INF/services/org.codehaus.groovy.runtime.ExtensionModule
+<i>23</i>&nbsp; * whose contents are:
+<i>24</i>&nbsp; *
+<i>25</i>&nbsp; *   moduleName = example-module
+<i>26</i>&nbsp; *   moduleVersion = 1.0
+<i>27</i>&nbsp; *   extensionClasses = org.droidmate.utils.ExampleExtensions
+<i>28</i>&nbsp; *
+<i>29</i>&nbsp; * Reference: http://docs.codehaus.org/display/GROOVY/Creating+an+extension+module
+<i>30</i>&nbsp; *
+<i>31</i>&nbsp; * -----
+<i>32</i>&nbsp; *
+<i>33</i>&nbsp; * For this to be recognizable by gradle:
+<i>34</i>&nbsp; *
+<i>35</i>&nbsp; *   project(&quot;:projects:core&quot;) {
+<i>36</i>&nbsp; *     dependencies {
+<i>37</i>&nbsp; *        runtime files(new File(sourceSets.main.resources.srcDirs.find(), &quot;groovyExtensions&quot;));
+<i>38</i>&nbsp; *
+<i>39</i>&nbsp; * This will ensure the above metnioed folder is copied to the build folder and thus, available by the application at
+<i>40</i>&nbsp; * runtime.
+<i>41</i>&nbsp; * Reference: http://java.dzone.com/articles/groovy-goodness-adding-extra
+<i>42</i>&nbsp; *
+<i>43</i>&nbsp; */
+<i>44</i>&nbsp;@SuppressWarnings(&quot;GroovyUnusedDeclaration&quot;)
+<i>45</i>&nbsp;class ExampleExtensions
+<i>46</i>&nbsp;{
+<i>47</i>&nbsp;  static String likeAPirate(final String self) {
+<i>48</i>&nbsp;    // List of pirate language translations.
+<b class="nc"><i>49</i>&nbsp;    def translations = [</b>
+<b class="nc"><i>50</i>&nbsp;      [&quot;hello&quot;, &quot;ahoy&quot;], [&quot;Hi&quot;, &quot;Yo-ho-ho&quot;],</b>
+<b class="nc"><i>51</i>&nbsp;      [&#39;are&#39;, &#39;be&#39;], [&#39;am&#39;, &#39;be&#39;], [&#39;is&#39;, &#39;be&#39;],</b>
+<b class="nc"><i>52</i>&nbsp;      [&#39;the&#39;, &quot;th&#39;&quot;], [&#39;you&#39;, &#39;ye&#39;], [&#39;your&#39;, &#39;yer&#39;],</b>
+<b class="nc"><i>53</i>&nbsp;      [&#39;of&#39;, &quot;o&#39;&quot;]</b>
+<i>54</i>&nbsp;    ]
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    // Translate the original String to a
+<i>57</i>&nbsp;    // pirate language String.
+<b class="nc"><i>58</i>&nbsp;    String result = self</b>
+<b class="nc"><i>59</i>&nbsp;    translations.each { translate -&gt;</b>
+<b class="nc"><i>60</i>&nbsp;      result = result.replaceAll(translate[0], translate[1])</b>
+<i>61</i>&nbsp;    }
+<b class="nc"><i>62</i>&nbsp;    result</b>
+<i>63</i>&nbsp;  }
+<i>64</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

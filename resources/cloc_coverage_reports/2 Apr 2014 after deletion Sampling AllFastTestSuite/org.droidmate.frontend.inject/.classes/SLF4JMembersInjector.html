@@ -1,0 +1,122 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SLF4JMembersInjector</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.inject</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SLF4JMembersInjector (org.droidmate.frontend.inject)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SLF4JMembersInjector</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (8/ 10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.inject;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.MembersInjector;
+<i>14</i>&nbsp;import org.slf4j.Logger;
+<i>15</i>&nbsp;import org.slf4j.LoggerFactory;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import java.lang.reflect.Field;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;/**
+<i>20</i>&nbsp; * Reference: &lt;a href=http://forkbomb-blog.de/2012/slf4j-logger-injection-with-guice&quot;&gt;blog article&lt;/a&gt;.
+<i>21</i>&nbsp; */
+<i>22</i>&nbsp;public class SLF4JMembersInjector&lt;T&gt; implements MembersInjector&lt;T&gt; {
+<i>23</i>&nbsp;  private final Field field;
+<i>24</i>&nbsp;  private final Logger logger;
+<i>25</i>&nbsp;
+<b class="fc"><i>26</i>&nbsp;  public SLF4JMembersInjector(Field field) {</b>
+<b class="fc"><i>27</i>&nbsp;    this.field = field;</b>
+<b class="fc"><i>28</i>&nbsp;    this.logger = LoggerFactory.getLogger(field.getDeclaringClass());</b>
+<b class="fc"><i>29</i>&nbsp;    field.setAccessible(true);</b>
+<b class="fc"><i>30</i>&nbsp;  }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  public void injectMembers(T t) {
+<i>33</i>&nbsp;    try {
+<b class="fc"><i>34</i>&nbsp;      field.set(t, logger);</b>
+<b class="nc"><i>35</i>&nbsp;    } catch (IllegalAccessException e) {</b>
+<b class="nc"><i>36</i>&nbsp;      throw new RuntimeException(e);</b>
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<b class="fc"><i>38</i>&nbsp;  }</b>
+<i>39</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

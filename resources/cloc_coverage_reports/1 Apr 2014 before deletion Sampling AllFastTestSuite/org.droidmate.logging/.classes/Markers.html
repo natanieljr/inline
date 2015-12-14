@@ -1,0 +1,192 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Markers</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.logging</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Markers (org.droidmate.logging)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Markers</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Markers$_getAllMarkers_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Markers$getAllMarkers</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.logging
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.slf4j.Marker
+<i>14</i>&nbsp;import org.slf4j.MarkerFactory
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;/**
+<i>17</i>&nbsp; * &lt;p&gt;
+<i>18</i>&nbsp; * Markers used by slf4j loggers to log specific information. Most of the DroidMate classes have one instance of
+<i>19</i>&nbsp; * such {@link org.slf4j.Logger Logger} annotated with {@link org.droidmate.frontend.inject.InjectLogger @InjectLogger}.
+<i>20</i>&nbsp; *
+<i>21</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>22</i>&nbsp; * See {@code logback.groovy} for details on logging.
+<i>23</i>&nbsp; *
+<i>24</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>25</i>&nbsp; * &lt;i&gt;This doc was last reviewed on 01 Oct 2013.&lt;/i&gt;
+<i>26</i>&nbsp; * &lt;/p&gt;
+<i>27</i>&nbsp; */
+<i>28</i>&nbsp;public class Markers
+<i>29</i>&nbsp;{
+<i>30</i>&nbsp;  /**
+<i>31</i>&nbsp;   * Marker for logging summary data on apk processing, telling if the apk was successfully instrumented,
+<i>32</i>&nbsp;   * explored, etc.
+<i>33</i>&nbsp;   */
+<b class="fc"><i>34</i>&nbsp;  public static final Marker MARKER_APK_SUMMARY = MarkerFactory.getMarker(&quot;MARKER_APK_SUMMARY&quot;);</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  /**
+<i>37</i>&nbsp;   * Marker for logging diagnostic information on apk processing.
+<i>38</i>&nbsp;   */
+<b class="fc"><i>39</i>&nbsp;  public static final Marker MARKER_APK_DIAGNOSTICS = MarkerFactory.getMarker(&quot;MARKER_APK_DIAGNOSTICS&quot;);</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  /**
+<i>42</i>&nbsp;   * Marker for logging diagnostic information on abstract GUI model processing.
+<i>43</i>&nbsp;   */
+<i>44</i>&nbsp;  public static final Marker MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS =
+<b class="fc"><i>45</i>&nbsp;    MarkerFactory.getMarker(&quot;MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS&quot;);</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  /**
+<i>48</i>&nbsp;   * Marker for logging command line executions. Such logs can be copy-pasted to console and executed for
+<i>49</i>&nbsp;   * quick ad-hoc debugging.
+<i>50</i>&nbsp;   */
+<b class="fc"><i>51</i>&nbsp;  public static final Marker MARKER_SYS_CMD = MarkerFactory.getMarker(&quot;MARKER_SYS_CMD&quot;);</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  /**
+<i>55</i>&nbsp;   * Marker for logging apk metadata obtained with aapt.
+<i>56</i>&nbsp;   */
+<b class="fc"><i>57</i>&nbsp;  public static final Marker MARKER_AAPT_DUMP = MarkerFactory.getMarker(&quot;MARKER_AAPT_DUMP&quot;);</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  /**
+<i>60</i>&nbsp;   * Marker for logging commands sent to and received from serial port. Used by the code related to the CeBIT robot.
+<i>61</i>&nbsp;   */
+<b class="fc"><i>62</i>&nbsp;  public static final Marker MARKER_SERIAL_DRIVER = MarkerFactory.getMarker(&quot;MARKER_SERIAL_DRIVER&quot;);</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;  /**
+<i>65</i>&nbsp;   * Marker for logging messages related to instrumentation of the apks.
+<i>66</i>&nbsp;   */
+<b class="fc"><i>67</i>&nbsp;  public static final Marker MARKER_INSTRUMENTATION = MarkerFactory.getMarker(&quot;MARKER_INSTRUMENTATION&quot;);</b>
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;  /**
+<i>70</i>&nbsp;   * Marker for logging temporary messages. These messages are expected to be temporary (e.g. debugging aids) and to be
+<i>71</i>&nbsp;   * removed from code as soon as the debugging activity is finished.
+<i>72</i>&nbsp;   */
+<b class="fc"><i>73</i>&nbsp;  public static final Marker MARKER_TEMP_DUMP = MarkerFactory.getMarker(&quot;MARKER_TEMP_DUMP&quot;);</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;  public static List&lt;Marker&gt; getAllMarkers()
+<i>77</i>&nbsp;  {
+<b class="fc"><i>78</i>&nbsp;    return Markers.fields.collect { it as Marker};</b>
+<i>79</i>&nbsp;  }
+<i>80</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

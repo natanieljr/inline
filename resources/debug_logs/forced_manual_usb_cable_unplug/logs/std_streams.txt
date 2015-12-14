@@ -1,0 +1,38 @@
+2015-10-01 16:30:55.093 INFO  o.d.f.configuration.ConfigurationBuilder Generated random seed: -270105064818720322
+2015-10-01 16:30:55.856 INFO  o.d.f.configuration.ConfigurationBuilder Generated random seed: 564750529962053454
+2015-10-01 16:30:56.111 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-10-01 16:30:56.113 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\temp_dir_for_tests/logs.
+2015-10-01 16:30:56.539 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-10-01 16:30:56.545 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Thu Oct 01 16:30:56 CEST 2015
+2015-10-01 16:30:56.655 INFO  o.droidmate.device.AndroidDeviceDeployer withSetupDevice(deviceIndex: 0, computation)
+2015-10-01 16:30:59.301 INFO  org.droidmate.ExploreCommand             Processing 1 out of 1 apks: MonitoredApkFixture-debug-inlined.apk
+2015-10-01 16:30:59.358 INFO  org.droidmate.lowlevel.apk.ApkDeployer   Reinstalling MonitoredApkFixture-debug-inlined.apk
+2015-10-01 16:31:02.797 INFO  org.droidmate.exploration.Exploration    run(org.droidmate.fixtures.apks.monitored, device)
+2015-10-01 16:31:04.425 INFO  org.droidmate.exploration.Exploration    Initial action: <ExplAct Reset app>
+2015-10-01 16:31:21.946 INFO  o.d.e.strategy.ExplorationStrategy       1/2 <ExplAct LC? 0 Wdgt:Button/"API: URL.openConnection()"/"org.droidmate.fixtures.apks.monitored:id/button_api"/[185,161]>
+2015-10-01 16:31:22.664 WARN  org.droidmate.exploration.Exploration    ! Encountered exception during the exploration of org.droidmate.fixtures.apks.monitored after already obtaining some exploration output.
+2015-10-01 16:31:22.724 INFO  o.droidmate.lowlevel.filesystem.Storage  Serializing exploration output of apk org.droidmate.fixtures.apks.monitored to temp_dir_for_tests\2015 Oct 01 1631 org.droidmate.fixtures.apks.monitored.ser
+2015-10-01 16:32:22.884 WARN  org.droidmate.common.SysCmdExecutor      The command with description "Executing adb (Android Debug Bridge) to clear logcat output." executed for 60 seconds. The execution time was +- 100 milliseconds of the execution timeout. Reaching the timeout might be the cause of the process returning non-zero value. Try increasing the timeout (by changing appropriate cmd line parameter) or, if this doesn't help, be aware the process might not be terminating at all.
+2015-10-01 16:32:23.929 ERROR org.droidmate.frontend.ExceptionHandler  ApkExplorationExceptionsCollection as well as DeviceException were thrown during DroidMare run. Each of them will now be logged.
+2015-10-01 16:32:23.934 ERROR org.droidmate.frontend.ExceptionHandler  ========================================
+2015-10-01 16:32:23.943 ERROR org.droidmate.frontend.ExceptionHandler  Exploration exceptions have been thrown during DroidMate run. Count: 1. 
+--- The exceptions list, in format "source explored app pkg name | the exception" 
+org.droidmate.fixtures.apks.monitored | org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.
+--- End of the list
+
+2015-10-01 16:32:23.979 ERROR org.droidmate.frontend.ExceptionHandler  ========================================
+2015-10-01 16:32:23.984 ERROR org.droidmate.frontend.ExceptionHandler  A fatal DeviceException was thrown during DroidMate run: org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.
+2015-10-01 16:32:23.992 ERROR org.droidmate.frontend.ExceptionHandler  The 'org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.' has 1 suppressed exceptions at suppression depth of 1. Each of them will be now logged.
+2015-10-01 16:32:23.998 ERROR org.droidmate.frontend.ExceptionHandler  Suppression depth: 1 | org.droidmate.exceptions.AdbWrapperException: org.droidmate.common.SysCmdExecutorException: Failed to execute a system command.
+Command: [c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe, -s, 015d2109ce0c1a0f, logcat, -c]
+Captured exit value: 1
+Execution time: 60 seconds. The execution time was +- 100 milliseconds of the execution timeout. Reaching the timeout might be the cause of the process returning non-zero value. Try increasing the timeout (by changing appropriate cmd line parameter) or, if this doesn't help, be aware the process might not be terminating at all.
+Captured stdout: <stdout is empty>
+Captured stderr: <stderr is empty>
+2015-10-01 16:32:24.011 ERROR org.droidmate.frontend.ExceptionHandler  ========================================
+2015-10-01 16:32:24.014 ERROR org.droidmate.frontend.ExceptionHandler  Please see .\temp_dir_for_tests/logs\exceptions.txt log for details.
+2015-10-01 16:32:24.025 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.
+2015-10-01 16:32:24.028 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Oct 01 16:32:24. DroidMate ran for 1 minutes, 27.932 seconds.
+2015-10-01 16:32:24.028 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-10-01 16:32:24.029 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\temp_dir_for_tests/logs directory.
+2015-10-01 16:32:24.099 INFO  o.droidmate.lowlevel.filesystem.Storage  Deserialized exploration output of org.droidmate.fixtures.apks.monitored from temp_dir_for_tests\2015 Oct 01 1631 org.droidmate.fixtures.apks.monitored.ser

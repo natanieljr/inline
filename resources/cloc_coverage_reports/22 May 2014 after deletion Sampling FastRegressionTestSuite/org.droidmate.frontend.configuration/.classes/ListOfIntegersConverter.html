@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ListOfIntegersConverter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.configuration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ListOfIntegersConverter (org.droidmate.frontend.configuration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ListOfIntegersConverter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/ 6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ListOfIntegersConverter$_convert_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (6/ 7)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.configuration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.beust.jcommander.IStringConverter
+<i>14</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;public class ListOfIntegersConverter implements IStringConverter&lt;List&lt;Integer&gt;&gt;
+<i>17</i>&nbsp;{
+<i>18</i>&nbsp;  @Override
+<i>19</i>&nbsp;  public List&lt;Integer&gt; convert(String arg)
+<i>20</i>&nbsp;  {
+<b class="fc"><i>21</i>&nbsp;    assert arg != null</b>
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;    List&lt;Integer&gt; convertedArg</b>
+<i>24</i>&nbsp;    try
+<i>25</i>&nbsp;    {
+<b class="fc"><i>26</i>&nbsp;      convertedArg = arg.tokenize(&quot;[,]&quot;).collect {it as Integer}</b>
+<i>27</i>&nbsp;    } catch (Exception e)
+<i>28</i>&nbsp;    {
+<b class="nc"><i>29</i>&nbsp;      throw new DroidmateException(&quot;The string &#39;${arg}&#39; is not a valid value for parameter expecting a list of integer. &quot; +</b>
+<i>30</i>&nbsp;        &quot;See command line parameters help for examples of correct format.&quot;, e);
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<b class="fc"><i>33</i>&nbsp;    assert convertedArg != null</b>
+<b class="fc"><i>34</i>&nbsp;    return convertedArg</b>
+<i>35</i>&nbsp;  }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

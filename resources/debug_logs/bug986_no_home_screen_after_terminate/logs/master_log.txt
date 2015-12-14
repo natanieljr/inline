@@ -1,0 +1,194 @@
+2015-11-30 19:08:47.123 TRACE o.d.l.LogbackUtilsRequiringLogbackLog    Deleted old logs in directory .\dev1\logs. Files that couldn't be deleted and thus had their content was instead erased: exceptions.txt
+2015-11-30 19:08:47.142 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-11-30 19:08:47.154 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\dev1\logs.
+2015-11-30 19:08:47.184 DEBUG o.d.configuration.ConfigurationBuilder   memoizedBuildConfiguration(args, fs)
+2015-11-30 19:08:47.756 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-11-30 19:08:47.761 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Mon Nov 30 19:08:47 CET 2015
+2015-11-30 19:08:47.948 INFO  o.droidmate.tools.AndroidDeviceDeployer  withSetupDevice(deviceIndex: 0, computation)
+2015-11-30 19:08:48.071 DEBUG org.droidmate.device.AndroidDevice       forwardPort(59778)
+2015-11-30 19:08:48.092 DEBUG org.droidmate.device.AndroidDevice       forwardPort(59776)
+2015-11-30 19:08:48.112 DEBUG org.droidmate.device.AndroidDevice       pushJar(C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar)
+2015-11-30 19:08:48.214 DEBUG org.droidmate.device.AndroidDevice       pushJar(C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk)
+2015-11-30 19:08:48.325 DEBUG org.droidmate.device.AndroidDevice       startUiaDaemon()
+2015-11-30 19:08:48.331 DEBUG org.droidmate.android_sdk.AdbWrapper     waitForMessagesOnLogcat.sleep(queryInterval=2000)
+2015-11-30 19:08:50.332 DEBUG org.droidmate.android_sdk.AdbWrapper     waitForMessagesOnLogcat.readMessagesFromLogcat(messageTag=uiautomator-daemon_server_start_tag) timeLeftToQuery=18000 readMessages.size()=0 minMessagesCount=1
+2015-11-30 19:08:50.419 DEBUG org.droidmate.android_sdk.AdbWrapper     waitForMessagesOnLogcat loop finished. readMessages.size()=1
+2015-11-30 19:08:50.419 TRACE org.droidmate.device.AndroidDevice       DONE startUiaDaemon()
+2015-11-30 19:08:50.421 INFO  org.droidmate.command.ExploreCommand     Processing 1 out of 1 apks: net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:08:50.423 DEBUG org.droidmate.tools.ApkDeployer          withDeployedApk(device, net.zedge.android_v4.10.2-inlined.apk, computation)
+2015-11-30 19:08:50.425 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:08:50.454 INFO  org.droidmate.tools.ApkDeployer          Reinstalling net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:08:50.455 DEBUG org.droidmate.device.AndroidDevice       uninstallApk(net.zedge.android, warnAboutFailure: false)
+2015-11-30 19:08:51.327 DEBUG org.droidmate.device.AndroidDevice       installApk(net.zedge.android_v4.10.2-inlined.apk)
+2015-11-30 19:09:01.111 INFO  o.d.command.exploration.Exploration      run(net.zedge.android, device)
+2015-11-30 19:09:01.111 TRACE o.d.command.exploration.Exploration      tryAssertDeviceHasPackageInstalled(device, net.zedge.android)
+2015-11-30 19:09:01.111 DEBUG org.droidmate.device.AndroidDevice       hasPackageInstalled(net.zedge.android)
+2015-11-30 19:09:01.920 TRACE o.d.command.exploration.Exploration      tryWarnDeviceDisplaysHomeScreen(device, net.zedge.android_v4.10.2-inlined.apk)
+2015-11-30 19:09:01.923 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:01.926 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:02.178 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:02.279 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{home screen}
+2015-11-30 19:09:02.280 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:02.280 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:02.335 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:02.342 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{home screen}
+2015-11-30 19:09:02.364 DEBUG o.d.command.exploration.Exploration      explorationLoop(app=net.zedge.android_v4.10.2-inlined.apk, device)
+2015-11-30 19:09:02.370 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-11-30 19:09:02.382 TRACE o.d.e.actions.RunnableExplorationAction  RunnableResetAppExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device)
+2015-11-30 19:09:02.383 DEBUG o.d.e.a.RunnableResetAppExplorationAction 1. Resetting package net.zedge.android
+2015-11-30 19:09:02.390 DEBUG org.droidmate.device.AndroidDevice       perform(AdbClearPackageAction{net.zedge.android})
+2015-11-30 19:09:02.390 DEBUG org.droidmate.device.AndroidDevice       clearPackage(net.zedge.android)
+2015-11-30 19:09:03.202 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:03.203 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:03.264 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:03.270 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{home screen}
+2015-11-30 19:09:03.271 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:03.271 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:03.320 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:03.326 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{home screen}
+2015-11-30 19:09:03.332 DEBUG org.droidmate.device.AndroidDevice       perform(ClickGuiAction{turn_wifi_on})
+2015-11-30 19:09:03.332 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:10.232 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:10.233 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:10.234 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:10.313 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:10.319 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{home screen}
+2015-11-30 19:09:10.319 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:10.319 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:10.373 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:10.379 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{home screen}
+2015-11-30 19:09:10.387 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init)
+2015-11-30 19:09:10.443 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-11-30 19:09:10.477 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 19:09:10.480 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-11-30 19:09:10.480 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:10.487 DEBUG o.d.exploration.device.DeviceLogsHandler Caught TcpServerUnreachableException from messagesReader.getAndClearCurrentApiLogsFromMonitorTcpServer(). Because app is allowed to be unreachable: 1. ignoring the exception instead of rethrowing, 2. returning null api logs.
+2015-11-30 19:09:10.487 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-11-30 19:09:10.559 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:09:10.591 DEBUG o.d.e.a.RunnableResetAppExplorationAction 2. Launching main activity
+2015-11-30 19:09:10.593 DEBUG org.droidmate.device.AndroidDevice       perform(LaunchMainActivityDeviceAction{net.zedge.android/net.zedge.android.Main})
+2015-11-30 19:09:10.594 DEBUG org.droidmate.device.AndroidDevice       launchMainActivity(net.zedge.android/net.zedge.android.Main)
+2015-11-30 19:09:25.740 DEBUG o.d.e.a.RunnableResetAppExplorationAction 3. Logging uia-daemon logs from logcat
+2015-11-30 19:09:25.740 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-11-30 19:09:25.789 DEBUG o.d.e.a.RunnableResetAppExplorationAction 4. Reading monitor init logs and clearing logcat
+2015-11-30 19:09:25.789 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(deviceTimeDiff)
+2015-11-30 19:09:25.789 DEBUG org.droidmate.device.AndroidDevice       waitForLogcatMessages(tag: Monitor_init, minMessagesCount: 2, waitTimeout: 20000, queryInterval: 2000)
+2015-11-30 19:09:25.790 DEBUG org.droidmate.android_sdk.AdbWrapper     waitForMessagesOnLogcat.sleep(queryInterval=2000)
+2015-11-30 19:09:27.791 DEBUG org.droidmate.android_sdk.AdbWrapper     waitForMessagesOnLogcat.readMessagesFromLogcat(messageTag=Monitor_init) timeLeftToQuery=18000 readMessages.size()=0 minMessagesCount=2
+2015-11-30 19:09:27.834 DEBUG org.droidmate.android_sdk.AdbWrapper     waitForMessagesOnLogcat loop finished. readMessages.size()=2
+2015-11-30 19:09:27.834 DEBUG org.droidmate.device.AndroidDevice       waitForLogcatMessages(): obtained messages: 11-30 19:06:13.630 I/Monitor_init(12515): Monitor constructed successfully.
+11-30 19:06:14.470 I/Monitor_init(12515): Monitor initialized for package net.zedge.android
+2015-11-30 19:09:27.836 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): obtained messages
+2015-11-30 19:09:27.838 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): syncing time
+2015-11-30 19:09:27.838 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:27.878 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:27.881 TRACE o.d.exploration.device.DeviceTimeDiff    computeDiff(device) result:
+Current time   : 2015-11-30 19:09:27.879
+Device time    : 2015-11-30 19:06:29.693
+Resulting diff : PT-2M-58.186S
+2015-11-30 19:09:27.884 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): returning monitorInitTime: 2015-11-30T19:09:12.656
+2015-11-30 19:09:27.884 DEBUG o.d.exploration.device.InitMsgsReader    readInstrumentationMessages(deviceTimeDiff)
+2015-11-30 19:09:27.884 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-11-30 19:09:27.959 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:09:27.984 DEBUG o.d.e.a.RunnableResetAppExplorationAction 5. Reading and clearing api logs
+2015-11-30 19:09:27.984 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 19:09:27.985 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-11-30 19:09:27.985 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:28.054 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:28.103 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 56
+2015-11-30 19:09:28.103 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:28.103 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:28.155 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:28.159 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{net.zedge.android. Widgets# 14}
+2015-11-30 19:09:28.159 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:28.160 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:28.194 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:28.197 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{net.zedge.android. Widgets# 14}
+2015-11-30 19:09:28.198 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-11-30 19:09:28.237 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:09:28.264 TRACE o.d.e.actions.RunnableExplorationAction  RunnableResetAppExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device) - DONE
+2015-11-30 19:09:28.304 DEBUG o.d.e.strategy.ExplorationStrategy       decide(ExplorationActionRunResult{successful=true, snapshot=UiautomatorWindowDump{net.zedge.android. Widgets# 14}, DeviceLogs{apiLogs#=56, containsMonitorInitMsgs=true}, exception=N/A (lack of DeviceException)})
+2015-11-30 19:09:28.329 INFO  o.d.e.strategy.ExplorationStrategy       1/1 <ExplAct LC? 0 Wdgt:Button/"Terms of Service"/""/[400,631]>
+2015-11-30 19:09:28.332 TRACE o.d.e.actions.RunnableExplorationAction  RunnableWidgetExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device)
+2015-11-30 19:09:28.332 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init)
+2015-11-30 19:09:28.373 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-11-30 19:09:28.412 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 19:09:28.412 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-11-30 19:09:28.413 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:28.426 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:28.428 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 3
+2015-11-30 19:09:28.432 DEBUG org.droidmate.device.AndroidDevice       perform(ClickGuiAction{400 631 long: false})
+2015-11-30 19:09:28.432 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:31.886 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:31.886 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 19:09:31.886 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-11-30 19:09:31.886 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:31.910 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:31.914 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 5
+2015-11-30 19:09:31.915 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:31.916 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:31.975 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:31.979 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{com.android.chrome. Widgets# 26}
+2015-11-30 19:09:31.979 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:31.979 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:32.189 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:32.199 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{com.android.chrome. Widgets# 102}
+2015-11-30 19:09:32.199 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-11-30 19:09:32.241 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:09:32.268 TRACE o.d.e.actions.RunnableExplorationAction  RunnableWidgetExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device) - DONE
+2015-11-30 19:09:32.268 DEBUG o.d.e.strategy.ExplorationStrategy       decide(ExplorationActionRunResult{successful=true, snapshot=UiautomatorWindowDump{com.android.chrome. Widgets# 102}, DeviceLogs{apiLogs#=8, containsMonitorInitMsgs=false}, exception=N/A (lack of DeviceException)})
+2015-11-30 19:09:32.275 INFO  o.d.e.strategy.ExplorationStrategy       Terminating exploration: No actions left.
+2015-11-30 19:09:32.278 INFO  o.d.e.strategy.ExplorationStrategy       <ExplAct Terminate exploration>
+2015-11-30 19:09:32.281 TRACE o.d.e.actions.RunnableExplorationAction  RunnableTerminateExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device)
+2015-11-30 19:09:32.281 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init)
+2015-11-30 19:09:32.314 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-11-30 19:09:32.347 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 19:09:32.348 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-11-30 19:09:32.348 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:32.361 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:32.362 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 0
+2015-11-30 19:09:32.363 DEBUG org.droidmate.device.AndroidDevice       perform(AdbClearPackageAction{net.zedge.android})
+2015-11-30 19:09:32.363 DEBUG org.droidmate.device.AndroidDevice       clearPackage(net.zedge.android)
+2015-11-30 19:09:33.356 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init)
+2015-11-30 19:09:33.389 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-11-30 19:09:33.432 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 19:09:33.432 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-11-30 19:09:33.432 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59776)
+2015-11-30 19:09:33.436 DEBUG o.d.exploration.device.DeviceLogsHandler Caught TcpServerUnreachableException from messagesReader.getAndClearCurrentApiLogsFromMonitorTcpServer(). Because app is allowed to be unreachable: 1. ignoring the exception instead of rethrowing, 2. returning null api logs.
+2015-11-30 19:09:33.436 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:33.436 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:33.564 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:33.575 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{com.android.chrome. Widgets# 102}
+2015-11-30 19:09:33.576 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-11-30 19:09:33.576 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:33.718 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:33.727 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot(): UiautomatorWindowDump{com.android.chrome. Widgets# 102}
+2015-11-30 19:09:33.727 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-11-30 19:09:33.763 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:09:33.802 TRACE o.d.e.actions.RunnableExplorationAction  RunnableTerminateExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device) - DONE
+2015-11-30 19:09:33.810 INFO  org.droidmate.storage.Storage2           Serializing ApkExplorationOutput2 to .\dev1\2015 Nov 30 1909 net.zedge.android.ser2
+2015-11-30 19:09:33.866 DEBUG org.droidmate.tools.ApkDeployer          Finalizing: withDeployedApk.finally {} for computation(apk)
+2015-11-30 19:09:33.867 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-11-30 19:09:33.905 INFO  org.droidmate.tools.ApkDeployer          Uninstalling net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:09:33.905 DEBUG org.droidmate.device.AndroidDevice       clearPackage(net.zedge.android)
+2015-11-30 19:09:34.688 DEBUG org.droidmate.device.AndroidDevice       uninstallApk(net.zedge.android, warnAboutFailure: true)
+2015-11-30 19:09:37.806 DEBUG org.droidmate.tools.ApkDeployer          Finalizing DONE: withDeployedApk.finally {} for computation(apk)
+2015-11-30 19:09:37.807 TRACE org.droidmate.tools.ApkDeployer          Undeployed apk net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:09:37.807 DEBUG o.droidmate.tools.AndroidDeviceDeployer  Finalizing: withSetupDevice.finally {} for computation(device)
+2015-11-30 19:09:37.807 TRACE org.droidmate.device.AndroidDevice       stopUiaDaemon()
+2015-11-30 19:09:37.807 TRACE o.droidmate.device.SerializableTCPClient Socket socket = new Socket(localhost, 59778)
+2015-11-30 19:09:37.821 TRACE o.droidmate.device.SerializableTCPClient socket.close()
+2015-11-30 19:09:37.854 TRACE org.droidmate.device.AndroidDevice       DONE stopUiaDaemon()
+2015-11-30 19:09:37.854 DEBUG org.droidmate.device.AndroidDevice       removeJar(C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar)
+2015-11-30 19:09:37.886 DEBUG org.droidmate.device.AndroidDevice       removeJar(C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk)
+2015-11-30 19:09:37.915 DEBUG o.droidmate.tools.AndroidDeviceDeployer  Finalizing DONE: withSetupDevice.finally {} for computation(device)
+2015-11-30 19:09:37.933 ERROR o.d.d.ApkExplorationOutput               Verification of exploration output from net.zedge.android failed with: <exception message cut out due to IntelliJ hanging on too long stdout>. As a consequence, the output is malformed and attempts of further processing will either throw an exception or result in bogus results. Please see .\dev1\logs\exceptions.txt log for details.
+2015-11-30 19:09:37.939 INFO  o.d.d.ExplorationOutputAnalysisPersister Persisting data from exploration output for net.zedge.android.
+2015-11-30 19:09:37.939 INFO  o.d.d.ExplorationOutputAnalysisPersister Persisting summary for net.zedge.android.
+2015-11-30 19:09:37.939 TRACE o.d.deprecated_still_used.Storage        Deleting .\dev1\summary-net.zedge.android.txt
+2015-11-30 19:09:38.034 DEBUG org.droidmate.command.ExploreCommand     Finalizing: ExploreCommand.tryExecute finally {}
+2015-11-30 19:09:38.035 DEBUG org.droidmate.command.ExploreCommand     Finalizing DONE: ExploreCommand.tryExecute finally {}
+2015-11-30 19:09:38.042 INFO  org.droidmate.frontend.DroidmateFrontend DroidMate run finished successfully.
+2015-11-30 19:09:38.044 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Nov 30 19:09:38. DroidMate ran for 50.934 seconds.
+2015-11-30 19:09:38.045 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-11-30 19:09:38.046 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\dev1\logs directory.

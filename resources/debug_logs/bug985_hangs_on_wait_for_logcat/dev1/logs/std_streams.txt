@@ -1,0 +1,25 @@
+2015-11-30 17:27:46.712 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-11-30 17:27:46.714 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\dev1\logs.
+2015-11-30 17:27:47.101 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-11-30 17:27:47.104 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Mon Nov 30 17:27:46 CET 2015
+2015-11-30 17:27:47.309 INFO  o.droidmate.tools.AndroidDeviceDeployer  withSetupDevice(deviceIndex: 0, computation)
+2015-11-30 17:27:49.757 INFO  org.droidmate.command.ExploreCommand     Processing 1 out of 1 apks: net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 17:27:49.793 INFO  org.droidmate.tools.ApkDeployer          Reinstalling net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 17:28:03.279 INFO  o.d.command.exploration.Exploration      run(net.zedge.android, device)
+2015-11-30 17:28:04.823 WARN  o.d.command.exploration.Exploration      An exploration process for net.zedge.android_v4.10.2-inlined.apk is about to start but the device doesn't display home screen. Instead, its GUI state is: GuiState <pkg=com.android.chrome Widgets count = 102>. Continuing the exploration nevertheless, hoping that the first "reset app" exploration action will force the device into the home screen.
+2015-11-30 17:28:04.842 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-11-30 17:31:36.362 WARN  o.d.command.exploration.Exploration      ! Encountered DeviceException during the exploration of net.zedge.android after already obtaining some exploration output.
+2015-11-30 17:31:36.370 INFO  org.droidmate.storage.Storage2           Serializing ApkExplorationOutput2 to .\dev1\2015 Nov 30 1731 net.zedge.android.ser2
+2015-11-30 17:31:36.438 INFO  org.droidmate.tools.ApkDeployer          Uninstalling net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 17:31:38.870 INFO  o.d.d.ExplorationOutputAnalysisPersister Persisting data from exploration output for net.zedge.android.
+2015-11-30 17:31:38.870 INFO  o.d.d.ExplorationOutputAnalysisPersister Persisting summary for net.zedge.android.
+2015-11-30 17:31:38.893 ERROR org.droidmate.frontend.ExceptionHandler  Exploration exceptions have been thrown during DroidMate run. Count: 1. 
+--- The exceptions list, in format "source explored app pkg name | the exception" 
+net.zedge.android | org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.
+--- End of the list
+
+2015-11-30 17:31:38.905 ERROR org.droidmate.frontend.ExceptionHandler  Please see .\dev1\logs\exceptions.txt log for details.
+2015-11-30 17:31:38.910 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.
+2015-11-30 17:31:38.911 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Nov 30 17:31:38. DroidMate ran for 3 minutes, 52.232 seconds.
+2015-11-30 17:31:38.912 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-11-30 17:31:38.912 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\dev1\logs directory.

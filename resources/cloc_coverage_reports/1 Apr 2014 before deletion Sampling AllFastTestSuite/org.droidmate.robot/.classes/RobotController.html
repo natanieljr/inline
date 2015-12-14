@@ -1,0 +1,488 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RobotController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.robot</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RobotController (org.droidmate.robot)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RobotController</td>
+<td class="coverageStat">
+  <span class="percent">
+    77.8%
+  </span>
+  <span class="absValue">
+    (14/ 18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    82.7%
+  </span>
+  <span class="absValue">
+    (115/ 139)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RobotController$$FastClassByGuice$$7e9e4c4b</td>
+  </tr>
+  <tr>
+    <td class="name">RobotController$this$2$_moveToMappedCoordinates$2</td>
+  </tr>
+  <tr>
+    <td class="name">RobotController$this$2$chooseSerialPort</td>
+  </tr>
+  <tr>
+    <td class="name">RobotController$this$2$computeSpeed2$1</td>
+  </tr>
+  <tr>
+    <td class="name">RobotController$this$2$moveThroughPath$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    77.8%
+  </span>
+  <span class="absValue">
+    (14/ 18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    82.7%
+  </span>
+  <span class="absValue">
+    (115/ 139)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.robot
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.common.collect.Lists
+<i>14</i>&nbsp;import com.google.inject.Inject
+<i>15</i>&nbsp;import com.google.inject.Singleton
+<i>16</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>17</i>&nbsp;import org.droidmate.exceptions.RobotException
+<i>18</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>19</i>&nbsp;import org.droidmate.frontend.inject.UserInputReader
+<i>20</i>&nbsp;import org.slf4j.Logger
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;@Singleton
+<i>23</i>&nbsp;public class RobotController implements IRobotController
+<i>24</i>&nbsp;{
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  public static final String CEBIT_IMAC_EXPECTED_SERIAL_PORT = &quot;/dev/tty.usbmodem1.0.1&quot;;
+<i>27</i>&nbsp;  public static final String WINDOWS_EXPECTED_SERIAL_PORT = &quot;COM12&quot;;
+<i>28</i>&nbsp;  private Configuration config;
+<i>29</i>&nbsp;  private RobotConfiguration robotConfig;
+<i>30</i>&nbsp;  private Reader userInputReader;
+<i>31</i>&nbsp;  private ISerialDriver serialDriver;
+<i>32</i>&nbsp;  private ICoordinateMapper coordinateMapper;
+<i>33</i>&nbsp;  private IRobotPathPlotter robotPathPlotter;
+<i>34</i>&nbsp;  private float currentX;
+<i>35</i>&nbsp;  private float currentY;
+<i>36</i>&nbsp;  private final double slowdownLength = 40;
+<i>37</i>&nbsp;  private final double speedupLength = 40;
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  @InjectLogger
+<i>40</i>&nbsp;  private static Logger log;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  @Inject
+<i>43</i>&nbsp;  RobotController(Configuration config, RobotConfiguration robotConfig, @UserInputReader Reader userInputReader,
+<i>44</i>&nbsp;                  ISerialDriver serialDriver, ICoordinateMapper coordinateMapper, IRobotPathPlotter robotPathPlotter)
+<i>45</i>&nbsp;  {
+<b class="fc"><i>46</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>47</i>&nbsp;    this.robotConfig = robotConfig;</b>
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;    this.userInputReader = userInputReader;</b>
+<i>50</i>&nbsp;
+<b class="fc"><i>51</i>&nbsp;    this.serialDriver = serialDriver;</b>
+<b class="fc"><i>52</i>&nbsp;    this.coordinateMapper = coordinateMapper;</b>
+<b class="fc"><i>53</i>&nbsp;    this.robotPathPlotter = robotPathPlotter;</b>
+<i>54</i>&nbsp;  }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;  @Override
+<i>57</i>&nbsp;  public boolean connect() throws RobotException
+<i>58</i>&nbsp;  {
+<b class="fc"><i>59</i>&nbsp;    log.info(&quot;Connecting to the robot... (please wait while serial ports are retrieved)&quot;);</b>
+<i>60</i>&nbsp;
+<b class="fc"><i>61</i>&nbsp;    Vector&lt;String&gt; serialPortNames = serialDriver.getSerialPortNames();</b>
+<b class="fc"><i>62</i>&nbsp;    String chosenSerialPortName = chooseSerialPort(serialPortNames);</b>
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;    if (chosenSerialPortName == null)</b>
+<b class="fc"><i>65</i>&nbsp;      return false;</b>
+<i>66</i>&nbsp;
+<b class="fc"><i>67</i>&nbsp;    serialDriver.connect(chosenSerialPortName);</b>
+<i>68</i>&nbsp;
+<b class="fc"><i>69</i>&nbsp;    log.info(&quot;DONE connecting to the robot. Connected on serial port: {}&quot;, chosenSerialPortName);</b>
+<i>70</i>&nbsp;
+<b class="fc"><i>71</i>&nbsp;    return true;</b>
+<i>72</i>&nbsp;  }
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;  @Override
+<i>75</i>&nbsp;  public void calibrate() throws RobotException
+<i>76</i>&nbsp;  {
+<b class="fc"><i>77</i>&nbsp;    log.debug(&quot;Calibrating the robot...&quot;);</b>
+<b class="fc"><i>78</i>&nbsp;    serialDriver.send(&quot;G28 X0 Y0&quot;);</b>
+<b class="fc"><i>79</i>&nbsp;    serialDriver.receive();</b>
+<b class="fc"><i>80</i>&nbsp;    currentX = 0;</b>
+<b class="fc"><i>81</i>&nbsp;    currentY = 0;</b>
+<b class="fc"><i>82</i>&nbsp;    log.debug(&quot;DONE calibrating the robot.&quot;);</b>
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;  }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;  @Override
+<i>87</i>&nbsp;  public void moveToMinXY(boolean isLandscapeOrientation) throws RobotException
+<i>88</i>&nbsp;  {
+<b class="fc"><i>89</i>&nbsp;    log.debug(&quot;Moving robot to the start corner.&quot;);</b>
+<b class="fc"><i>90</i>&nbsp;    moveToMappedCoordinates(robotConfig.robotMinX, robotConfig.robotMinY, robotConfig.robotSpeedSlow,</b>
+<i>91</i>&nbsp;      isLandscapeOrientation);
+<i>92</i>&nbsp;  }
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;  @Override
+<i>95</i>&nbsp;  public void moveToMaxXY(boolean isLandscapeOrientation) throws RobotException
+<i>96</i>&nbsp;  {
+<b class="nc"><i>97</i>&nbsp;    log.debug(&quot;Moving robot to the end corner.&quot;);</b>
+<b class="nc"><i>98</i>&nbsp;    moveToMappedCoordinates(robotConfig.robotMaxX, robotConfig.robotMaxY, robotConfig.robotSpeedSlow,</b>
+<i>99</i>&nbsp;      isLandscapeOrientation);
+<i>100</i>&nbsp;  }
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;  // WISH the distinction between landscape and portrait back button locations should happen in ICoordinateMapper,
+<i>103</i>&nbsp;  // not in IRobotController.
+<i>104</i>&nbsp;  @Override
+<i>105</i>&nbsp;  public void moveToBackButton(boolean isLandscapeOrientation) throws RobotException
+<i>106</i>&nbsp;  {
+<b class="fc"><i>107</i>&nbsp;    log.debug(&quot;Moving robot to the back button, isLandscapeOrientation = {}.&quot;, isLandscapeOrientation);</b>
+<b class="fc"><i>108</i>&nbsp;    if (isLandscapeOrientation)</b>
+<b class="fc"><i>109</i>&nbsp;      _moveToMappedCoordinates(robotConfig.robotBackButtonLandscapeX, robotConfig.robotBackButtonLandscapeY,</b>
+<i>110</i>&nbsp;        true /* landscapeOrientation */);
+<i>111</i>&nbsp;    else
+<b class="nc"><i>112</i>&nbsp;      _moveToMappedCoordinates(robotConfig.robotBackButtonPortraitX, robotConfig.robotBackButtonPortraitY,</b>
+<i>113</i>&nbsp;        false /* false = portraitOrientation */);
+<i>114</i>&nbsp;  }
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;  @Override
+<i>117</i>&nbsp;  public void moveToCoordinates(int x, int y, int speed, boolean isLandscapeOrientation) throws RobotException
+<i>118</i>&nbsp;  {
+<b class="fc"><i>119</i>&nbsp;    log.debug(&quot;Moving robot to raw coordinates {} {}.&quot;, x, y);</b>
+<i>120</i>&nbsp;
+<b class="fc"><i>121</i>&nbsp;    float mappedX = coordinateMapper.mapToX(x, y, isLandscapeOrientation);</b>
+<b class="fc"><i>122</i>&nbsp;    float mappedY = coordinateMapper.mapToY(x, y, isLandscapeOrientation);</b>
+<i>123</i>&nbsp;
+<b class="fc"><i>124</i>&nbsp;    moveToMappedCoordinates(mappedX, mappedY, speed, isLandscapeOrientation);</b>
+<i>125</i>&nbsp;  }
+<i>126</i>&nbsp;
+<i>127</i>&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+<i>128</i>&nbsp;  @Override
+<i>129</i>&nbsp;  public void moveToMappedCoordinates(float mappedX, float mappedY, int speed, boolean isLandscapeOrientation)
+<i>130</i>&nbsp;    throws RobotException
+<i>131</i>&nbsp;  {
+<b class="fc"><i>132</i>&nbsp;    log.debug(&quot;Moving robot to mapped coordinates {} {}.&quot;, mappedX, mappedY);</b>
+<i>133</i>&nbsp;
+<b class="fc"><i>134</i>&nbsp;    float mappedStartX = currentX;</b>
+<b class="fc"><i>135</i>&nbsp;    float mappedStartY = currentY;</b>
+<b class="fc"><i>136</i>&nbsp;    float mappedEndX = mappedX;</b>
+<b class="fc"><i>137</i>&nbsp;    float mappedEndY = mappedY;</b>
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;    List&lt;Pair&lt;Float, Float&gt;&gt; pathPoints;</b>
+<i>140</i>&nbsp;
+<b class="fc"><i>141</i>&nbsp;    if (speed == robotConfig.robotSpeedSlow)</b>
+<i>142</i>&nbsp;    {
+<b class="fc"><i>143</i>&nbsp;      log.debug(&quot;Detected slow robot speed of {}. Moving over straight line.&quot;, robotConfig.robotSpeedSlow);</b>
+<b class="fc"><i>144</i>&nbsp;      pathPoints = Lists.newArrayList(new Pair&lt;Float, Float&gt;(mappedX, mappedY));</b>
+<i>145</i>&nbsp;    } else
+<b class="fc"><i>146</i>&nbsp;      pathPoints = robotPathPlotter.plot(mappedStartX, mappedStartY, mappedEndX, mappedEndY);</b>
+<i>147</i>&nbsp;
+<b class="fc"><i>148</i>&nbsp;    log.trace(&quot;Moving over an arc. Start (x,y) = ({},{}). End (x,y) = ({},{}) Length = {}&quot;, mappedStartX, mappedStartY,</b>
+<i>149</i>&nbsp;      mappedEndX,
+<b class="fc"><i>150</i>&nbsp;      mappedEndY, pathPoints.size());</b>
+<i>151</i>&nbsp;
+<i>152</i>&nbsp;    // WISH debug
+<i>153</i>&nbsp;//    serialDriver.send(String.format(&quot;G1 X%.1f Y%.1f F%d&quot;, mappedStartX, mappedStartY, speed));
+<i>154</i>&nbsp;//    serialDriver.receive(); // read the immediate OK resulting from above command.
+<i>155</i>&nbsp;
+<b class="fc"><i>156</i>&nbsp;    moveThroughPath(speed, pathPoints);</b>
+<i>157</i>&nbsp;
+<i>158</i>&nbsp;    // WISH DEBUG
+<b class="fc"><i>159</i>&nbsp;    serialDriver.send(String.format(&quot;G4 P1&quot;)); // send OK when robot finishes moving.</b>
+<b class="fc"><i>160</i>&nbsp;    serialDriver.receive();  // wait for OK that will be sent when robot finishes moving.</b>
+<i>161</i>&nbsp;  }
+<i>162</i>&nbsp;
+<i>163</i>&nbsp;  private void moveThroughPath(int speed, List&lt;Pair&lt;Float, Float&gt;&gt; pathPoints) throws RobotException
+<i>164</i>&nbsp;  {
+<i>165</i>&nbsp;
+<b class="fc"><i>166</i>&nbsp;    int slowDownPoints = 0;</b>
+<b class="fc"><i>167</i>&nbsp;    int speedupPoints = 0;</b>
+<b class="fc"><i>168</i>&nbsp;    double lastPlottedArcLength = 0;</b>
+<b class="fc"><i>169</i>&nbsp;    if (pathPoints.size() &gt; 1 &amp;&amp; robotPathPlotter instanceof RobotPathPlotterArc)</b>
+<i>170</i>&nbsp;    {
+<b class="fc"><i>171</i>&nbsp;      RobotPathPlotterArc arcPlotter = (RobotPathPlotterArc) robotPathPlotter;</b>
+<b class="fc"><i>172</i>&nbsp;      lastPlottedArcLength = arcPlotter.lastPlottedArcLength;</b>
+<b class="fc"><i>173</i>&nbsp;      double segmentLength = arcPlotter.lastPlottedArcLength / pathPoints.size();</b>
+<b class="fc"><i>174</i>&nbsp;      log.trace(&quot;last plotted arc length: {}&quot;, arcPlotter.lastPlottedArcLength);</b>
+<b class="fc"><i>175</i>&nbsp;      slowDownPoints = (int) (slowdownLength / segmentLength);</b>
+<b class="fc"><i>176</i>&nbsp;      speedupPoints = (int) (speedupLength / segmentLength);</b>
+<b class="fc"><i>177</i>&nbsp;      log.trace(&quot;slow down points: {}. speedup points: {} allPoints: {}&quot;, slowDownPoints, speedupPoints,</b>
+<b class="fc"><i>178</i>&nbsp;        pathPoints.size());</b>
+<i>179</i>&nbsp;    }
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;
+<b class="fc"><i>182</i>&nbsp;    log.trace(&quot;Last plotted arc length: {}&quot;, lastPlottedArcLength);</b>
+<b class="fc"><i>183</i>&nbsp;    if (lastPlottedArcLength &gt; 1 &amp;&amp; lastPlottedArcLength &lt;= 40)</b>
+<i>184</i>&nbsp;    {
+<b class="fc"><i>185</i>&nbsp;      log.trace(&quot;Moving in slow motion of {}&quot;, robotConfig.robotSpeedSlow);</b>
+<b class="fc"><i>186</i>&nbsp;      Pair&lt;Float, Float&gt; point = pathPoints.get(pathPoints.size() - 1);</b>
+<b class="fc"><i>187</i>&nbsp;      serialDriver.send(String.format(</b>
+<i>188</i>&nbsp;        &quot;G1 X%.1f Y%.1f F%d&quot;,
+<b class="fc"><i>189</i>&nbsp;        point.getX(),</b>
+<b class="fc"><i>190</i>&nbsp;        point.getY(), robotConfig.robotSpeedSlow</b>
+<i>191</i>&nbsp;      ));
+<i>192</i>&nbsp;
+<b class="fc"><i>193</i>&nbsp;      serialDriver.receive();</b>
+<b class="fc"><i>194</i>&nbsp;      currentX = point.getX();</b>
+<b class="fc"><i>195</i>&nbsp;      currentY = point.getY();</b>
+<i>196</i>&nbsp;
+<i>197</i>&nbsp;    } else
+<i>198</i>&nbsp;    {
+<b class="fc"><i>199</i>&nbsp;      int pointCounter = 0;</b>
+<b class="fc"><i>200</i>&nbsp;      for (Pair&lt;Float, Float&gt; point : pathPoints)</b>
+<i>201</i>&nbsp;      {
+<b class="fc"><i>202</i>&nbsp;        pointCounter++;</b>
+<b class="fc"><i>203</i>&nbsp;        serialDriver.send(String.format(</b>
+<i>204</i>&nbsp;          &quot;G1 X%.1f Y%.1f F%d&quot;,
+<b class="fc"><i>205</i>&nbsp;          point.getX(),</b>
+<b class="fc"><i>206</i>&nbsp;          point.getY(),</b>
+<b class="fc"><i>207</i>&nbsp;          slowDownPoints == 0 ? speed : computeSpeed2(speed, pointCounter, pathPoints.size(), slowDownPoints,</b>
+<i>208</i>&nbsp;            speedupPoints)));
+<i>209</i>&nbsp;
+<b class="fc"><i>210</i>&nbsp;        serialDriver.receive();</b>
+<b class="fc"><i>211</i>&nbsp;        currentX = point.getX();</b>
+<b class="fc"><i>212</i>&nbsp;        currentY = point.getY();</b>
+<i>213</i>&nbsp;
+<i>214</i>&nbsp;        // WISH this is an unpretty solution to the following problem:
+<i>215</i>&nbsp;        // looks like if the OKs won&#39;t be read, the buffer is filled and doesn&#39;t accept any more commands.
+<i>216</i>&nbsp;        // if (pointCounter % 3 == 0)
+<i>217</i>&nbsp;        // receiveAllOks(3);
+<i>218</i>&nbsp;
+<i>219</i>&nbsp;      }
+<i>220</i>&nbsp;    }
+<i>221</i>&nbsp;    // receiveAllOks(pointCounter % 3);
+<i>222</i>&nbsp;
+<b class="fc"><i>223</i>&nbsp;    log.trace(&quot;Finished moving over an arc.&quot;);</b>
+<i>224</i>&nbsp;  }
+<i>225</i>&nbsp;
+<i>226</i>&nbsp;  @SuppressWarnings(&quot;unused&quot;)
+<i>227</i>&nbsp;  private void receiveAllOks(int pointCounter) throws RobotException
+<i>228</i>&nbsp;  {
+<b class="nc"><i>229</i>&nbsp;    int oksToReceive = pointCounter;</b>
+<b class="nc"><i>230</i>&nbsp;    while (oksToReceive &gt; 0)</b>
+<i>231</i>&nbsp;    {
+<b class="nc"><i>232</i>&nbsp;      String receivedOks = serialDriver.receive();</b>
+<b class="nc"><i>233</i>&nbsp;      oksToReceive -= org.apache.commons.lang3.StringUtils.countMatches(receivedOks, &quot;ok&quot;);</b>
+<i>234</i>&nbsp;    }
+<i>235</i>&nbsp;
+<i>236</i>&nbsp;  }
+<i>237</i>&nbsp;
+<i>238</i>&nbsp;  @SuppressWarnings(&quot;static-method&quot;)
+<i>239</i>&nbsp;  private int computeSpeed2(int speed, int pointCounter, int pointCount, int slowDownPoints, int speedupPoints)
+<i>240</i>&nbsp;  {
+<b class="fc"><i>241</i>&nbsp;    if (speedupPoints + slowDownPoints &gt;= pointCount)</b>
+<i>242</i>&nbsp;    {
+<b class="fc"><i>243</i>&nbsp;      speedupPoints = pointCount / 2;</b>
+<b class="fc"><i>244</i>&nbsp;      slowDownPoints = pointCount - speedupPoints;</b>
+<i>245</i>&nbsp;
+<i>246</i>&nbsp;//      if (speedupPoints &gt; pointCount)
+<i>247</i>&nbsp;//        return (int) (speed * (pointCounter / (float) pointCount));
+<i>248</i>&nbsp;//      else
+<i>249</i>&nbsp;//      {
+<i>250</i>&nbsp;//        if (pointCounter &lt;= speedupPoints)
+<i>251</i>&nbsp;//          return (int) (speed * (pointCounter / (float) speedupPoints));
+<i>252</i>&nbsp;//        else
+<i>253</i>&nbsp;//          return speed;
+<i>254</i>&nbsp;//      }
+<i>255</i>&nbsp;    }
+<i>256</i>&nbsp;
+<b class="fc"><i>257</i>&nbsp;    if (pointCounter &lt;= speedupPoints)</b>
+<b class="fc"><i>258</i>&nbsp;      return (int) (speed * (pointCounter / (float) speedupPoints));</b>
+<i>259</i>&nbsp;
+<b class="fc"><i>260</i>&nbsp;    if (pointCounter &lt;= pointCount - slowDownPoints)</b>
+<b class="fc"><i>261</i>&nbsp;      return speed;</b>
+<i>262</i>&nbsp;
+<i>263</i>&nbsp;//    if (slowDownPoints &gt; pointCount)
+<i>264</i>&nbsp;//      return (int) (speed * ((pointCount - (pointCounter - 1)) / (float) pointCount));
+<i>265</i>&nbsp;
+<b class="fc"><i>266</i>&nbsp;    pointCounter -= pointCount - slowDownPoints;</b>
+<b class="fc"><i>267</i>&nbsp;    pointCount -= pointCount - slowDownPoints;</b>
+<i>268</i>&nbsp;
+<b class="fc"><i>269</i>&nbsp;    return (int) (speed * ((pointCount - (pointCounter - 1)) / (float) pointCount));</b>
+<i>270</i>&nbsp;  }
+<i>271</i>&nbsp;
+<i>272</i>&nbsp;  @SuppressWarnings(&quot;unused&quot;)
+<i>273</i>&nbsp;  private static int computeSpeed(int speed, int pointCounter, int pointCount)
+<i>274</i>&nbsp;  {
+<b class="nc"><i>275</i>&nbsp;    if (pointCount &lt;= 4)</b>
+<b class="nc"><i>276</i>&nbsp;      return speed;</b>
+<i>277</i>&nbsp;
+<b class="nc"><i>278</i>&nbsp;    int pointsPart = pointCount / 4;</b>
+<i>279</i>&nbsp;
+<i>280</i>&nbsp;    // First part of points speed up linearly
+<b class="nc"><i>281</i>&nbsp;    if (pointCounter &lt;= pointsPart)</b>
+<b class="nc"><i>282</i>&nbsp;      return (int) (speed * (pointCounter / (float) pointsPart));</b>
+<i>283</i>&nbsp;
+<i>284</i>&nbsp;    // Now we consider the second third of points
+<i>285</i>&nbsp;
+<b class="nc"><i>286</i>&nbsp;    pointCount -= pointsPart;</b>
+<b class="nc"><i>287</i>&nbsp;    pointCounter -= pointsPart;</b>
+<i>288</i>&nbsp;
+<b class="nc"><i>289</i>&nbsp;    pointsPart = pointCount * (1 / 3);</b>
+<i>290</i>&nbsp;
+<i>291</i>&nbsp;    // Second part of points move at max speed
+<b class="nc"><i>292</i>&nbsp;    if (pointCounter &lt;= pointsPart)</b>
+<b class="nc"><i>293</i>&nbsp;      return speed;</b>
+<i>294</i>&nbsp;
+<b class="nc"><i>295</i>&nbsp;    pointCount -= pointsPart;</b>
+<b class="nc"><i>296</i>&nbsp;    pointCounter -= pointsPart;</b>
+<i>297</i>&nbsp;
+<i>298</i>&nbsp;    // Last part of points: slow down linearly.
+<b class="nc"><i>299</i>&nbsp;    return Math.max(5000, (int) (speed * ((pointCount - (pointCounter - 1)) / (float) pointCount)));</b>
+<i>300</i>&nbsp;  }
+<i>301</i>&nbsp;
+<i>302</i>&nbsp;  @Override
+<i>303</i>&nbsp;  public void moveDown() throws RobotException
+<i>304</i>&nbsp;  {
+<b class="fc"><i>305</i>&nbsp;    log.debug(&quot;Moving robot down.&quot;);</b>
+<b class="fc"><i>306</i>&nbsp;    serialDriver.send(String.format(&quot;G1 Z%d F%d&quot;, robotConfig.robotLoweredZ, robotConfig.robotSpeed));</b>
+<b class="fc"><i>307</i>&nbsp;    serialDriver.receive();</b>
+<i>308</i>&nbsp;  }
+<i>309</i>&nbsp;
+<i>310</i>&nbsp;  @Override
+<i>311</i>&nbsp;  public void moveUp() throws RobotException
+<i>312</i>&nbsp;  {
+<b class="fc"><i>313</i>&nbsp;    log.debug(&quot;Moving robot up.&quot;);</b>
+<b class="fc"><i>314</i>&nbsp;    serialDriver.send(String.format(&quot;G1 Z%d F%d&quot;, robotConfig.robotLiftedZ, robotConfig.robotSpeed));</b>
+<b class="fc"><i>315</i>&nbsp;    serialDriver.receive();</b>
+<i>316</i>&nbsp;
+<i>317</i>&nbsp;  }
+<i>318</i>&nbsp;
+<i>319</i>&nbsp;  @Override
+<i>320</i>&nbsp;  public void disconnect()
+<i>321</i>&nbsp;  {
+<b class="fc"><i>322</i>&nbsp;    serialDriver.close();</b>
+<i>323</i>&nbsp;
+<i>324</i>&nbsp;  }
+<i>325</i>&nbsp;
+<i>326</i>&nbsp;  @Override
+<i>327</i>&nbsp;  public void runRaw(String command) throws RobotException
+<i>328</i>&nbsp;  {
+<b class="nc"><i>329</i>&nbsp;    serialDriver.send(command);</b>
+<b class="nc"><i>330</i>&nbsp;    if (robotConfig.echoCable)</b>
+<b class="nc"><i>331</i>&nbsp;      serialDriver.receive(command);</b>
+<i>332</i>&nbsp;    else
+<b class="nc"><i>333</i>&nbsp;      serialDriver.receive();</b>
+<i>334</i>&nbsp;
+<i>335</i>&nbsp;  }
+<i>336</i>&nbsp;
+<i>337</i>&nbsp;  private String chooseSerialPort(Vector&lt;String&gt; serialPortNames)
+<i>338</i>&nbsp;  {
+<b class="fc"><i>339</i>&nbsp;    String chosenSerialPortName;</b>
+<i>340</i>&nbsp;
+<b class="fc"><i>341</i>&nbsp;    if (serialPortNames.contains(WINDOWS_EXPECTED_SERIAL_PORT))</b>
+<i>342</i>&nbsp;    {
+<b class="fc"><i>343</i>&nbsp;      log.info(&quot;Found port {}, expected to be found on Windows machine with robot connected. &quot; +</b>
+<i>344</i>&nbsp;        &quot;Connecting to it.&quot;, WINDOWS_EXPECTED_SERIAL_PORT);
+<b class="fc"><i>345</i>&nbsp;      chosenSerialPortName = WINDOWS_EXPECTED_SERIAL_PORT;</b>
+<i>346</i>&nbsp;
+<b class="fc"><i>347</i>&nbsp;    } else if (serialPortNames.contains(CEBIT_IMAC_EXPECTED_SERIAL_PORT))</b>
+<i>348</i>&nbsp;    {
+<b class="fc"><i>349</i>&nbsp;      log.info(&quot;Found port {}, expected to be found on CeBIT iMac with robot connected. &quot; +</b>
+<i>350</i>&nbsp;        &quot;Connecting to it.&quot;, CEBIT_IMAC_EXPECTED_SERIAL_PORT);
+<b class="fc"><i>351</i>&nbsp;      chosenSerialPortName = CEBIT_IMAC_EXPECTED_SERIAL_PORT;</b>
+<i>352</i>&nbsp;    } else
+<i>353</i>&nbsp;    {
+<b class="fc"><i>354</i>&nbsp;      log.info(&quot;Failed to find ports for automatic connection: {} (windows) or {} (CeBIT iMac)&quot;,</b>
+<i>355</i>&nbsp;        WINDOWS_EXPECTED_SERIAL_PORT, CEBIT_IMAC_EXPECTED_SERIAL_PORT);
+<b class="fc"><i>356</i>&nbsp;      log.info(&quot;Found following ports: &quot;);</b>
+<b class="fc"><i>357</i>&nbsp;      for (int i = 0; i &lt; serialPortNames.size(); i++)</b>
+<b class="fc"><i>358</i>&nbsp;        log.info(&quot;{}: {}&quot;, i + 1, serialPortNames.get(i));</b>
+<b class="fc"><i>359</i>&nbsp;      log.info(&quot;Choose the serial port you wish to connect to or 0 to abort and terminate DroidMate.&quot;);</b>
+<b class="fc"><i>360</i>&nbsp;      String userInput = userInputReader.readLine()</b>
+<i>361</i>&nbsp;      // TODO when run as junit test from Gradle, this fails with &quot;java.lang.NumberFormatException: null&quot;
+<b class="fc"><i>362</i>&nbsp;      int userInputPortNumber = Integer.parseInt(userInput);</b>
+<i>363</i>&nbsp;
+<b class="fc"><i>364</i>&nbsp;      if (userInputPortNumber == 0)</b>
+<i>365</i>&nbsp;      {
+<b class="fc"><i>366</i>&nbsp;        log.info(&quot;Did not connect to serial port due to user-chosen abort.&quot;);</b>
+<b class="fc"><i>367</i>&nbsp;        return null;</b>
+<i>368</i>&nbsp;      }
+<i>369</i>&nbsp;
+<b class="fc"><i>370</i>&nbsp;      chosenSerialPortName = serialPortNames.get(userInputPortNumber - 1);</b>
+<i>371</i>&nbsp;
+<i>372</i>&nbsp;    }
+<b class="fc"><i>373</i>&nbsp;    log.debug(&quot;Chosen serial port: {}&quot;, chosenSerialPortName);</b>
+<b class="fc"><i>374</i>&nbsp;    return chosenSerialPortName;</b>
+<i>375</i>&nbsp;  }
+<i>376</i>&nbsp;
+<i>377</i>&nbsp;  private void _moveToMappedCoordinates(int x, int y, boolean isLandscapeOrientation) throws RobotException
+<i>378</i>&nbsp;  {
+<b class="fc"><i>379</i>&nbsp;    moveToMappedCoordinates(x, y, robotConfig.robotSpeed, isLandscapeOrientation);</b>
+<i>380</i>&nbsp;  }
+<i>381</i>&nbsp;
+<i>382</i>&nbsp;
+<i>383</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

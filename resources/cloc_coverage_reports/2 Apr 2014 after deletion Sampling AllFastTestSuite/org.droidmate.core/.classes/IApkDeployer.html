@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IApkDeployer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.core</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IApkDeployer (org.droidmate.core)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IApkDeployer$withDeployedApk</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.core
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.device.IAndroidDevice
+<i>14</i>&nbsp;import org.droidmate.exceptions.ApkDeploymentException
+<i>15</i>&nbsp;import org.droidmate.exceptions.ApkUndeploymentException
+<i>16</i>&nbsp;import org.droidmate.utils.Apk;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;// WISH  move to &quot;device&quot; package
+<i>19</i>&nbsp;/**
+<i>20</i>&nbsp; * @see ApkDeployer
+<i>21</i>&nbsp; */
+<i>22</i>&nbsp;public interface IApkDeployer
+<i>23</i>&nbsp;{
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;  public void withDeployedApk(IAndroidDevice device, Apk apk, boolean startMainActivity, Closure closure)
+<i>26</i>&nbsp;    throws ApkDeploymentException, ApkUndeploymentException
+<i>27</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

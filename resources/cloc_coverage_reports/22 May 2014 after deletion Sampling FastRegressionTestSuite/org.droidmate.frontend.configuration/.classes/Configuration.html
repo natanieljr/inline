@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Configuration</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.configuration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Configuration (org.droidmate.frontend.configuration)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Configuration</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (28/ 28)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;package org.droidmate.frontend.configuration;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import com.beust.jcommander.Parameter;
+<i>13</i>&nbsp;import com.beust.jcommander.Parameters;
+<i>14</i>&nbsp;import com.beust.jcommander.converters.FileConverter;
+<i>15</i>&nbsp;import org.apache.commons.lang3.SystemUtils;
+<i>16</i>&nbsp;import org.droidmate.exploration.ExplorationStrategy;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import java.io.File;
+<i>19</i>&nbsp;import java.util.List;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;/**
+<i>22</i>&nbsp; * &lt;p&gt;
+<i>23</i>&nbsp; * &lt;i&gt; --- This doc was last reviewed on 22 May 2014.&lt;/i&gt;
+<i>24</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>25</i>&nbsp; *
+<i>26</i>&nbsp; * Holds all the configuration data of DroidMate. The configuration is obtained from command line arguments with help
+<i>27</i>&nbsp; * of {@link Configurator}. This happens just before DroidMate injects dependencies with Guice,
+<i>28</i>&nbsp; * at DroidMate bootstrap in {@link org.droidmate.frontend.DroidmateFrontend DroidmateFrontend}.
+<i>29</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>30</i>&nbsp; * The configuration is required to setup most (if not all) classes (components) of Droidmate.
+<i>31</i>&nbsp; *
+<i>32</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>33</i>&nbsp; * The &lt;it&gt;@Parameter&lt;/it&gt; annotations are dictated by the underlying {@code jCommander} library [1].
+<i>34</i>&nbsp; *
+<i>35</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>36</i>&nbsp; * [1]: http://jcommander.org/
+<i>37</i>&nbsp; *
+<i>38</i>&nbsp; * &lt;/p&gt;
+<i>39</i>&nbsp; *
+<i>40</i>&nbsp; * @see Configurator
+<i>41</i>&nbsp; */
+<i>42</i>&nbsp;// No @Singleton annotation as Guice expects to bind a pre-existing instance.
+<i>43</i>&nbsp;@Parameters(separators = &quot; =&quot;)
+<b class="fc"><i>44</i>&nbsp;public class Configuration implements IConfiguration</b>
+<i>45</i>&nbsp;{
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  //region Cmd line parameters names and defaults.
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  public static final String PARAMETER_NAME_ACTIONS_LIMIT                         = &quot;-actionsLimit&quot;;
+<i>50</i>&nbsp;  public static final String PARAMETER_NAME_ALWAYS_CLICK_FIRST_WIDGET             = &quot;-alwaysClickFirstWidget&quot;;
+<i>51</i>&nbsp;  public static final String PARAMETER_NAME_APP_HAS_STOPPED_OK_BUTTON_CLICK_DELAY = &quot;-waitDelayForAppHasStoppedDialogBoxToEnableOKButton&quot;;
+<i>52</i>&nbsp;  public static final String PARAMETER_NAME_ARTIFACTS_DIR_PATH                    = &quot;-artifactsDirPath&quot;;
+<i>53</i>&nbsp;  public static final String PARAMETER_NAME_ARTIFACTS_APKS_DIR_NAME               = PARAMETER_NAME_ARTIFACTS_DIR_PATH + &quot;_apks&quot;;
+<i>54</i>&nbsp;  public static final String PARAMETER_NAME_DEPLOY_RAW_APKS                       = &quot;-deployRawApks&quot;;
+<i>55</i>&nbsp;  public static final String PARAMETER_NAME_DISPLAY_CONFIG                        = &quot;-displayConfig&quot;;
+<i>56</i>&nbsp;  public static final String PARAMETER_NAME_EXPLORE_INTERACTIVELY                 = &quot;-exploreInteractively&quot;;
+<i>57</i>&nbsp;  public static final String PARAMETER_NAME_OBTAIN_NEXT_WINDOW_DUMP_DELAY         = &quot;-waitDelayForObtainingNextWindowDump&quot;;
+<i>58</i>&nbsp;  public static final String PARAMETER_NAME_RANDOM_SEED                           = &quot;-randomSeed&quot;;
+<i>59</i>&nbsp;  public static final String PARAMETER_NAME_SKIP_APK_EXPLORATIONS                 = &quot;-skipApkExplorations&quot;;
+<i>60</i>&nbsp;  public static final String PARAMETER_NAME_WIDGET_INDEXES                        = &quot;-widgetIndexes&quot;;
+<i>61</i>&nbsp;  public static final String PARAMETER_NAME_WITH_ROBOT                            = &quot;-withRobot&quot;;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  public static final String defaultRootPath         = &quot;./projects/core&quot;;
+<i>64</i>&nbsp;  public static final String artifactsDirDefaultPath = defaultRootPath + &quot;/artifacts&quot;;
+<i>65</i>&nbsp;  public static final String resourcesDirDefaultPath = defaultRootPath + &quot;/src/main/resources&quot;;
+<i>66</i>&nbsp;
+<b class="fc"><i>67</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_ALWAYS_CLICK_FIRST_WIDGET, &quot;-clickFirst&quot;}, description =</b>
+<i>68</i>&nbsp;    &quot;Should the exploration strategy always click the first widget instead of its default more complex behavior&quot;)
+<i>69</i>&nbsp;  public boolean alwaysClickFirstWidget = false;
+<i>70</i>&nbsp;
+<b class="fc"><i>71</i>&nbsp;  @Parameter(names = {&quot;-androidSdkDirPath&quot;}, converter = FileConverter.class, description =</b>
+<i>72</i>&nbsp;    &quot;Path to directory containing the Android SDK.&quot;)
+<i>73</i>&nbsp;  File androidSdkDir = new File(&quot;c:/Program Files (x86)/Android/android-sdk&quot;);
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;  @Parameter(names = {&quot;-autAddonServerStartTimeout&quot;}, description =</b>
+<i>76</i>&nbsp;    &quot;How long DroidMate should wait, in milliseconds, for message on logcat confirming that AutAddonServer &quot; +
+<i>77</i>&nbsp;      &quot;has started on android (virtual) device.&quot;)
+<i>78</i>&nbsp;  public int autAddonServerStartTimeout = 20000;
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;  @Parameter(names = {&quot;-autAddonServerStartQueryInterval&quot;}, description =</b>
+<i>81</i>&nbsp;    &quot;How often DroidMate should query, in milliseconds, for message on logcat confirming that AutAddonServer &quot; +
+<i>82</i>&nbsp;      &quot;has started on android (virtual) device.&quot;)
+<i>83</i>&nbsp;  public int autAddonServerStartQueryInterval = 2000;
+<i>84</i>&nbsp;
+<b class="fc"><i>85</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_ARTIFACTS_APKS_DIR_NAME, &quot;-apksDirPath&quot;, &quot;-apksDirName&quot;, &quot;-apksDir&quot;, &quot;-apks&quot;},</b>
+<i>86</i>&nbsp;    description = &quot;Path to directory containing the apks to be processed by DroidMate. The path is relative to &quot;
+<i>87</i>&nbsp;      + PARAMETER_NAME_ARTIFACTS_DIR_PATH)
+<i>88</i>&nbsp;  public String apksDirName = &quot;apks&quot;;
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;
+<b class="fc"><i>91</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_ARTIFACTS_DIR_PATH}, converter = FileConverter.class, description =</b>
+<i>92</i>&nbsp;    &quot;Path to the directory containing the artifacts on which DroidMate will operate. The artifacts include inputs &quot; +
+<i>93</i>&nbsp;      &quot;like .apk files, outputs like reports and input/outputs like generated input sequences.&quot;)
+<i>94</i>&nbsp;  public File artifactsDir = new File(artifactsDirDefaultPath);
+<i>95</i>&nbsp;
+<b class="fc"><i>96</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_DEPLOY_RAW_APKS}, arity = 1,</b>
+<i>97</i>&nbsp;    description = &quot;Deploys apks to device in &#39;raw&#39; form, &quot; +
+<i>98</i>&nbsp;      &quot;that is, without instrumenting them. Will deploy them raw even if instrumented version is available from last &quot; +
+<i>99</i>&nbsp;      &quot;run.&quot;)
+<i>100</i>&nbsp;  public boolean deployRawApks = true;
+<i>101</i>&nbsp;
+<b class="fc"><i>102</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_DISPLAY_CONFIG}, arity = 1, description = &quot;Displays on stdout the &quot; +</b>
+<i>103</i>&nbsp;    &quot;configuration in effect after DroidMate finished configuring itself.&quot;)
+<i>104</i>&nbsp;  boolean displayConfig = true;
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;  @Parameter(names = {&quot;-displayHelp&quot;, &quot;-help&quot;, &quot;-h&quot;, &quot;-?&quot;}, help = true, description =
+<i>107</i>&nbsp;    &quot;Displays command line parameters description.&quot;)
+<i>108</i>&nbsp;  public boolean displayHelp;
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;
+<b class="fc"><i>111</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_EXPLORE_INTERACTIVELY}, description =</b>
+<i>112</i>&nbsp;    &quot;Determines if the user should be asked for confirmation before the exploration driver conducts next action on the &quot; +
+<i>113</i>&nbsp;      &quot;Android device. If yes, the information about the action about to be taken will be also displayed.&quot;)
+<i>114</i>&nbsp;  public boolean exploreInteractively = false;
+<i>115</i>&nbsp;
+<b class="fc"><i>116</i>&nbsp;  @Parameter(names = {&quot;-jarsignerPath&quot;}, description =</b>
+<i>117</i>&nbsp;    &quot;Path to the JDK jarsigner.&quot;)
+<i>118</i>&nbsp;  public String jarsignerPath = SystemUtils.IS_OS_WINDOWS ? &quot;c:/Program Files (x86)/Java/jdk1.6.0_32/bin/jarsigner.exe&quot;
+<i>119</i>&nbsp;    : &quot;/usr/bin/jarsigner&quot;;
+<i>120</i>&nbsp;
+<b class="fc"><i>121</i>&nbsp;  @Parameter(names = {&quot;-logLevel&quot;}, description =</b>
+<i>122</i>&nbsp;    &quot;Logging level of the entirety of application. Possible values, comma separated: trace, debug, info.&quot;)
+<i>123</i>&nbsp;  String logLevel = &quot;trace&quot;;
+<i>124</i>&nbsp;
+<b class="fc"><i>125</i>&nbsp;  @Parameter(names = {&quot;-loopInfinitely&quot;}, description = &quot;After all apks under exploration have been explored, &quot; +</b>
+<i>126</i>&nbsp;    &quot;start over from beginning and loop the process ad infinitum.&quot;)
+<i>127</i>&nbsp;  public boolean loopInfinitely = false;
+<i>128</i>&nbsp;
+<b class="fc"><i>129</i>&nbsp;  @Parameter(names = {&quot;-noApkUninstall&quot;}, description = &quot;Stops the apks from being uninstalled after &quot; +</b>
+<i>130</i>&nbsp;    &quot;exploration/replay. This reduces the downtime between app exploration/replays, &quot; +
+<i>131</i>&nbsp;    &quot;but doesn&#39;t purge apps state, thus making the exploration/replay possibly dependent on the order of apks&quot; +
+<i>132</i>&nbsp;    &quot; exercised.&quot;)
+<i>133</i>&nbsp;  public boolean noApkUninstall = false;
+<i>134</i>&nbsp;
+<b class="fc"><i>135</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_ACTIONS_LIMIT, &quot;-actions&quot;, &quot;-clicks&quot;}, description =</b>
+<i>136</i>&nbsp;    &quot;How many actions the GUI exploration strategy can conduct before terminating.&quot;)
+<i>137</i>&nbsp;  public int actionsLimit = ExplorationStrategy.defaultActionsLimit;
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_RANDOM_SEED}, description =</b>
+<i>140</i>&nbsp;    &quot;The seed for a random generator used by a random-clicking GUI exploration strategy. If null, a seed will be randomized.&quot;)
+<i>141</i>&nbsp;  public Long randomSeed = null;
+<i>142</i>&nbsp;
+<i>143</i>&nbsp;
+<i>144</i>&nbsp;  // For Gradle builds set it to &quot;./src/main/resources&quot;;
+<b class="fc"><i>145</i>&nbsp;  @Parameter(names = {&quot;-resourcesDirPath&quot;}, converter = FileConverter.class, description =</b>
+<i>146</i>&nbsp;    &quot;Path to directory in which resources required by DroidMate to run are located. &quot;)
+<i>147</i>&nbsp;  /* On 25 Feb 2014 I changed the default from ./resources to ./projects/core/src/main/resources.
+<i>148</i>&nbsp;    The previous default was used for distribution deployments. Some paths or operations in build.gradle &quot;core&quot; projects will
+<i>149</i>&nbsp;    have to be fixed. See also: &#39;application&#39; plugin (it is applied to the &quot;core&quot; project&quot;.
+<i>150</i>&nbsp;  */
+<i>151</i>&nbsp;  public File resourcesDir = new File(&quot;./projects/core/src/main/resources&quot;);
+<i>152</i>&nbsp;
+<b class="fc"><i>153</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_SKIP_APK_EXPLORATIONS}, description =</b>
+<i>154</i>&nbsp;    &quot;If the explorations of apks on the device should be skipped.&quot;)
+<i>155</i>&nbsp;  public boolean skipApkExplorations = false;
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;  @Parameter(names = {&quot;-skipRunOnDevice&quot;, &quot;-skipDev&quot;}, description =</b>
+<i>158</i>&nbsp;    &quot;If the deployment and testing of apks on the device should be skipped.&quot;)
+<i>159</i>&nbsp;  public boolean skipRunOnDevice = false;
+<i>160</i>&nbsp;
+<b class="fc"><i>161</i>&nbsp;  @Parameter(names = {&quot;-uiautomatorDaemonServerStartTimeout&quot;}, description =</b>
+<i>162</i>&nbsp;    &quot;How long DroidMate should wait, in milliseconds, for message on logcat confirming that UiAutomatorDaemonServer &quot; +
+<i>163</i>&nbsp;      &quot;has started on android (virtual) device.&quot;)
+<i>164</i>&nbsp;  public int uiautomatorDaemonServerStartTimeout = 20000;
+<i>165</i>&nbsp;
+<b class="fc"><i>166</i>&nbsp;  @Parameter(names = {&quot;-uiautomatorDaemonServerStartQueryInterval&quot;}, description =</b>
+<i>167</i>&nbsp;    &quot;How often DroidMate should query, in milliseconds, for message on logcat confirming that UiDaemonServer &quot; +
+<i>168</i>&nbsp;      &quot;has started on android (virtual) device.&quot;)
+<i>169</i>&nbsp;  public int uiautomatorDaemonServerStartQueryInterval = 2000;
+<i>170</i>&nbsp;
+<b class="fc"><i>171</i>&nbsp;  @Parameter(names = {&quot;-uiautomatorDaemonWaitForIdle&quot;}, arity = 1, description =</b>
+<i>172</i>&nbsp;    &quot;Should the uiautomator-daemon wait for idle state of the window after each click performed on the android device&quot; +
+<i>173</i>&nbsp;      &quot;. &quot;
+<i>174</i>&nbsp;      + &quot;Setting this to false will drastically speedup the clicking process, but will probably result in new clicks &quot;
+<i>175</i>&nbsp;      + &quot;being sent while the results of previous one are still processed.&quot;)
+<i>176</i>&nbsp;  public boolean uiautomatorDaemonWaitForIdle = true;
+<i>177</i>&nbsp;
+<i>178</i>&nbsp;
+<b class="fc"><i>179</i>&nbsp;  @Parameter(names = {&quot;-sootAndroidJarPath&quot;}, converter = FileConverter.class, description =</b>
+<i>180</i>&nbsp;    &quot;Path to the android.jar soot should use, if soot is applied to instrument apks bytecode. The default &#39;null&#39; &quot; +
+<i>181</i>&nbsp;      &quot;value means the android jar will be resolved internally by DroidMate. Run DroidMate with &quot;
+<i>182</i>&nbsp;      + PARAMETER_NAME_DISPLAY_CONFIG + &quot; to see to where the used android.jar is located.&quot;)
+<i>183</i>&nbsp;  public File sootAndroidJar = null;
+<i>184</i>&nbsp;
+<b class="fc"><i>185</i>&nbsp;  @Parameter(names = {&quot;-sysCmdExecuteTimeout&quot;}, description =</b>
+<i>186</i>&nbsp;    &quot;Timeout for executing system commands, in milliseconds. Zero or negative value means no timeout.&quot;)
+<i>187</i>&nbsp;  public int sysCmdExecuteTimeout = 1000 * 60 * 1;
+<i>188</i>&nbsp;
+<i>189</i>&nbsp;  /*
+<i>190</i>&nbsp;   * The port is required by AutAddon &amp; UiAutomatorDaemon. It is nontrivial to pass the port to it:
+<i>191</i>&nbsp;   * to start AutAddon, first the intent is send to AUT and AUT&#39;s activity&#39;s onCreate() method calls AutAddon with
+<i>192</i>&nbsp;   * instrumented instruction. That instrumented call would have to pass the port as parameter, interfering with Dalvik
+<i>193</i>&nbsp;   * registers. Thus, for now, the port is hard-coded, so this command line param is commented out.
+<i>194</i>&nbsp;   */
+<i>195</i>&nbsp;  // @Parameter(names = { &quot;-tcpPort&quot; }, description =
+<i>196</i>&nbsp;  // &quot;TCP port used by DroidMate to communicate with the android (virtual) device.&quot;)
+<i>197</i>&nbsp;  // int tcpPort = 59777;
+<i>198</i>&nbsp;
+<b class="fc"><i>199</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_APP_HAS_STOPPED_OK_BUTTON_CLICK_DELAY, &quot;-appStoppedDelay&quot;}, description =</b>
+<i>200</i>&nbsp;    &quot;When apk under exploration crashed, it displays \&quot;App has stopped\&quot; dialog box. &quot; +
+<i>201</i>&nbsp;      &quot;DroidMate will click on the \&quot;OK\&quot; button of this dialog, &quot; +
+<i>202</i>&nbsp;      &quot;but first it has to wait for a moment because the \&quot;OK\&quot; button gets enabled only after a while. &quot; +
+<i>203</i>&nbsp;      &quot;This parameter determines how long DroidMate will wait for the \&quot;OK\&quot; button to become enabled before clicking it. &quot; +
+<i>204</i>&nbsp;      &quot;The value is given in milliseconds.&quot;)
+<i>205</i>&nbsp;  public int waitDelayForAppHasStoppedDialogBoxToEnableOKButtonInMills = 1000;
+<i>206</i>&nbsp;
+<b class="fc"><i>207</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_OBTAIN_NEXT_WINDOW_DUMP_DELAY, &quot;-nextWindowDumpDelay&quot;}, description =</b>
+<i>208</i>&nbsp;    &quot;Denotes how long to wait to retry obtaining next GUI window dump in case the returned dump is empty.&quot; +
+<i>209</i>&nbsp;      &quot;The value is given in milliseconds.&quot;)
+<i>210</i>&nbsp;  public int waitDelayForObtainingNextWindowDumpInMills = 1000;
+<i>211</i>&nbsp;
+<i>212</i>&nbsp;
+<b class="fc"><i>213</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_WIDGET_INDEXES}, listConverter = ListOfIntegersConverter.class,</b>
+<i>214</i>&nbsp;    description = &quot;Makes the exploration strategy to choose widgets to click that have the indexes as provided by this &quot; +
+<i>215</i>&nbsp;      &quot;parameter, in sequence. The format is: [&lt;first widget index&gt;,&lt;second widget index&gt;,...&lt;nth widget index&gt;], &quot; +
+<i>216</i>&nbsp;      &quot;starting indexing at 0. Example: [0,7,3]&quot;)
+<i>217</i>&nbsp;  public List&lt;Integer&gt; widgetIndexes = null;
+<i>218</i>&nbsp;
+<b class="fc"><i>219</i>&nbsp;  @Parameter(names = {PARAMETER_NAME_WITH_ROBOT}, description = &quot;Is the CeBIT robot attached to DroidMate and &quot; +</b>
+<i>220</i>&nbsp;    &quot;so, should have commands sent to it by DroidMate.&quot;)
+<i>221</i>&nbsp;  public boolean withRobot = false;
+<i>222</i>&nbsp;  //endregion
+<i>223</i>&nbsp;
+<i>224</i>&nbsp;
+<i>225</i>&nbsp;  //region Values set by Configurator
+<i>226</i>&nbsp;  /** The command of the aapt tool from the Android SDK. Configured by {@link Configurator}. */
+<i>227</i>&nbsp;  public String aaptCommand;
+<i>228</i>&nbsp;
+<i>229</i>&nbsp;  /** The command of the adb tool from the Android SDK. Configured by {@link Configurator}. */
+<i>230</i>&nbsp;  public String adbCommand;
+<i>231</i>&nbsp;
+<i>232</i>&nbsp;
+<i>233</i>&nbsp;  /** Debug key store file location on the file system. The key store is used to sign instrumented .apk. */
+<i>234</i>&nbsp;  public File debugKeystore;
+<i>235</i>&nbsp;
+<i>236</i>&nbsp;  /**
+<i>237</i>&nbsp;   * Jar with uiautomator-daemon location on the file system. The jar is to be deployed on the android (virtual) device
+<i>238</i>&nbsp;   * to enable GUI actions execution.
+<i>239</i>&nbsp;   */
+<i>240</i>&nbsp;  public File uiautomatorDaemonJar;
+<i>241</i>&nbsp;
+<i>242</i>&nbsp;  //endregion
+<i>243</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

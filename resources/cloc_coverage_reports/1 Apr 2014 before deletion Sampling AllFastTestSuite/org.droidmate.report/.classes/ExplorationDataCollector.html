@@ -1,0 +1,222 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExplorationDataCollector</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.report</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExplorationDataCollector (org.droidmate.report)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExplorationDataCollector</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.3%
+  </span>
+  <span class="absValue">
+    (28/ 30)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExplorationDataCollector$collectCoverageLogs$0</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationDataCollector$collectGuiSnapshot</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationDataCollector$collectNextExplorationAction$1</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.3%
+  </span>
+  <span class="absValue">
+    (28/ 30)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.report
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.common.Constants
+<i>14</i>&nbsp;import org.droidmate.exploration.ExplorationAction
+<i>15</i>&nbsp;import org.droidmate.exploration.GuiExplorationAction
+<i>16</i>&nbsp;import org.droidmate.exploration.IDeviceGuiSnapshot
+<i>17</i>&nbsp;import org.droidmate.exploration.IntentExplorationAction
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;class ExplorationDataCollector
+<i>20</i>&nbsp;{
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;  /**
+<i>23</i>&nbsp;   * &lt;p&gt;
+<i>24</i>&nbsp;   * &lt;i&gt; --- This doc was last reviewed on 08 Dec 2013.&lt;/i&gt;
+<i>25</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>26</i>&nbsp;   *
+<i>27</i>&nbsp;   *
+<i>28</i>&nbsp;   * Example:
+<i>29</i>&nbsp;   * &lt;pre&gt;
+<i>30</i>&nbsp;   * [
+<i>31</i>&nbsp;   *   [
+<i>32</i>&nbsp;   *     guiSnapshot: initialGuiSnapshot
+<i>33</i>&nbsp;   *     coverageLogs: [ log1, log2, ... ]
+<i>34</i>&nbsp;   *   ],
+<i>35</i>&nbsp;   *   [
+<i>36</i>&nbsp;   *     explorationStatus: explorationStatus(terminate: false)
+<i>37</i>&nbsp;   *     guiAction: guiAction1,
+<i>38</i>&nbsp;   *     guiSnapshot: guiSnapshotAfterAction1,
+<i>39</i>&nbsp;   *     coverageLogs: [ log3, log4, ... ]
+<i>40</i>&nbsp;   *   ],
+<i>41</i>&nbsp;   *   ...
+<i>42</i>&nbsp;   *   [
+<i>43</i>&nbsp;   *     explorationStatus: explorationStatus(terminate: true)
+<i>44</i>&nbsp;   *     guiAction: null,
+<i>45</i>&nbsp;   *   ]
+<i>46</i>&nbsp;   * ]
+<i>47</i>&nbsp;   * &lt;/pre&gt;
+<i>48</i>&nbsp;   * &lt;/p&gt;
+<i>49</i>&nbsp;   */
+<b class="fc"><i>50</i>&nbsp;  List&lt;Map&lt;String,String&gt;&gt; explorationLogs = [];</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;  private int actionIdx = 0;
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  ExplorationDataCollector()
+<i>55</i>&nbsp;  {
+<b class="fc"><i>56</i>&nbsp;    actionIdx = 0;</b>
+<b class="fc"><i>57</i>&nbsp;    explorationLogs = []</b>
+<b class="fc"><i>58</i>&nbsp;    explorationLogs[actionIdx] = [:]</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;  }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  void collectGuiSnapshot(IDeviceGuiSnapshot guiSnapshot)
+<i>64</i>&nbsp;  {
+<b class="fc"><i>65</i>&nbsp;    assert explorationLogs[actionIdx] != null</b>
+<b class="fc"><i>66</i>&nbsp;    assert guiSnapshot != null</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;    explorationLogs[actionIdx] &lt;&lt; [guiSnapshot: guiSnapshot]</b>
+<i>69</i>&nbsp;  }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;  void collectCoverageLogs(List&lt;String&gt; coverageLogs)
+<i>72</i>&nbsp;  {
+<b class="fc"><i>73</i>&nbsp;    assert explorationLogs[actionIdx] != null</b>
+<b class="fc"><i>74</i>&nbsp;    assert coverageLogs != null</b>
+<i>75</i>&nbsp;
+<b class="fc"><i>76</i>&nbsp;    explorationLogs[actionIdx] &lt;&lt; [coverageLogs: coverageLogs]</b>
+<i>77</i>&nbsp;  }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;  void collectNextExplorationAction(ExplorationAction explorationAction)
+<i>80</i>&nbsp;  {
+<b class="fc"><i>81</i>&nbsp;    assert explorationAction != null</b>
+<i>82</i>&nbsp;
+<b class="fc"><i>83</i>&nbsp;    if (actionIdx == 0)</b>
+<i>84</i>&nbsp;    {
+<b class="fc"><i>85</i>&nbsp;      assert !explorationLogs[actionIdx].containsKey(&quot;explorationStatus&quot;)</b>
+<b class="fc"><i>86</i>&nbsp;      assert !explorationLogs[actionIdx].containsKey(&quot;guiAction&quot;)</b>
+<b class="fc"><i>87</i>&nbsp;      assert !explorationLogs[actionIdx].containsKey(&quot;intentAction&quot;)</b>
+<i>88</i>&nbsp;      // doc-assert MAYBE explorationLogs[actionIdx].containsKey(&quot;guiSnapshot&quot;)
+<i>89</i>&nbsp;    } else
+<i>90</i>&nbsp;    {
+<b class="fc"><i>91</i>&nbsp;      assert explorationLogs[actionIdx].containsKey(&quot;explorationStatus&quot;)</b>
+<b class="fc"><i>92</i>&nbsp;      assert explorationLogs[actionIdx].containsKey(&quot;guiAction&quot;) ||</b>
+<b class="fc"><i>93</i>&nbsp;        explorationLogs[actionIdx].containsKey(&quot;intentAction&quot;) ||</b>
+<b class="nc"><i>94</i>&nbsp;        explorationLogs[actionIdx][&quot;explorationStatus&quot;] == ExplorationAction.explorationStatusTerminated</b>
+<i>95</i>&nbsp;      // doc-assert MAYBE explorationLogs[actionIdx].containsKey(&quot;guiSnapshot&quot;)
+<i>96</i>&nbsp;    }
+<i>97</i>&nbsp;
+<b class="fc"><i>98</i>&nbsp;    actionIdx++</b>
+<b class="fc"><i>99</i>&nbsp;    explorationLogs[actionIdx] = [:]</b>
+<b class="fc"><i>100</i>&nbsp;    explorationLogs[actionIdx] &lt;&lt; [explorationStatus:&quot;terminated: &quot;+explorationAction.terminated]</b>
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;    // WISH this should be handled by method-with-appropriate-param-type dispatch instead of IF conditional
+<b class="fc"><i>103</i>&nbsp;    if (explorationAction instanceof GuiExplorationAction)</b>
+<i>104</i>&nbsp;    {
+<b class="fc"><i>105</i>&nbsp;      GuiExplorationAction guiEA = explorationAction as GuiExplorationAction</b>
+<b class="fc"><i>106</i>&nbsp;      explorationLogs[actionIdx] &lt;&lt; [guiAction: guiEA.guiAction.toString()]</b>
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    }
+<b class="fc"><i>110</i>&nbsp;    else if (explorationAction instanceof IntentExplorationAction)</b>
+<i>111</i>&nbsp;    {
+<b class="fc"><i>112</i>&nbsp;      IntentExplorationAction iEA = explorationAction as IntentExplorationAction</b>
+<b class="fc"><i>113</i>&nbsp;      explorationLogs[actionIdx] &lt;&lt; [intentAction: iEA.toString()]</b>
+<i>114</i>&nbsp;      // WISH also report here the intent params
+<i>115</i>&nbsp;    }
+<b class="fc"><i>116</i>&nbsp;      else if (explorationAction instanceof ExplorationAction)</b>
+<i>117</i>&nbsp;    {
+<i>118</i>&nbsp;      // Do nothing
+<i>119</i>&nbsp;    }
+<b class="nc"><i>120</i>&nbsp;    else assert false : Constants.ASSERTION_MSG_MISSING_ASSERTION</b>
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;  }
+<i>123</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

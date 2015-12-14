@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AutDriver</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.autaddon</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AutDriver (org.droidmate.autaddon)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AutDriver</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.autaddon;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import java.util.ArrayList;
+<i>14</i>&nbsp;import java.util.List;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import org.droidmate.common.*;
+<i>17</i>&nbsp;import org.droidmate.common.guimodel.ViewDescriptor;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import android.app.Activity;
+<i>20</i>&nbsp;import android.content.pm.ActivityInfo;
+<i>21</i>&nbsp;import android.util.Log;
+<i>22</i>&nbsp;import android.view.View;
+<i>23</i>&nbsp;import android.view.ViewGroup;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;public class AutDriver implements IAutDriver
+<i>26</i>&nbsp;{
+<i>27</i>&nbsp;
+<b class="nc"><i>28</i>&nbsp;  private static final String thisClassName = CommonUtils.getClassNameSuffix(AutDriver.class.getName());</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  private final Activity activity;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  public AutDriver(Activity activity)
+<b class="nc"><i>33</i>&nbsp;  {</b>
+<b class="nc"><i>34</i>&nbsp;    this.activity = activity;</b>
+<i>35</i>&nbsp;  }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;  @Override
+<i>38</i>&nbsp;  public DeviceResponse executeCommand(DeviceCommand deviceCommand) throws AutAddonException
+<i>39</i>&nbsp;  {
+<i>40</i>&nbsp;
+<b class="nc"><i>41</i>&nbsp;    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_STOP_AUTADDON))</b>
+<i>42</i>&nbsp;      // The server will be closed after this response is sent.
+<b class="nc"><i>43</i>&nbsp;      return new DeviceResponse();</b>
+<i>44</i>&nbsp;
+<b class="nc"><i>45</i>&nbsp;    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_LIST_ACTIVITIES_COMPONENT_NAMES))</b>
+<b class="nc"><i>46</i>&nbsp;      return listActivitiesComponentNames();</b>
+<i>47</i>&nbsp;
+<b class="nc"><i>48</i>&nbsp;    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_GET_COVERAGE))</b>
+<b class="nc"><i>49</i>&nbsp;      return getCurrentCoverage();</b>
+<i>50</i>&nbsp;
+<b class="nc"><i>51</i>&nbsp;    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_GET_UIAUTOMATOR_WINDOW_HIERARCHY_DUMP))</b>
+<b class="nc"><i>52</i>&nbsp;      throw new AutAddonException(&quot;The AutAddon currently doesn&#39;t handle returning GUI model. Instead, the GUI model &quot; +</b>
+<i>53</i>&nbsp;        &quot;is to be returned by uiaautomator-daemon. Read https://hg.st.cs.uni-saarland.de/issues/611 for details.&quot;);
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;//    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_GET_GUI_MODEL))
+<i>58</i>&nbsp;//      return getGuiModel();
+<i>59</i>&nbsp;
+<b class="nc"><i>60</i>&nbsp;    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_GET_UIAUTOMATOR_WINDOW_HIERARCHY_DUMP))</b>
+<b class="nc"><i>61</i>&nbsp;      throw new AutAddonException(&quot;The AutAddon currently doesn&#39;t handle returning GUI model. Instead, the GUI model &quot; +</b>
+<i>62</i>&nbsp;          &quot;is to be returned by uiaautomator-daemon. Read https://hg.st.cs.uni-saarland.de/issues/611 for details.&quot;);
+<i>63</i>&nbsp;
+<b class="nc"><i>64</i>&nbsp;    if (deviceCommand.command.equals(Constants.DEVICE_COMMAND_PERFORM_ACTION))</b>
+<b class="nc"><i>65</i>&nbsp;      throw new AutAddonException(&quot;The AutAddon currently doesn&#39;t handle performing action. Instead, the action &quot; +</b>
+<i>66</i>&nbsp;          &quot;is to be performed by uiautomator-daemon. Read https://hg.st.cs.uni-saarland.de/issues/611 for details.&quot;);
+<i>67</i>&nbsp;
+<b class="nc"><i>68</i>&nbsp;    throw new AutAddonException(String.format(&quot;The command %s is not implemented yet!&quot;, deviceCommand.command));</b>
+<i>69</i>&nbsp;  }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;  @SuppressWarnings(&quot;unused&quot;)
+<i>72</i>&nbsp;  private DeviceResponse getGuiModel()
+<i>73</i>&nbsp;  {
+<b class="nc"><i>74</i>&nbsp;    Log.d(thisClassName, &quot;Exploring GUI model of activity: &quot; + activity.getLocalClassName());</b>
+<i>75</i>&nbsp;
+<b class="nc"><i>76</i>&nbsp;    ArrayList&lt;ViewDescriptor&gt; viewDescriptors = new ArrayList&lt;ViewDescriptor&gt;();</b>
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;//    Log.d(AndroidUtils.DEBUG_TAG, &quot;Activity &quot; + activity.getLocalClassName() + &quot; is active?: &quot;
+<i>79</i>&nbsp;//        + activity.getWindow().getDecorView().is
+<b class="nc"><i>80</i>&nbsp;    exploreView(activity.getWindow().getDecorView(), 0, viewDescriptors);</b>
+<i>81</i>&nbsp;
+<b class="nc"><i>82</i>&nbsp;    final String currentActivityName = activity.getLocalClassName();</b>
+<b class="nc"><i>83</i>&nbsp;    final String currentPackageName = activity.getPackageName();</b>
+<b class="nc"><i>84</i>&nbsp;    return new AutAddonGuiDeviceResponse(</b>
+<i>85</i>&nbsp;      viewDescriptors, currentActivityName, currentPackageName);
+<i>86</i>&nbsp;  }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;  private void exploreView(View view, int depth, ArrayList&lt;ViewDescriptor&gt; viewDescriptors)
+<i>89</i>&nbsp;  {
+<i>90</i>&nbsp;    // Note: this check for clickability may cause in the future two different states to be treated as the same state.
+<i>91</i>&nbsp;    // This will be the case as long as the clickable components are the same AND on the same hierarchy depths.
+<i>92</i>&nbsp;    // WISH if condition commented out for DEBUG
+<i>93</i>&nbsp;  //  if (view.isClickable())
+<b class="nc"><i>94</i>&nbsp;      viewDescriptors.add(new ViewDescriptor(view, depth));</b>
+<i>95</i>&nbsp;
+<b class="nc"><i>96</i>&nbsp;    if (view instanceof ViewGroup)</b>
+<i>97</i>&nbsp;    {
+<b class="nc"><i>98</i>&nbsp;      ViewGroup viewGroup = (ViewGroup) view;</b>
+<b class="nc"><i>99</i>&nbsp;      for (int i = 0; i &lt; viewGroup.getChildCount(); i++)</b>
+<i>100</i>&nbsp;      {
+<b class="nc"><i>101</i>&nbsp;        exploreView(viewGroup.getChildAt(i), depth + 1, viewDescriptors);</b>
+<i>102</i>&nbsp;      }
+<i>103</i>&nbsp;    }
+<i>104</i>&nbsp;  }
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;  // WISH ComponentNames: archive code snippets in death row and delete
+<i>107</i>&nbsp;  private DeviceResponse listActivitiesComponentNames() throws AutAddonException
+<i>108</i>&nbsp;  {
+<b class="nc"><i>109</i>&nbsp;    ActivityInfo[] activitiesInfo = AndroidUtils.getActivitiesInfo(activity);</b>
+<b class="nc"><i>110</i>&nbsp;    List&lt;String&gt; componentNames = new ArrayList&lt;String&gt;();</b>
+<i>111</i>&nbsp;
+<b class="nc"><i>112</i>&nbsp;    for (ActivityInfo activityInfo : activitiesInfo)</b>
+<b class="nc"><i>113</i>&nbsp;      componentNames.add(CommonUtils.formatActivityNameAsComponentName(activityInfo.name));</b>
+<i>114</i>&nbsp;
+<b class="nc"><i>115</i>&nbsp;    DeviceResponse deviceResponse = new DeviceResponse();</b>
+<b class="nc"><i>116</i>&nbsp;    deviceResponse.componentNames = componentNames;</b>
+<b class="nc"><i>117</i>&nbsp;    Log.d(AndroidUtils.DEBUG_TAG, &quot;componentNames size: &quot; + deviceResponse.componentNames.size());</b>
+<b class="nc"><i>118</i>&nbsp;    return deviceResponse;</b>
+<i>119</i>&nbsp;  }
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;  private DeviceResponse getCurrentCoverage() throws AutAddonException
+<i>122</i>&nbsp;  {
+<b class="nc"><i>123</i>&nbsp;    DeviceResponse deviceResponse = new DeviceResponse();</b>
+<b class="nc"><i>124</i>&nbsp;    deviceResponse.coverageLogs = AutAddon.getAndResetCurrentCoverage();</b>
+<b class="nc"><i>125</i>&nbsp;    return deviceResponse;</b>
+<i>126</i>&nbsp;  }
+<i>127</i>&nbsp;
+<i>128</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

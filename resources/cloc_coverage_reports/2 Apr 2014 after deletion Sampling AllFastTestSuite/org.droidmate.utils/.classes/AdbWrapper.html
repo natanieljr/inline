@@ -1,0 +1,736 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AdbWrapper</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AdbWrapper (org.droidmate.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AdbWrapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    10.5%
+  </span>
+  <span class="absValue">
+    (2/ 19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    3.8%
+  </span>
+  <span class="absValue">
+    (5/ 133)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AdbWrapper$$FastClassByGuice$$d5a18888</td>
+  </tr>
+  <tr>
+    <td class="name">AdbWrapper$_launchMainActivity_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AdbWrapper$_removeAdbStartedMsgIfPresent_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AdbWrapper$removeAdbStartedMsgIfPresent</td>
+  </tr>
+  <tr>
+    <td class="name">AdbWrapper$UiAutomatorThreadRunnable</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    13%
+  </span>
+  <span class="absValue">
+    (3/ 23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    4.2%
+  </span>
+  <span class="absValue">
+    (6/ 143)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.utils
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import android.content.Intent
+<i>14</i>&nbsp;import com.google.common.base.Splitter
+<i>15</i>&nbsp;import com.google.common.collect.Iterables
+<i>16</i>&nbsp;import com.google.inject.Inject
+<i>17</i>&nbsp;import com.google.inject.Singleton
+<i>18</i>&nbsp;import groovy.transform.TypeChecked
+<i>19</i>&nbsp;import org.droidmate.common.Constants
+<i>20</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>21</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>22</i>&nbsp;import org.droidmate.exceptions.NoAndroidDevicesAvailableException
+<i>23</i>&nbsp;import org.droidmate.exceptions.SysCmdExecutorException
+<i>24</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>25</i>&nbsp;import org.slf4j.Logger
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;/**
+<i>28</i>&nbsp; * Provides clean interface for communication with the Android SDK&#39;s Android Debug Bridge (ADB) tool.&lt;br/&gt;
+<i>29</i>&nbsp; * &lt;br/&gt;
+<i>30</i>&nbsp; * &lt;b&gt;Technical notes&lt;/b&gt;&lt;br/&gt;
+<i>31</i>&nbsp; * The ADB tool is usually located in {@code &lt;android sdk path&gt;/platform-tools/adb.}&lt;br/&gt;
+<i>32</i>&nbsp; * Reference: http://developer.android.com/tools/help/adb.html
+<i>33</i>&nbsp; *
+<i>34</i>&nbsp; * @author Konrad Jamrozik
+<i>35</i>&nbsp; */
+<i>36</i>&nbsp;@Singleton
+<i>37</i>&nbsp;@TypeChecked
+<i>38</i>&nbsp;public class AdbWrapper implements IAdbWrapper
+<i>39</i>&nbsp;{
+<i>40</i>&nbsp;  private static final String AVDDirForTempFiles = &quot;/data/local/tmp/&quot;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;  private Configuration config;
+<i>44</i>&nbsp;  private Thread uiaDaemonThread;
+<i>45</i>&nbsp;  private ISysCmdExecutor sysCmdExecutor;
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  @InjectLogger
+<i>48</i>&nbsp;  private static Logger log;
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  @Inject
+<i>51</i>&nbsp;  AdbWrapper(Configuration config, ISysCmdExecutor sysCmdExecutor)
+<i>52</i>&nbsp;  {
+<b class="fc"><i>53</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>54</i>&nbsp;    this.sysCmdExecutor = sysCmdExecutor;</b>
+<i>55</i>&nbsp;  }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;  // WISH bug! Sometimes the device is offline which crashes DroidMate. Protect against it.
+<i>59</i>&nbsp;  @Override
+<i>60</i>&nbsp;  public List&lt;AndroidDeviceDescriptor&gt; getAndroidDevicesDescriptors()
+<i>61</i>&nbsp;    throws SysCmdExecutorException
+<i>62</i>&nbsp;  {
+<b class="nc"><i>63</i>&nbsp;    assert config.adbCommand != null</b>
+<i>64</i>&nbsp;
+<b class="nc"><i>65</i>&nbsp;    String commandDescription = String</b>
+<i>66</i>&nbsp;      .format(&quot;Executing adb (Android Debug Bridge) to get the list of available Android (Virtual) Devices.&quot;);
+<i>67</i>&nbsp;
+<b class="nc"><i>68</i>&nbsp;    String[] stdStreams = sysCmdExecutor.execute(commandDescription, config.adbCommand, &quot;devices&quot;);</b>
+<b class="nc"><i>69</i>&nbsp;    removeAdbStartedMsgIfPresent(stdStreams)</b>
+<i>70</i>&nbsp;
+<b class="nc"><i>71</i>&nbsp;    List&lt;AndroidDeviceDescriptor&gt; deviceDescriptors = parseDeviceInformation(stdStreams[0]);</b>
+<i>72</i>&nbsp;
+<b class="nc"><i>73</i>&nbsp;    if (deviceDescriptors.isEmpty())</b>
+<b class="nc"><i>74</i>&nbsp;      throw new NoAndroidDevicesAvailableException()</b>
+<i>75</i>&nbsp;
+<b class="nc"><i>76</i>&nbsp;    assert deviceDescriptors.size() &gt; 0</b>
+<b class="nc"><i>77</i>&nbsp;    return deviceDescriptors</b>
+<i>78</i>&nbsp;  }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;  static void removeAdbStartedMsgIfPresent(String[] stdStreams)
+<i>81</i>&nbsp;  {
+<b class="fc"><i>82</i>&nbsp;    List&lt;String&gt; stdoutLines = stdStreams[0].split(System.lineSeparator(), -1) as List&lt;String&gt;</b>
+<b class="fc"><i>83</i>&nbsp;    stdoutLines = stdoutLines.findAll { String it -&gt;</b>
+<b class="fc"><i>84</i>&nbsp;      !it.startsWith(&quot;* daemon not running&quot;) &amp;&amp; !it.startsWith(&quot;* daemon started successfully&quot;)} as List&lt;String&gt;</b>
+<b class="fc"><i>85</i>&nbsp;    stdStreams[0] = stdoutLines.join(System.lineSeparator())</b>
+<i>86</i>&nbsp;  }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;  /**
+<i>89</i>&nbsp;   * @param adbDevicesCmdStdout Standard output of call to {@code &quot;&lt;android sdk&gt;/platform-tools/adb devices&quot;}
+<i>90</i>&nbsp;   *
+<i>91</i>&nbsp;   * @return List of pairs describing the serial number and type (real device/emulator) of each device visible to adb.
+<i>92</i>&nbsp;   */
+<i>93</i>&nbsp;  private static List&lt;AndroidDeviceDescriptor&gt; parseDeviceInformation(String adbDevicesCmdStdout)
+<i>94</i>&nbsp;  {
+<b class="nc"><i>95</i>&nbsp;    Iterable&lt;String&gt; entries = Splitter.on(&#39;\n&#39;).omitEmptyStrings().trimResults().split(adbDevicesCmdStdout);</b>
+<b class="nc"><i>96</i>&nbsp;    entries = Iterables.skip(entries, 1); // Remove the &quot;List of devices attached&quot; header.</b>
+<i>97</i>&nbsp;
+<b class="nc"><i>98</i>&nbsp;    List&lt;AndroidDeviceDescriptor&gt; deviceDescriptors = new ArrayList&lt;AndroidDeviceDescriptor&gt;();</b>
+<b class="nc"><i>99</i>&nbsp;    for (String entry : entries)</b>
+<i>100</i>&nbsp;    {
+<b class="nc"><i>101</i>&nbsp;      String deviceSerialNumber = Iterables.getFirst(Splitter.on(&#39;\t&#39;).split(entry), null);</b>
+<b class="nc"><i>102</i>&nbsp;      if (deviceSerialNumber.startsWith(&quot;emulator&quot;))</b>
+<b class="nc"><i>103</i>&nbsp;        deviceDescriptors.add(new AndroidDeviceDescriptor(deviceSerialNumber, true));</b>
+<i>104</i>&nbsp;      else
+<b class="nc"><i>105</i>&nbsp;        deviceDescriptors.add(new AndroidDeviceDescriptor(deviceSerialNumber, false));</b>
+<i>106</i>&nbsp;    }
+<i>107</i>&nbsp;
+<b class="nc"><i>108</i>&nbsp;    return deviceDescriptors;</b>
+<i>109</i>&nbsp;  }
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;  // WISH this has to throw exception when stdout says that install failed e.g. with [INSTALL_FAILED_DEXOPT].
+<i>112</i>&nbsp;  // I wasted time finding this out one too many times.
+<i>113</i>&nbsp;  @Override
+<i>114</i>&nbsp;  public void installApk(String deviceSerialNumber, File apkToInstall)
+<i>115</i>&nbsp;    throws DroidmateException
+<i>116</i>&nbsp;  {
+<i>117</i>&nbsp;    try
+<i>118</i>&nbsp;    {
+<i>119</i>&nbsp;
+<b class="nc"><i>120</i>&nbsp;      log.debug(&quot;Installing apk {} on device with s/n {}.&quot;, apkToInstall.getName(),</b>
+<i>121</i>&nbsp;        deviceSerialNumber);
+<i>122</i>&nbsp;
+<b class="nc"><i>123</i>&nbsp;      assert (config != null);</b>
+<b class="nc"><i>124</i>&nbsp;      assert (config.adbCommand != null);</b>
+<i>125</i>&nbsp;
+<b class="nc"><i>126</i>&nbsp;      String commandDescription = String</b>
+<i>127</i>&nbsp;        .format(&quot;Executing adb (Android Debug Bridge) to install %s on Android (Virtual) Device.&quot;,
+<b class="nc"><i>128</i>&nbsp;        apkToInstall.getName());</b>
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;      // WISH here exit code has to be processed. return exitCode by converting it to string and adding as first
+<i>131</i>&nbsp;      // arr element (check usages first!) Maybe instead use an object?
+<b class="nc"><i>132</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.adbCommand, &quot;-s&quot;, deviceSerialNumber, &quot;install -r&quot;,</b>
+<i>133</i>&nbsp;        // WISH getAbsolutePath instead of canonical, skip throwing IOException
+<i>134</i>&nbsp;        apkToInstall.absolutePath);
+<i>135</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>136</i>&nbsp;    {
+<b class="nc"><i>137</i>&nbsp;      throw new DroidmateException(</b>
+<b class="nc"><i>138</i>&nbsp;        &quot;Executing &#39;adb install&#39; failed. Possible cause: no android devices are available. To view available Android &quot;</b>
+<i>139</i>&nbsp;          +
+<i>140</i>&nbsp;          &quot;devices, please run from cmdline: \&quot;&lt;android sdk&gt;/platform-tools/adb devices\&quot;&quot;,
+<i>141</i>&nbsp;        e);
+<i>142</i>&nbsp;    }
+<i>143</i>&nbsp;  }
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;  @Override
+<i>146</i>&nbsp;  public void uninstallApk(String deviceSerialNumber, String apkPackageName, boolean warnAboutFailure)
+<i>147</i>&nbsp;    throws DroidmateException
+<i>148</i>&nbsp;  {
+<b class="nc"><i>149</i>&nbsp;    assert deviceSerialNumber != null</b>
+<b class="nc"><i>150</i>&nbsp;    assert apkPackageName != null</b>
+<i>151</i>&nbsp;
+<i>152</i>&nbsp;    try
+<i>153</i>&nbsp;    {
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;
+<b class="nc"><i>156</i>&nbsp;      log.debug(&quot;Uninstalling apk with package name {} from device with s/n {}.&quot;, apkPackageName,</b>
+<i>157</i>&nbsp;        deviceSerialNumber);
+<i>158</i>&nbsp;
+<b class="nc"><i>159</i>&nbsp;      String commandDescription = String</b>
+<i>160</i>&nbsp;        .format(&quot;Executing adb (Android Debug Bridge) to uninstall %s from Android Device with s/n %s.&quot;,
+<i>161</i>&nbsp;        apkPackageName, deviceSerialNumber);
+<i>162</i>&nbsp;
+<b class="nc"><i>163</i>&nbsp;      String[] stdStreams = sysCmdExecutor.execute(commandDescription, config.adbCommand, &quot;-s&quot;,</b>
+<i>164</i>&nbsp;        deviceSerialNumber, &quot;uninstall&quot;, apkPackageName);
+<b class="nc"><i>165</i>&nbsp;      removeAdbStartedMsgIfPresent(stdStreams)</b>
+<i>166</i>&nbsp;
+<b class="nc"><i>167</i>&nbsp;      String stdout = stdStreams[0];</b>
+<i>168</i>&nbsp;
+<i>169</i>&nbsp;      // &quot;Failure&quot; is what the adb&#39;s &quot;uninstall&quot; command outputs when it fails.
+<b class="nc"><i>170</i>&nbsp;      if (warnAboutFailure &amp;&amp; stdout.contains(&quot;Failure&quot;))</b>
+<b class="nc"><i>171</i>&nbsp;        log.warn(</b>
+<b class="nc"><i>172</i>&nbsp;          &quot;Failed to uninstall the apk package {}. Please see DEBUG and/or TRACE messages in Droidmate logs for &quot; +</b>
+<i>173</i>&nbsp;            &quot;details.&quot;, apkPackageName);
+<i>174</i>&nbsp;
+<i>175</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>176</i>&nbsp;    {
+<b class="nc"><i>177</i>&nbsp;      throw new DroidmateException(</b>
+<b class="nc"><i>178</i>&nbsp;        &quot;Calling &#39;adb uninstall&#39; failed. Possible cause: no android devices are available. To view available &quot; +</b>
+<i>179</i>&nbsp;          &quot;Android devices, please run from cmdline: \&quot;&lt;android sdk path&gt;/platform-tools/adb devices\&quot;&quot;,
+<i>180</i>&nbsp;        e);
+<i>181</i>&nbsp;    }
+<i>182</i>&nbsp;  }
+<i>183</i>&nbsp;
+<i>184</i>&nbsp;  @Override
+<i>185</i>&nbsp;  public void forwardPort(String deviceSerialNumber, int port) throws DroidmateException
+<i>186</i>&nbsp;  {
+<b class="nc"><i>187</i>&nbsp;    assert deviceSerialNumber != null</b>
+<i>188</i>&nbsp;
+<i>189</i>&nbsp;    try
+<i>190</i>&nbsp;    {
+<i>191</i>&nbsp;
+<i>192</i>&nbsp;
+<b class="nc"><i>193</i>&nbsp;      String commandDescription = String</b>
+<i>194</i>&nbsp;        .format(&quot;Executing adb (Android Debug Bridge) to forward port %s to android device with s/n %s.&quot;, port,
+<i>195</i>&nbsp;        deviceSerialNumber);
+<i>196</i>&nbsp;
+<b class="nc"><i>197</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.adbCommand, &quot;-s&quot;, deviceSerialNumber, &quot;forward&quot;,</b>
+<b class="nc"><i>198</i>&nbsp;        &quot;tcp:&quot; + String.valueOf(port),</b>
+<b class="nc"><i>199</i>&nbsp;        &quot;tcp:&quot; + String.valueOf(port));</b>
+<i>200</i>&nbsp;
+<i>201</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>202</i>&nbsp;    {
+<b class="nc"><i>203</i>&nbsp;      throw new DroidmateException(&quot;Executing &#39;adb forward&#39; failed. Oh my.&quot;, e);</b>
+<i>204</i>&nbsp;    }
+<i>205</i>&nbsp;
+<i>206</i>&nbsp;  }
+<i>207</i>&nbsp;
+<i>208</i>&nbsp;  @Override
+<i>209</i>&nbsp;  public boolean readFromLogcatIfMessageWasPosted(String deviceSerialNumber, String messageTag, String message) throws DroidmateException
+<i>210</i>&nbsp;  {
+<i>211</i>&nbsp;
+<i>212</i>&nbsp;    try
+<i>213</i>&nbsp;    {
+<b class="nc"><i>214</i>&nbsp;      String commandDescription = String</b>
+<i>215</i>&nbsp;        .format(&quot;Executing adb (Android Debug Bridge) to read from logcat message: %s tagged: %s&quot;, message,
+<i>216</i>&nbsp;        messageTag);
+<i>217</i>&nbsp;
+<b class="nc"><i>218</i>&nbsp;      String[] stdStreams = sysCmdExecutor.execute(commandDescription, config.adbCommand,</b>
+<i>219</i>&nbsp;        &quot;-s&quot;, deviceSerialNumber,
+<i>220</i>&nbsp;        &quot;logcat -d -b main -v raw *:s&quot;, messageTag);
+<b class="nc"><i>221</i>&nbsp;      removeAdbStartedMsgIfPresent(stdStreams)</b>
+<i>222</i>&nbsp;
+<b class="nc"><i>223</i>&nbsp;      String stdout = stdStreams[0];</b>
+<i>224</i>&nbsp;
+<b class="nc"><i>225</i>&nbsp;      if (stdout.contains(message))</b>
+<b class="nc"><i>226</i>&nbsp;        return true;</b>
+<i>227</i>&nbsp;      else
+<b class="nc"><i>228</i>&nbsp;        return false;</b>
+<i>229</i>&nbsp;
+<i>230</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>231</i>&nbsp;    {
+<b class="nc"><i>232</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>233</i>&nbsp;    }
+<i>234</i>&nbsp;  }
+<i>235</i>&nbsp;
+<i>236</i>&nbsp;  @Override
+<i>237</i>&nbsp;  public void clearLogcat(String deviceSerialNumber) throws DroidmateException
+<i>238</i>&nbsp;  {
+<i>239</i>&nbsp;    try
+<i>240</i>&nbsp;    {
+<i>241</i>&nbsp;
+<b class="nc"><i>242</i>&nbsp;      log.debug(&quot;Clearing logcat output.&quot;);</b>
+<i>243</i>&nbsp;
+<b class="nc"><i>244</i>&nbsp;      String commandDescription = String</b>
+<i>245</i>&nbsp;        .format(&quot;Executing adb (Android Debug Bridge) to clear logcat output.&quot;);
+<i>246</i>&nbsp;
+<b class="nc"><i>247</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.adbCommand,</b>
+<i>248</i>&nbsp;        &quot;-s&quot;, deviceSerialNumber,
+<i>249</i>&nbsp;        &quot;logcat -c&quot;);
+<i>250</i>&nbsp;
+<i>251</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>252</i>&nbsp;    {
+<b class="nc"><i>253</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>254</i>&nbsp;    }
+<i>255</i>&nbsp;
+<i>256</i>&nbsp;  }
+<i>257</i>&nbsp;
+<i>258</i>&nbsp;  @Override
+<i>259</i>&nbsp;  public void launchMainActivity(String deviceSerialNumber, String launchableActivityName) throws DroidmateException
+<i>260</i>&nbsp;  {
+<i>261</i>&nbsp;    try
+<i>262</i>&nbsp;    {
+<i>263</i>&nbsp;
+<b class="nc"><i>264</i>&nbsp;      log.debug(&quot;Starting main activity on device with s/n {}. Using TCP port {}.&quot;,</b>
+<i>265</i>&nbsp;        deviceSerialNumber, Constants.AUTADDON_SERVER_PORT);
+<i>266</i>&nbsp;
+<b class="nc"><i>267</i>&nbsp;      String commandDescription = String</b>
+<i>268</i>&nbsp;        .format(&quot;Executing adb (Android Debug Bridge) to start main activity on the Android Device.&quot;);
+<i>269</i>&nbsp;
+<i>270</i>&nbsp;      // Reference:
+<i>271</i>&nbsp;      // http://developer.android.com/tools/help/adb.html#am
+<b class="nc"><i>272</i>&nbsp;      String[] stdStreams = sysCmdExecutor.execute(commandDescription, config.adbCommand,</b>
+<i>273</i>&nbsp;        &quot;-s&quot;, deviceSerialNumber,
+<i>274</i>&nbsp;        &quot;shell am start&quot;, // start an activity using Activity Manager (am)
+<i>275</i>&nbsp;        &quot;-W&quot;, // wait for launch to complete
+<i>276</i>&nbsp;        &quot;-S&quot;, // force stop before starting activity
+<i>277</i>&nbsp;        // WISH after gradle rebuild, &quot;Intent&quot; needs-reimport, otherwise IntelliJ marks it in red.
+<i>278</i>&nbsp;        &quot;-a&quot;, Intent.ACTION_MAIN,
+<i>279</i>&nbsp;        &quot;-c&quot;, Intent.CATEGORY_LAUNCHER,
+<i>280</i>&nbsp;        &quot;-n&quot;, launchableActivityName);
+<i>281</i>&nbsp;
+<b class="nc"><i>282</i>&nbsp;      String stdout = stdStreams[0]</b>
+<b class="nc"><i>283</i>&nbsp;      String launchMainActivityFailureString = &quot;Error: &quot;</b>
+<i>284</i>&nbsp;
+<b class="nc"><i>285</i>&nbsp;      if (stdout.contains(launchMainActivityFailureString))</b>
+<i>286</i>&nbsp;      {
+<b class="nc"><i>287</i>&nbsp;        String failureLine = stdout.readLines().find { String line -&gt; line.contains(launchMainActivityFailureString) }</b>
+<i>288</i>&nbsp;
+<b class="nc"><i>289</i>&nbsp;        throw new DroidmateException(&quot;AdbWrapper.launchMainActivity successfully executed the underlying adb shell command, &quot; +</b>
+<b class="nc"><i>290</i>&nbsp;          &quot;but its stdout contains the failure string of: &#39;$launchMainActivityFailureString&#39;. Full line from the command &quot; +</b>
+<i>291</i>&nbsp;          &quot;stdout with the failure string:\n&quot; +
+<i>292</i>&nbsp;          &quot;$failureLine&quot;)
+<i>293</i>&nbsp;      }
+<i>294</i>&nbsp;
+<i>295</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>296</i>&nbsp;    {
+<b class="nc"><i>297</i>&nbsp;      throw new DroidmateException(&quot;Executing &#39;adb shell am start &lt;INTENT&gt;&#39; failed. Oh my.&quot;, e);</b>
+<i>298</i>&nbsp;    }
+<i>299</i>&nbsp;  }
+<i>300</i>&nbsp;
+<i>301</i>&nbsp;  @Override
+<i>302</i>&nbsp;  public boolean waitForMessageOnLogcat(String deviceSerialNumber, String messageTag, String message, int waitTimeout, int queryInterval)
+<i>303</i>&nbsp;    throws DroidmateException
+<i>304</i>&nbsp;  {
+<i>305</i>&nbsp;
+<b class="nc"><i>306</i>&nbsp;    boolean messagePosted;</b>
+<i>307</i>&nbsp;
+<i>308</i>&nbsp;    try
+<i>309</i>&nbsp;    {
+<i>310</i>&nbsp;
+<b class="nc"><i>311</i>&nbsp;      messagePosted = false;</b>
+<i>312</i>&nbsp;
+<b class="nc"><i>313</i>&nbsp;      int timeLeftToQuery = waitTimeout;</b>
+<i>314</i>&nbsp;
+<b class="nc"><i>315</i>&nbsp;      log.debug(</b>
+<b class="nc"><i>316</i>&nbsp;        &quot;Waiting for message to be posted on logcat. MessageTag: {} Message: {} Timeout: {} ms. &quot; +</b>
+<i>317</i>&nbsp;          &quot;Query interval: {} ms&quot;,
+<i>318</i>&nbsp;        messageTag, message, waitTimeout, queryInterval);
+<i>319</i>&nbsp;
+<b class="nc"><i>320</i>&nbsp;      while (timeLeftToQuery &gt; 0 &amp;&amp; !messagePosted)</b>
+<i>321</i>&nbsp;      {
+<b class="nc"><i>322</i>&nbsp;        Thread.sleep(queryInterval);</b>
+<b class="nc"><i>323</i>&nbsp;        timeLeftToQuery -= queryInterval;</b>
+<b class="nc"><i>324</i>&nbsp;        messagePosted = this.readFromLogcatIfMessageWasPosted(deviceSerialNumber, messageTag, message);</b>
+<b class="nc"><i>325</i>&nbsp;        log.trace(&quot;Result of query if message was posted: &quot; + messagePosted);</b>
+<i>326</i>&nbsp;      }
+<i>327</i>&nbsp;    } catch (InterruptedException e)
+<i>328</i>&nbsp;    {
+<b class="nc"><i>329</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>330</i>&nbsp;    }
+<i>331</i>&nbsp;
+<b class="nc"><i>332</i>&nbsp;    return messagePosted;</b>
+<i>333</i>&nbsp;  }
+<i>334</i>&nbsp;
+<i>335</i>&nbsp;  @Override
+<i>336</i>&nbsp;  public void killAdbServer() throws DroidmateException
+<i>337</i>&nbsp;  {
+<i>338</i>&nbsp;    try
+<i>339</i>&nbsp;    {
+<b class="nc"><i>340</i>&nbsp;      String commandDescription = String</b>
+<i>341</i>&nbsp;        .format(
+<i>342</i>&nbsp;        &quot;Executing adb (Android Debug Bridge) to kill adb server.&quot;);
+<i>343</i>&nbsp;
+<b class="nc"><i>344</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.adbCommand,</b>
+<i>345</i>&nbsp;        &quot;kill-server&quot;);
+<i>346</i>&nbsp;
+<i>347</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>348</i>&nbsp;    {
+<b class="nc"><i>349</i>&nbsp;      throw new DroidmateException(&quot;Executing &#39;adb kill-server&#39; failed. Oh my.&quot;, e);</b>
+<i>350</i>&nbsp;    }
+<i>351</i>&nbsp;  }
+<i>352</i>&nbsp;
+<i>353</i>&nbsp;  @Override
+<i>354</i>&nbsp;  public void startAdbServer() throws DroidmateException
+<i>355</i>&nbsp;  {
+<b class="nc"><i>356</i>&nbsp;    log.debug(&quot;Starting adb server if it is not running...&quot;);</b>
+<b class="nc"><i>357</i>&nbsp;    Process p;</b>
+<i>358</i>&nbsp;    try
+<i>359</i>&nbsp;    {
+<i>360</i>&nbsp;      // WISH this might have been already fixed by new Android SDK. Read on below.
+<i>361</i>&nbsp;      // Experiment with using normal SysCmdExecutor.execute(). Ensure, than when running from Gradle, while the
+<i>362</i>&nbsp;      // adb server was killed, DroidMate will successfully start the adb server, finish, terminate, and print
+<i>363</i>&nbsp;      // things to console along the way.
+<i>364</i>&nbsp;      /* Calling ProcessBuilder() instead of SysCmdExecutor.execute() as it behaves in strange ways, namely:
+<i>365</i>&nbsp;       - if the server doesn&#39;t need to be started, it returns 0
+<i>366</i>&nbsp;       - if the server needs to be started and timeout is set to 1000ms, it throws exception caused by exit code -1
+<i>367</i>&nbsp;       - if the server needs to be started and timeout is set to 5000, it hangs, so it seems the timeout has no effect.
+<i>368</i>&nbsp;
+<i>369</i>&nbsp;       My question on Stack Overflow with some discussion:
+<i>370</i>&nbsp;       http://stackoverflow.com/questions/17282081/adb-start-server-java-gradle-and-apache-commons-exec-how-to-make
+<i>371</i>&nbsp;       -it-right/
+<i>372</i>&nbsp;
+<i>373</i>&nbsp;       Other references:
+<i>374</i>&nbsp;       http://stackoverflow.com/questions/931536/how-do-i-launch-a-completely-independent-process-from-a-java-program
+<i>375</i>&nbsp;       http://www.javaworld.com/jw-12-2000/jw-1229-traps.html?page=1
+<i>376</i>&nbsp;
+<i>377</i>&nbsp;      */
+<i>378</i>&nbsp;
+<i>379</i>&nbsp;      // WISH move this to SysCmdExecutor and ensure it is logged with MARKER_SYS_CMD
+<i>380</i>&nbsp;      // .inheritIO() causes the command to write out to stdout if it indeed had to start the server.
+<b class="nc"><i>381</i>&nbsp;      p = new ProcessBuilder(Utils.quoteIfIsPathToExecutable(config.adbCommand),</b>
+<i>382</i>&nbsp;        &quot;start-server&quot;).inheritIO().start();
+<i>383</i>&nbsp;
+<b class="nc"><i>384</i>&nbsp;      p.waitFor();</b>
+<i>385</i>&nbsp;
+<i>386</i>&nbsp;    } catch (IOException e)
+<i>387</i>&nbsp;    {
+<b class="nc"><i>388</i>&nbsp;      throw new DroidmateException(&quot;Starting adb server failed, oh my!&quot;, e);</b>
+<i>389</i>&nbsp;    } catch (InterruptedException e)
+<i>390</i>&nbsp;    {
+<b class="nc"><i>391</i>&nbsp;      throw new DroidmateException(&quot;Interrupted starting adb server. Oh my!&quot;, e);</b>
+<i>392</i>&nbsp;    }
+<b class="nc"><i>393</i>&nbsp;    log.debug(&quot;DONE starting adb server if it wasn&#39;t running.&quot;);</b>
+<i>394</i>&nbsp;  }
+<i>395</i>&nbsp;
+<i>396</i>&nbsp;  @Override
+<i>397</i>&nbsp;  public void startUiaDaemon(String deviceSerialNumber) throws DroidmateException
+<i>398</i>&nbsp;  {
+<b class="nc"><i>399</i>&nbsp;    log.debug(&quot;Starting uiautomator-daemon...&quot;);</b>
+<i>400</i>&nbsp;
+<b class="nc"><i>401</i>&nbsp;    log.trace(&quot;Starting standalone thread to handle running uiautomator on android device...&quot;);</b>
+<b class="nc"><i>402</i>&nbsp;    uiaDaemonThread = new Thread(new UiAutomatorThreadRunnable(deviceSerialNumber));</b>
+<b class="nc"><i>403</i>&nbsp;    uiaDaemonThread.start();</b>
+<b class="nc"><i>404</i>&nbsp;    log.trace(&quot;DONE starting standalone thread to handle running uiautomator on android device.&quot;);</b>
+<i>405</i>&nbsp;
+<b class="nc"><i>406</i>&nbsp;    boolean uiaDaemonStarted = this.waitForMessageOnLogcat(</b>
+<i>407</i>&nbsp;      deviceSerialNumber,
+<i>408</i>&nbsp;      Constants.UIADAEMON_SERVER_START_TAG,
+<i>409</i>&nbsp;      Constants.UIADAEMON_SERVER_START_MSG,
+<i>410</i>&nbsp;      config.uiautomatorDaemonServerStartTimeout,
+<i>411</i>&nbsp;      config.uiautomatorDaemonServerStartQueryInterval);
+<i>412</i>&nbsp;
+<b class="nc"><i>413</i>&nbsp;    if (!uiaDaemonStarted)</b>
+<i>414</i>&nbsp;    {
+<b class="nc"><i>415</i>&nbsp;      throw new DroidmateException(String.format(</b>
+<i>416</i>&nbsp;        &quot;Waiting for logcat message confirming that uiautomator-daemon started timed out. Timeout used: %d ms.&quot;,
+<i>417</i>&nbsp;        config.uiautomatorDaemonServerStartTimeout));
+<i>418</i>&nbsp;    }
+<i>419</i>&nbsp;
+<b class="nc"><i>420</i>&nbsp;    log.debug(&quot;DONE starting uiautomator-daemon.&quot;);</b>
+<i>421</i>&nbsp;  }
+<i>422</i>&nbsp;
+<i>423</i>&nbsp;  private class UiAutomatorThreadRunnable implements Runnable
+<i>424</i>&nbsp;  {
+<i>425</i>&nbsp;    private final String deviceSerialNumber
+<i>426</i>&nbsp;
+<i>427</i>&nbsp;    UiAutomatorThreadRunnable(String deviceSerialNumber)
+<i>428</i>&nbsp;    {
+<b class="nc"><i>429</i>&nbsp;      this.deviceSerialNumber = deviceSerialNumber</b>
+<i>430</i>&nbsp;    }
+<i>431</i>&nbsp;
+<i>432</i>&nbsp;    @Override
+<i>433</i>&nbsp;    public void run()
+<i>434</i>&nbsp;    {
+<i>435</i>&nbsp;      try
+<i>436</i>&nbsp;      {
+<i>437</i>&nbsp;
+<b class="nc"><i>438</i>&nbsp;        String commandDescription = String</b>
+<i>439</i>&nbsp;          .format(
+<b class="nc"><i>440</i>&nbsp;          &quot;Executing adb to start UiAutomatorDaemon.init() method on Android Device with &quot; +</b>
+<i>441</i>&nbsp;            &quot;s/n %s.&quot;,
+<i>442</i>&nbsp;          deviceSerialNumber);
+<i>443</i>&nbsp;
+<b class="nc"><i>444</i>&nbsp;        String uiaDaemonCmdLine = String.format(&quot;-c %s -e %s %s&quot;,</b>
+<i>445</i>&nbsp;          Constants.UIADAEMON_INIT_METHOD_NAME,
+<i>446</i>&nbsp;          Constants.UIADAEMON_PARAM_WAIT_FOR_IDLE,
+<i>447</i>&nbsp;          config.uiautomatorDaemonWaitForIdle);
+<i>448</i>&nbsp;
+<b class="nc"><i>449</i>&nbsp;        sysCmdExecutor.executeWithoutTimeout(commandDescription, config.adbCommand,</b>
+<i>450</i>&nbsp;          &quot;-s&quot;, deviceSerialNumber,
+<i>451</i>&nbsp;          &quot;shell uiautomator runtest&quot;,
+<b class="nc"><i>452</i>&nbsp;          config.uiautomatorDaemonJar.getName(),</b>
+<i>453</i>&nbsp;          uiaDaemonCmdLine);
+<i>454</i>&nbsp;
+<i>455</i>&nbsp;      } catch (SysCmdExecutorException e)
+<i>456</i>&nbsp;      {
+<b class="nc"><i>457</i>&nbsp;        log.error(&quot;Executing &#39;adb shell uiautomator runtest ...&#39; failed. Oh my.&quot;, e);</b>
+<i>458</i>&nbsp;      }
+<i>459</i>&nbsp;
+<b class="nc"><i>460</i>&nbsp;      log.debug(&quot;Thread that called uiautomator through adb returned.&quot;);</b>
+<i>461</i>&nbsp;    }
+<i>462</i>&nbsp;  }
+<i>463</i>&nbsp;
+<i>464</i>&nbsp;  @Override
+<i>465</i>&nbsp;  public void pushJar(String deviceSerialNumber, File jarFile) throws DroidmateException
+<i>466</i>&nbsp;  {
+<b class="nc"><i>467</i>&nbsp;    assert config?.adbCommand != null;</b>
+<b class="nc"><i>468</i>&nbsp;    assert deviceSerialNumber != null;</b>
+<b class="nc"><i>469</i>&nbsp;    assert jarFile?.file</b>
+<i>470</i>&nbsp;
+<b class="nc"><i>471</i>&nbsp;    String commandDescription = String</b>
+<i>472</i>&nbsp;      .format(
+<i>473</i>&nbsp;      &quot;Executing adb to push %s on Android Device with s/n %s.&quot;,
+<b class="nc"><i>474</i>&nbsp;      jarFile.getName(), deviceSerialNumber);</b>
+<i>475</i>&nbsp;
+<i>476</i>&nbsp;    try
+<i>477</i>&nbsp;    {
+<i>478</i>&nbsp;      // Executed command based on step 4 from:
+<i>479</i>&nbsp;      // http://developer.android.com/tools/testing/testing_ui.html#builddeploy
+<b class="nc"><i>480</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.adbCommand,</b>
+<i>481</i>&nbsp;        &quot;-s&quot;, deviceSerialNumber,
+<i>482</i>&nbsp;        &quot;push&quot;, jarFile.absolutePath, AVDDirForTempFiles);
+<i>483</i>&nbsp;
+<i>484</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>485</i>&nbsp;    {
+<b class="nc"><i>486</i>&nbsp;      throw new DroidmateException(&quot;Executing &#39;adb push ...&#39; failed. Oh my.&quot;, e);</b>
+<i>487</i>&nbsp;    }
+<i>488</i>&nbsp;  }
+<i>489</i>&nbsp;
+<i>490</i>&nbsp;  @Override
+<i>491</i>&nbsp;  public void removeJar(String deviceSerialNumber, File jarFile) throws DroidmateException
+<i>492</i>&nbsp;  {
+<b class="nc"><i>493</i>&nbsp;    assert config?.adbCommand != null;</b>
+<b class="nc"><i>494</i>&nbsp;    assert deviceSerialNumber != null;</b>
+<i>495</i>&nbsp;
+<b class="nc"><i>496</i>&nbsp;    String commandDescription = String</b>
+<i>497</i>&nbsp;      .format(
+<i>498</i>&nbsp;      &quot;Executing adb to remove %s from Android Device with s/n %s.&quot;,
+<b class="nc"><i>499</i>&nbsp;      jarFile.getName(), deviceSerialNumber);</b>
+<i>500</i>&nbsp;
+<i>501</i>&nbsp;    try
+<i>502</i>&nbsp;    {
+<i>503</i>&nbsp;      // Executed command based on:
+<i>504</i>&nbsp;      // http://forum.xda-developers.com/showthread.php?t=517874
+<i>505</i>&nbsp;      //
+<i>506</i>&nbsp;      // Hint: to list files to manually check if the file was deleted, use: adb shell ls
+<b class="nc"><i>507</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.adbCommand,</b>
+<i>508</i>&nbsp;        &quot;-s&quot;, deviceSerialNumber,
+<b class="nc"><i>509</i>&nbsp;        &quot;shell&quot;, &quot;rm&quot;, AVDDirForTempFiles + jarFile.name);</b>
+<i>510</i>&nbsp;
+<i>511</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>512</i>&nbsp;    {
+<b class="nc"><i>513</i>&nbsp;      throw new DroidmateException(&quot;Executing &#39;adb shell rm ...&#39; failed. Oh my.&quot;, e);</b>
+<i>514</i>&nbsp;    }
+<i>515</i>&nbsp;  }
+<i>516</i>&nbsp;
+<i>517</i>&nbsp;  @Override
+<i>518</i>&nbsp;  public void waitForUiaDaemonToClose() throws DroidmateException
+<i>519</i>&nbsp;  {
+<i>520</i>&nbsp;
+<b class="nc"><i>521</i>&nbsp;    log.debug(&quot;Waiting for uiautomator-daemon to close...&quot;);</b>
+<b class="nc"><i>522</i>&nbsp;    assert (uiaDaemonThread != null);</b>
+<i>523</i>&nbsp;    try
+<i>524</i>&nbsp;    {
+<b class="nc"><i>525</i>&nbsp;      uiaDaemonThread.join();</b>
+<i>526</i>&nbsp;    } catch (InterruptedException e)
+<i>527</i>&nbsp;    {
+<b class="nc"><i>528</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>529</i>&nbsp;    }
+<b class="nc"><i>530</i>&nbsp;    log.debug(&quot;DONE waiting for uiautomator-daemon to close. It closed successfully.&quot;);</b>
+<i>531</i>&nbsp;  }
+<i>532</i>&nbsp;
+<i>533</i>&nbsp;  @Override
+<i>534</i>&nbsp;  public void waitForAutAddonServerResponse(String deviceSerialNumber) throws DroidmateException
+<i>535</i>&nbsp;  {
+<b class="nc"><i>536</i>&nbsp;    assert !config.deployRawApks : &quot;If raw apks have been deployed, no aut-addon server is available.&quot;</b>
+<i>537</i>&nbsp;
+<b class="nc"><i>538</i>&nbsp;    log.debug(&quot;Waiting for aut-addon server message on logcat.&quot;);</b>
+<i>539</i>&nbsp;
+<b class="nc"><i>540</i>&nbsp;    boolean serverStarted = this.waitForMessageOnLogcat(</b>
+<i>541</i>&nbsp;      deviceSerialNumber,
+<i>542</i>&nbsp;      Constants.AUTADDON_SERVER_START_TAG,
+<i>543</i>&nbsp;      Constants.AUTADDON_SERVER_START_MSG,
+<i>544</i>&nbsp;      config.autAddonServerStartTimeout,
+<i>545</i>&nbsp;      config.autAddonServerStartQueryInterval);
+<i>546</i>&nbsp;
+<b class="nc"><i>547</i>&nbsp;    if (!serverStarted)</b>
+<i>548</i>&nbsp;    {
+<b class="nc"><i>549</i>&nbsp;      throw new DroidmateException(String.format(</b>
+<i>550</i>&nbsp;        &quot;Waiting for logcat message confirming that AutAddonServer started timed out. Timeout used: %d ms.&quot;,
+<i>551</i>&nbsp;        config.autAddonServerStartTimeout));
+<i>552</i>&nbsp;    }
+<i>553</i>&nbsp;  }
+<i>554</i>&nbsp;
+<i>555</i>&nbsp;  @Override
+<i>556</i>&nbsp;  public void runUiautomatorTests(String deviceSerialNumber, String uiautomatorJarsPaths, String uiautomatorMethodOrClass) throws
+<i>557</i>&nbsp;    DroidmateException
+<i>558</i>&nbsp;  {
+<b class="nc"><i>559</i>&nbsp;    log.trace(&quot;Running uiautomator tests. uiautomatorJarPaths: {} uiautomatorMethodOrClass: {}&quot;,</b>
+<i>560</i>&nbsp;      uiautomatorJarsPaths, uiautomatorMethodOrClass);
+<i>561</i>&nbsp;
+<b class="nc"><i>562</i>&nbsp;    assert deviceSerialNumber.length() &gt; 0;</b>
+<b class="nc"><i>563</i>&nbsp;    assert uiautomatorJarsPaths?.contains(&quot;jar&quot;);</b>
+<b class="nc"><i>564</i>&nbsp;    assert uiautomatorMethodOrClass != null;</b>
+<i>565</i>&nbsp;
+<b class="nc"><i>566</i>&nbsp;    String commandDescription = String.format(</b>
+<i>567</i>&nbsp;      &quot;Executing adb to run uiautomator tests on Android Device with s/n %s.&quot;,
+<i>568</i>&nbsp;      deviceSerialNumber);
+<i>569</i>&nbsp;
+<i>570</i>&nbsp;    try
+<i>571</i>&nbsp;    {
+<i>572</i>&nbsp;      // Executed command based on: http://developer.android.com/tools/help/uiautomator/index.html
+<b class="nc"><i>573</i>&nbsp;      sysCmdExecutor.executeWithoutTimeout(commandDescription, config.adbCommand,</b>
+<i>574</i>&nbsp;        &quot;-s&quot;, deviceSerialNumber,
+<i>575</i>&nbsp;        &quot;shell uiautomator runtest&quot;,
+<i>576</i>&nbsp;        uiautomatorJarsPaths,
+<i>577</i>&nbsp;        &quot;-c&quot;, uiautomatorMethodOrClass);
+<i>578</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>579</i>&nbsp;    {
+<b class="nc"><i>580</i>&nbsp;      throw new DroidmateException(&quot;Executing &#39;shell uiautomator runtest ...&#39; failed. Oh my.&quot;, e);</b>
+<i>581</i>&nbsp;    }
+<i>582</i>&nbsp;  }
+<i>583</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

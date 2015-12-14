@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DeviceCommand</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.common</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DeviceCommand (org.droidmate.common)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DeviceCommand</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (12/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.common;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.common.guimodel.GuiAction;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import java.io.Serializable;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;public class DeviceCommand implements Serializable {
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;  // WISH field nullability should be handled by inheritance and dynamic dispatch calling appropriate method
+<i>20</i>&nbsp;  public String command;
+<i>21</i>&nbsp;  public GuiAction guiAction;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  public DeviceCommand(String command) {
+<b class="fc"><i>24</i>&nbsp;    this(command, null);</b>
+<b class="fc"><i>25</i>&nbsp;  }</b>
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;  public DeviceCommand(String command, GuiAction guiAction) {</b>
+<b class="fc"><i>28</i>&nbsp;    this.command = command;</b>
+<b class="fc"><i>29</i>&nbsp;    this.guiAction = guiAction;</b>
+<b class="fc"><i>30</i>&nbsp;  }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  @Override
+<i>33</i>&nbsp;  public boolean equals(Object o)
+<i>34</i>&nbsp;  {
+<b class="fc"><i>35</i>&nbsp;    if (this == o) return true;</b>
+<b class="fc"><i>36</i>&nbsp;    if (!(o instanceof DeviceCommand)) return false;</b>
+<i>37</i>&nbsp;
+<b class="fc"><i>38</i>&nbsp;    DeviceCommand that = (DeviceCommand) o;</b>
+<i>39</i>&nbsp;
+<b class="fc"><i>40</i>&nbsp;    if (command != null ? !command.equals(that.command) : that.command != null) return false;</b>
+<b class="fc"><i>41</i>&nbsp;    if (guiAction != null ? !guiAction.equals(that.guiAction) : that.guiAction != null) return false;</b>
+<i>42</i>&nbsp;
+<b class="fc"><i>43</i>&nbsp;    return true;</b>
+<i>44</i>&nbsp;  }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;  @Override
+<i>47</i>&nbsp;  public int hashCode()
+<i>48</i>&nbsp;  {
+<b class="nc"><i>49</i>&nbsp;    int result = command != null ? command.hashCode() : 0;</b>
+<b class="nc"><i>50</i>&nbsp;    result = 31 * result + (guiAction != null ? guiAction.hashCode() : 0);</b>
+<b class="nc"><i>51</i>&nbsp;    return result;</b>
+<i>52</i>&nbsp;  }
+<i>53</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

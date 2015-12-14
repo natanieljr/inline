@@ -1,0 +1,823 @@
+2015-11-30 19:08:47.820 TRACE Executing aapt (Android Asset Packaging Tool) to extract package name of apk C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\net.zedge.android_v4.10.2-inlined.apk.
+2015-11-30 19:08:47.820 TRACE Timeout: 60000 ms
+2015-11-30 19:08:47.821 TRACE Command:
+2015-11-30 19:08:47.821 TRACE "c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:08:47.846 TRACE Captured stdout:
+2015-11-30 19:08:47.846 TRACE package: name='net.zedge.android' versionCode='41000016' versionName='4.10.2'
+sdkVersion:'10'
+targetSdkVersion:'21'
+uses-permission:'android.permission.ACCESS_NETWORK_STATE'
+uses-permission:'android.permission.INTERNET'
+uses-permission:'android.permission.READ_CONTACTS'
+uses-permission:'android.permission.SET_WALLPAPER'
+uses-permission:'android.permission.WRITE_CONTACTS'
+uses-permission:'android.permission.WRITE_EXTERNAL_STORAGE'
+uses-permission:'android.permission.WRITE_SETTINGS'
+uses-permission:'android.permission.RECEIVE_BOOT_COMPLETED'
+uses-permission:'com.android.launcher.permission.INSTALL_SHORTCUT'
+uses-permission:'com.google.android.c2dm.permission.RECEIVE'
+uses-permission:'net.zedge.android.permission.C2D_MESSAGE'
+application-label:'Zedge'
+application-label-ca:'Zedge'
+application-label-da:'Zedge'
+application-label-fa:'Zedge'
+application-label-ja:'Zedge'
+application-label-nb:'Zedge'
+application-label-be:'Zedge'
+application-label-de:'Zedge'
+application-label-he:'Zedge'
+application-label-af:'Zedge'
+application-label-bg:'Zedge'
+application-label-th:'Zedge'
+application-label-fi:'Zedge'
+application-label-hi:'Zedge'
+application-label-vi:'Zedge'
+application-label-sk:'Zedge'
+application-label-uk:'Zedge'
+application-label-el:'Zedge'
+application-label-nl:'Zedge'
+application-label-pl:'Zedge'
+application-label-sl:'Zedge'
+application-label-tl:'Zedge'
+application-label-am:'Zedge'
+application-label-in:'Zedge'
+application-label-ko:'Zedge'
+application-label-ro:'Zedge'
+application-label-ar:'Zedge'
+application-label-fr:'Zedge'
+application-label-hr:'Zedge'
+application-label-sr:'Zedge'
+application-label-tr:'Zedge'
+application-label-cs:'Zedge'
+application-label-es:'Zedge'
+application-label-it:'Zedge'
+application-label-lt:'Zedge'
+application-label-pt:'Zedge'
+application-label-hu:'Zedge'
+application-label-ru:'Zedge'
+application-label-zu:'Zedge'
+application-label-lv:'Zedge'
+application-label-sv:'Zedge'
+application-label-iw:'Zedge'
+application-label-sw:'Zedge'
+application-label-fr_CA:'Zedge'
+application-label-lo_LA:'Zedge'
+application-label-en_GB:'Zedge'
+application-label-bn_BD:'Zedge'
+application-label-et_EE:'Zedge'
+application-label-ka_GE:'Zedge'
+application-label-ky_KG:'Zedge'
+application-label-zh_SG:'Zedge'
+application-label-km_KH:'Zedge'
+application-label-zh_HK:'Zedge'
+application-label-si_LK:'Zedge'
+application-label-mk_MK:'Zedge'
+application-label-ur_PK:'Zedge'
+application-label-hy_AM:'Zedge'
+application-label-my_MM:'Zedge'
+application-label-zh_CN:'Zedge'
+application-label-ta_IN:'Zedge'
+application-label-te_IN:'Zedge'
+application-label-ml_IN:'Zedge'
+application-label-en_IN:'Zedge'
+application-label-kn_IN:'Zedge'
+application-label-mr_IN:'Zedge'
+application-label-mn_MN:'Zedge'
+application-label-ne_NP:'Zedge'
+application-label-pt_BR:'Zedge'
+application-label-gl_ES:'Zedge'
+application-label-eu_ES:'Zedge'
+application-label-is_IS:'Zedge'
+application-label-es_US:'Zedge'
+application-label-pt_PT:'Zedge'
+application-label-zh_TW:'Zedge'
+application-label-ms_MY:'Zedge'
+application-label-kk_KZ:'Zedge'
+application-label-uz_UZ:'Zedge'
+application-icon-120:'res/drawable-ldpi-v4/application_icon.png'
+application-icon-160:'res/drawable-mdpi-v4/application_icon.png'
+application-icon-213:'res/drawable-hdpi-v4/application_icon.png'
+application-icon-240:'res/drawable-hdpi-v4/application_icon.png'
+application-icon-320:'res/drawable-xhdpi-v4/application_icon.png'
+application-icon-480:'res/drawable-xxhdpi-v4/application_icon.png'
+application-icon-640:'res/drawable-xxxhdpi-v4/application_icon.png'
+application-icon-65535:'res/drawable-xxxhdpi-v4/application_icon.png'
+application: label='Zedge' icon='res/drawable-mdpi-v4/application_icon.png'
+launchable-activity: name='net.zedge.android.Main'  label='' icon=''
+uses-permission:'android.permission.INTERNET'
+uses-permission:'android.permission.READ_EXTERNAL_STORAGE'
+uses-implied-permission:'android.permission.READ_EXTERNAL_STORAGE','requested WRITE_EXTERNAL_STORAGE'
+uses-feature:'android.hardware.touchscreen'
+uses-implied-feature:'android.hardware.touchscreen','assumed you require a touch screen unless explicitly made optional'
+uses-feature:'android.hardware.screen.portrait'
+uses-implied-feature:'android.hardware.screen.portrait','one or more activities have specified a portrait orientation'
+main
+app-widget
+other-activities
+search
+other-receivers
+other-services
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--' 'ca' 'da' 'fa' 'ja' 'nb' 'be' 'de' 'he' 'af' 'bg' 'th' 'fi' 'hi' 'vi' 'sk' 'uk' 'el' 'nl' 'pl' 'sl' 'tl' 'am' 'in' 'ko' 'ro' 'ar' 'fr' 'hr' 'sr' 'tr' 'cs' 'es' 'it' 'lt' 'pt' 'hu' 'ru' 'zu' 'lv' 'sv' 'iw' 'sw' 'fr_CA' 'lo_LA' 'en_GB' 'bn_BD' 'et_EE' 'ka_GE' 'ky_KG' 'zh_SG' 'km_KH' 'zh_HK' 'si_LK' 'mk_MK' 'ur_PK' 'hy_AM' 'my_MM' 'zh_CN' 'ta_IN' 'te_IN' 'ml_IN' 'en_IN' 'kn_IN' 'mr_IN' 'mn_MN' 'ne_NP' 'pt_BR' 'gl_ES' 'eu_ES' 'is_IS' 'es_US' 'pt_PT' 'zh_TW' 'ms_MY' 'kk_KZ' 'uz_UZ'
+densities: '120' '160' '213' '240' '320' '480' '640' '65535'
+
+2015-11-30 19:08:47.846 TRACE Captured stderr:
+2015-11-30 19:08:47.846 TRACE 
+2015-11-30 19:08:47.847 TRACE Captured exit value: 0
+2015-11-30 19:08:47.847 TRACE DONE executing system command
+2015-11-30 19:08:47.955 TRACE Executing adb (Android Debug Bridge) to get the list of available Android (Virtual) Devices.
+2015-11-30 19:08:47.955 TRACE Timeout: 60000 ms
+2015-11-30 19:08:47.956 TRACE Command:
+2015-11-30 19:08:47.956 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" devices
+2015-11-30 19:08:47.978 TRACE Captured stdout:
+2015-11-30 19:08:47.978 TRACE List of devices attached
+015d2109ce0c1a0f	device
+
+
+2015-11-30 19:08:47.979 TRACE Captured stderr:
+2015-11-30 19:08:47.979 TRACE 
+2015-11-30 19:08:47.979 TRACE Captured exit value: 0
+2015-11-30 19:08:47.980 TRACE DONE executing system command
+2015-11-30 19:08:48.072 TRACE Executing adb (Android Debug Bridge) to forward port 59778 to android device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:08:48.072 TRACE Timeout: 60000 ms
+2015-11-30 19:08:48.072 TRACE Command:
+2015-11-30 19:08:48.072 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f forward tcp:59778 tcp:59778
+2015-11-30 19:08:48.091 TRACE Captured stdout:
+2015-11-30 19:08:48.092 TRACE 
+2015-11-30 19:08:48.092 TRACE Captured stderr:
+2015-11-30 19:08:48.092 TRACE 
+2015-11-30 19:08:48.092 TRACE Captured exit value: 0
+2015-11-30 19:08:48.092 TRACE DONE executing system command
+2015-11-30 19:08:48.093 TRACE Executing adb (Android Debug Bridge) to forward port 59776 to android device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:08:48.093 TRACE Timeout: 60000 ms
+2015-11-30 19:08:48.093 TRACE Command:
+2015-11-30 19:08:48.093 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f forward tcp:59776 tcp:59776
+2015-11-30 19:08:48.111 TRACE Captured stdout:
+2015-11-30 19:08:48.111 TRACE 
+2015-11-30 19:08:48.111 TRACE Captured stderr:
+2015-11-30 19:08:48.112 TRACE 
+2015-11-30 19:08:48.112 TRACE Captured exit value: 0
+2015-11-30 19:08:48.112 TRACE DONE executing system command
+2015-11-30 19:08:48.113 TRACE Executing adb to push uiautomator-daemon.jar on Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:08:48.113 TRACE Timeout: 60000 ms
+2015-11-30 19:08:48.113 TRACE Command:
+2015-11-30 19:08:48.113 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f push C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar /data/local/tmp/
+2015-11-30 19:08:48.213 TRACE Captured stdout:
+2015-11-30 19:08:48.213 TRACE 
+2015-11-30 19:08:48.213 TRACE Captured stderr:
+2015-11-30 19:08:48.213 TRACE 1226 KB/s (88603 bytes in 0.070s)
+
+2015-11-30 19:08:48.213 TRACE Captured exit value: 0
+2015-11-30 19:08:48.214 TRACE DONE executing system command
+2015-11-30 19:08:48.215 TRACE Executing adb to push monitor.apk on Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:08:48.215 TRACE Timeout: 60000 ms
+2015-11-30 19:08:48.215 TRACE Command:
+2015-11-30 19:08:48.215 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f push C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk /data/local/tmp/
+2015-11-30 19:08:48.325 TRACE Captured stdout:
+2015-11-30 19:08:48.325 TRACE 
+2015-11-30 19:08:48.325 TRACE Captured stderr:
+2015-11-30 19:08:48.325 TRACE 1192 KB/s (78806 bytes in 0.064s)
+
+2015-11-30 19:08:48.325 TRACE Captured exit value: 0
+2015-11-30 19:08:48.325 TRACE DONE executing system command
+2015-11-30 19:08:48.333 TRACE Executing adb to start UiAutomatorDaemon.init() method on Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:08:48.333 TRACE Timeout: -1 ms
+2015-11-30 19:08:48.333 TRACE Command:
+2015-11-30 19:08:48.333 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell uiautomator runtest uiautomator-daemon.jar -c org.droidmate.uiautomatordaemon.UiAutomatorDaemon#init -e wait_for_gui_to_stabilize true -e wait_for_window_update_timeout 1200 -e uiadaemon_server_tcp_port 59778
+2015-11-30 19:08:50.333 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: uiautomator-daemon_server_start_tag
+2015-11-30 19:08:50.333 TRACE Timeout: 60000 ms
+2015-11-30 19:08:50.333 TRACE Command:
+2015-11-30 19:08:50.333 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s uiautomator-daemon_server_start_tag
+2015-11-30 19:08:50.417 TRACE Captured stdout:
+2015-11-30 19:08:50.418 TRACE 11-30 19:05:50.810 I/uiautomator-daemon_server_start_tag(12348): UiAutomator Daemon server started successfully
+
+2015-11-30 19:08:50.418 TRACE Captured stderr:
+2015-11-30 19:08:50.418 TRACE 
+2015-11-30 19:08:50.418 TRACE Captured exit value: 0
+2015-11-30 19:08:50.418 TRACE DONE executing system command
+2015-11-30 19:08:50.425 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:08:50.425 TRACE Timeout: 60000 ms
+2015-11-30 19:08:50.425 TRACE Command:
+2015-11-30 19:08:50.425 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:08:50.454 TRACE Captured stdout:
+2015-11-30 19:08:50.454 TRACE 
+2015-11-30 19:08:50.454 TRACE Captured stderr:
+2015-11-30 19:08:50.454 TRACE 
+2015-11-30 19:08:50.454 TRACE Captured exit value: 0
+2015-11-30 19:08:50.454 TRACE DONE executing system command
+2015-11-30 19:08:50.455 TRACE Executing adb (Android Debug Bridge) to uninstall net.zedge.android from Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:08:50.456 TRACE Timeout: 60000 ms
+2015-11-30 19:08:50.456 TRACE Command:
+2015-11-30 19:08:50.456 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall net.zedge.android
+2015-11-30 19:08:51.322 TRACE Captured stdout:
+2015-11-30 19:08:51.323 TRACE Failure
+
+2015-11-30 19:08:51.324 TRACE Captured stderr:
+2015-11-30 19:08:51.325 TRACE 
+2015-11-30 19:08:51.325 TRACE Captured exit value: 0
+2015-11-30 19:08:51.325 TRACE DONE executing system command
+2015-11-30 19:08:51.329 TRACE Executing adb (Android Debug Bridge) to install net.zedge.android_v4.10.2-inlined.apk on Android (Virtual) Device.
+2015-11-30 19:08:51.329 TRACE Timeout: 60000 ms
+2015-11-30 19:08:51.329 TRACE Command:
+2015-11-30 19:08:51.329 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\net.zedge.android_v4.10.2-inlined.apk
+2015-11-30 19:09:01.110 TRACE Captured stdout:
+2015-11-30 19:09:01.110 TRACE 	pkg: /data/local/tmp/net.zedge.android_v4.10.2-inlined.apk
+Success
+
+2015-11-30 19:09:01.110 TRACE Captured stderr:
+2015-11-30 19:09:01.110 TRACE 1301 KB/s (6662683 bytes in 4.998s)
+
+2015-11-30 19:09:01.110 TRACE Captured exit value: 0
+2015-11-30 19:09:01.110 TRACE DONE executing system command
+2015-11-30 19:09:01.112 TRACE Executing adb (Android Debug Bridge) to list packages.
+2015-11-30 19:09:01.112 TRACE Timeout: 60000 ms
+2015-11-30 19:09:01.112 TRACE Command:
+2015-11-30 19:09:01.112 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+2015-11-30 19:09:01.917 TRACE Captured stdout:
+2015-11-30 19:09:01.917 TRACE package:com.google.android.ears
+package:com.android.launcher
+package:com.android.defcontainer
+package:com.nuance.xt9.input
+package:com.google.android.videos
+package:com.google.android.exchange
+package:com.android.providers.partnerbookmarks
+package:com.android.contacts
+package:com.google.android.inputmethod.pinyin
+package:com.google.android.nfcprovision
+package:com.android.phone
+package:com.google.android.gallery3d
+package:com.google.android.onetimeinitializer
+package:com.google.android.partnersetup
+package:com.android.calculator2
+package:com.google.android.apps.walletnfcrel
+package:com.android.proxyhandler
+package:com.android.htmlviewer
+package:com.google.android.gsf.login
+package:com.android.bluetooth
+package:com.android.providers.calendar
+package:com.android.inputdevices
+package:com.android.wallpaper.holospiral
+package:com.google.android.feedback
+package:com.google.android.email
+package:com.google.android.talk
+package:com.android.nfc
+package:com.android.providers.downloads.ui
+package:com.google.android.apps.enterprise.dmagent
+package:com.android.providers.userdictionary
+package:net.zedge.android
+package:com.android.documentsui
+package:com.android.sharedstoragebackup
+package:com.android.vpndialogs
+package:com.google.android.inputmethod.korean
+package:com.google.android.configupdater
+package:com.android.pacprocessor
+package:com.android.providers.media
+package:com.google.android.marvin.talkback
+package:jp.co.omronsoft.iwnnime.ml.kbd.white
+package:com.android.certinstaller
+package:com.google.android.deskclock
+package:com.google.android.gms
+package:com.google.android.apps.currents
+package:com.quickoffice.android
+package:com.google.android.keep
+package:com.android.printspooler
+package:com.google.android.setupwizard
+package:android
+package:com.android.settings
+package:com.android.providers.contacts
+package:com.android.externalstorage
+package:com.google.android.street
+package:com.android.dreams.basic
+package:com.hp.android.printservice
+package:com.google.android.googlequicksearchbox
+package:com.google.android.apps.plus
+package:com.android.vending
+package:com.google.android.play.games
+package:com.google.android.music
+package:com.android.systemui
+package:com.google.android.apps.inputmethod.hindi
+package:com.android.wallpaper.livepicker
+package:com.android.keychain
+package:com.google.android.gm
+package:com.google.android.inputmethod.latin
+package:com.android.packageinstaller
+package:com.google.android.backuptransport
+package:com.google.android.tag
+package:com.google.android.tts
+package:com.android.providers.telephony
+package:com.google.android.GoogleCamera
+package:com.android.noisefield
+package:com.google.android.apps.magazines
+package:com.google.android.youtube
+package:com.google.android.apps.maps
+package:com.google.android.apps.cloudprint
+package:com.google.earth
+package:com.android.wallpapercropper
+package:com.android.location.fused
+package:com.android.backupconfirm
+package:com.android.providers.settings
+package:com.google.android.gsf
+package:com.google.android.widget.userinfo
+package:jp.co.omronsoft.iwnnime.ml
+package:com.android.keyguard
+package:com.google.android.calendar
+package:com.android.facelock
+package:com.android.chrome
+package:com.google.android.apps.docs
+package:com.android.shell
+package:com.android.providers.downloads
+package:com.android.browser.provider
+package:com.google.android.syncadapters.contacts
+package:com.android.musicfx
+package:com.google.android.apps.books
+package:com.android.phasebeam
+
+2015-11-30 19:09:01.918 TRACE Captured stderr:
+2015-11-30 19:09:01.918 TRACE 
+2015-11-30 19:09:01.918 TRACE Captured exit value: 0
+2015-11-30 19:09:01.918 TRACE DONE executing system command
+2015-11-30 19:09:02.391 TRACE Executing adb (Android Debug Bridge) to clear package on the Android Device.
+2015-11-30 19:09:02.391 TRACE Timeout: 60000 ms
+2015-11-30 19:09:02.391 TRACE Command:
+2015-11-30 19:09:02.391 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear net.zedge.android
+2015-11-30 19:09:03.198 TRACE Captured stdout:
+2015-11-30 19:09:03.199 TRACE Success
+
+2015-11-30 19:09:03.199 TRACE Captured stderr:
+2015-11-30 19:09:03.199 TRACE 
+2015-11-30 19:09:03.199 TRACE Captured exit value: 0
+2015-11-30 19:09:03.199 TRACE DONE executing system command
+2015-11-30 19:09:10.388 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Monitor_init
+2015-11-30 19:09:10.388 TRACE Timeout: 60000 ms
+2015-11-30 19:09:10.388 TRACE Command:
+2015-11-30 19:09:10.388 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+2015-11-30 19:09:10.440 TRACE Captured stdout:
+2015-11-30 19:09:10.440 TRACE 
+2015-11-30 19:09:10.440 TRACE Captured stderr:
+2015-11-30 19:09:10.440 TRACE 
+2015-11-30 19:09:10.440 TRACE Captured exit value: 0
+2015-11-30 19:09:10.440 TRACE DONE executing system command
+2015-11-30 19:09:10.443 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Instrumentation
+2015-11-30 19:09:10.443 TRACE Timeout: 60000 ms
+2015-11-30 19:09:10.443 TRACE Command:
+2015-11-30 19:09:10.443 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+2015-11-30 19:09:10.477 TRACE Captured stdout:
+2015-11-30 19:09:10.477 TRACE 
+2015-11-30 19:09:10.477 TRACE Captured stderr:
+2015-11-30 19:09:10.477 TRACE 
+2015-11-30 19:09:10.477 TRACE Captured exit value: 0
+2015-11-30 19:09:10.477 TRACE DONE executing system command
+2015-11-30 19:09:10.489 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: org.droidmate.uiad
+2015-11-30 19:09:10.490 TRACE Timeout: 60000 ms
+2015-11-30 19:09:10.490 TRACE Command:
+2015-11-30 19:09:10.490 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+2015-11-30 19:09:10.546 TRACE Captured stdout:
+2015-11-30 19:09:10.546 TRACE 11-30 19:06:03.920 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:04.110 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:05.030 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:05.100 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:05.160 D/org.droidmate.uiad(12348): Executing device command: perform_action
+11-30 19:06:05.160 V/org.droidmate.uiad(12348): Performing GUI action
+11-30 19:06:05.160 D/org.droidmate.uiad(12348): Checking wifi state.
+11-30 19:06:07.310 V/org.droidmate.uiad(12348): Waiting for GUI to stabilize...
+11-30 19:06:07.930 V/org.droidmate.uiad(12348): waitForGuiToStabilize: initial waitForIdle took 620ms
+11-30 19:06:09.130 V/org.droidmate.uiad(12348): waitForGuiToStabilize: iteration 1 waitForWindowUpdate took 1202ms
+11-30 19:06:09.130 V/org.droidmate.uiad(12348): waitForGuiToStabilize: iteration 1 waitForIdle took 0ms
+11-30 19:06:09.130 V/org.droidmate.uiad(12348): GUI stabilized after 1 iterations / 1823ms
+11-30 19:06:10.840 V/org.droidmate.uiad(12348): Waiting for GUI to stabilize...
+11-30 19:06:10.840 V/org.droidmate.uiad(12348): waitForGuiToStabilize: initial waitForIdle took 0ms
+11-30 19:06:12.040 V/org.droidmate.uiad(12348): waitForGuiToStabilize: iteration 1 waitForWindowUpdate took 1200ms
+11-30 19:06:12.040 V/org.droidmate.uiad(12348): waitForGuiToStabilize: iteration 1 waitForIdle took 0ms
+11-30 19:06:12.040 V/org.droidmate.uiad(12348): GUI stabilized after 1 iterations / 1201ms
+11-30 19:06:12.060 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:12.150 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+
+2015-11-30 19:09:10.546 TRACE Captured stderr:
+2015-11-30 19:09:10.546 TRACE 
+2015-11-30 19:09:10.546 TRACE Captured exit value: 0
+2015-11-30 19:09:10.546 TRACE DONE executing system command
+2015-11-30 19:09:10.560 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:09:10.560 TRACE Timeout: 60000 ms
+2015-11-30 19:09:10.560 TRACE Command:
+2015-11-30 19:09:10.560 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:09:10.590 TRACE Captured stdout:
+2015-11-30 19:09:10.590 TRACE 
+2015-11-30 19:09:10.590 TRACE Captured stderr:
+2015-11-30 19:09:10.591 TRACE 
+2015-11-30 19:09:10.591 TRACE Captured exit value: 0
+2015-11-30 19:09:10.591 TRACE DONE executing system command
+2015-11-30 19:09:10.594 TRACE Executing adb (Android Debug Bridge) to start main activity on the Android Device.
+2015-11-30 19:09:10.594 TRACE Timeout: 60000 ms
+2015-11-30 19:09:10.594 TRACE Command:
+2015-11-30 19:09:10.594 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n net.zedge.android/net.zedge.android.Main
+2015-11-30 19:09:20.738 TRACE Captured stdout:
+2015-11-30 19:09:20.738 TRACE Stopping: net.zedge.android
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.zedge.android/.Main }
+Status: ok
+Activity: net.zedge.android/.Main
+ThisTime: 9091
+TotalTime: 9091
+Complete
+
+2015-11-30 19:09:20.738 TRACE Captured stderr:
+2015-11-30 19:09:20.738 TRACE 
+2015-11-30 19:09:20.738 TRACE Captured exit value: 0
+2015-11-30 19:09:20.738 TRACE DONE executing system command
+2015-11-30 19:09:25.740 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: org.droidmate.uiad
+2015-11-30 19:09:25.741 TRACE Timeout: 60000 ms
+2015-11-30 19:09:25.741 TRACE Command:
+2015-11-30 19:09:25.741 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+2015-11-30 19:09:25.788 TRACE Captured stdout:
+2015-11-30 19:09:25.789 TRACE 
+2015-11-30 19:09:25.789 TRACE Captured stderr:
+2015-11-30 19:09:25.789 TRACE 
+2015-11-30 19:09:25.789 TRACE Captured exit value: 0
+2015-11-30 19:09:25.789 TRACE DONE executing system command
+2015-11-30 19:09:27.791 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Monitor_init
+2015-11-30 19:09:27.791 TRACE Timeout: 60000 ms
+2015-11-30 19:09:27.791 TRACE Command:
+2015-11-30 19:09:27.791 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+2015-11-30 19:09:27.834 TRACE Captured stdout:
+2015-11-30 19:09:27.834 TRACE 11-30 19:06:13.630 I/Monitor_init(12515): Monitor constructed successfully.
+11-30 19:06:14.470 I/Monitor_init(12515): Monitor initialized for package net.zedge.android
+
+2015-11-30 19:09:27.834 TRACE Captured stderr:
+2015-11-30 19:09:27.834 TRACE 
+2015-11-30 19:09:27.834 TRACE Captured exit value: 0
+2015-11-30 19:09:27.834 TRACE DONE executing system command
+2015-11-30 19:09:27.884 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Instrumentation
+2015-11-30 19:09:27.884 TRACE Timeout: 60000 ms
+2015-11-30 19:09:27.885 TRACE Command:
+2015-11-30 19:09:27.885 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+2015-11-30 19:09:27.930 TRACE Captured stdout:
+2015-11-30 19:09:27.930 TRACE 11-30 19:06:13.660 I/Instrumentation(12515): Redirected android.app.ActivityManager->getRecentTasks
+11-30 19:06:13.680 I/Instrumentation(12515): Redirected android.app.ActivityManager->getRunningTasks
+11-30 19:06:13.710 I/Instrumentation(12515): Redirected android.app.ActivityThread->installContentProviders
+11-30 19:06:13.710 I/Instrumentation(12515): Redirected android.app.Activity->onResume
+11-30 19:06:13.740 I/Instrumentation(12515): Redirected android.app.Activity->startActivityForResult
+11-30 19:06:13.750 I/Instrumentation(12515): Redirected android.app.Activity->startActivityFromChild
+11-30 19:06:13.760 I/Instrumentation(12515): Redirected android.app.Activity->startActivityIfNeeded
+11-30 19:06:13.770 I/Instrumentation(12515): Redirected android.bluetooth.BluetoothHeadset->startVoiceRecognition
+11-30 19:06:13.770 I/Instrumentation(12515): Redirected android.bluetooth.BluetoothHeadset->stopVoiceRecognition
+11-30 19:06:13.780 I/Instrumentation(12515): Redirected android.content.ContentProviderClient->bulkInsert
+11-30 19:06:13.780 I/Instrumentation(12515): Redirected android.content.ContentProviderClient->delete
+11-30 19:06:13.780 I/Instrumentation(12515): Redirected android.content.ContentProviderClient->insert
+11-30 19:06:13.790 I/Instrumentation(12515): Redirected android.content.ContentProviderClient->openFile
+11-30 19:06:13.800 I/Instrumentation(12515): Redirected android.content.ContentProviderClient->query
+11-30 19:06:13.800 I/Instrumentation(12515): Redirected android.content.ContentProviderClient->update
+11-30 19:06:13.820 I/Instrumentation(12515): Redirected android.content.ContentResolver->bulkInsert
+11-30 19:06:13.830 I/Instrumentation(12515): Redirected android.content.ContentResolver->delete
+11-30 19:06:13.830 I/Instrumentation(12515): Redirected android.content.ContentResolver->insert
+11-30 19:06:13.840 I/Instrumentation(12515): Redirected android.content.ContentResolver->openFileDescriptor
+11-30 19:06:13.840 I/Instrumentation(12515): Redirected android.content.ContentResolver->openInputStream
+11-30 19:06:13.850 I/Instrumentation(12515): Redirected android.content.ContentResolver->query
+11-30 19:06:13.850 I/Instrumentation(12515): Redirected android.content.ContentResolver->registerContentObserver
+11-30 19:06:13.860 I/Instrumentation(12515): Redirected android.content.ContentResolver->update
+11-30 19:06:13.860 I/Instrumentation(12515): Redirected android.hardware.Camera->open
+11-30 19:06:13.880 I/Instrumentation(12515): Redirected android.location.LocationManager->addGpsStatusListener
+11-30 19:06:13.880 I/Instrumentation(12515): Redirected android.location.LocationManager->addNmeaListener
+11-30 19:06:13.900 I/Instrumentation(12515): Redirected android.location.LocationManager->addProximityAlert
+11-30 19:06:13.910 I/Instrumentation(12515): Redirected android.location.LocationManager->addTestProvider
+11-30 19:06:13.910 I/Instrumentation(12515): Redirected android.location.LocationManager->clearTestProviderEnabled
+11-30 19:06:13.920 I/Instrumentation(12515): Redirected android.location.LocationManager->clearTestProviderLocation
+11-30 19:06:13.920 I/Instrumentation(12515): Redirected android.location.LocationManager->clearTestProviderStatus
+11-30 19:06:13.930 I/Instrumentation(12515): Redirected android.location.LocationManager->getBestProvider
+11-30 19:06:13.930 I/Instrumentation(12515): Redirected android.location.LocationManager->getLastKnownLocation
+11-30 19:06:13.930 I/Instrumentation(12515): Redirected android.location.LocationManager->getProvider
+11-30 19:06:13.940 I/Instrumentation(12515): Redirected android.location.LocationManager->getProviders
+11-30 19:06:13.940 I/Instrumentation(12515): Redirected android.location.LocationManager->getProviders
+11-30 19:06:13.950 I/Instrumentation(12515): Redirected android.location.LocationManager->isProviderEnabled
+11-30 19:06:13.960 I/Instrumentation(12515): Redirected android.location.LocationManager->removeTestProvider
+11-30 19:06:13.980 I/Instrumentation(12515): Redirected android.location.LocationManager->requestLocationUpdates
+11-30 19:06:13.980 I/Instrumentation(12515): Redirected android.location.LocationManager->requestLocationUpdates
+11-30 19:06:13.990 I/Instrumentation(12515): Redirected android.location.LocationManager->requestLocationUpdates
+11-30 19:06:14.000 I/Instrumentation(12515): Redirected android.location.LocationManager->requestLocationUpdates
+11-30 19:06:14.000 I/Instrumentation(12515): Redirected android.location.LocationManager->requestLocationUpdates
+11-30 19:06:14.010 I/Instrumentation(12515): Redirected android.location.LocationManager->requestSingleUpdate
+11-30 19:06:14.010 I/Instrumentation(12515): Redirected android.location.LocationManager->requestSingleUpdate
+11-30 19:06:14.020 I/Instrumentation(12515): Redirected android.location.LocationManager->requestSingleUpdate
+11-30 19:06:14.030 I/Instrumentation(12515): Redirected android.location.LocationManager->requestSingleUpdate
+11-30 19:06:14.030 I/Instrumentation(12515): Redirected android.location.LocationManager->sendExtraCommand
+11-30 19:06:14.050 I/Instrumentation(12515): Redirected android.location.LocationManager->setTestProviderEnabled
+11-30 19:06:14.060 I/Instrumentation(12515): Redirected android.location.LocationManager->setTestProviderLocation
+11-30 19:06:14.060 I/Instrumentation(12515): Redirected android.location.LocationManager->setTestProviderStatus
+11-30 19:06:14.070 I/Instrumentation(12515): Redirected android.media.AudioManager->isBluetoothA2dpOn
+11-30 19:06:14.070 I/Instrumentation(12515): Redirected android.media.AudioManager->isWiredHeadsetOn
+11-30 19:06:14.080 I/Instrumentation(12515): Redirected android.media.AudioManager->setBluetoothScoOn
+11-30 19:06:14.080 I/Instrumentation(12515): Redirected android.media.AudioManager->setMicrophoneMute
+11-30 19:06:14.090 I/Instrumentation(12515): Redirected android.media.AudioManager->setMode
+11-30 19:06:14.090 I/Instrumentation(12515): Redirected android.media.AudioManager->setParameter
+11-30 19:06:14.100 I/Instrumentation(12515): Redirected android.media.AudioManager->setParameters
+11-30 19:06:14.110 I/Instrumentation(12515): Redirected android.media.AudioManager->setSpeakerphoneOn
+11-30 19:06:14.110 I/Instrumentation(12515): Redirected android.media.AudioManager->startBluetoothSco
+11-30 19:06:14.130 I/Instrumentation(12515): Redirected android.media.AudioManager->stopBluetoothSco
+11-30 19:06:14.140 I/Instrumentation(12515): Redirected android.media.MediaPlayer->setWakeMode
+11-30 19:06:14.140 I/Instrumentation(12515): Redirected android.media.MediaRecorder->setAudioSource
+11-30 19:06:14.150 I/Instrumentation(12515): Redirected android.media.MediaRecorder->setVideoSource
+11-30 19:06:14.150 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->requestRouteToHost
+11-30 19:06:14.160 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->setMobileDataEnabled
+11-30 19:06:14.160 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->setNetworkPreference
+11-30 19:06:14.170 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->setRadio
+11-30 19:06:14.170 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->setRadios
+11-30 19:06:14.180 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->startUsingNetworkFeature
+11-30 19:06:14.180 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->stopUsingNetworkFeature
+11-30 19:06:14.200 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->tether
+11-30 19:06:14.200 I/Instrumentation(12515): Redirected android.net.ConnectivityManager->untether
+11-30 19:06:14.220 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager.MulticastLock->acquire
+11-30 19:06:14.220 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager.MulticastLock->release
+11-30 19:06:14.220 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager.WifiLock->acquire
+11-30 19:06:14.230 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager.WifiLock->release
+11-30 19:06:14.230 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->addNetwork
+11-30 19:06:14.240 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->disableNetwork
+11-30 19:06:14.240 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->disconnect
+11-30 19:06:14.250 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->enableNetwork
+11-30 19:06:14.250 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->initializeMulticastFiltering
+11-30 19:06:14.260 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->pingSupplicant
+11-30 19:06:14.260 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->reassociate
+11-30 19:06:14.270 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->reconnect
+11-30 19:06:14.290 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->removeNetwork
+11-30 19:06:14.290 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->saveConfiguration
+11-30 19:06:14.300 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->setWifiApEnabled
+11-30 19:06:14.310 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->setWifiEnabled
+11-30 19:06:14.310 I/Instrumentation(12515): Redirected android.net.wifi.WifiManager->startScan
+11-30 19:06:14.320 I/Instrumentation(12515): Redirected android.os.PowerManager.WakeLock->acquire
+11-30 19:06:14.320 I/Instrumentation(12515): Redirected android.os.PowerManager.WakeLock->acquire
+11-30 19:06:14.320 I/Instrumentation(12515): Redirected android.os.PowerManager.WakeLock->release
+11-30 19:06:14.330 I/Instrumentation(12515): Redirected android.os.PowerManager.WakeLock->release
+11-30 19:06:14.330 I/Instrumentation(12515): Redirected android.speech.SpeechRecognizer->cancel
+11-30 19:06:14.340 I/Instrumentation(12515): Redirected android.speech.SpeechRecognizer->handleCancelMessage
+11-30 19:06:14.340 I/Instrumentation(12515): Redirected android.speech.SpeechRecognizer->handleStartListening
+11-30 19:06:14.340 I/Instrumentation(12515): Redirected android.speech.SpeechRecognizer->handleStopMessage
+11-30 19:06:14.350 I/Instrumentation(12515): Redirected android.speech.SpeechRecognizer->startListening
+11-30 19:06:14.350 I/Instrumentation(12515): Redirected android.speech.SpeechRecognizer->stopListening
+11-30 19:06:14.350 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getCellLocation
+11-30 19:06:14.360 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getDeviceId
+11-30 19:06:14.370 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getDeviceSoftwareVersion
+11-30 19:06:14.380 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getLine1Number
+11-30 19:06:14.390 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getNeighboringCellInfo
+11-30 19:06:14.390 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getSimSerialNumber
+11-30 19:06:14.390 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getSubscriberId
+11-30 19:06:14.400 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getVoiceMailAlphaTag
+11-30 19:06:14.400 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->getVoiceMailNumber
+11-30 19:06:14.410 I/Instrumentation(12515): Redirected android.telephony.TelephonyManager->listen
+11-30 19:06:14.420 I/Instrumentation(12515): Redirected android.webkit.WebView->loadDataWithBaseURL
+11-30 19:06:14.420 I/Instrumentation(12515): Redirected android.webkit.WebView->loadUrl
+11-30 19:06:14.430 I/Instrumentation(12515): Redirected android.webkit.WebView->loadUrl
+11-30 19:06:14.430 I/Instrumentation(12515): Redirected java.net.DatagramSocket->connect
+11-30 19:06:14.440 I/Instrumentation(12515): Redirected java.net.DatagramSocket->connect
+11-30 19:06:14.440 I/Instrumentation(12515): Redirected java.net.MulticastSocket->joinGroup
+11-30 19:06:14.440 I/Instrumentation(12515): Redirected java.net.MulticastSocket->joinGroup
+11-30 19:06:14.450 I/Instrumentation(12515): Redirected java.net.Socket->connect
+11-30 19:06:14.450 I/Instrumentation(12515): Redirected java.net.Socket->connect
+11-30 19:06:14.450 I/Instrumentation(12515): Redirected java.net.URL->openConnection
+11-30 19:06:14.450 I/Instrumentation(12515): Redirected org.apache.http.impl.client.AbstractHttpClient->execute
+11-30 19:06:14.460 I/Instrumentation(12515): Redirected android.media.AudioRecord-><init>
+11-30 19:06:14.470 I/Instrumentation(12515): Redirected java.net.Socket-><init>
+11-30 19:06:14.470 I/Instrumentation(12515): Redirected java.net.Socket-><init>
+11-30 19:06:14.470 I/Instrumentation(12515): Redirected java.net.Socket-><init>
+11-30 19:06:14.470 I/Instrumentation(12515): Redirected java.net.Socket-><init>
+11-30 19:06:14.470 I/Instrumentation(12515): Redirected java.net.Socket-><init>
+11-30 19:06:14.470 I/Instrumentation(12515): Redirected java.net.Socket-><init>
+
+2015-11-30 19:09:27.930 TRACE Captured stderr:
+2015-11-30 19:09:27.930 TRACE 
+2015-11-30 19:09:27.930 TRACE Captured exit value: 0
+2015-11-30 19:09:27.930 TRACE DONE executing system command
+2015-11-30 19:09:27.960 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:09:27.960 TRACE Timeout: 60000 ms
+2015-11-30 19:09:27.960 TRACE Command:
+2015-11-30 19:09:27.960 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:09:27.984 TRACE Captured stdout:
+2015-11-30 19:09:27.984 TRACE 
+2015-11-30 19:09:27.984 TRACE Captured stderr:
+2015-11-30 19:09:27.984 TRACE 
+2015-11-30 19:09:27.984 TRACE Captured exit value: 0
+2015-11-30 19:09:27.984 TRACE DONE executing system command
+2015-11-30 19:09:28.198 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: org.droidmate.uiad
+2015-11-30 19:09:28.198 TRACE Timeout: 60000 ms
+2015-11-30 19:09:28.198 TRACE Command:
+2015-11-30 19:09:28.198 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+2015-11-30 19:09:28.236 TRACE Captured stdout:
+2015-11-30 19:09:28.237 TRACE 11-30 19:06:29.930 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:29.990 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+
+2015-11-30 19:09:28.237 TRACE Captured stderr:
+2015-11-30 19:09:28.237 TRACE 
+2015-11-30 19:09:28.237 TRACE Captured exit value: 0
+2015-11-30 19:09:28.237 TRACE DONE executing system command
+2015-11-30 19:09:28.238 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:09:28.238 TRACE Timeout: 60000 ms
+2015-11-30 19:09:28.238 TRACE Command:
+2015-11-30 19:09:28.238 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:09:28.263 TRACE Captured stdout:
+2015-11-30 19:09:28.264 TRACE 
+2015-11-30 19:09:28.264 TRACE Captured stderr:
+2015-11-30 19:09:28.264 TRACE 
+2015-11-30 19:09:28.264 TRACE Captured exit value: 0
+2015-11-30 19:09:28.264 TRACE DONE executing system command
+2015-11-30 19:09:28.333 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Monitor_init
+2015-11-30 19:09:28.333 TRACE Timeout: 60000 ms
+2015-11-30 19:09:28.333 TRACE Command:
+2015-11-30 19:09:28.333 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+2015-11-30 19:09:28.373 TRACE Captured stdout:
+2015-11-30 19:09:28.373 TRACE 
+2015-11-30 19:09:28.373 TRACE Captured stderr:
+2015-11-30 19:09:28.373 TRACE 
+2015-11-30 19:09:28.373 TRACE Captured exit value: 0
+2015-11-30 19:09:28.373 TRACE DONE executing system command
+2015-11-30 19:09:28.374 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Instrumentation
+2015-11-30 19:09:28.374 TRACE Timeout: 60000 ms
+2015-11-30 19:09:28.374 TRACE Command:
+2015-11-30 19:09:28.374 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+2015-11-30 19:09:28.412 TRACE Captured stdout:
+2015-11-30 19:09:28.412 TRACE 
+2015-11-30 19:09:28.412 TRACE Captured stderr:
+2015-11-30 19:09:28.412 TRACE 
+2015-11-30 19:09:28.412 TRACE Captured exit value: 0
+2015-11-30 19:09:28.412 TRACE DONE executing system command
+2015-11-30 19:09:32.200 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: org.droidmate.uiad
+2015-11-30 19:09:32.200 TRACE Timeout: 60000 ms
+2015-11-30 19:09:32.200 TRACE Command:
+2015-11-30 19:09:32.200 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+2015-11-30 19:09:32.239 TRACE Captured stdout:
+2015-11-30 19:09:32.239 TRACE 11-30 19:06:30.260 D/org.droidmate.uiad(12348): Executing device command: perform_action
+11-30 19:06:30.260 V/org.droidmate.uiad(12348): Performing GUI action
+11-30 19:06:30.260 D/org.droidmate.uiad(12348): Clicking on (x,y) coordinates of (400,631)
+11-30 19:06:30.370 V/org.droidmate.uiad(12348): Waiting for GUI to stabilize...
+11-30 19:06:32.500 V/org.droidmate.uiad(12348): waitForGuiToStabilize: initial waitForIdle took 2124ms
+11-30 19:06:33.700 V/org.droidmate.uiad(12348): waitForGuiToStabilize: iteration 1 waitForWindowUpdate took 1200ms
+11-30 19:06:33.700 V/org.droidmate.uiad(12348): waitForGuiToStabilize: iteration 1 waitForIdle took 0ms
+11-30 19:06:33.700 V/org.droidmate.uiad(12348): GUI stabilized after 1 iterations / 3325ms
+11-30 19:06:33.740 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:33.810 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+
+2015-11-30 19:09:32.239 TRACE Captured stderr:
+2015-11-30 19:09:32.239 TRACE 
+2015-11-30 19:09:32.239 TRACE Captured exit value: 0
+2015-11-30 19:09:32.239 TRACE DONE executing system command
+2015-11-30 19:09:32.241 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:09:32.241 TRACE Timeout: 60000 ms
+2015-11-30 19:09:32.241 TRACE Command:
+2015-11-30 19:09:32.241 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:09:32.268 TRACE Captured stdout:
+2015-11-30 19:09:32.268 TRACE 
+2015-11-30 19:09:32.268 TRACE Captured stderr:
+2015-11-30 19:09:32.268 TRACE 
+2015-11-30 19:09:32.268 TRACE Captured exit value: 0
+2015-11-30 19:09:32.268 TRACE DONE executing system command
+2015-11-30 19:09:32.281 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Monitor_init
+2015-11-30 19:09:32.281 TRACE Timeout: 60000 ms
+2015-11-30 19:09:32.281 TRACE Command:
+2015-11-30 19:09:32.281 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+2015-11-30 19:09:32.314 TRACE Captured stdout:
+2015-11-30 19:09:32.314 TRACE 
+2015-11-30 19:09:32.314 TRACE Captured stderr:
+2015-11-30 19:09:32.314 TRACE 
+2015-11-30 19:09:32.314 TRACE Captured exit value: 0
+2015-11-30 19:09:32.314 TRACE DONE executing system command
+2015-11-30 19:09:32.315 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Instrumentation
+2015-11-30 19:09:32.315 TRACE Timeout: 60000 ms
+2015-11-30 19:09:32.315 TRACE Command:
+2015-11-30 19:09:32.315 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+2015-11-30 19:09:32.347 TRACE Captured stdout:
+2015-11-30 19:09:32.347 TRACE 
+2015-11-30 19:09:32.347 TRACE Captured stderr:
+2015-11-30 19:09:32.347 TRACE 
+2015-11-30 19:09:32.347 TRACE Captured exit value: 0
+2015-11-30 19:09:32.347 TRACE DONE executing system command
+2015-11-30 19:09:32.363 TRACE Executing adb (Android Debug Bridge) to clear package on the Android Device.
+2015-11-30 19:09:32.363 TRACE Timeout: 60000 ms
+2015-11-30 19:09:32.363 TRACE Command:
+2015-11-30 19:09:32.363 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear net.zedge.android
+2015-11-30 19:09:33.356 TRACE Captured stdout:
+2015-11-30 19:09:33.356 TRACE Success
+
+2015-11-30 19:09:33.356 TRACE Captured stderr:
+2015-11-30 19:09:33.356 TRACE 
+2015-11-30 19:09:33.356 TRACE Captured exit value: 0
+2015-11-30 19:09:33.356 TRACE DONE executing system command
+2015-11-30 19:09:33.357 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Monitor_init
+2015-11-30 19:09:33.357 TRACE Timeout: 60000 ms
+2015-11-30 19:09:33.357 TRACE Command:
+2015-11-30 19:09:33.357 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+2015-11-30 19:09:33.388 TRACE Captured stdout:
+2015-11-30 19:09:33.389 TRACE 
+2015-11-30 19:09:33.389 TRACE Captured stderr:
+2015-11-30 19:09:33.389 TRACE 
+2015-11-30 19:09:33.389 TRACE Captured exit value: 0
+2015-11-30 19:09:33.389 TRACE DONE executing system command
+2015-11-30 19:09:33.389 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: Instrumentation
+2015-11-30 19:09:33.389 TRACE Timeout: 60000 ms
+2015-11-30 19:09:33.389 TRACE Command:
+2015-11-30 19:09:33.389 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+2015-11-30 19:09:33.432 TRACE Captured stdout:
+2015-11-30 19:09:33.432 TRACE 
+2015-11-30 19:09:33.432 TRACE Captured stderr:
+2015-11-30 19:09:33.432 TRACE 
+2015-11-30 19:09:33.432 TRACE Captured exit value: 0
+2015-11-30 19:09:33.432 TRACE DONE executing system command
+2015-11-30 19:09:33.728 TRACE Executing adb (Android Debug Bridge) to read from logcat messages tagged: org.droidmate.uiad
+2015-11-30 19:09:33.728 TRACE Timeout: 60000 ms
+2015-11-30 19:09:33.728 TRACE Command:
+2015-11-30 19:09:33.728 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+2015-11-30 19:09:33.762 TRACE Captured stdout:
+2015-11-30 19:09:33.763 TRACE 11-30 19:06:35.260 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+11-30 19:06:35.400 D/org.droidmate.uiad(12348): Executing device command: get_uiautomator_window_hierarchy_dump
+
+2015-11-30 19:09:33.763 TRACE Captured stderr:
+2015-11-30 19:09:33.763 TRACE 
+2015-11-30 19:09:33.763 TRACE Captured exit value: 0
+2015-11-30 19:09:33.763 TRACE DONE executing system command
+2015-11-30 19:09:33.764 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:09:33.764 TRACE Timeout: 60000 ms
+2015-11-30 19:09:33.764 TRACE Command:
+2015-11-30 19:09:33.764 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:09:33.801 TRACE Captured stdout:
+2015-11-30 19:09:33.801 TRACE 
+2015-11-30 19:09:33.801 TRACE Captured stderr:
+2015-11-30 19:09:33.802 TRACE 
+2015-11-30 19:09:33.802 TRACE Captured exit value: 0
+2015-11-30 19:09:33.802 TRACE DONE executing system command
+2015-11-30 19:09:33.867 TRACE Executing adb (Android Debug Bridge) to clear logcat output.
+2015-11-30 19:09:33.867 TRACE Timeout: 60000 ms
+2015-11-30 19:09:33.867 TRACE Command:
+2015-11-30 19:09:33.867 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+2015-11-30 19:09:33.905 TRACE Captured stdout:
+2015-11-30 19:09:33.905 TRACE 
+2015-11-30 19:09:33.905 TRACE Captured stderr:
+2015-11-30 19:09:33.905 TRACE 
+2015-11-30 19:09:33.905 TRACE Captured exit value: 0
+2015-11-30 19:09:33.905 TRACE DONE executing system command
+2015-11-30 19:09:33.906 TRACE Executing adb (Android Debug Bridge) to clear package on the Android Device.
+2015-11-30 19:09:33.906 TRACE Timeout: 60000 ms
+2015-11-30 19:09:33.906 TRACE Command:
+2015-11-30 19:09:33.906 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear net.zedge.android
+2015-11-30 19:09:34.688 TRACE Captured stdout:
+2015-11-30 19:09:34.688 TRACE Success
+
+2015-11-30 19:09:34.688 TRACE Captured stderr:
+2015-11-30 19:09:34.688 TRACE 
+2015-11-30 19:09:34.688 TRACE Captured exit value: 0
+2015-11-30 19:09:34.688 TRACE DONE executing system command
+2015-11-30 19:09:34.689 TRACE Executing adb (Android Debug Bridge) to uninstall net.zedge.android from Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:09:34.689 TRACE Timeout: 60000 ms
+2015-11-30 19:09:34.689 TRACE Command:
+2015-11-30 19:09:34.689 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall net.zedge.android
+2015-11-30 19:09:37.806 TRACE Captured stdout:
+2015-11-30 19:09:37.806 TRACE Success
+
+2015-11-30 19:09:37.806 TRACE Captured stderr:
+2015-11-30 19:09:37.806 TRACE 
+2015-11-30 19:09:37.806 TRACE Captured exit value: 0
+2015-11-30 19:09:37.806 TRACE DONE executing system command
+2015-11-30 19:09:37.854 TRACE Captured stdout:
+2015-11-30 19:09:37.854 TRACE INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+org.droidmate.uiautomatordaemon.UiAutomatorDaemon:
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: test=init
+INSTRUMENTATION_STATUS: class=org.droidmate.uiautomatordaemon.UiAutomatorDaemon
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: test=init
+INSTRUMENTATION_STATUS: class=org.droidmate.uiautomatordaemon.UiAutomatorDaemon
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+Test results for WatcherResultPrinter=.
+Time: 48.878
+
+OK (1 test)
+
+
+INSTRUMENTATION_STATUS_CODE: -1
+
+2015-11-30 19:09:37.854 TRACE Captured stderr:
+2015-11-30 19:09:37.854 TRACE 
+2015-11-30 19:09:37.854 TRACE Captured exit value: 0
+2015-11-30 19:09:37.854 TRACE DONE executing system command
+2015-11-30 19:09:37.855 TRACE Executing adb to remove uiautomator-daemon.jar from Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:09:37.855 TRACE Timeout: 60000 ms
+2015-11-30 19:09:37.855 TRACE Command:
+2015-11-30 19:09:37.855 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell rm /data/local/tmp/uiautomator-daemon.jar
+2015-11-30 19:09:37.886 TRACE Captured stdout:
+2015-11-30 19:09:37.886 TRACE 
+2015-11-30 19:09:37.886 TRACE Captured stderr:
+2015-11-30 19:09:37.886 TRACE 
+2015-11-30 19:09:37.886 TRACE Captured exit value: 0
+2015-11-30 19:09:37.886 TRACE DONE executing system command
+2015-11-30 19:09:37.887 TRACE Executing adb to remove uiautomator-daemon.jar from Android Device with s/n 015d2109ce0c1a0f.
+2015-11-30 19:09:37.887 TRACE Timeout: 60000 ms
+2015-11-30 19:09:37.887 TRACE Command:
+2015-11-30 19:09:37.887 TRACE "c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell rm /data/local/tmp/uiautomator-daemon.jar
+2015-11-30 19:09:37.915 TRACE Captured stdout:
+2015-11-30 19:09:37.915 TRACE rm failed for /data/local/tmp/uiautomator-daemon.jar, No such file or directory
+
+2015-11-30 19:09:37.915 TRACE Captured stderr:
+2015-11-30 19:09:37.915 TRACE 
+2015-11-30 19:09:37.915 TRACE Captured exit value: 0
+2015-11-30 19:09:37.915 TRACE DONE executing system command

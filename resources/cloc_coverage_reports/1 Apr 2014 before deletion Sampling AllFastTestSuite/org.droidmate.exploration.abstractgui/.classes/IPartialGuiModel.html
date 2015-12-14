@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IPartialGuiModel</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration.abstractgui</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IPartialGuiModel (org.droidmate.exploration.abstractgui)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IPartialGuiModel$getGuiStatesByTransitionHistoryMostRecentFirst$4</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$getPathTo$2</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$isAppHasStoppedDialogBox$8</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$isDeterministic$5</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$isEmpty$10</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$isHomeScreen$7</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$isOutOfAppScope$9</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$isSpecialCase$6</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$transit$1</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$transit$3</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$update$0</td>
+  </tr>
+  <tr>
+    <td class="name">IPartialGuiModel$updateWithInitState</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration.abstractgui
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;public interface IPartialGuiModel
+<i>14</i>&nbsp;{
+<i>15</i>&nbsp;  String getActivePackageName()
+<i>16</i>&nbsp;  List&lt;Widget&gt; getWidgets()
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;  List&lt;GuiState&gt; getKnownGuiStates()
+<i>19</i>&nbsp;  GuiState getActiveGuiState()
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;  void updateWithInitState(GuiState guiState)
+<i>22</i>&nbsp;  void update(Edge edge)
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;  String getAppPackageName()
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  void transit(Widget transitionWidget)
+<i>27</i>&nbsp;  void transit(GuiTransition transition)
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  List&lt;GuiState&gt; getGuiStatesByTransitionHistoryMostRecentFirst()
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;  boolean isEmpty()
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;  boolean isHomeScreen()
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;  boolean isAppHasStoppedDialogBox()
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;  boolean isOutOfAppScope()
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  boolean isSpecialCase()
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  List&lt;GuiTransition&gt; getPathTo(Widget destinationWidget)
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;  boolean isDeterministic()
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;  GuiTransition getLastGuiTransition()
+<i>46</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

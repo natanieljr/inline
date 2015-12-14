@@ -1,0 +1,388 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AndroidDeviceDeployer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.device</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AndroidDeviceDeployer (org.droidmate.device)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AndroidDeviceDeployer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87%
+  </span>
+  <span class="absValue">
+    (40/ 46)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AndroidDeviceDeployer$_getSerialNumber_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AndroidDeviceDeployer$_getSerialNumber_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AndroidDeviceDeployer$_getSerialNumber_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AndroidDeviceDeployer$_getSerialNumber_closure4</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AndroidDeviceDeployer$getSerialNumber</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88%
+  </span>
+  <span class="absValue">
+    (44/ 50)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.device
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.transform.TypeChecked
+<i>16</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>17</i>&nbsp;import org.droidmate.exceptions.AndroidDeviceException
+<i>18</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>19</i>&nbsp;import org.droidmate.frontend.inject.IAndroidDeviceFactory
+<i>20</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>21</i>&nbsp;import org.droidmate.utils.AndroidDeviceDescriptor
+<i>22</i>&nbsp;import org.droidmate.utils.Assert
+<i>23</i>&nbsp;import org.droidmate.utils.IAdbWrapper
+<i>24</i>&nbsp;import org.slf4j.Logger
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;import static org.droidmate.common.Constants.AUTADDON_SERVER_PORT
+<i>27</i>&nbsp;import static org.droidmate.common.Constants.UIADAEMON_SERVER_PORT
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;@Singleton
+<i>30</i>&nbsp;@TypeChecked
+<i>31</i>&nbsp;public class AndroidDeviceDeployer implements IAndroidDeviceDeployer
+<i>32</i>&nbsp;{
+<i>33</i>&nbsp;  private final Configuration config
+<i>34</i>&nbsp;  private final IAdbWrapper adbWrapper
+<i>35</i>&nbsp;  private final IAndroidDeviceFactory deviceFactory
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;  /**
+<i>38</i>&nbsp;   * &lt;p&gt;
+<i>39</i>&nbsp;   * &lt;i&gt; --- This doc was last reviewed on 21 Dec 2013.&lt;/i&gt;
+<i>40</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>41</i>&nbsp;   * Determines if the device accessed through this class is currently setup. The value of this field is modified
+<i>42</i>&nbsp;   * by {@link #setUp(IAndroidDevice)}  and {@link #tearDown(IAndroidDevice)}.
+<i>43</i>&nbsp;   *
+<i>44</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>45</i>&nbsp;   * Useful to be tested for in preconditions requiring for the device to be set-up.
+<i>46</i>&nbsp;   *
+<i>47</i>&nbsp;   */
+<i>48</i>&nbsp;  private boolean deviceIsSetup
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  // To make DroidMate work with multiple A(V)D, this list will have to be one for all AndroidDeviceDeployer-s, not one per inst.
+<b class="fc"><i>51</i>&nbsp;  private List&lt;String&gt; usedSerialNumbers = [] as List&lt;String&gt;</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;  @InjectLogger
+<i>54</i>&nbsp;  protected static Logger log;
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;  @Inject
+<i>58</i>&nbsp;  protected AndroidDeviceDeployer(Configuration config, IAdbWrapper adbWrapper, IAndroidDeviceFactory deviceFactory)
+<i>59</i>&nbsp;  {
+<b class="fc"><i>60</i>&nbsp;    this.config = config</b>
+<b class="fc"><i>61</i>&nbsp;    this.adbWrapper = adbWrapper</b>
+<b class="fc"><i>62</i>&nbsp;    this.deviceFactory = deviceFactory</b>
+<i>63</i>&nbsp;  }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;/**
+<i>66</i>&nbsp; * &lt;p&gt;
+<i>67</i>&nbsp; * &lt;i&gt; --- This doc was last reviewed on 21 Dec 2013.&lt;/i&gt;
+<i>68</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>69</i>&nbsp; *
+<i>70</i>&nbsp; * Setups the A(V)D to be usable by DroidMate. Should be called only from {@link #withSetupDevice(groovy.lang.Closure)}.
+<i>71</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>72</i>&nbsp; *
+<i>73</i>&nbsp; * The setup encompasses following steps, all conducted using {@link #adbWrapper},
+<i>74</i>&nbsp; * in order:&lt;br/&gt;
+<i>75</i>&nbsp; * - the adb server is started, if necessary;&lt;br/&gt;
+<i>76</i>&nbsp; * - the A(V)D to be used is chosen from  all the available A(V)Ds;&lt;br/&gt;
+<i>77</i>&nbsp; * - ports for aut-addon and uiautomator-daemon TCP servers are forwarded, to enable communication between the A(V)D and
+<i>78</i>&nbsp; * DroidMate;&lt;br/&gt;
+<i>79</i>&nbsp; * - uiautomator-daemon jar is pushed to the device and started.&lt;br/&gt;
+<i>80</i>&nbsp; *
+<i>81</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>82</i>&nbsp; * As a last step, the method sets {@link #deviceIsSetup} to {@code true}.
+<i>83</i>&nbsp; *
+<i>84</i>&nbsp; * &lt;/p&gt;
+<i>85</i>&nbsp; *
+<i>86</i>&nbsp; * @see #tearDown(IAndroidDevice)
+<i>87</i>&nbsp; */
+<i>88</i>&nbsp;  protected void setUp(IAndroidDevice device) throws DroidmateException
+<i>89</i>&nbsp;  {
+<i>90</i>&nbsp;
+<b class="fc"><i>91</i>&nbsp;    adbWrapper.startAdbServer();</b>
+<i>92</i>&nbsp;
+<b class="fc"><i>93</i>&nbsp;    device.forwardPort(AUTADDON_SERVER_PORT)</b>
+<b class="fc"><i>94</i>&nbsp;    device.forwardPort(UIADAEMON_SERVER_PORT)</b>
+<i>95</i>&nbsp;
+<b class="fc"><i>96</i>&nbsp;    device.pushJar(config.uiautomatorDaemonJar)</b>
+<i>97</i>&nbsp;
+<b class="fc"><i>98</i>&nbsp;    device.startUiaDaemon()</b>
+<i>99</i>&nbsp;
+<b class="fc"><i>100</i>&nbsp;    deviceIsSetup = true;</b>
+<i>101</i>&nbsp;  }
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;  /**
+<i>104</i>&nbsp;   * &lt;p&gt;
+<i>105</i>&nbsp;   * &lt;i&gt; --- This doc was last reviewed on 21 Dec 2013.&lt;/i&gt;
+<i>106</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>107</i>&nbsp;   * Stops the uiautomator-daemon and removes its jar from the A(V)D. Should be called only from
+<i>108</i>&nbsp;   * {@link #withSetupDevice(groovy.lang.Closure)}.
+<i>109</i>&nbsp;   *
+<i>110</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>111</i>&nbsp;   * As a first step, the method sets {@link #deviceIsSetup} to {@code true}.
+<i>112</i>&nbsp;   *
+<i>113</i>&nbsp;   * &lt;/p&gt;
+<i>114</i>&nbsp;   *
+<i>115</i>&nbsp;   * @see #setUp(IAndroidDevice)
+<i>116</i>&nbsp;   */
+<i>117</i>&nbsp;  protected void tearDown(IAndroidDevice device) throws DroidmateException
+<i>118</i>&nbsp;  {
+<b class="fc"><i>119</i>&nbsp;    assert device != null</b>
+<i>120</i>&nbsp;
+<b class="fc"><i>121</i>&nbsp;    deviceIsSetup = false</b>
+<b class="fc"><i>122</i>&nbsp;    device.stopUiaDaemon()</b>
+<b class="fc"><i>123</i>&nbsp;    device.removeJar(config.uiautomatorDaemonJar)</b>
+<i>124</i>&nbsp;  }
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;  /**
+<i>127</i>&nbsp;   * &lt;p&gt;
+<i>128</i>&nbsp;   * &lt;i&gt; --- This doc was last reviewed on 21 Dec 2013.&lt;/i&gt;
+<i>129</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>130</i>&nbsp;   * Setups the A(V)D, executes the {@code closure} and tears down the device.
+<i>131</i>&nbsp;   * &lt;/p&gt;
+<i>132</i>&nbsp;   *
+<i>133</i>&nbsp;   * @see #setUp(IAndroidDevice)
+<i>134</i>&nbsp;   * @see #tearDown(IAndroidDevice)
+<i>135</i>&nbsp;   */
+<i>136</i>&nbsp;  @Override
+<i>137</i>&nbsp;  public void withSetupDevice(Closure closure) throws AndroidDeviceException
+<i>138</i>&nbsp;  {
+<b class="fc"><i>139</i>&nbsp;    log.debug(&quot;Setting up device gateway.&quot;);</b>
+<i>140</i>&nbsp;
+<b class="fc"><i>141</i>&nbsp;    Assert.checkClosureFirstParameterSignature(closure, IAndroidDevice)</b>
+<i>142</i>&nbsp;
+<b class="fc"><i>143</i>&nbsp;    String serialNumber = resolveSerialNumber(adbWrapper, usedSerialNumbers)</b>
+<i>144</i>&nbsp;
+<b class="fc"><i>145</i>&nbsp;    usedSerialNumbers &lt;&lt; serialNumber</b>
+<b class="fc"><i>146</i>&nbsp;    assert !(usedSerialNumbers.size() &gt; 1): &quot;DroidMate currently doesn&#39;t support using more than one A(V)D: &quot; +</b>
+<b class="nc"><i>147</i>&nbsp;      &quot;the ${DeviceCommandSender.simpleName} always sends command on the same TCP port, thus it doesn&#39;t distinguish between &quot; +</b>
+<i>148</i>&nbsp;      &quot;different A(V)Ds.&quot;
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;    // WISH report IntelliJ bug: incorrect GroovyUnusedAssignment
+<i>151</i>&nbsp;    //noinspection GroovyUnusedAssignment
+<b class="fc"><i>152</i>&nbsp;    IAndroidDevice device = deviceFactory.create(serialNumber)</b>
+<i>153</i>&nbsp;
+<i>154</i>&nbsp;    try
+<i>155</i>&nbsp;    {
+<b class="fc"><i>156</i>&nbsp;      setUp(device);</b>
+<i>157</i>&nbsp;    } catch (DroidmateException e)
+<i>158</i>&nbsp;    {
+<b class="nc"><i>159</i>&nbsp;      throw new AndroidDeviceException(&quot;Failed setting up A(V)D.&quot;, e);</b>
+<i>160</i>&nbsp;    }
+<i>161</i>&nbsp;
+<i>162</i>&nbsp;    try
+<i>163</i>&nbsp;    {
+<i>164</i>&nbsp;
+<b class="fc"><i>165</i>&nbsp;      closure(device)</b>
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;    } finally
+<i>168</i>&nbsp;    {
+<i>169</i>&nbsp;      try
+<i>170</i>&nbsp;      {
+<b class="fc"><i>171</i>&nbsp;        tearDown(device);</b>
+<b class="fc"><i>172</i>&nbsp;        usedSerialNumbers -= serialNumber</b>
+<i>173</i>&nbsp;      } catch (DroidmateException e)
+<i>174</i>&nbsp;      {
+<i>175</i>&nbsp;        // WISH add suppressed exception: catch block will be required for this
+<b class="nc"><i>176</i>&nbsp;        throw new AndroidDeviceException(&quot;Failed tearing down A(V)D.&quot;, e);</b>
+<i>177</i>&nbsp;      }
+<i>178</i>&nbsp;    }
+<i>179</i>&nbsp;  }
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;  private static String resolveSerialNumber(IAdbWrapper adbWrapper, List&lt;String&gt; usedSerialNumbers)
+<i>182</i>&nbsp;  {
+<b class="fc"><i>183</i>&nbsp;    List&lt;AndroidDeviceDescriptor&gt; devicesDescriptors = adbWrapper.getAndroidDevicesDescriptors()</b>
+<b class="fc"><i>184</i>&nbsp;    String serialNumber = getSerialNumber(devicesDescriptors, usedSerialNumbers)</b>
+<b class="fc"><i>185</i>&nbsp;    return serialNumber</b>
+<i>186</i>&nbsp;
+<i>187</i>&nbsp;  }
+<i>188</i>&nbsp;
+<i>189</i>&nbsp;  static String getSerialNumber(List&lt;AndroidDeviceDescriptor&gt; deviceDescriptors, List&lt;String&gt; usedSerialNumbers)
+<i>190</i>&nbsp;  {
+<b class="fc"><i>191</i>&nbsp;    log.trace(&quot;Serial numbers of found android devices:&quot;)</b>
+<b class="fc"><i>192</i>&nbsp;    assert deviceDescriptors?.size() &gt; 0</b>
+<b class="fc"><i>193</i>&nbsp;    deviceDescriptors.each {AndroidDeviceDescriptor add -&gt; log.trace(add.deviceSerialNumber)}</b>
+<i>194</i>&nbsp;
+<b class="fc"><i>195</i>&nbsp;    List&lt;String&gt; unrecognizedNumbers = usedSerialNumbers.minus(deviceDescriptors*.deviceSerialNumber)</b>
+<b class="fc"><i>196</i>&nbsp;    if (unrecognizedNumbers.size() &gt; 0)</b>
+<b class="nc"><i>197</i>&nbsp;      throw new DroidmateException(&quot;While obtaining new A(V)D serial number, DroidMate detected that one or more of the &quot; +</b>
+<b class="nc"><i>198</i>&nbsp;        &quot;already used serial numbers do not appear on the list of serial numbers returned by the &#39;adb devices&#39; command. &quot; +</b>
+<i>199</i>&nbsp;        &quot;This indicates the device(s) with these number most likely have been disconnected. Thus, DroidMate throws exception. &quot; +
+<i>200</i>&nbsp;        &quot;List of the offending serial numbers: $unrecognizedNumbers&quot;);
+<i>201</i>&nbsp;
+<b class="fc"><i>202</i>&nbsp;    def unusedDescriptors = deviceDescriptors.findAll {AndroidDeviceDescriptor add -&gt;</b>
+<b class="fc"><i>203</i>&nbsp;      !(add.deviceSerialNumber in usedSerialNumbers)</b>
+<i>204</i>&nbsp;    }
+<i>205</i>&nbsp;
+<b class="fc"><i>206</i>&nbsp;    if (unusedDescriptors.size() == 0)</b>
+<b class="nc"><i>207</i>&nbsp;      throw new DroidmateException(&quot;No unused A(V)D serial numbers have been found. List of all already used serial numbers: &quot; +</b>
+<i>208</i>&nbsp;        &quot;$usedSerialNumbers&quot;)
+<i>209</i>&nbsp;
+<b class="fc"><i>210</i>&nbsp;    String serialNumber;</b>
+<b class="fc"><i>211</i>&nbsp;    serialNumber = unusedDescriptors.find {AndroidDeviceDescriptor add -&gt; !add.isEmulator}?.deviceSerialNumber</b>
+<b class="fc"><i>212</i>&nbsp;    if (serialNumber == null)</b>
+<b class="fc"><i>213</i>&nbsp;      serialNumber = unusedDescriptors.find {AndroidDeviceDescriptor add -&gt; add.isEmulator}?.deviceSerialNumber</b>
+<i>214</i>&nbsp;
+<b class="fc"><i>215</i>&nbsp;    assert serialNumber != null</b>
+<b class="fc"><i>216</i>&nbsp;    return serialNumber</b>
+<i>217</i>&nbsp;  }
+<i>218</i>&nbsp;
+<i>219</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

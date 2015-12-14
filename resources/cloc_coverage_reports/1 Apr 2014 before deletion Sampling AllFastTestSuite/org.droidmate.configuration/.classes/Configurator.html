@@ -1,0 +1,572 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Configurator</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.configuration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Configurator (org.droidmate.configuration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Configurator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    68.7%
+  </span>
+  <span class="absValue">
+    (101/ 147)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Configurator$_assertClassesExist_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Configurator$_bindSootConfig_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Configurator$_bindToolsCommands_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Configurator$bindAndValidateArtifactsDir$1</td>
+  </tr>
+  <tr>
+    <td class="name">Configurator$buildApksDir$2</td>
+  </tr>
+  <tr>
+    <td class="name">Configurator$configure</td>
+  </tr>
+  <tr>
+    <td class="name">Configurator$populateConfigurationWithArgs$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/ 17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    69%
+  </span>
+  <span class="absValue">
+    (107/ 155)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.configuration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import ch.qos.logback.classic.Level
+<i>14</i>&nbsp;import com.beust.jcommander.JCommander
+<i>15</i>&nbsp;import com.beust.jcommander.ParameterException
+<i>16</i>&nbsp;import com.google.inject.Singleton
+<i>17</i>&nbsp;import org.apache.commons.io.FilenameUtils
+<i>18</i>&nbsp;import org.apache.commons.lang3.SystemUtils
+<i>19</i>&nbsp;import org.apache.commons.lang3.builder.ReflectionToStringBuilder
+<i>20</i>&nbsp;import org.apache.commons.lang3.builder.StandardToStringStyle
+<i>21</i>&nbsp;import org.droidmate.common.Constants
+<i>22</i>&nbsp;import org.droidmate.exceptions.ConfigurationException
+<i>23</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>24</i>&nbsp;import org.droidmate.exploration.ExplorationDriver
+<i>25</i>&nbsp;import org.droidmate.exploration.ReplayingExplorationDriver
+<i>26</i>&nbsp;import org.droidmate.logging.LoggingSystemProperties
+<i>27</i>&nbsp;import org.droidmate.robot.RobotConfiguration
+<i>28</i>&nbsp;import org.droidmate.utils.Assert
+<i>29</i>&nbsp;import org.slf4j.Logger
+<i>30</i>&nbsp;import org.slf4j.LoggerFactory
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;/**
+<i>33</i>&nbsp; * @see Configurator#buildConfiguration(java.lang.String [ ])
+<i>34</i>&nbsp; */
+<i>35</i>&nbsp;@Singleton
+<i>36</i>&nbsp;class Configurator implements IConfigurator
+<i>37</i>&nbsp;{
+<i>38</i>&nbsp;  // WISH move to Constants class (but first - think this over, maybe it should remain here?)
+<i>39</i>&nbsp;  // WISH: maybe extract a service class: &quot;AndroidSdkFilePathsResolver&quot; or something.
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  // WISH this should just look for &quot;aapt&quot; under &quot;build-tools&quot; to make it SDK-version agnostic.
+<i>42</i>&nbsp;  // I think Java 7 nio.file namespace might have appropriate methods for that.
+<i>43</i>&nbsp;  public static final String BUILD_TOOLS_17_0_0_AAPT = &quot;build-tools/17.0.0/aapt&quot;
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;  // WISH as with BUILD_TOOLS_17_0_0_AAPT
+<i>46</i>&nbsp;  public static final String BUILD_TOOLS_17_0_0_DX = &quot;build-tools/17.0.0/dx&quot;
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;  public static final String PLATFORM_TOOLS_ADB = &quot;platform-tools/adb&quot;;
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  public static final String TOOLS_ZIPALIGN = &quot;tools/zipalign&quot;;
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;  public static final String ANDROID_17_JAR = &quot;platforms/android-17/android.jar&quot;;
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  // This logger cannot be injected using @InjectLogger because it is used before dependency injection takes place.
+<b class="fc"><i>55</i>&nbsp;  private static Logger log = LoggerFactory.getLogger(Configurator.class);</b>
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;  public static List&lt;IConfiguration&gt; configure(String[] args)
+<i>58</i>&nbsp;  {
+<b class="fc"><i>59</i>&nbsp;    IConfigurator configurator = new Configurator()</b>
+<b class="fc"><i>60</i>&nbsp;    List&lt;IConfiguration&gt; configurations = configurator.buildConfiguration(args)</b>
+<i>61</i>&nbsp;
+<b class="fc"><i>62</i>&nbsp;    assert configurations[0] != null</b>
+<b class="fc"><i>63</i>&nbsp;    assert configurations[0] instanceof Configuration</b>
+<b class="fc"><i>64</i>&nbsp;    assert (configurations[0] as Configuration).withRobot.implies(</b>
+<b class="fc"><i>65</i>&nbsp;      configurations[1] != null &amp;&amp; configurations[1] instanceof RobotConfiguration)</b>
+<i>66</i>&nbsp;
+<b class="fc"><i>67</i>&nbsp;    return configurations</b>
+<i>68</i>&nbsp;  }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;/**
+<i>71</i>&nbsp; * &lt;p&gt;
+<i>72</i>&nbsp; * Given command line arguments, returns {@link Configuration} instance, which is being injected to constructors
+<i>73</i>&nbsp; * of most of DroidMate classes.
+<i>74</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>75</i>&nbsp; * The arguments are parsed. If request to display help is detected, it is displayed on stdout and the JVM terminates.
+<i>76</i>&nbsp; * Otherwise, the arguments are partially validated, e.g. resource files are checked for existence. Some properties
+<i>77</i>&nbsp; * are constructed from the arguments (e.g. absolute file paths are constructed from parent path and relative path).
+<i>78</i>&nbsp; * Finally, the result is returned.
+<i>79</i>&nbsp; *
+<i>80</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>81</i>&nbsp; * The underlying framework used for command line parsing is jCommander [1].
+<i>82</i>&nbsp; *
+<i>83</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>84</i>&nbsp; * [1]: http://jcommander.org/
+<i>85</i>&nbsp; *
+<i>86</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>87</i>&nbsp; * &lt;i&gt;This doc was last reviewed on 14 Sep &#39;13.&lt;/i&gt;
+<i>88</i>&nbsp; * &lt;/p&gt;
+<i>89</i>&nbsp; *
+<i>90</i>&nbsp; * @see Configuration
+<i>91</i>&nbsp; */
+<i>92</i>&nbsp;  @Override
+<i>93</i>&nbsp;  public List&lt;IConfiguration&gt; buildConfiguration(String[] args) throws ConfigurationException
+<i>94</i>&nbsp;  {
+<b class="fc"><i>95</i>&nbsp;    log.debug(&quot;Reading command line parameters and configuring DroidMate.&quot;);</b>
+<i>96</i>&nbsp;
+<b class="fc"><i>97</i>&nbsp;    assert args != null</b>
+<i>98</i>&nbsp;
+<b class="fc"><i>99</i>&nbsp;    Configuration config = new Configuration()</b>
+<b class="fc"><i>100</i>&nbsp;    RobotConfiguration robotConfig = new RobotConfiguration()</b>
+<i>101</i>&nbsp;
+<b class="fc"><i>102</i>&nbsp;    JCommander jCommander;</b>
+<b class="fc"><i>103</i>&nbsp;    jCommander = populateConfigurationWithArgs(args, config, robotConfig)</b>
+<i>104</i>&nbsp;
+<b class="fc"><i>105</i>&nbsp;    assert config.withRobot.implies(robotConfig != null)</b>
+<i>106</i>&nbsp;
+<b class="fc"><i>107</i>&nbsp;    displayHelpAndExitIfNeeded(config, jCommander)</b>
+<b class="fc"><i>108</i>&nbsp;    Assert.noHelpWasDisplayed(config)</b>
+<i>109</i>&nbsp;
+<b class="fc"><i>110</i>&nbsp;    config = validateAndBind(config)</b>
+<i>111</i>&nbsp;
+<b class="fc"><i>112</i>&nbsp;    assert config != null</b>
+<b class="fc"><i>113</i>&nbsp;    assert robotConfig != null</b>
+<b class="fc"><i>114</i>&nbsp;    if (config.withRobot)</b>
+<i>115</i>&nbsp;      // doc-assert robotConfig was set up with jCommander
+<b class="fc"><i>116</i>&nbsp;      return [config, robotConfig]</b>
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;    else
+<b class="fc"><i>119</i>&nbsp;      return [config]</b>
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;  }
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;  public static JCommander populateConfigurationWithArgs(String[] args, Configuration config, RobotConfiguration robotConfig)
+<i>124</i>&nbsp;  {
+<b class="fc"><i>125</i>&nbsp;    JCommander jCommander</b>
+<i>126</i>&nbsp;    try
+<i>127</i>&nbsp;    {
+<i>128</i>&nbsp;
+<b class="fc"><i>129</i>&nbsp;      if (args.contains(Configuration.PARAMETER_NAME_WITH_ROBOT))</b>
+<i>130</i>&nbsp;      {
+<b class="fc"><i>131</i>&nbsp;        log.trace(&quot;Creating JCommander instance to parse args into Configuration and RobotConfiguration instances.&quot;);</b>
+<b class="fc"><i>132</i>&nbsp;        jCommander = new JCommander();</b>
+<b class="fc"><i>133</i>&nbsp;        jCommander.addObject(config);</b>
+<b class="fc"><i>134</i>&nbsp;        jCommander.addObject(robotConfig);</b>
+<b class="fc"><i>135</i>&nbsp;        jCommander.parse(args);</b>
+<i>136</i>&nbsp;      } else
+<i>137</i>&nbsp;      {
+<b class="fc"><i>138</i>&nbsp;        log.trace(&quot;Creating JCommander instance to parse args into Configuration instance.&quot;);</b>
+<b class="fc"><i>139</i>&nbsp;        jCommander = new JCommander(config, args);</b>
+<i>140</i>&nbsp;      }
+<i>141</i>&nbsp;    }
+<i>142</i>&nbsp;    catch (ParameterException e)
+<i>143</i>&nbsp;    {
+<b class="nc"><i>144</i>&nbsp;      throw new ConfigurationException(e);</b>
+<i>145</i>&nbsp;    }
+<b class="fc"><i>146</i>&nbsp;    return jCommander</b>
+<i>147</i>&nbsp;  }
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;  private static void displayHelpAndExitIfNeeded(Configuration config, JCommander jCommander)
+<i>150</i>&nbsp;  {
+<b class="fc"><i>151</i>&nbsp;    if (config.displayHelp || config.droidmateCommandName == DroidmateCommandName.DISPLAY_HELP)</b>
+<i>152</i>&nbsp;    {
+<b class="nc"><i>153</i>&nbsp;      config.displayHelp = true;</b>
+<i>154</i>&nbsp;
+<b class="nc"><i>155</i>&nbsp;      log.info(&quot;Detected request to display help. Displaying help &amp; terminating. Note: to override this behavior, &quot; +</b>
+<i>156</i>&nbsp;        &quot;provide a value for parameter ${Configuration.PARAMETER_NAME_COMMAND}&quot;);
+<i>157</i>&nbsp;
+<b class="nc"><i>158</i>&nbsp;      final defaultApksDirPath = buildApksDir(Configuration.artifactsDirDefaultPath, Configuration.apksDirDefaultName).path</b>
+<b class="nc"><i>159</i>&nbsp;      log.info(</b>
+<i>160</i>&nbsp;        &quot;&quot;&quot;
+<i>161</i>&nbsp;Examples of DroidMate CLI configuration strings, to be appended when calling the droidmate.sh script:
+<i>162</i>&nbsp;
+<i>163</i>&nbsp;---------------
+<i>164</i>&nbsp;
+<i>165</i>&nbsp;  ${Configuration.PARAMETER_NAME_COMMAND}=${DroidmateCommandName.EXPLORE}
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;Explanation:
+<i>168</i>&nbsp;
+<i>169</i>&nbsp;  Instrument (if necessary) and explore the apks located in the default directory of $defaultApksDirPath, outputting
+<i>170</i>&nbsp;  the resulting artifacts (reports, recorded exploration actions (input sequences) that can be replayed later, etc.)
+<i>171</i>&nbsp;  to the same directory.
+<i>172</i>&nbsp;
+<i>173</i>&nbsp;---------------
+<i>174</i>&nbsp;
+<i>175</i>&nbsp;  ${Configuration.PARAMETER_NAME_COMMAND}=${DroidmateCommandName.EXPLORE} \
+<i>176</i>&nbsp;${Configuration.PARAMETER_NAME_EXPLORATION_DRIVER}=${ReplayingExplorationDriver.simpleName}
+<i>177</i>&nbsp;
+<i>178</i>&nbsp;Explanation:
+<i>179</i>&nbsp;
+<i>180</i>&nbsp;  Instrument (if necessary) and replay the exploration actions recorded in previous DroidMate run. By default, DroidMate will look
+<i>181</i>&nbsp;  for the sequences in appropriate subdirs of $defaultApksDirPath, thus, you can replay these sequences immediately after
+<i>182</i>&nbsp;  obtaining them by running DroidMate in normal exploration mode, as in the example given before.
+<i>183</i>&nbsp;
+<i>184</i>&nbsp;---------------
+<i>185</i>&nbsp;
+<i>186</i>&nbsp;Below follows list of CLI parameters descriptions:
+<i>187</i>&nbsp;&quot;&quot;&quot;)
+<i>188</i>&nbsp;
+<b class="nc"><i>189</i>&nbsp;      jCommander.usage();</b>
+<i>190</i>&nbsp;
+<b class="nc"><i>191</i>&nbsp;      System.exit(0);</b>
+<i>192</i>&nbsp;    }
+<i>193</i>&nbsp;  }
+<i>194</i>&nbsp;
+<i>195</i>&nbsp;  private static Configuration validateAndBind(Configuration config) throws ConfigurationException
+<i>196</i>&nbsp;  {
+<b class="fc"><i>197</i>&nbsp;    assert config != null</b>
+<i>198</i>&nbsp;
+<i>199</i>&nbsp;    try
+<i>200</i>&nbsp;    {
+<b class="fc"><i>201</i>&nbsp;      setLogbackRootLoggerLoggingLevel(config);</b>
+<b class="fc"><i>202</i>&nbsp;      validateAndBindResources(config);</b>
+<i>203</i>&nbsp;
+<i>204</i>&nbsp;    } catch (ConfigurationException e)
+<i>205</i>&nbsp;    {
+<b class="nc"><i>206</i>&nbsp;      throw e;</b>
+<i>207</i>&nbsp;    }
+<i>208</i>&nbsp;
+<i>209</i>&nbsp;    // ConfigurationException-free calls
+<b class="fc"><i>210</i>&nbsp;    bindToolsCommands(config);</b>
+<b class="fc"><i>211</i>&nbsp;    bindSootConfig(config);</b>
+<b class="fc"><i>212</i>&nbsp;    logConfigurationInEffect(config);</b>
+<i>213</i>&nbsp;
+<b class="fc"><i>214</i>&nbsp;    assert config != null;</b>
+<b class="fc"><i>215</i>&nbsp;    return config;</b>
+<i>216</i>&nbsp;  }
+<i>217</i>&nbsp;
+<i>218</i>&nbsp;  private static void validateAndBindResources(Configuration cfg) throws ConfigurationException
+<i>219</i>&nbsp;  {
+<i>220</i>&nbsp;    // WISH it would be awesome if it would automatically find all the implementers of IExplorationDriver
+<b class="fc"><i>221</i>&nbsp;    final availableExplorationDrivers = [ExplorationDriver.simpleName, ReplayingExplorationDriver.simpleName]</b>
+<b class="fc"><i>222</i>&nbsp;    assertClassesExist(availableExplorationDrivers, cfg)</b>
+<i>223</i>&nbsp;
+<b class="fc"><i>224</i>&nbsp;    if (!(cfg.explorationDriverClassName in availableExplorationDrivers))</b>
+<b class="nc"><i>225</i>&nbsp;      throw new ConfigurationException(&quot;Unknown exploration driver class supplied to DroidMate. The supplied class name: &quot; +</b>
+<i>226</i>&nbsp;        &quot;${cfg.explorationDriverClassName}. Available class names: $availableExplorationDrivers. All the classes are located &quot; +
+<i>227</i>&nbsp;        &quot;under the ${cfg.EXPLORATION_DRIVER_CLASS_PACKAGE}.&quot;)
+<i>228</i>&nbsp;
+<b class="fc"><i>229</i>&nbsp;    bindAndValidateArtifactsDir(cfg.artifactsDir)</b>
+<i>230</i>&nbsp;
+<b class="fc"><i>231</i>&nbsp;    final File apksDir = buildApksDir(cfg.artifactsDir.path, cfg.apksDirName)</b>
+<b class="fc"><i>232</i>&nbsp;    if (!(apksDir.isDirectory()))</b>
+<b class="nc"><i>233</i>&nbsp;      throw new ConfigurationException(&quot;Directory with apks to be processed by DroidMate doesn&#39;t exist or is not a &quot; +</b>
+<b class="nc"><i>234</i>&nbsp;        &quot;directory.\n&quot; +</b>
+<b class="nc"><i>235</i>&nbsp;        &quot;Expected path: ${apksDir.getPath()}\n&quot;</b>
+<b class="nc"><i>236</i>&nbsp;        + &quot;Hint: the path is obtained by combining values of parameters:\n&quot;</b>
+<b class="nc"><i>237</i>&nbsp;        + &quot;${Configuration.PARAMETER_NAME_ARTIFACTS_DIR_PATH} = ${cfg.artifactsDir}\n&quot;</b>
+<i>238</i>&nbsp;        + &quot;${Configuration.PARAMETER_NAME_ARTIFACTS_APKS_DIR_NAME} = ${cfg.apksDirName}&quot;)
+<i>239</i>&nbsp;
+<b class="fc"><i>240</i>&nbsp;    final File runReportDir = new File(cfg.artifactsDir, cfg.runReportDirName)</b>
+<b class="fc"><i>241</i>&nbsp;    if (!(runReportDir.isDirectory()))</b>
+<i>242</i>&nbsp;    {
+<b class="fc"><i>243</i>&nbsp;      log.debug(&quot;The directory to which DroidMate is expected to generate run report doesn&#39;t exist. It will be created now. &quot;</b>
+<b class="fc"><i>244</i>&nbsp;        + &quot;The directory path: ${runReportDir.getPath()}\n&quot;</b>
+<b class="fc"><i>245</i>&nbsp;        + &quot;Hint: the path is obtained by combining values of parameters:\n&quot;</b>
+<b class="fc"><i>246</i>&nbsp;        + &quot;${Configuration.PARAMETER_NAME_ARTIFACTS_DIR_PATH} = ${cfg.artifactsDir}\n&quot;</b>
+<i>247</i>&nbsp;        + &quot;${Configuration.PARAMETER_NAME_RUN_REPORT_DIR_NAME} = ${cfg.runReportDirName}&quot;)
+<b class="fc"><i>248</i>&nbsp;      assert runReportDir.mkdirs()</b>
+<i>249</i>&nbsp;    }
+<i>250</i>&nbsp;
+<b class="fc"><i>251</i>&nbsp;    if (!cfg.androidSdkDir.isDirectory())</b>
+<b class="nc"><i>252</i>&nbsp;      throw new ConfigurationException(&quot;Directory with Android SDK doesn&#39;t exist or is not a directory. &quot; +</b>
+<b class="nc"><i>253</i>&nbsp;        &quot;Expected path: &quot; + cfg.androidSdkDir.getPath());</b>
+<i>254</i>&nbsp;
+<b class="fc"><i>255</i>&nbsp;    if (!cfg.resourcesDir.isDirectory())</b>
+<b class="nc"><i>256</i>&nbsp;      throw new ConfigurationException(&quot;Directory with DroidMate resources doesn&#39;t exist or is not a directory. &quot; +</b>
+<b class="nc"><i>257</i>&nbsp;        &quot;Expected path: &quot; + cfg.resourcesDir.getPath());</b>
+<i>258</i>&nbsp;
+<b class="fc"><i>259</i>&nbsp;    cfg.apktool = new File(cfg.resourcesDir, &quot;apktool.jar&quot;);</b>
+<b class="fc"><i>260</i>&nbsp;    if (!cfg.apktool.isFile())</b>
+<b class="nc"><i>261</i>&nbsp;      throw new ConfigurationException(&quot;Apktool file doesn&#39;t exist or is not a file. Expected path: &quot;</b>
+<b class="nc"><i>262</i>&nbsp;        + cfg.apktool.getPath());</b>
+<i>263</i>&nbsp;
+<b class="fc"><i>264</i>&nbsp;    cfg.autAddonBytecode = new File(cfg.resourcesDir, &quot;autAddonBytecode.dex&quot;);</b>
+<b class="fc"><i>265</i>&nbsp;    if (!cfg.autAddonBytecode.isFile())</b>
+<b class="nc"><i>266</i>&nbsp;      throw new ConfigurationException(&quot;AutAddon bytecode file doesn&#39;t exist or is not a file. Expected path: &quot;</b>
+<b class="nc"><i>267</i>&nbsp;        + cfg.autAddonBytecode.getPath());</b>
+<i>268</i>&nbsp;
+<b class="fc"><i>269</i>&nbsp;    cfg.autAddonClassesRootDir = new File(cfg.resourcesDir, &quot;autAddonClasses&quot;);</b>
+<b class="fc"><i>270</i>&nbsp;    if (!cfg.autAddonClassesRootDir.isDirectory())</b>
+<b class="nc"><i>271</i>&nbsp;      throw new ConfigurationException(&quot;AutAddon .class files root dir doesn&#39;t exist or is not a dir. Expected path: &quot;</b>
+<b class="nc"><i>272</i>&nbsp;        + cfg.autAddonClassesRootDir.getPath());</b>
+<i>273</i>&nbsp;
+<b class="fc"><i>274</i>&nbsp;    cfg.debugKeystore = new File(cfg.resourcesDir, &quot;debug.keystore&quot;);</b>
+<b class="fc"><i>275</i>&nbsp;    if (!cfg.debugKeystore.isFile())</b>
+<b class="nc"><i>276</i>&nbsp;      throw new ConfigurationException(&quot;debug.keystore file doesn&#39;t exist or is not a file. Expected path: &quot;</b>
+<b class="nc"><i>277</i>&nbsp;        + cfg.debugKeystore.getPath());</b>
+<i>278</i>&nbsp;
+<b class="fc"><i>279</i>&nbsp;    cfg.uiautomatorDaemonJar = new File(cfg.resourcesDir, &quot;uiautomator-daemon.jar&quot;);</b>
+<b class="fc"><i>280</i>&nbsp;    if (!cfg.uiautomatorDaemonJar.isFile())</b>
+<b class="nc"><i>281</i>&nbsp;      throw new ConfigurationException(&quot;uiautomator-daemon.jar file doesn&#39;t exist or is not a file. Expected path: &quot;</b>
+<b class="nc"><i>282</i>&nbsp;        + cfg.uiautomatorDaemonJar.getPath());</b>
+<i>283</i>&nbsp;
+<b class="fc"><i>284</i>&nbsp;    cfg.instrumentationReportSkeleton = new File(cfg.resourcesDir, &quot;xml_report_skeletons/instrumentationReportSkeleton.xml&quot;)</b>
+<b class="fc"><i>285</i>&nbsp;    if (!cfg.instrumentationReportSkeleton.file)</b>
+<b class="nc"><i>286</i>&nbsp;      throw new ConfigurationException(&quot;Instrumentation report XML skeleton file doesn&#39;t exist or is not a file. Expected path: &quot;</b>
+<i>287</i>&nbsp;        + cfg.instrumentationReportSkeleton.path);
+<i>288</i>&nbsp;
+<b class="fc"><i>289</i>&nbsp;    cfg.explorationReportSkeleton = new File(cfg.resourcesDir, &quot;xml_report_skeletons/explorationReportSkeleton.xml&quot;)</b>
+<b class="fc"><i>290</i>&nbsp;    if (!cfg.explorationReportSkeleton.file)</b>
+<b class="nc"><i>291</i>&nbsp;      throw new ConfigurationException(&quot;Exploration report XML skeleton file doesn&#39;t exist or is not a file. Expected path: &quot;</b>
+<i>292</i>&nbsp;        + cfg.explorationReportSkeleton.path);
+<i>293</i>&nbsp;  }
+<i>294</i>&nbsp;
+<i>295</i>&nbsp;  public static void bindAndValidateArtifactsDir(File artifactsDir)
+<i>296</i>&nbsp;  {
+<b class="fc"><i>297</i>&nbsp;    if (!artifactsDir.directory)</b>
+<b class="nc"><i>298</i>&nbsp;      throw new ConfigurationException(&quot;Directory with DroidMate artifacts doesn&#39;t exist or is not a directory. &quot; +</b>
+<i>299</i>&nbsp;        &quot;Expected path: &quot; + artifactsDir.path);
+<i>300</i>&nbsp;  }
+<i>301</i>&nbsp;
+<i>302</i>&nbsp;  public static File buildApksDir(String artifactsDirPath, String apksDirName)
+<i>303</i>&nbsp;  {
+<b class="fc"><i>304</i>&nbsp;    return new File(artifactsDirPath, apksDirName)</b>
+<i>305</i>&nbsp;  }
+<i>306</i>&nbsp;
+<i>307</i>&nbsp;  protected static ArrayList&lt;String&gt; assertClassesExist(ArrayList&lt;String&gt; availableExplorationDrivers, cfg)
+<i>308</i>&nbsp;  {
+<b class="fc"><i>309</i>&nbsp;    return availableExplorationDrivers.each {</b>
+<i>310</i>&nbsp;      try
+<i>311</i>&nbsp;      {
+<i>312</i>&nbsp;        // This line of code is based on:
+<i>313</i>&nbsp;        // http://stackoverflow.com/questions/3466568
+<i>314</i>&nbsp;        // /check-if-class-exists-in-java-classpath-without-running-its-static-initializer
+<b class="fc"><i>315</i>&nbsp;        Class.forName(cfg.EXPLORATION_DRIVER_CLASS_PACKAGE + &quot;.&quot; + it)</b>
+<i>316</i>&nbsp;      } catch (ClassNotFoundException ignored)
+<i>317</i>&nbsp;      {
+<b class="nc"><i>318</i>&nbsp;        assert false: &quot;Class named $it was expected to be located under the package ${cfg.EXPLORATION_DRIVER_CLASS_PACKAGE} &quot; +</b>
+<b class="nc"><i>319</i>&nbsp;          &quot;(full class name: ${cfg.EXPLORATION_DRIVER_CLASS_PACKAGE}.$it) but no such class is available. &quot; +</b>
+<i>320</i>&nbsp;          &quot;This is internal DroidMate error, please report it to the DroidMate maintainer. You are awesome. KTHXBYE&quot;
+<i>321</i>&nbsp;      }
+<i>322</i>&nbsp;    }
+<i>323</i>&nbsp;  }
+<i>324</i>&nbsp;
+<i>325</i>&nbsp;  private static void setLogbackRootLoggerLoggingLevel(Configuration config) throws ConfigurationException
+<i>326</i>&nbsp;  {
+<b class="fc"><i>327</i>&nbsp;    log.trace(&quot;Configuring logback logging level.&quot;)</b>
+<i>328</i>&nbsp;
+<b class="fc"><i>329</i>&nbsp;    ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) LoggerFactory</b>
+<i>330</i>&nbsp;      .getLogger(Logger.ROOT_LOGGER_NAME);
+<i>331</i>&nbsp;
+<b class="fc"><i>332</i>&nbsp;    if (config.logLevel.equalsIgnoreCase(&quot;info&quot;))</b>
+<b class="nc"><i>333</i>&nbsp;      root.setLevel(Level.INFO);</b>
+<b class="fc"><i>334</i>&nbsp;    else if (config.logLevel.equalsIgnoreCase(&quot;debug&quot;))</b>
+<b class="nc"><i>335</i>&nbsp;      root.setLevel(Level.DEBUG);</b>
+<b class="fc"><i>336</i>&nbsp;    else if (config.logLevel.equalsIgnoreCase(&quot;trace&quot;))</b>
+<b class="fc"><i>337</i>&nbsp;      root.setLevel(Level.TRACE);</b>
+<i>338</i>&nbsp;    else
+<b class="nc"><i>339</i>&nbsp;      throw new ConfigurationException(String.format(</b>
+<i>340</i>&nbsp;        &quot;Unrecognized logging level. Given level: %s. Expected one of levels: info debug trace&quot;,
+<i>341</i>&nbsp;        config.logLevel));
+<i>342</i>&nbsp;  }
+<i>343</i>&nbsp;
+<i>344</i>&nbsp;  private static void bindToolsCommands(Configuration config)
+<i>345</i>&nbsp;  {
+<b class="fc"><i>346</i>&nbsp;    config.aaptCommand = FilenameUtils.concat(config.androidSdkDir.path, BUILD_TOOLS_17_0_0_AAPT);</b>
+<b class="fc"><i>347</i>&nbsp;    config.adbCommand = FilenameUtils.concat(config.androidSdkDir.path, PLATFORM_TOOLS_ADB);</b>
+<b class="fc"><i>348</i>&nbsp;    config.dxCommand = FilenameUtils.concat(config.androidSdkDir.path, BUILD_TOOLS_17_0_0_DX);</b>
+<b class="fc"><i>349</i>&nbsp;    config.zipalignCommand = FilenameUtils.concat(config.androidSdkDir.path, TOOLS_ZIPALIGN);</b>
+<i>350</i>&nbsp;
+<b class="fc"><i>351</i>&nbsp;    if (SystemUtils.IS_OS_WINDOWS)</b>
+<b class="fc"><i>352</i>&nbsp;      config.with {</b>
+<b class="fc"><i>353</i>&nbsp;        aaptCommand += &quot;.exe&quot;;</b>
+<b class="fc"><i>354</i>&nbsp;        adbCommand += &quot;.exe&quot;;</b>
+<b class="fc"><i>355</i>&nbsp;        dxCommand += &quot;.bat&quot;;</b>
+<b class="fc"><i>356</i>&nbsp;        zipalignCommand += &quot;.exe&quot;;</b>
+<i>357</i>&nbsp;      }
+<i>358</i>&nbsp;
+<b class="fc"><i>359</i>&nbsp;    config.apktoolCommand = &quot;java -jar &quot; + config.apktool;</b>
+<i>360</i>&nbsp;  }
+<i>361</i>&nbsp;
+<i>362</i>&nbsp;  private static void bindSootConfig(Configuration config)
+<i>363</i>&nbsp;  {
+<b class="fc"><i>364</i>&nbsp;    if (config.sootAndroidJar == null)</b>
+<i>365</i>&nbsp;    {
+<b class="fc"><i>366</i>&nbsp;      config.sootAndroidJar = new File(FilenameUtils.concat(config.androidSdkDir.getPath(), ANDROID_17_JAR));</b>
+<b class="fc"><i>367</i>&nbsp;      assert config.sootAndroidJar.isFile();</b>
+<i>368</i>&nbsp;    }
+<i>369</i>&nbsp;
+<b class="fc"><i>370</i>&nbsp;    config.sootArgs[config.sootArgs.findIndexOf({ it == &quot;-force-android-jar&quot; }) + 1] = config.sootAndroidJar.absolutePath;</b>
+<i>371</i>&nbsp;  }
+<i>372</i>&nbsp;
+<i>373</i>&nbsp;  /*
+<i>374</i>&nbsp;   * To keep the source DRY, we use apache&#39;s ReflectionToStringBuilder, which gets the field names and values using
+<i>375</i>&nbsp;   * reflection.
+<i>376</i>&nbsp;   */
+<i>377</i>&nbsp;  // WISH groovize, using groovy class, metaClass or what-not
+<i>378</i>&nbsp;  private static void logConfigurationInEffect(Configuration config)
+<i>379</i>&nbsp;  {
+<i>380</i>&nbsp;
+<i>381</i>&nbsp;    // The customized display style strips the output of any data except the field name=value pairs.
+<b class="fc"><i>382</i>&nbsp;    StandardToStringStyle displayStyle = new StandardToStringStyle();</b>
+<b class="fc"><i>383</i>&nbsp;    displayStyle.setArrayContentDetail(true);</b>
+<b class="fc"><i>384</i>&nbsp;    displayStyle.setUseClassName(false);</b>
+<b class="fc"><i>385</i>&nbsp;    displayStyle.setUseIdentityHashCode(false);</b>
+<b class="fc"><i>386</i>&nbsp;    displayStyle.setContentStart(&quot;&quot;);</b>
+<b class="fc"><i>387</i>&nbsp;    displayStyle.setContentEnd(&quot;&quot;);</b>
+<b class="fc"><i>388</i>&nbsp;    displayStyle.setFieldSeparator(&quot;\n&quot;);</b>
+<i>389</i>&nbsp;
+<b class="fc"><i>390</i>&nbsp;    ReflectionToStringBuilder logBuilder = new ReflectionToStringBuilder(config, displayStyle);</b>
+<i>391</i>&nbsp;
+<b class="fc"><i>392</i>&nbsp;    String msg = &quot;Finished processing droidmate configuration. Configuration in effect:\n{}&quot;;</b>
+<b class="fc"><i>393</i>&nbsp;    if (config.displayConfig)</b>
+<i>394</i>&nbsp;    {
+<b class="nc"><i>395</i>&nbsp;      def logLevel = Level.toLevel(System.getProperty(LoggingSystemProperties.SYSTEM_PROP_STDOUT_LOGLEVEL))</b>
+<b class="nc"><i>396</i>&nbsp;      switch (logLevel)</b>
+<i>397</i>&nbsp;      {
+<b class="nc"><i>398</i>&nbsp;        case Level.INFO:</b>
+<b class="nc"><i>399</i>&nbsp;          log.info(msg, logBuilder)</b>
+<b class="nc"><i>400</i>&nbsp;          break</b>
+<b class="nc"><i>401</i>&nbsp;        case Level.DEBUG:</b>
+<b class="nc"><i>402</i>&nbsp;          log.debug(msg, logBuilder)</b>
+<b class="nc"><i>403</i>&nbsp;          break</b>
+<b class="nc"><i>404</i>&nbsp;        case Level.TRACE:</b>
+<b class="nc"><i>405</i>&nbsp;          log.trace(msg, logBuilder)</b>
+<b class="nc"><i>406</i>&nbsp;          break</b>
+<i>407</i>&nbsp;        default:
+<b class="nc"><i>408</i>&nbsp;          throw new DroidmateException(Constants.EXCEPTION_MSG_MISSING_ASSERTION)</b>
+<i>409</i>&nbsp;      }
+<i>410</i>&nbsp;    }
+<i>411</i>&nbsp;  }
+<i>412</i>&nbsp;
+<i>413</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

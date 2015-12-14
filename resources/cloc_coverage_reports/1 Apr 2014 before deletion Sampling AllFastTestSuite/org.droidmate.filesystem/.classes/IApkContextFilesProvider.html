@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IApkContextFilesProvider</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.filesystem</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IApkContextFilesProvider (org.droidmate.filesystem)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getApkFile</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getApkStampedDir$13</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getApkXmlReportFile$17</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getApkXmlReportFile$5</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getDecodedContentsDir$19</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getDecodedContentsDir$2</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getExistingTimestampedDirNamesSortedNewestFirst$12</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getExplorationActionsFile$18</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getExplorationActionsFile$3</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getExplorationXmlReportFile$16</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getExplorationXmlReportFile$4</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getInstrumentationXmlReportFile$1</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getInstrumentationXmlReportFile$15</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getInstrumentedApkFile$0</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getInstrumentedApkFile$14</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getPreviousExplorationActionsFile$6</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getPreviousInstrumentationXmlReportFile$9</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getPreviouslyInstrumentedApk$10</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$getStampedDirs$8</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$previouslyInstrumentedApkExists$11</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContextFilesProvider$previouslySavedExplorationActionsExist$7</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.filesystem
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.utils.Apk
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public interface IApkContextFilesProvider
+<i>16</i>&nbsp;{
+<i>17</i>&nbsp;  File getApkFile(String apkName)
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;  Apk getInstrumentedApkFile(Apk apk, String dirStamp, boolean createDirs)
+<i>21</i>&nbsp;  // post-assert: apk != null
+<i>22</i>&nbsp;  // post-assert: apk.isInstrumented()
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;  Apk getInstrumentedApkFile(Apk apk, String dirStamp) // createDirs = true
+<i>25</i>&nbsp;  // post-assert: apk != null
+<i>26</i>&nbsp;  // post-assert: apk.isInstrumented()
+<i>27</i>&nbsp;  // post-assert: apk.parentDir.exists()
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;  File getInstrumentationXmlReportFile(String apkDirName, String dirStamp, boolean createDirs)
+<i>32</i>&nbsp;  // post-assert: file != null
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  File getInstrumentationXmlReportFile(String apkDirName, String dirStamp) // createDirs = true
+<i>35</i>&nbsp;  // post-assert: file != null
+<i>36</i>&nbsp;  // post-assert: file.parentDir.exists()
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  File getExplorationXmlReportFile(String apkDirName, String dirStamp, boolean createDirs)
+<i>41</i>&nbsp;  // post-assert: file != null
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;  File getExplorationXmlReportFile(String apkDirName, String dirStamp)  // createDirs = true
+<i>44</i>&nbsp;  // post-assert: file != null
+<i>45</i>&nbsp;  // post-assert: file.parentDir.exists()
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  File getApkXmlReportFile(String apkDirName, String dirStamp, boolean createDirs)
+<i>50</i>&nbsp;  // post-assert: file != null
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;  File getApkXmlReportFile(String apkDirName, String dirStamp)  // createDirs = true
+<i>53</i>&nbsp;  // post-assert: file != null
+<i>54</i>&nbsp;  // post-assert: file.parentDir.exists()
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;  File getExplorationActionsFile(String apkDirName, String dirStamp, boolean createDirs)
+<i>59</i>&nbsp;  // post-assert: file != null
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;  File getExplorationActionsFile(String apkDirName, String dirStamp)  // createDirs = true
+<i>62</i>&nbsp;  // post-assert: file != null
+<i>63</i>&nbsp;  // post-assert: file.parentDir.exists()
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  File getDecodedContentsDir(Apk apk, String dirStamp, boolean createDirs)
+<i>68</i>&nbsp;  // post-assert: file != null
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;  File getDecodedContentsDir(Apk apk, String dirStamp) // createDirs = true
+<i>71</i>&nbsp;  // post-assert: file != null
+<i>72</i>&nbsp;  // post-assert: file.parentDir.exists()
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;  Apk getPreviouslyInstrumentedApk(Apk apk)
+<i>76</i>&nbsp;  // post-assert: file.exists()
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;  File getPreviousInstrumentationXmlReportFile(String apkDirName)
+<i>79</i>&nbsp;  // post-assert: none! The returned file might be null.
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;  File getPreviousExplorationActionsFile(String apkDirName)
+<i>82</i>&nbsp;  // post-assert: file.exists()
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;  boolean previouslyInstrumentedApkExists(Apk apk)
+<i>85</i>&nbsp;  // post-assert: no dirs were created
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;  boolean previouslySavedExplorationActionsExist(String apkDirName)
+<i>88</i>&nbsp;  // post-assert: no dirs were created
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;  File getApkStampedDir(String apkDirName, String dirStamp)
+<i>91</i>&nbsp;  // post-assert: no dirs were created
+<i>92</i>&nbsp;  // post-assert: dir != null
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;  List&lt;File&gt; getStampedDirs(String apkDirName)
+<i>95</i>&nbsp;  // post-assert: outList.each { it.exists() }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;  List&lt;String&gt; getExistingTimestampedDirNamesSortedNewestFirst(String apkDirName)
+<i>98</i>&nbsp;  // post-assert: outList.each { file(it).exists() }
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

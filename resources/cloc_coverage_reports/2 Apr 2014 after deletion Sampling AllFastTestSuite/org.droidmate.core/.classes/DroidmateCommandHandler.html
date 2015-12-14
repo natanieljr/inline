@@ -1,0 +1,241 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DroidmateCommandHandler</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.core</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DroidmateCommandHandler (org.droidmate.core)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DroidmateCommandHandler</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.7%
+  </span>
+  <span class="absValue">
+    (22/ 24)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">DroidmateCommandHandler$$FastClassByGuice$$c20ce388</td>
+  </tr>
+  <tr>
+    <td class="name">DroidmateCommandHandler$_processRecordAndReplayCommands_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">DroidmateCommandHandler$this$2$handleException</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.9%
+  </span>
+  <span class="absValue">
+    (26/ 28)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.core
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.transform.TypeChecked
+<i>16</i>&nbsp;import org.droidmate.common.Constants
+<i>17</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>18</i>&nbsp;import org.droidmate.configuration.DroidmateCommandName
+<i>19</i>&nbsp;import org.droidmate.device.IAndroidDevice
+<i>20</i>&nbsp;import org.droidmate.exceptions.ApkUndeploymentException
+<i>21</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>22</i>&nbsp;import org.droidmate.exploration.IGuiExplorator
+<i>23</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>24</i>&nbsp;import org.droidmate.utils.Apk
+<i>25</i>&nbsp;import org.slf4j.Logger
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;import static org.droidmate.logging.Markers.MARKER_APK_DIAGNOSTICS
+<i>28</i>&nbsp;import static org.droidmate.logging.Markers.MARKER_APK_SUMMARY
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;@Singleton
+<i>31</i>&nbsp;@TypeChecked
+<i>32</i>&nbsp;public class DroidmateCommandHandler implements IDroidmateCommandHandler
+<i>33</i>&nbsp;{
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;  private final Configuration  config
+<i>36</i>&nbsp;  private final IApkDeployer   apkDeployer
+<i>37</i>&nbsp;  private final IGuiExplorator guiExplorator
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  @InjectLogger
+<i>40</i>&nbsp;  private static Logger log;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  @Inject
+<i>43</i>&nbsp;  DroidmateCommandHandler(Configuration config, IApkDeployer apkDeployer, IGuiExplorator guiExplorator)
+<i>44</i>&nbsp;  {
+<b class="fc"><i>45</i>&nbsp;    this.config = config</b>
+<b class="fc"><i>46</i>&nbsp;    this.apkDeployer = apkDeployer</b>
+<b class="fc"><i>47</i>&nbsp;    this.guiExplorator = guiExplorator</b>
+<i>48</i>&nbsp;  }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  @Override
+<i>51</i>&nbsp;  boolean handle(
+<i>52</i>&nbsp;    DroidmateCommandName command, Boolean skipApkExplorations, IAndroidDevice device, Apk apk) throws DroidmateException
+<i>53</i>&nbsp;  {
+<b class="fc"><i>54</i>&nbsp;    boolean commandHandledSuccessfully = true</b>
+<b class="fc"><i>55</i>&nbsp;    try</b>
+<i>56</i>&nbsp;    {
+<b class="fc"><i>57</i>&nbsp;      if (command == DroidmateCommandName.EXPLORE)</b>
+<b class="fc"><i>58</i>&nbsp;        processRecordAndReplayCommands(apkDeployer, guiExplorator, command, skipApkExplorations, device, apk)</b>
+<i>59</i>&nbsp;      else
+<b class="nc"><i>60</i>&nbsp;        throw new DroidmateException(Constants.EXCEPTION_MSG_MISSING_ASSERTION);</b>
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    } catch (DroidmateException | RuntimeException e)
+<i>63</i>&nbsp;    {
+<b class="fc"><i>64</i>&nbsp;      handleException(apk, e)</b>
+<b class="fc"><i>65</i>&nbsp;      commandHandledSuccessfully = false</b>
+<i>66</i>&nbsp;    }
+<b class="fc"><i>67</i>&nbsp;    return commandHandledSuccessfully</b>
+<i>68</i>&nbsp;  }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;  private static void processRecordAndReplayCommands(
+<i>71</i>&nbsp;    IApkDeployer apkDeployer, IGuiExplorator guiExplorator,
+<i>72</i>&nbsp;    DroidmateCommandName droidmateCommandName, Boolean skipApkExplorations,
+<i>73</i>&nbsp;    IAndroidDevice device, Apk apk) throws DroidmateException
+<i>74</i>&nbsp;  {
+<b class="fc"><i>75</i>&nbsp;    log.info(&quot;Deploying apk {} and executing on it operations from command: {}.&quot;, apk.name, droidmateCommandName);</b>
+<i>76</i>&nbsp;
+<b class="fc"><i>77</i>&nbsp;    assert apk?.file</b>
+<i>78</i>&nbsp;
+<b class="fc"><i>79</i>&nbsp;    apkDeployer.withDeployedApk(device, apk, /* startMainActivity =  */ true, {Apk deployedApk -&gt;</b>
+<i>80</i>&nbsp;
+<b class="fc"><i>81</i>&nbsp;      if (!skipApkExplorations)</b>
+<i>82</i>&nbsp;      {
+<b class="fc"><i>83</i>&nbsp;        guiExplorator.explore(deployedApk, device);</b>
+<i>84</i>&nbsp;
+<b class="fc"><i>85</i>&nbsp;        assert apk.explorationXmlReportFile?.file</b>
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;      } else
+<i>88</i>&nbsp;      {
+<i>89</i>&nbsp;        //region logs
+<b class="fc"><i>90</i>&nbsp;        log.info(&quot;The apk has been deployed, but DroidMate was instructed to &quot; +</b>
+<i>91</i>&nbsp;          &quot;${Configuration.PARAMETER_NAME_SKIP_APK_EXPLORATIONS}. Skipping.&quot;)
+<i>92</i>&nbsp;        //endregion
+<i>93</i>&nbsp;      }
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;    }) // The apk gets undeployed at this point.
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    //region logs
+<b class="fc"><i>98</i>&nbsp;    log.info(&quot;Successfully deployed, explored/replayed (command: {}) and undeployed apk {}.&quot;,</b>
+<i>99</i>&nbsp;      droidmateCommandName, apk.name)
+<b class="fc"><i>100</i>&nbsp;    log.info(MARKER_APK_SUMMARY, &quot;Apk {} deployed, explored/replayed (command: {}) and undeployed &quot; +</b>
+<i>101</i>&nbsp;      &quot;successfully.&quot;,
+<i>102</i>&nbsp;      apk.name, droidmateCommandName)
+<i>103</i>&nbsp;    //endregion
+<i>104</i>&nbsp;  }
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;  private void handleException(Apk apk, Exception e) throws DroidmateException
+<i>107</i>&nbsp;  {
+<b class="fc"><i>108</i>&nbsp;    log.warn(&quot;Failed deploying and exploring/replaying apk {} with exception \n&quot; +</b>
+<b class="fc"><i>109</i>&nbsp;      &quot;--- EXCEPTION MSG START\n{}\n--- EXCEPTION MSG END\n&quot; +</b>
+<i>110</i>&nbsp;      &quot;See the ${Configuration.APPENDER_FILE_NAME_APK_DIAGNOSTICS} log in ${Configuration.LOGS_DIR_PATH} dir &quot; +
+<i>111</i>&nbsp;      &quot;for details.&quot;, apk.name, e.message);
+<i>112</i>&nbsp;
+<b class="fc"><i>113</i>&nbsp;    log.warn(MARKER_APK_SUMMARY, &quot;Apk {} deployment and exploration/replay: failed with {}.&quot;, apk.name,</b>
+<i>114</i>&nbsp;      e.class.simpleName);
+<b class="fc"><i>115</i>&nbsp;    log.warn(MARKER_APK_DIAGNOSTICS, sprintf(&quot;Apk %s deployment and exploration/replay: failed with &quot; +</b>
+<i>116</i>&nbsp;      &quot;exception:\n&quot;,
+<i>117</i>&nbsp;      apk.name), e);
+<i>118</i>&nbsp;
+<b class="fc"><i>119</i>&nbsp;    if (config.failHard)</b>
+<b class="nc"><i>120</i>&nbsp;      throw e</b>
+<i>121</i>&nbsp;
+<b class="fc"><i>122</i>&nbsp;    if (e instanceof ApkUndeploymentException)</b>
+<b class="fc"><i>123</i>&nbsp;      throw new DroidmateException(sprintf(&quot;Undeploying apk %s failed, probably resulting in inconsistent A(V)D &quot; +</b>
+<i>124</i>&nbsp;        &quot;state. Aborting deployment and exploration / uitest replay of remaining apks on the A(V)D.&quot;, apk.name), e);
+<i>125</i>&nbsp;  }
+<i>126</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

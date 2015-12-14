@@ -1,0 +1,112 @@
+2015-10-01 16:30:54.805 DEBUG o.d.f.configuration.ConfigurationBuilder memoizedBuildConfiguration(args, fs)
+2015-10-01 16:30:55.093 INFO  o.d.f.configuration.ConfigurationBuilder Generated random seed: -270105064818720322
+2015-10-01 16:30:55.811 TRACE o.d.l.LogbackUtilsRequiringLogbackLog    Deleted old logs in directory .\temp_dir_for_tests\logs. Files that couldn't be deleted and thus had their content was instead erased: monitor.txt, os_cmd.txt, uiad.txt
+2015-10-01 16:30:55.817 DEBUG o.d.f.configuration.ConfigurationBuilder memoizedBuildConfiguration(args, fs)
+2015-10-01 16:30:55.856 INFO  o.d.f.configuration.ConfigurationBuilder Generated random seed: 564750529962053454
+2015-10-01 16:30:56.110 TRACE o.d.l.LogbackUtilsRequiringLogbackLog    Deleted old logs in directory .\temp_dir_for_tests\logs. Files that couldn't be deleted and thus had their content was instead erased: monitor.txt, os_cmd.txt, uiad.txt
+2015-10-01 16:30:56.111 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-10-01 16:30:56.113 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\temp_dir_for_tests/logs.
+2015-10-01 16:30:56.539 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-10-01 16:30:56.545 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Thu Oct 01 16:30:56 CEST 2015
+2015-10-01 16:30:56.655 INFO  o.droidmate.device.AndroidDeviceDeployer withSetupDevice(deviceIndex: 0, computation)
+2015-10-01 16:30:56.902 DEBUG org.droidmate.device.AndroidDevice       forwardPort(59778)
+2015-10-01 16:30:56.939 DEBUG org.droidmate.device.AndroidDevice       forwardPort(59776)
+2015-10-01 16:30:56.966 DEBUG org.droidmate.device.AndroidDevice       pushJar(C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar)
+2015-10-01 16:30:57.084 DEBUG org.droidmate.device.AndroidDevice       pushJar(C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk)
+2015-10-01 16:30:57.216 DEBUG org.droidmate.device.AndroidDevice       startUiaDaemon()
+2015-10-01 16:30:59.296 TRACE org.droidmate.device.AndroidDevice       DONE startUiaDaemon()
+2015-10-01 16:30:59.301 INFO  org.droidmate.ExploreCommand             Processing 1 out of 1 apks: MonitoredApkFixture-debug-inlined.apk
+2015-10-01 16:30:59.304 DEBUG org.droidmate.lowlevel.apk.ApkDeployer   withDeployedApk(device, MonitoredApkFixture-debug-inlined.apk, computation)
+2015-10-01 16:30:59.309 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-10-01 16:30:59.358 INFO  org.droidmate.lowlevel.apk.ApkDeployer   Reinstalling MonitoredApkFixture-debug-inlined.apk
+2015-10-01 16:30:59.360 DEBUG org.droidmate.device.AndroidDevice       uninstallApk(org.droidmate.fixtures.apks.monitored, warnAboutFailure: false)
+2015-10-01 16:31:00.245 DEBUG org.droidmate.device.AndroidDevice       installApk(MonitoredApkFixture-debug-inlined.apk)
+2015-10-01 16:31:02.797 INFO  org.droidmate.exploration.Exploration    run(org.droidmate.fixtures.apks.monitored, device)
+2015-10-01 16:31:02.800 TRACE org.droidmate.exploration.Exploration    tryAssertDeviceHasPackageInstalled(device, org.droidmate.fixtures.apks.monitored)
+2015-10-01 16:31:02.801 DEBUG org.droidmate.device.AndroidDevice       hasPackageInstalled(org.droidmate.fixtures.apks.monitored)
+2015-10-01 16:31:03.635 TRACE org.droidmate.exploration.Exploration    tryWarnDeviceDisplaysHomeScreen(device, MonitoredApkFixture-debug-inlined.apk)
+2015-10-01 16:31:03.644 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:04.220 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:04.410 DEBUG org.droidmate.exploration.Exploration    explorationLoop(app, device)
+2015-10-01 16:31:04.425 INFO  org.droidmate.exploration.Exploration    Initial action: <ExplAct Reset app>
+2015-10-01 16:31:04.459 TRACE o.d.e.d.RunnableExplorationAction        RunnableResetAppExplorationAction.performDeviceActions(app, device)
+2015-10-01 16:31:04.476 DEBUG org.droidmate.device.AndroidDevice       perform(AdbClearPackageAction{org.droidmate.fixtures.apks.monitored})
+2015-10-01 16:31:04.477 DEBUG org.droidmate.device.AndroidDevice       clearPackage(org.droidmate.fixtures.apks.monitored)
+2015-10-01 16:31:05.292 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:05.431 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:05.600 DEBUG org.droidmate.device.AndroidDevice       perform(ClickGuiAction{turn_wifi_on})
+2015-10-01 16:31:08.132 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:08.284 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:08.438 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init)
+2015-10-01 16:31:08.493 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-10-01 16:31:08.542 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-10-01 16:31:08.550 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-10-01 16:31:08.565 DEBUG o.d.exploration.device.DeviceLogs        Caught TcpServerUnreachableException from messagesReader.getAndClearCurrentApiLogsFromMonitorTcpServer(). Because app is allowed to be unreachable: 1. ignoring the exception instead of rethrowing, 2. returning null api logs.
+2015-10-01 16:31:08.566 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-10-01 16:31:08.658 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-10-01 16:31:08.707 DEBUG org.droidmate.device.AndroidDevice       perform(LaunchMainActivityDeviceAction{org.droidmate.fixtures.apks.monitored/org.droidmate.fixtures.apks.monitored.Activity1})
+2015-10-01 16:31:08.709 DEBUG org.droidmate.device.AndroidDevice       launchMainActivity(org.droidmate.fixtures.apks.monitored/org.droidmate.fixtures.apks.monitored.Activity1)
+2015-10-01 16:31:19.033 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-10-01 16:31:19.090 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(deviceTimeDiff)
+2015-10-01 16:31:19.093 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init, minMessagesCount: 2, waitTimeout: 20000, queryInterval: 2000)
+2015-10-01 16:31:21.208 TRACE o.d.exploration.device.DeviceTimeDiff    computeDiff(device) result:
+Current time   : 2015-10-01 16:31:21.200
+Device time    : 2015-10-01 16:30:35.464
+Resulting diff : PT-45.736S
+2015-10-01 16:31:21.217 DEBUG o.d.exploration.device.InitMsgsReader    readInstrumentationMessages(deviceTimeDiff)
+2015-10-01 16:31:21.218 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-10-01 16:31:21.478 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-10-01 16:31:21.525 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-10-01 16:31:21.526 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-10-01 16:31:21.552 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 0
+2015-10-01 16:31:21.556 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:21.646 DEBUG org.droidmate.device.AndroidDevice       getGuiSnapshot()
+2015-10-01 16:31:21.702 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: org.droidmate.uiad)
+2015-10-01 16:31:21.758 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-10-01 16:31:21.796 TRACE o.d.e.d.RunnableExplorationAction        RunnableResetAppExplorationAction.performDeviceActions(app, device) - DONE
+2015-10-01 16:31:21.875 DEBUG o.d.e.strategy.ExplorationStrategy       decide(ExplorationActionRunResult{successful=true, snapshot=UiautomatorWindowDump{org.droidmate.fixtures.apks.monitored. Widgets# 14}, DeviceLogs{apiLogs#=0, containsMonitorInitMsgs=true}, exception=N/A (lack of DeviceException)})
+2015-10-01 16:31:21.946 INFO  o.d.e.strategy.ExplorationStrategy       1/2 <ExplAct LC? 0 Wdgt:Button/"API: URL.openConnection()"/"org.droidmate.fixtures.apks.monitored:id/button_api"/[185,161]>
+2015-10-01 16:31:21.960 TRACE o.d.e.d.RunnableExplorationAction        RunnableWidgetExplorationAction.performDeviceActions(app, device)
+2015-10-01 16:31:21.963 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Monitor_init)
+2015-10-01 16:31:22.022 DEBUG org.droidmate.device.AndroidDevice       readLogcatMessages(tag: Instrumentation)
+2015-10-01 16:31:22.063 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-10-01 16:31:22.064 DEBUG org.droidmate.device.AndroidDevice       readAndClearMonitorTcpMessages()
+2015-10-01 16:31:22.082 DEBUG o.d.exploration.device.ApiLogsReader     apiLogs# 0
+2015-10-01 16:31:22.102 DEBUG org.droidmate.device.AndroidDevice       perform(ClickGuiAction{185 161 long: false})
+2015-10-01 16:31:22.648 DEBUG o.d.e.d.RunnableExplorationAction        ! Caught exception while performing device actions of RunnableWidgetExplorationAction. Returning failed ExplorationActionRunResult with the exception assigned to a field.
+2015-10-01 16:31:22.664 WARN  org.droidmate.exploration.Exploration    ! Encountered exception during the exploration of org.droidmate.fixtures.apks.monitored after already obtaining some exploration output.
+2015-10-01 16:31:22.724 INFO  o.droidmate.lowlevel.filesystem.Storage  Serializing exploration output of apk org.droidmate.fixtures.apks.monitored to temp_dir_for_tests\2015 Oct 01 1631 org.droidmate.fixtures.apks.monitored.ser
+2015-10-01 16:31:22.852 DEBUG org.droidmate.lowlevel.apk.ApkDeployer   Finalizing: withDeployedApk.finally {} for computation(apk)
+2015-10-01 16:31:22.852 DEBUG org.droidmate.device.AndroidDevice       clearLogcat()
+2015-10-01 16:32:22.884 WARN  org.droidmate.common.SysCmdExecutor      The command with description "Executing adb (Android Debug Bridge) to clear logcat output." executed for 60 seconds. The execution time was +- 100 milliseconds of the execution timeout. Reaching the timeout might be the cause of the process returning non-zero value. Try increasing the timeout (by changing appropriate cmd line parameter) or, if this doesn't help, be aware the process might not be terminating at all.
+2015-10-01 16:32:22.902 DEBUG org.droidmate.lowlevel.apk.ApkDeployer   ! Caught AdbWrapperException in tryTearDown(apk). Adding suppressed exception, if any, and rethrowing.
+2015-10-01 16:32:22.903 DEBUG o.droidmate.device.AndroidDeviceDeployer ! Caught AdbWrapperException in withSetupDevice.computation(device). Rethrowing.
+2015-10-01 16:32:22.904 DEBUG o.droidmate.device.AndroidDeviceDeployer Finalizing: withSetupDevice.finally {} for computation(device)
+2015-10-01 16:32:22.905 TRACE org.droidmate.device.AndroidDevice       stopUiaDaemon()
+2015-10-01 16:32:23.907 DEBUG o.droidmate.device.AndroidDeviceDeployer ! Caught DeviceException in tryTearDown(device). Adding suppressed exception, if any, and rethrowing.
+2015-10-01 16:32:23.908 DEBUG org.droidmate.ExploreCommand             ! Caught exception in withDeployedApk.computation(apk). Rethrowing.
+2015-10-01 16:32:23.909 DEBUG org.droidmate.ExploreCommand             Finalizing: ExploreCommand.tryExecute finally {}
+2015-10-01 16:32:23.925 DEBUG org.droidmate.ExploreCommand             ! Collected ApkExplorationExceptionsCollection in collectApkExplorationExceptionsIfAny(out). Rethrowing them inside ThrowablesCollection, together with a savedTryThrowable.
+2015-10-01 16:32:23.929 ERROR org.droidmate.frontend.ExceptionHandler  ApkExplorationExceptionsCollection as well as DeviceException were thrown during DroidMare run. Each of them will now be logged.
+2015-10-01 16:32:23.934 ERROR org.droidmate.frontend.ExceptionHandler  ========================================
+2015-10-01 16:32:23.943 ERROR org.droidmate.frontend.ExceptionHandler  Exploration exceptions have been thrown during DroidMate run. Count: 1. 
+--- The exceptions list, in format "source explored app pkg name | the exception" 
+org.droidmate.fixtures.apks.monitored | org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.
+--- End of the list
+
+2015-10-01 16:32:23.979 ERROR org.droidmate.frontend.ExceptionHandler  ========================================
+2015-10-01 16:32:23.984 ERROR org.droidmate.frontend.ExceptionHandler  A fatal DeviceException was thrown during DroidMate run: org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.
+2015-10-01 16:32:23.992 ERROR org.droidmate.frontend.ExceptionHandler  The 'org.droidmate.exceptions.DeviceException: SerializableTCPClient has thrown exception while querying server.' has 1 suppressed exceptions at suppression depth of 1. Each of them will be now logged.
+2015-10-01 16:32:23.998 ERROR org.droidmate.frontend.ExceptionHandler  Suppression depth: 1 | org.droidmate.exceptions.AdbWrapperException: org.droidmate.common.SysCmdExecutorException: Failed to execute a system command.
+Command: [c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe, -s, 015d2109ce0c1a0f, logcat, -c]
+Captured exit value: 1
+Execution time: 60 seconds. The execution time was +- 100 milliseconds of the execution timeout. Reaching the timeout might be the cause of the process returning non-zero value. Try increasing the timeout (by changing appropriate cmd line parameter) or, if this doesn't help, be aware the process might not be terminating at all.
+Captured stdout: <stdout is empty>
+Captured stderr: <stderr is empty>
+2015-10-01 16:32:24.011 ERROR org.droidmate.frontend.ExceptionHandler  ========================================
+2015-10-01 16:32:24.014 ERROR org.droidmate.frontend.ExceptionHandler  Please see .\temp_dir_for_tests/logs\exceptions.txt log for details.
+2015-10-01 16:32:24.025 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.
+2015-10-01 16:32:24.028 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Oct 01 16:32:24. DroidMate ran for 1 minutes, 27.932 seconds.
+2015-10-01 16:32:24.028 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-10-01 16:32:24.029 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\temp_dir_for_tests/logs directory.
+2015-10-01 16:32:24.099 INFO  o.droidmate.lowlevel.filesystem.Storage  Deserialized exploration output of org.droidmate.fixtures.apks.monitored from temp_dir_for_tests\2015 Oct 01 1631 org.droidmate.fixtures.apks.monitored.ser

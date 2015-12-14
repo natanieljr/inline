@@ -1,0 +1,169 @@
+10-14 16:59:25.361      488-502/? I/ActivityManager? Displayed com.ebay.mobile/.activities.ShowWebViewActivity: +170ms
+10-14 16:59:26.581  31717-31717/? I/Monitored_API_method_call? TId: 1 objCls: android.webkit.WebView mthd: loadUrl retCls: void params: java.lang.String https://reg.ebay.com/reg/FullReg?appVer=2.5.0.31&OS=Android&langId=en&rmvFtr=true&native-app-embedded=1&freg=1&srcAppId=2571&rmvHdr=true&UUID=null&OSVer=4.4.4&rv4=1&ru=http%3A%2F%2Fwww.ebay.com%2Fmobile-redirect-done stacktrace: dalvik.system.VMStack.getThreadStackTrace(Native Method)->java.lang.Thread.getStackTrace(Thread.java:579)->org.droidmate.monitor_generator.generated.Monitor.getStackTrace(Monitor.java:428)->org.droidmate.monitor_generator.generated.Monitor.redir_android_webkit_WebView_loadUrl1(Monitor.java:1912)->java.lang.reflect.Method.invokeNative(Native Method)->java.lang.reflect.Method.invoke(Method.java:515)->android.webkit.WebView.loadUrl(WebView.java)->com.ebay.mobile.activities.ShowWebViewActivity$2.shouldOverrideUrlLoading(ShowWebViewActivity.java:457)->com.android.webview.chromium.WebViewContentsClientAdapter.shouldOverrideUrlLoading(WebViewContentsClientAdapter.java:299)->com.android.org.chromium.android_webview.AwContentsClientBridge.shouldOverrideUrlLoading(AwContentsClientBridge.java:95)->com.android.org.chromium.base.SystemMessageHandler.nativeDoRunLoopOnce(Native Method)->com.android.org.chromium.base.SystemMessageHandler.handleMessage(SystemMessageHandler.java:24)->android.os.Handler.dispatchMessage(Handler.java:102)->android.os.Looper.loop(Looper.java:136)->android.app.ActivityThread.main(ActivityThread.java:5001)->java.lang.reflect.Method.invokeNative(Native Method)->java.lang.reflect.Method.invoke(Method.java:515)->com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)->com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)->dalvik.system.NativeStart.main(Native Method)
+10-14 16:59:31.061  31717-31732/? D/MonitorTCPServer? OnServerRequest(getLogs)
+10-14 16:59:31.071  31717-31732/? D/MonitorServerRunnable59776? Accepting socket from client on port 59776...
+10-14 16:59:31.081  31412-31448/? D/org.droidmate.uiad? Executing device command: get_uiautomator_window_hierarchy_dump
+10-14 16:59:31.281  31412-31448/? D/org.droidmate.uiad? Executing device command: get_uiautomator_window_hierarchy_dump
+10-14 16:59:31.541  31717-31732/? D/MonitorTCPServer? OnServerRequest(getLogs)
+10-14 16:59:31.551  31717-31732/? D/MonitorServerRunnable59776? Accepting socket from client on port 59776...
+10-14 16:59:31.571  31412-31448/? D/org.droidmate.uiad? Executing device command: perform_action
+10-14 16:59:31.571  31412-31448/? D/org.droidmate.uiad? Clicking on (x,y) coordinates of (400,191)
+10-14 16:59:33.961  31717-31732/? D/MonitorTCPServer? OnServerRequest(getLogs)
+10-14 16:59:33.971  31717-31732/? D/MonitorServerRunnable59776? Accepting socket from client on port 59776...
+10-14 16:59:33.981  31412-31448/? D/org.droidmate.uiad? Executing device command: get_uiautomator_window_hierarchy_dump
+10-14 16:59:34.181  31412-31448/? D/org.droidmate.uiad? Executing device command: get_uiautomator_window_hierarchy_dump
+10-14 16:59:34.671  32093-32093/? D/AndroidRuntime? >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+10-14 16:59:34.681  32093-32093/? D/AndroidRuntime? CheckJNI is OFF
+10-14 16:59:34.961  32093-32093/? D/AndroidRuntime? Calling main entry com.android.commands.pm.Pm
+10-14 16:59:34.961    488-13171/? I/ActivityManager? Force stopping com.ebay.mobile appid=10122 user=0: clear data
+10-14 16:59:34.961    488-13171/? I/ActivityManager? Killing 31717:com.ebay.mobile/u0a122 (adj 0): stop com.ebay.mobile
+10-14 16:59:34.961    488-13171/? A/ActivityManager? Service ServiceRecord{431d22c8 u0 com.ebay.mobile/.service.AppForegroundService} in process ProcessRecord{43432388 31717:com.ebay.mobile/u0a122} not same as in map: null
+10-14 16:59:34.981    488-13171/? W/ActivityManager? Force removing ActivityRecord{42a2dc08 u0 com.ebay.mobile/.activities.ShowWebViewActivity t21}: app died, no saved state
+10-14 16:59:34.981    488-13171/? I/ActivityManager? Force finishing activity ActivityRecord{431508a8 u0 com.ebay.mobile/.activities.eBay t21}
+10-14 16:59:35.001    488-13171/? I/ActivityManager? Start proc com.ebay.mobile for activity com.ebay.mobile/.activities.SignInActivity: pid=32106 uid=10122 gids={50122, 3003, 1028, 1015}
+10-14 16:59:35.011    488-13171/? I/ActivityManager? Force finishing activity ActivityRecord{4268f258 u0 com.ebay.mobile/.activities.SignInActivity t21}
+10-14 16:59:35.011    488-13171/? I/ActivityManager? Force finishing activity ActivityRecord{4268fab0 u0 com.ebay.mobile/.search.MainSearchActivity t21}
+10-14 16:59:35.011    488-13171/? I/ActivityManager? Force finishing activity ActivityRecord{42690630 u0 com.ebay.mobile/.activities.SignInActivity t21}
+10-14 16:59:35.111      488-499/? I/ActivityManager? Killing 29033:com.google.android.setupwizard/u0a43 (adj 15): empty #17
+10-14 16:59:35.321  32093-32093/? D/AndroidRuntime? Shutting down VM
+10-14 16:59:35.451    488-21414/? I/ActivityManager? Activity reported stop, but no longer stopping: ActivityRecord{42de6ff0 u0 com.android.settings/.Settings t2}
+10-14 16:59:35.551  31412-31448/? D/org.droidmate.uiad? Executing device command: get_uiautomator_window_hierarchy_dump
+10-14 16:59:35.601  31412-31448/? D/org.droidmate.uiad? Executing device command: get_uiautomator_window_hierarchy_dump
+10-14 16:59:35.671  31412-31448/? D/org.droidmate.uiad? Executing device command: perform_action
+10-14 16:59:35.671  31412-31448/? D/org.droidmate.uiad? Checking wifi state.
+10-14 16:59:36.081      488-680/? I/ActivityManager? START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.settings/.Settings bnds=[468,1103][561,1196]} from pid 780
+10-14 16:59:36.541  32106-32106/? D/Monitor_server? Starting monitor TCP server...
+10-14 16:59:36.541  32106-32137/? D/MonitorServerRunnable59776? Started MonitorServerRunnable.
+10-14 16:59:36.541  32106-32137/? D/MonitorServerRunnable59776? Creating server socket bound to port 59776...
+10-14 16:59:36.541  32106-32106/? D/Monitor_server? Starting monitor TCP server succeeded.
+10-14 16:59:36.541  32106-32137/? D/MonitorServerRunnable59776? Accepting socket from client on port 59776...
+10-14 16:59:36.541  32106-32106/? I/Monitor_init? Monitor constructed successfully.
+10-14 16:59:36.571  32106-32106/? I/Instrumentation? Redirected android.app.ActivityManager->getRecentTasks
+10-14 16:59:36.581  32106-32106/? I/Instrumentation? Redirected android.app.ActivityManager->getRunningTasks
+10-14 16:59:36.591  32106-32106/? I/Instrumentation? Redirected android.app.ActivityThread->installContentProviders
+10-14 16:59:36.611  32106-32106/? I/Instrumentation? Redirected android.app.Activity->onResume
+10-14 16:59:36.631  32106-32106/? I/Instrumentation? Redirected android.app.Activity->startActivityForResult
+10-14 16:59:36.641  32106-32106/? I/Instrumentation? Redirected android.app.Activity->startActivityFromChild
+10-14 16:59:36.651  32106-32106/? I/Instrumentation? Redirected android.app.Activity->startActivityIfNeeded
+10-14 16:59:36.661  32106-32106/? I/Instrumentation? Redirected android.bluetooth.BluetoothHeadset->startVoiceRecognition
+10-14 16:59:36.671  32106-32106/? I/Instrumentation? Redirected android.bluetooth.BluetoothHeadset->stopVoiceRecognition
+10-14 16:59:36.671  32106-32106/? I/Instrumentation? Redirected android.content.ContentProviderClient->bulkInsert
+10-14 16:59:36.681  32106-32106/? I/Instrumentation? Redirected android.content.ContentProviderClient->delete
+10-14 16:59:36.691  32106-32106/? I/Instrumentation? Redirected android.content.ContentProviderClient->insert
+10-14 16:59:36.701  32106-32106/? I/Instrumentation? Redirected android.content.ContentProviderClient->openFile
+10-14 16:59:36.721  32106-32106/? I/Instrumentation? Redirected android.content.ContentProviderClient->query
+10-14 16:59:36.741  32106-32106/? I/Instrumentation? Redirected android.content.ContentProviderClient->update
+10-14 16:59:36.751  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->bulkInsert
+10-14 16:59:36.771  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->delete
+10-14 16:59:36.771  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->insert
+10-14 16:59:36.781  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->openFileDescriptor
+10-14 16:59:36.801  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->openInputStream
+10-14 16:59:36.801  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->query
+10-14 16:59:36.821  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->registerContentObserver
+10-14 16:59:36.831  32106-32106/? I/Instrumentation? Redirected android.content.ContentResolver->update
+10-14 16:59:36.851  32106-32106/? I/Instrumentation? Redirected android.hardware.Camera->open
+10-14 16:59:36.871  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->addGpsStatusListener
+10-14 16:59:36.881  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->addNmeaListener
+10-14 16:59:36.901  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->addProximityAlert
+10-14 16:59:36.911  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->addTestProvider
+10-14 16:59:36.921  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->clearTestProviderEnabled
+10-14 16:59:36.931  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->clearTestProviderLocation
+10-14 16:59:36.931  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->clearTestProviderStatus
+10-14 16:59:36.941  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->getBestProvider
+10-14 16:59:36.951  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->getLastKnownLocation
+10-14 16:59:36.961  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->getProvider
+10-14 16:59:36.961  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->getProviders
+10-14 16:59:36.971  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->getProviders
+10-14 16:59:36.981  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->isProviderEnabled
+10-14 16:59:36.981  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->removeTestProvider
+10-14 16:59:37.001  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestLocationUpdates
+10-14 16:59:37.001  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestLocationUpdates
+10-14 16:59:37.011  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestLocationUpdates
+10-14 16:59:37.021  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestLocationUpdates
+10-14 16:59:37.031  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestLocationUpdates
+10-14 16:59:37.031  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestSingleUpdate
+10-14 16:59:37.041  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestSingleUpdate
+10-14 16:59:37.041  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestSingleUpdate
+10-14 16:59:37.051  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->requestSingleUpdate
+10-14 16:59:37.061  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->sendExtraCommand
+10-14 16:59:37.071  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->setTestProviderEnabled
+10-14 16:59:37.071  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->setTestProviderLocation
+10-14 16:59:37.081  32106-32106/? I/Instrumentation? Redirected android.location.LocationManager->setTestProviderStatus
+10-14 16:59:37.081  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->isBluetoothA2dpOn
+10-14 16:59:37.091  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->isWiredHeadsetOn
+10-14 16:59:37.101  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->setBluetoothScoOn
+10-14 16:59:37.101  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->setMicrophoneMute
+10-14 16:59:37.111  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->setMode
+10-14 16:59:37.111  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->setParameter
+10-14 16:59:37.121  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->setParameters
+10-14 16:59:37.131  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->setSpeakerphoneOn
+10-14 16:59:37.141  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->startBluetoothSco
+10-14 16:59:37.141  32106-32106/? I/Instrumentation? Redirected android.media.AudioManager->stopBluetoothSco
+10-14 16:59:37.151  32106-32106/? I/Instrumentation? Redirected android.media.MediaPlayer->setWakeMode
+10-14 16:59:37.161  32106-32106/? I/Instrumentation? Redirected android.media.MediaRecorder->setAudioSource
+10-14 16:59:37.161  32106-32106/? I/Instrumentation? Redirected android.media.MediaRecorder->setVideoSource
+10-14 16:59:37.171  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->requestRouteToHost
+10-14 16:59:37.181  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->setMobileDataEnabled
+10-14 16:59:37.181  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->setNetworkPreference
+10-14 16:59:37.191  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->setRadio
+10-14 16:59:37.201  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->setRadios
+10-14 16:59:37.201  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->startUsingNetworkFeature
+10-14 16:59:37.211  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->stopUsingNetworkFeature
+10-14 16:59:37.221  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->tether
+10-14 16:59:37.231  32106-32106/? I/Instrumentation? Redirected android.net.ConnectivityManager->untether
+10-14 16:59:37.231  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager.MulticastLock->acquire
+10-14 16:59:37.231  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager.MulticastLock->release
+10-14 16:59:37.241  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager.WifiLock->acquire
+10-14 16:59:37.241  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager.WifiLock->release
+10-14 16:59:37.251  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->addNetwork
+10-14 16:59:37.251  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->disableNetwork
+10-14 16:59:37.261  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->disconnect
+10-14 16:59:37.271  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->enableNetwork
+10-14 16:59:37.271  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->initializeMulticastFiltering
+10-14 16:59:37.281  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->pingSupplicant
+10-14 16:59:37.281  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->reassociate
+10-14 16:59:37.291  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->reconnect
+10-14 16:59:37.301  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->removeNetwork
+10-14 16:59:37.311  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->saveConfiguration
+10-14 16:59:37.321  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->setWifiApEnabled
+10-14 16:59:37.321  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->setWifiEnabled
+10-14 16:59:37.331  32106-32106/? I/Instrumentation? Redirected android.net.wifi.WifiManager->startScan
+10-14 16:59:37.331  32106-32106/? I/Instrumentation? Redirected android.os.PowerManager.WakeLock->acquire
+10-14 16:59:37.341  32106-32106/? I/Instrumentation? Redirected android.os.PowerManager.WakeLock->acquire
+10-14 16:59:37.341  32106-32106/? I/Instrumentation? Redirected android.os.PowerManager.WakeLock->release
+10-14 16:59:37.351  32106-32106/? I/Instrumentation? Redirected android.os.PowerManager.WakeLock->release
+10-14 16:59:37.361  32106-32106/? I/Instrumentation? Redirected android.speech.SpeechRecognizer->cancel
+10-14 16:59:37.371  32106-32106/? I/Instrumentation? Redirected android.speech.SpeechRecognizer->handleCancelMessage
+10-14 16:59:37.371  32106-32106/? I/Instrumentation? Redirected android.speech.SpeechRecognizer->handleStartListening
+10-14 16:59:37.381  32106-32106/? I/Instrumentation? Redirected android.speech.SpeechRecognizer->handleStopMessage
+10-14 16:59:37.381  32106-32106/? I/Instrumentation? Redirected android.speech.SpeechRecognizer->startListening
+10-14 16:59:37.391  32106-32106/? I/Instrumentation? Redirected android.speech.SpeechRecognizer->stopListening
+10-14 16:59:37.401  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getCellLocation
+10-14 16:59:37.401  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getDeviceId
+10-14 16:59:37.411  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getDeviceSoftwareVersion
+10-14 16:59:37.421  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getLine1Number
+10-14 16:59:37.431  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getNeighboringCellInfo
+10-14 16:59:37.431  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getSimSerialNumber
+10-14 16:59:37.441  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getSubscriberId
+10-14 16:59:37.451  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getVoiceMailAlphaTag
+10-14 16:59:37.451  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->getVoiceMailNumber
+10-14 16:59:37.461  32106-32106/? I/Instrumentation? Redirected android.telephony.TelephonyManager->listen
+10-14 16:59:37.471  32106-32106/? I/Instrumentation? Redirected android.webkit.WebView->loadDataWithBaseURL
+10-14 16:59:37.481  32106-32106/? I/Instrumentation? Redirected android.webkit.WebView->loadUrl
+10-14 16:59:37.491  32106-32106/? I/Instrumentation? Redirected android.webkit.WebView->loadUrl
+10-14 16:59:37.501  32106-32106/? I/Instrumentation? Redirected java.net.DatagramSocket->connect
+10-14 16:59:37.501  32106-32106/? I/Instrumentation? Redirected java.net.DatagramSocket->connect
+10-14 16:59:37.501  32106-32106/? I/Instrumentation? Redirected java.net.MulticastSocket->joinGroup
+10-14 16:59:37.501  32106-32106/? I/Instrumentation? Redirected java.net.MulticastSocket->joinGroup
+10-14 16:59:37.511  32106-32106/? I/Instrumentation? Redirected java.net.Socket->connect
+10-14 16:59:37.511  32106-32106/? I/Instrumentation? Redirected java.net.Socket->connect
+10-14 16:59:37.511  32106-32106/? I/Instrumentation? Redirected java.net.URL->openConnection
+10-14 16:59:37.521  32106-32106/? I/Instrumentation? Redirected org.apache.http.impl.client.AbstractHttpClient->execute
+10-14 16:59:37.531  32106-32106/? I/Instrumentation? Redirected android.media.AudioRecord-><init>
+10-14 16:59:37.531  32106-32106/? I/Instrumentation? Redirected java.net.Socket-><init>
+10-14 16:59:37.531  32106-32106/? I/Instrumentation? Redirected java.net.Socket-><init>
+10-14 16:59:37.541  32106-32106/? I/Instrumentation? Redirected java.net.Socket-><init>
+10-14 16:59:37.541  32106-32106/? I/Instrumentation? Redirected java.net.Socket-><init>
+10-14 16:59:37.541  32106-32106/? I/Instrumentation? Redirected java.net.Socket-><init>
+10-14 16:59:37.551  32106-32106/? I/Instrumentation? Redirected java.net.Socket-><init>
+10-14 16:59:37.551  32106-32106/? I/Monitor_init? Monitor initialized for package com.ebay.mobile

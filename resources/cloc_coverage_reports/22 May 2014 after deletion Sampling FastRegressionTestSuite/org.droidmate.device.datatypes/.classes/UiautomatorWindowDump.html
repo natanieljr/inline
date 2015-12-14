@@ -1,0 +1,367 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UiautomatorWindowDump</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.device.datatypes</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UiautomatorWindowDump (org.droidmate.device.datatypes)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UiautomatorWindowDump</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (40/ 45)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$_getGuiState_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$_getGuiState_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$_getGuiState_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$canEqual$0</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$parseBounds</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$ValidationResult</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.2%
+  </span>
+  <span class="absValue">
+    (52/ 57)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.device.datatypes
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import groovy.transform.EqualsAndHashCode
+<i>14</i>&nbsp;import groovy.transform.TypeChecked
+<i>15</i>&nbsp;import groovy.util.logging.Slf4j
+<i>16</i>&nbsp;import groovy.util.slurpersupport.GPathResult
+<i>17</i>&nbsp;import groovy.util.slurpersupport.NodeChild
+<i>18</i>&nbsp;import org.droidmate.exceptions.InvalidWidgetBoundsException
+<i>19</i>&nbsp;import org.droidmate.exploration.ValidDeviceGuiSnapshotProvider
+<i>20</i>&nbsp;import org.droidmate.exploration.datatypes.AppHasStoppedDialogBoxGuiState
+<i>21</i>&nbsp;import org.droidmate.exploration.datatypes.GuiState
+<i>22</i>&nbsp;import org.droidmate.exploration.datatypes.Widget
+<i>23</i>&nbsp;import org.droidmate.logging.LogbackConstants
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;import java.awt.*
+<i>26</i>&nbsp;import java.util.List
+<i>27</i>&nbsp;import java.util.regex.Matcher
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;import static groovy.transform.TypeCheckingMode.SKIP
+<i>30</i>&nbsp;import static org.droidmate.device.datatypes.UiautomatorWindowDump.ValidationResult.*
+<i>31</i>&nbsp;import static org.droidmate.logging.Markers.MARKER_EXCEPTIONS
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;/**
+<i>34</i>&nbsp; * &lt;p&gt;
+<i>35</i>&nbsp; * &lt;i&gt; --- This doc was last reviewed on 04 Jan 2014.&lt;/i&gt;
+<i>36</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>37</i>&nbsp; *
+<i>38</i>&nbsp; * Represents the GUI snapshot returned by uiautomator.
+<i>39</i>&nbsp; *
+<i>40</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>41</i>&nbsp; *
+<i>42</i>&nbsp; * About uiautomator dump:&lt;br/&gt;
+<i>43</i>&nbsp; * http://developer.android.com/tools/help/uiautomator/index.html#table1
+<i>44</i>&nbsp; *
+<i>45</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>46</i>&nbsp; *
+<i>47</i>&nbsp; * Example bash scripts on how to get the dump on Windows:&lt;br/&gt;
+<i>48</i>&nbsp; *
+<i>49</i>&nbsp; * &lt;pre&gt;
+<i>50</i>&nbsp; * function dump_gui {*   adb shell uiautomator dump # should dump to: /storage/emulated/legacy/window_dump.xml
+<i>51</i>&nbsp; *   adb pull storage/emulated/legacy/window_dump.xml ./window_dump.xml
+<i>52</i>&nbsp; *}*
+<i>53</i>&nbsp; * # pre-condition: a device is running and connected through adb.
+<i>54</i>&nbsp; * function vis_dump_gui {*   echo &quot;After the GUI starts, please select the device to the left and click on the appropriate
+<i>55</i>&nbsp; * button above it&quot;
+<i>56</i>&nbsp; *   echo &quot;to dump the GUI.&quot;
+<i>57</i>&nbsp; *   $COMSPEC /c monitor.bat
+<i>58</i>&nbsp; *}&lt;/pre&gt;
+<i>59</i>&nbsp; * The monitor.bat from examples above should live in path like:&lt;br/&gt;
+<i>60</i>&nbsp; * c:\Program Files (x86)\Android\android-sdk\tools\monitor.bat
+<i>61</i>&nbsp; */
+<i>62</i>&nbsp;@TypeChecked
+<i>63</i>&nbsp;@Slf4j
+<i>64</i>&nbsp;@EqualsAndHashCode
+<i>65</i>&nbsp;class UiautomatorWindowDump implements IDeviceGuiSnapshot
+<i>66</i>&nbsp;{
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;  final String windowHierarchyDump
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;  private final String rootXmlNodePrefix = &quot;&lt;hierarchy&quot;
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;  String getWindowHierarchyDump()
+<i>73</i>&nbsp;  {
+<b class="fc"><i>74</i>&nbsp;    return windowHierarchyDump</b>
+<i>75</i>&nbsp;  }
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;  UiautomatorWindowDump(String windowHierarchyDump)
+<i>78</i>&nbsp;  {
+<b class="fc"><i>79</i>&nbsp;    this.windowHierarchyDump = windowHierarchyDump</b>
+<i>80</i>&nbsp;  }
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;  public enum ValidationResult {
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    VALID,
+<i>85</i>&nbsp;    NULL,
+<i>86</i>&nbsp;    EMPTY,
+<i>87</i>&nbsp;    MISSING_ROOT_XML_NODE_PREFIX
+<i>88</i>&nbsp;  }
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;  @Override
+<i>91</i>&nbsp;  Map validate()
+<i>92</i>&nbsp;  {
+<b class="fc"><i>93</i>&nbsp;    if (windowHierarchyDump == null)</b>
+<b class="nc"><i>94</i>&nbsp;      return [result: NULL, errmsg: &quot;The dump is null&quot;]</b>
+<b class="fc"><i>95</i>&nbsp;    else if (windowHierarchyDump.length() == 0)</b>
+<b class="fc"><i>96</i>&nbsp;      return [result: EMPTY, errmsg: &quot;The dump length is zero.&quot;]</b>
+<b class="fc"><i>97</i>&nbsp;    else if (!windowHierarchyDump.contains(rootXmlNodePrefix))</b>
+<b class="nc"><i>98</i>&nbsp;      return [result: MISSING_ROOT_XML_NODE_PREFIX, errmsg: &quot;The dump doesn&#39;t contain the root node prefix, i.e.: $rootXmlNodePrefix\n&quot; +</b>
+<i>99</i>&nbsp;        &quot;The dump:\n$windowHierarchyDump&quot;]
+<i>100</i>&nbsp;
+<b class="fc"><i>101</i>&nbsp;    return [result: VALID, errmsg: null]</b>
+<i>102</i>&nbsp;  }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;  @Override
+<i>105</i>&nbsp;  String getPackageName()
+<i>106</i>&nbsp;  {
+<b class="fc"><i>107</i>&nbsp;    if (this.validate().result != VALID)</b>
+<b class="nc"><i>108</i>&nbsp;      return &quot;Package unknown: the snapshot is invalid&quot;</b>
+<i>109</i>&nbsp;
+<b class="fc"><i>110</i>&nbsp;    int startIndex = windowHierarchyDump.indexOf(&quot;package=\&quot;&quot;);</b>
+<b class="fc"><i>111</i>&nbsp;    int endIndex = windowHierarchyDump.indexOf(&#39;&quot;&#39;, startIndex + &quot;package=\&quot;&quot;.length());</b>
+<b class="fc"><i>112</i>&nbsp;    return windowHierarchyDump.substring(startIndex + &quot;package=\&quot;&quot;.length(), endIndex);</b>
+<i>113</i>&nbsp;  }
+<i>114</i>&nbsp;
+<i>115</i>&nbsp;  @TypeChecked(SKIP)
+<i>116</i>&nbsp;  @Override
+<i>117</i>&nbsp;  GuiState getGuiState()
+<i>118</i>&nbsp;  {
+<b class="fc"><i>119</i>&nbsp;    GPathResult hierarchy = new XmlSlurper().parseText(windowHierarchyDump)</b>
+<b class="fc"><i>120</i>&nbsp;    assert hierarchy.name() == &quot;hierarchy&quot;</b>
+<i>121</i>&nbsp;
+<b class="fc"><i>122</i>&nbsp;    String topNodePackage = hierarchy.node[0]?.@package?.text()</b>
+<b class="fc"><i>123</i>&nbsp;    assert !topNodePackage.empty</b>
+<i>124</i>&nbsp;
+<b class="fc"><i>125</i>&nbsp;    List widgetNodes = hierarchy.depthFirst().findAll {clickableOrCheckable(it)}</b>
+<i>126</i>&nbsp;
+<b class="fc"><i>127</i>&nbsp;    List&lt;Widget&gt; widgets = widgetNodes.collect {</b>
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;      try
+<i>130</i>&nbsp;      {
+<b class="fc"><i>131</i>&nbsp;        Rectangle bounds = parseBounds(it.@bounds.text())</b>
+<b class="fc"><i>132</i>&nbsp;        return new Widget(</b>
+<b class="fc"><i>133</i>&nbsp;          text: it.@text.text(),</b>
+<b class="fc"><i>134</i>&nbsp;          clazz: it.@class.text(),</b>
+<b class="fc"><i>135</i>&nbsp;          clickable: it.@clickable.text() == &quot;true&quot;,</b>
+<b class="fc"><i>136</i>&nbsp;          enabled: it.@enabled.text() == &quot;true&quot;,</b>
+<b class="fc"><i>137</i>&nbsp;          checkable: it.@checkable.text() == &quot;true&quot;,</b>
+<i>138</i>&nbsp;          bounds: bounds
+<i>139</i>&nbsp;        )
+<i>140</i>&nbsp;      }
+<i>141</i>&nbsp;      catch (InvalidWidgetBoundsException e)
+<i>142</i>&nbsp;      {
+<b class="fc"><i>143</i>&nbsp;        log.error(&quot;Catching exception: parsing widget bounds failed. $LogbackConstants.err_log_msg\n&quot; +</b>
+<i>144</i>&nbsp;          &quot;Continuing execution, skipping the widget with invalid bounds.&quot;)
+<b class="fc"><i>145</i>&nbsp;        log.error(MARKER_EXCEPTIONS, &quot;parsing widget bounds failed with exception:\n&quot;, e);</b>
+<b class="fc"><i>146</i>&nbsp;        return null</b>
+<i>147</i>&nbsp;      }
+<b class="fc"><i>148</i>&nbsp;    }.findAll {it != null}</b>
+<i>149</i>&nbsp;
+<b class="fc"><i>150</i>&nbsp;    def gs = new GuiState(topNodePackage, widgets)</b>
+<b class="fc"><i>151</i>&nbsp;    if (gs.isAppHasStoppedDialogBox())</b>
+<b class="fc"><i>152</i>&nbsp;      return new AppHasStoppedDialogBoxGuiState(topNodePackage, widgets)</b>
+<i>153</i>&nbsp;    else
+<b class="fc"><i>154</i>&nbsp;      return gs</b>
+<i>155</i>&nbsp;  }
+<i>156</i>&nbsp;
+<i>157</i>&nbsp;  @TypeChecked(SKIP)
+<i>158</i>&nbsp;  private static boolean clickableOrCheckable(NodeChild it)
+<i>159</i>&nbsp;  {
+<b class="fc"><i>160</i>&nbsp;    return it.@clickable.text() == &quot;true&quot; || it.@checkable.text() == &quot;true&quot;</b>
+<i>161</i>&nbsp;  }
+<i>162</i>&nbsp;
+<i>163</i>&nbsp;
+<i>164</i>&nbsp;  @Override
+<i>165</i>&nbsp;  boolean isValid()
+<i>166</i>&nbsp;  {
+<b class="fc"><i>167</i>&nbsp;    ValidDeviceGuiSnapshotProvider.isValid(this)</b>
+<i>168</i>&nbsp;  }
+<i>169</i>&nbsp;
+<i>170</i>&nbsp;
+<i>171</i>&nbsp;/**
+<i>172</i>&nbsp; * Parses &lt;b&gt;bounds&lt;/b&gt; string of form {@code [Xlow , Ylow][Xhigh , Yhigh]} into a list of form [Xlow,XHigh,Ylow,YHigh]
+<i>173</i>&nbsp; */
+<i>174</i>&nbsp;  public static Rectangle parseBounds(String windowHierarchyDumpBounds)
+<i>175</i>&nbsp;  {
+<b class="fc"><i>176</i>&nbsp;    assert windowHierarchyDumpBounds?.size() &gt; 0</b>
+<i>177</i>&nbsp;
+<i>178</i>&nbsp;    Matcher boundsMatcher =
+<i>179</i>&nbsp;    // The input is of form &quot;[xLow,yLow][xHigh,yHigh]&quot; and the regex below will capture four groups: xLow yLow xHigh yHigh
+<b class="fc"><i>180</i>&nbsp;      windowHierarchyDumpBounds =~ /\[(\p{Digit}+),(\p{Digit}+)\]\[(\p{Digit}+),(\p{Digit}+)\]/</b>
+<b class="fc"><i>181</i>&nbsp;    if (!boundsMatcher.matches())</b>
+<b class="fc"><i>182</i>&nbsp;      throw new InvalidWidgetBoundsException(&quot;The window hierarchy bounds matcher was unable to match $windowHierarchyDumpBounds agains the regex&quot;)</b>
+<i>183</i>&nbsp;
+<b class="fc"><i>184</i>&nbsp;    List&lt;String&gt; matchedGroups = boundsMatcher[0] as List&lt;String&gt;</b>
+<i>185</i>&nbsp;
+<b class="fc"><i>186</i>&nbsp;    int lowX = matchedGroups[1] as int</b>
+<b class="fc"><i>187</i>&nbsp;    int lowY = matchedGroups[2] as int</b>
+<b class="fc"><i>188</i>&nbsp;    int highX = matchedGroups[3] as int</b>
+<b class="fc"><i>189</i>&nbsp;    int highY = matchedGroups[4] as int</b>
+<i>190</i>&nbsp;
+<b class="fc"><i>191</i>&nbsp;    return new Rectangle(lowX, lowY, highX - lowX, highY - lowY);</b>
+<i>192</i>&nbsp;  }
+<i>193</i>&nbsp;
+<i>194</i>&nbsp;  @Override
+<i>195</i>&nbsp;  public String toString()
+<i>196</i>&nbsp;  {
+<b class="fc"><i>197</i>&nbsp;    if (!this.validate().result == VALID)</b>
+<b class="nc"><i>198</i>&nbsp;      return &quot;GUI window dump: $windowHierarchyDump&quot;</b>
+<i>199</i>&nbsp;
+<b class="fc"><i>200</i>&nbsp;    if (this.guiState.isHomeScreen())</b>
+<b class="fc"><i>201</i>&nbsp;      return &quot;GUI window dump: home screen&quot;</b>
+<i>202</i>&nbsp;
+<b class="fc"><i>203</i>&nbsp;    if (this.guiState.isAppHasStoppedDialogBox())</b>
+<b class="fc"><i>204</i>&nbsp;      return &quot;GUI window dump: \&quot;App has stopped\&quot; dialog box. OK widget enabled: ${(this.guiState as AppHasStoppedDialogBoxGuiState).OKWidget.enabled}}&quot;</b>
+<i>205</i>&nbsp;
+<b class="fc"><i>206</i>&nbsp;    if (this.guiState.isCompleteActionUsingDialogBox())</b>
+<b class="nc"><i>207</i>&nbsp;      return &quot;GUI window dump: \&quot;Complete action using\&quot; dialog box.&quot;</b>
+<i>208</i>&nbsp;
+<b class="fc"><i>209</i>&nbsp;    return &quot;GUI window dump. Package name: ${packageName}.&quot;</b>
+<i>210</i>&nbsp;  }
+<i>211</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

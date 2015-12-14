@@ -1,0 +1,219 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LegacyDroidmateMethodAdapter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.instrumentation.asmdex</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LegacyDroidmateMethodAdapter (org.droidmate.instrumentation.asmdex)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LegacyDroidmateMethodAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.instrumentation.asmdex;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger;
+<i>14</i>&nbsp;import org.ow2.asmdex.MethodVisitor;
+<i>15</i>&nbsp;import org.ow2.asmdex.Opcodes;
+<i>16</i>&nbsp;import org.ow2.asmdex.structureCommon.Label;
+<i>17</i>&nbsp;import org.slf4j.Logger;
+<i>18</i>&nbsp;import org.slf4j.LoggerFactory;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;/*
+<i>21</i>&nbsp; * WARNING. This is legacy class, not used. It is left in the source code for reference on how to insert an instruction
+<i>22</i>&nbsp; * at the beginning of method call.
+<i>23</i>&nbsp; */
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;/**
+<i>26</i>&nbsp; * ASMDEX-based class for modifying method bytecode. Extracts reference to the {@code Activity} of AUT for further
+<i>27</i>&nbsp; * processing, including GUI model analysis.&lt;br/&gt;
+<i>28</i>&nbsp; * &lt;br/&gt;
+<i>29</i>&nbsp; * The reference is obtained by inserting a call to {@link org.droidmate.instrumentation.AutAddon.setActivityUnderTest}
+<i>30</i>&nbsp; * as the first instruction in the {@code Activity&#39;s onCreate()} method and passing it {@code this} as parameter.&lt;br/&gt;
+<i>31</i>&nbsp; * &lt;br/&gt;
+<i>32</i>&nbsp; * &lt;b&gt;Preconditions&lt;/b&gt;
+<i>33</i>&nbsp; * &lt;ul&gt;
+<i>34</i>&nbsp; * &lt;li&gt;
+<i>35</i>&nbsp; * Instrumentation of this class is applied only to {@code onCreate} method of type inheriting from
+<i>36</i>&nbsp; * {@code android.app.Activity}. {@link DroidmateClassAdapter} ensures that.&lt;/li&gt;
+<i>37</i>&nbsp; * &lt;li&gt;
+<i>38</i>&nbsp; * The call is not static, so the first parameter register holds reference to &#39;this&#39; (current instance).&lt;/li&gt;
+<i>39</i>&nbsp; * &lt;/ul&gt;
+<i>40</i>&nbsp; * 
+<i>41</i>&nbsp; * @see DroidmateClassAdapter
+<i>42</i>&nbsp; * @see org.droidmate.instrumentation.AutAddon
+<i>43</i>&nbsp; * 
+<i>44</i>&nbsp; * @author Konrad Jamrozik
+<i>45</i>&nbsp; * 
+<i>46</i>&nbsp; */
+<b class="nc"><i>47</i>&nbsp;@Deprecated</b>
+<i>48</i>&nbsp;public class LegacyDroidmateMethodAdapter extends MethodVisitor {
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  @SuppressWarnings(&quot;unused&quot;)
+<i>51</i>&nbsp;  @InjectLogger
+<i>52</i>&nbsp;  private static Logger log;
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  /**
+<i>55</i>&nbsp;   * The index of register holding the reference to &#39;this&#39;, i.e., current instance. It will be passed to the call to
+<i>56</i>&nbsp;   * {@link org.droidmate.instrumentation.AutAddon.setActivityUnderTest}.&lt;br/&gt;
+<i>57</i>&nbsp;   * &lt;br/&gt;
+<i>58</i>&nbsp;   * This index shall be equal to (indexes start at 0):&lt;br/&gt;
+<i>59</i>&nbsp;   * &lt;br/&gt;
+<i>60</i>&nbsp;   * {@code number of declared registers in dalvik bytecode - number of parameters - 1}.&lt;br/&gt;
+<i>61</i>&nbsp;   * &lt;br/&gt;
+<i>62</i>&nbsp;   * The formula is dictated by dalvik bytecode specification:
+<i>63</i>&nbsp;   * 
+<i>64</i>&nbsp;   * &lt;pre&gt;
+<i>65</i>&nbsp;   * The N arguments to a method land in the last N registers of the method&#39;s invocation frame, in order. 
+<i>66</i>&nbsp;   * Wide arguments consume two registers. Instance methods are passed a this reference as their first argument.
+<i>67</i>&nbsp;   * &lt;/pre&gt;
+<i>68</i>&nbsp;   * 
+<i>69</i>&nbsp;   * @see &lt;a href=&quot;http://source.android.com/tech/dalvik/dalvik-bytecode.html&quot;&gt;Dalvik bytecode reference&lt;/a&gt;
+<i>70</i>&nbsp;   */
+<b class="nc"><i>71</i>&nbsp;  private int indexOfThisRegister = -1;</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;  /** Used for computation of {@link #indexOfThisRegister}. */
+<b class="nc"><i>74</i>&nbsp;  private int parametersCount = -1;</b>
+<i>75</i>&nbsp;
+<b class="nc"><i>76</i>&nbsp;  private int allRegistersCount = -1;</b>
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;  /**
+<i>79</i>&nbsp;   * Used to deduce if we shall insert the relevant call. It shall be inserted after the first line number present
+<i>80</i>&nbsp;   * in the bytecode was visited.
+<i>81</i>&nbsp;   */
+<b class="nc"><i>82</i>&nbsp;  private boolean firstLineNumberVisited = false;</b>
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;  /**
+<i>85</i>&nbsp;   * Obtain the number of parameters, required to compute the value of {@link #indexOfThisRegister}.
+<i>86</i>&nbsp;   */
+<i>87</i>&nbsp;  @Override
+<i>88</i>&nbsp;  public void visitParameters(String[] parameters) {
+<i>89</i>&nbsp;
+<b class="nc"><i>90</i>&nbsp;    parametersCount = parameters.length;</b>
+<b class="nc"><i>91</i>&nbsp;    super.visitParameters(parameters);</b>
+<i>92</i>&nbsp;  }
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;  /**
+<i>95</i>&nbsp;   * Inserts a call to {@code org.droidmate.autaddon.AutAddon.setActivityUnderTest(this)} after
+<i>96</i>&nbsp;   * the first line number of {@code Acitivity.onCreate()}, thus making it the first call in the method.
+<i>97</i>&nbsp;   */
+<i>98</i>&nbsp;  @Override
+<i>99</i>&nbsp;  public void visitLineNumber(int line, Label start) {
+<i>100</i>&nbsp;
+<b class="nc"><i>101</i>&nbsp;    assert indexOfThisRegister != -1 : &quot;index of register holding reference to &#39;this&#39; should have been known before &quot; +</b>
+<i>102</i>&nbsp;        &quot;any line number is visited.&quot;;
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    // the first line number was already visited, so current is not the first, so we do nothing.
+<b class="nc"><i>105</i>&nbsp;    if (firstLineNumberVisited)</b>
+<i>106</i>&nbsp;    {
+<b class="nc"><i>107</i>&nbsp;      super.visitLineNumber(line, start);</b>
+<i>108</i>&nbsp;      return;
+<i>109</i>&nbsp;    }
+<i>110</i>&nbsp;
+<b class="nc"><i>111</i>&nbsp;    assert !firstLineNumberVisited;</b>
+<b class="nc"><i>112</i>&nbsp;    firstLineNumberVisited = true;</b>
+<i>113</i>&nbsp;    
+<b class="nc"><i>114</i>&nbsp;    super.visitLineNumber(line, start);</b>
+<i>115</i>&nbsp;    
+<i>116</i>&nbsp;    // insert the call appropriate call after the first line number.
+<b class="nc"><i>117</i>&nbsp;    mv.visitMethodInsn(Opcodes.INSN_INVOKE_STATIC, &quot;Lorg/droidmate/instrumentation/autaddon/AutAddon;&quot;,</b>
+<i>118</i>&nbsp;        &quot;setActivityUnderTest&quot;, &quot;VLandroid/app/Activity;&quot;, new int[] { indexOfThisRegister });
+<i>119</i>&nbsp;  }
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;  @Override
+<i>122</i>&nbsp;  public void visitMaxs(int maxStack, int maxLocals) {
+<i>123</i>&nbsp;
+<b class="nc"><i>124</i>&nbsp;    assert parametersCount != -1 : &quot;parameters count should have been known by the time number of registers is parsed.&quot;;</b>
+<i>125</i>&nbsp;
+<b class="nc"><i>126</i>&nbsp;    allRegistersCount = maxStack;</b>
+<i>127</i>&nbsp;
+<b class="nc"><i>128</i>&nbsp;    indexOfThisRegister = allRegistersCount - parametersCount - 1;</b>
+<i>129</i>&nbsp;
+<b class="nc"><i>130</i>&nbsp;    super.visitMaxs(maxStack, maxLocals);</b>
+<i>131</i>&nbsp;  }
+<i>132</i>&nbsp;
+<i>133</i>&nbsp;  public LegacyDroidmateMethodAdapter(int api, MethodVisitor mv) {
+<b class="nc"><i>134</i>&nbsp;    super(api, mv);</b>
+<i>135</i>&nbsp;  }
+<i>136</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

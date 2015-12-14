@@ -1,0 +1,736 @@
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\at.markushi.expensemanager-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.adobe.reader-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.antivirus-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.ebay.mobile-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.estrongs.android.taskmanager-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.frank_weber.forex2-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.indeed.android.jobsearch-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.rhmsoft.fm-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\de.barcoo.android-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe" dump badging C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\org.mozilla.firefox-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" devices
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f forward tcp:59778 tcp:59778
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f forward tcp:59776 tcp:59776
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f push C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar /data/local/tmp/
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f push C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk /data/local/tmp/
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell uiautomator runtest uiautomator-daemon.jar -c org.droidmate.uiautomatordaemon.UiAutomatorDaemon#init -e wait_for_gui_to_stabilize true -e wait_for_window_update_timeout 1200 -e uiadaemon_server_tcp_port 59778
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s uiautomator-daemon_server_start_tag
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall at.markushi.expensemanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\at.markushi.expensemanager-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear at.markushi.expensemanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n at.markushi.expensemanager/at.markushi.expensemanager.activities.HomeActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear at.markushi.expensemanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n at.markushi.expensemanager/at.markushi.expensemanager.activities.HomeActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear at.markushi.expensemanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear at.markushi.expensemanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall at.markushi.expensemanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.adobe.reader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.adobe.reader-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.adobe.reader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.adobe.reader/com.adobe.reader.AdobeReader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.adobe.reader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.adobe.reader/com.adobe.reader.AdobeReader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.adobe.reader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.adobe.reader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.adobe.reader
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.antivirus
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.antivirus-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.antivirus
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.antivirus/com.antivirus.ui.main.AntivirusMainScreen
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.antivirus
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.antivirus/com.antivirus.ui.main.AntivirusMainScreen
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.antivirus
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.antivirus
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.antivirus
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.ebay.mobile
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.ebay.mobile-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.ebay.mobile
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.ebay.mobile/com.ebay.mobile.activities.eBay
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.ebay.mobile
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.ebay.mobile/com.ebay.mobile.activities.eBay
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.ebay.mobile
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.ebay.mobile
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.ebay.mobile
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.estrongs.android.taskmanager-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.estrongs.android.taskmanager/com.estrongs.android.taskmanager.TaskManager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.estrongs.android.taskmanager/com.estrongs.android.taskmanager.TaskManager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.estrongs.android.taskmanager/com.estrongs.android.taskmanager.TaskManager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.estrongs.android.taskmanager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.frank_weber.forex2
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.frank_weber.forex2-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.frank_weber.forex2
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.frank_weber.forex2/com.frank_weber.forex2.CurrencyConverter2Activity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.frank_weber.forex2
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.frank_weber.forex2/com.frank_weber.forex2.CurrencyConverter2Activity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.frank_weber.forex2
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.frank_weber.forex2
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.frank_weber.forex2
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.indeed.android.jobsearch
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.indeed.android.jobsearch-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.indeed.android.jobsearch
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.indeed.android.jobsearch/com.indeed.android.jobsearch.MainActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.indeed.android.jobsearch
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.indeed.android.jobsearch
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.indeed.android.jobsearch
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.rhmsoft.fm
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.rhmsoft.fm-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.rhmsoft.fm
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.rhmsoft.fm/com.rhmsoft.fm.FileManager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.rhmsoft.fm
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.rhmsoft.fm/com.rhmsoft.fm.FileManager
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.rhmsoft.fm
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear com.rhmsoft.fm
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall com.rhmsoft.fm
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall de.barcoo.android
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\de.barcoo.android-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear de.barcoo.android
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n de.barcoo.android/de.barcoo.android.StartScreenActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear de.barcoo.android
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n de.barcoo.android/de.barcoo.android.StartScreenActivity
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear de.barcoo.android
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear de.barcoo.android
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall de.barcoo.android
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall org.mozilla.firefox
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f install -r C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\org.mozilla.firefox-inlined.apk
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm list packages
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear org.mozilla.firefox
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Instrumentation
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell am start -W -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n org.mozilla.firefox/org.mozilla.firefox.App
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s org.droidmate.uiad
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -d -b main -v time *:s Monitor_init
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f logcat -c
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell pm clear org.mozilla.firefox
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f uninstall org.mozilla.firefox
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell rm /data/local/tmp/uiautomator-daemon.jar
+"c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe" -s 015d2109ce0c1a0f shell rm /data/local/tmp/uiautomator-daemon.jar

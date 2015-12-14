@@ -1,0 +1,11 @@
+2015-11-30 17:28:04.858 TRACE o.d.e.actions.RunnableExplorationAction  RunnableResetAppExplorationAction.performDeviceActions(app=net.zedge.android_v4.10.2-inlined.apk, device)
+2015-11-30 17:28:04.859 DEBUG o.d.e.a.RunnableResetAppExplorationAction 1. Resetting package net.zedge.android
+2015-11-30 17:28:33.422 DEBUG o.d.exploration.device.ApiLogsReader     getAndClearCurrentApiLogsFromMonitorTcpServer(deviceTimeDiff)
+2015-11-30 17:28:33.433 DEBUG o.d.exploration.device.DeviceLogsHandler Caught TcpServerUnreachableException from messagesReader.getAndClearCurrentApiLogsFromMonitorTcpServer(). Because app is allowed to be unreachable: 1. ignoring the exception instead of rethrowing, 2. returning null api logs.
+2015-11-30 17:28:33.540 DEBUG o.d.e.a.RunnableResetAppExplorationAction 2. Launching main activity
+2015-11-30 17:28:49.634 DEBUG o.d.e.a.RunnableResetAppExplorationAction 3. Logging uia-daemon logs from logcat
+2015-11-30 17:28:49.672 DEBUG o.d.e.a.RunnableResetAppExplorationAction 4. Reading monitor init logs and clearing logcat
+2015-11-30 17:28:49.673 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(deviceTimeDiff)
+2015-11-30 17:28:51.719 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): obtained messages
+2015-11-30 17:28:51.720 DEBUG o.d.exploration.device.InitMsgsReader    readMonitorMessages(): syncing time
+2015-11-30 17:31:36.327 DEBUG o.d.e.actions.RunnableExplorationAction  ! Caught DeviceException while performing device actions of RunnableResetAppExplorationAction. Returning failed ExplorationActionRunResult with the exception assigned to a field.

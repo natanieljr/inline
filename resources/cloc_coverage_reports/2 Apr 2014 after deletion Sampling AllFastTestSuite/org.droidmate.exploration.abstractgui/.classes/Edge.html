@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Edge</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration.abstractgui</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Edge (org.droidmate.exploration.abstractgui)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Edge</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration.abstractgui
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import groovy.transform.Canonical
+<i>14</i>&nbsp;import org.droidmate.exploration.GuiExplorator
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import static org.droidmate.exploration.abstractgui.GuiTransition.*
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;@Canonical
+<i>19</i>&nbsp;class Edge
+<i>20</i>&nbsp;{
+<i>21</i>&nbsp;  // Edge is a directed edge from GuiState src (source) to GuiState trg (target) labeled by GuiTransition t (transition).
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  GuiState src
+<i>24</i>&nbsp;  GuiTransition t
+<i>25</i>&nbsp;  GuiState trg
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  Edge(Map args)
+<i>28</i>&nbsp;  {
+<b class="nc"><i>29</i>&nbsp;    assert args[&#39;src&#39;] != null</b>
+<b class="nc"><i>30</i>&nbsp;    assert args[&#39;t&#39;] != null</b>
+<b class="nc"><i>31</i>&nbsp;    assert args[&#39;trg&#39;] != null</b>
+<i>32</i>&nbsp;
+<b class="nc"><i>33</i>&nbsp;    assert args[&#39;src&#39;] instanceof GuiState</b>
+<b class="nc"><i>34</i>&nbsp;    assert args[&#39;t&#39;] instanceof GuiTransition</b>
+<b class="nc"><i>35</i>&nbsp;    assert args[&#39;trg&#39;] instanceof GuiState</b>
+<i>36</i>&nbsp;
+<b class="nc"><i>37</i>&nbsp;    this.src = args[&#39;src&#39;] as GuiState</b>
+<b class="nc"><i>38</i>&nbsp;    this.t = args[&#39;t&#39;] as GuiTransition</b>
+<b class="nc"><i>39</i>&nbsp;    this.trg = args[&#39;trg&#39;] as GuiState</b>
+<i>40</i>&nbsp;
+<b class="nc"><i>41</i>&nbsp;    assert this.src != null</b>
+<b class="nc"><i>42</i>&nbsp;    assert this.t != null</b>
+<b class="nc"><i>43</i>&nbsp;    assert this.trg != null</b>
+<i>44</i>&nbsp;  }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;  Edge(GuiState src, GuiTransition t, GuiState trg)
+<i>47</i>&nbsp;  {
+<b class="nc"><i>48</i>&nbsp;    this.src = src</b>
+<b class="nc"><i>49</i>&nbsp;    this.t = t</b>
+<b class="nc"><i>50</i>&nbsp;    this.trg = trg</b>
+<i>51</i>&nbsp;
+<b class="nc"><i>52</i>&nbsp;    assert this.src != null</b>
+<b class="nc"><i>53</i>&nbsp;    assert this.t != null</b>
+<b class="nc"><i>54</i>&nbsp;    assert this.trg != null</b>
+<i>55</i>&nbsp;  }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;  static Edge createEdge(GuiState sourceGuiState, GuiTransition guiTransition, GuiState targetGuiState)
+<i>58</i>&nbsp;  {
+<b class="nc"><i>59</i>&nbsp;    return new Edge(sourceGuiState, guiTransition, targetGuiState)</b>
+<i>60</i>&nbsp;  }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;  static Edge createEdge(GuiState sourceGuiState, Widget transitionWidget, GuiState targetGuiState)
+<i>63</i>&nbsp;  {
+<b class="nc"><i>64</i>&nbsp;    return createEdge(sourceGuiState, createWidgetGuiTransition(transitionWidget), targetGuiState)</b>
+<i>65</i>&nbsp;  }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  @Override
+<i>68</i>&nbsp;  public String toString()
+<i>69</i>&nbsp;  {
+<b class="nc"><i>70</i>&nbsp;    return &quot;Source ${GuiState.simpleName}: $src\n&quot; +</b>
+<b class="nc"><i>71</i>&nbsp;      &quot;${GuiTransition.simpleName}: $t\n&quot; +</b>
+<i>72</i>&nbsp;      &quot;Target ${GuiState.simpleName}: $trg&quot;
+<i>73</i>&nbsp;  }
+<i>74</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

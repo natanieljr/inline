@@ -1,0 +1,142 @@
+--------------------------------------------------------------------------------
+
+Working dir:   C:\my\local\repos\chair\droidmate\dev\droidmate
+
+JVM arguments: [-ea, -DlogsDir=temp_dir_for_tests/logs, -Didea.launcher.port=7542, -Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 14.1.1\bin, -Dfile.encoding=windows-1252]
+
+Configuration dump:
+
+aaptCommand=c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe
+actionsLimit=10
+adbCommand=c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe
+alwaysClickFirstWidget=false
+androidSdkDir=c:\Program Files (x86)\Android\android-sdk
+apksDirName=apks
+apksDirPath=apks
+apksLimit=0
+apksNames=[]
+appGuardApisList=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\AppGuardApisList.txt
+appGuardOnlyApis=true
+args={}
+clearPackageRetryAttempts=5
+clearPackageRetryDelay=1000
+compareRuns=false
+delayAfterLaunchingActivity=5000
+deployRawApks=false
+deviceIndex=0
+displayHelp=false
+droidmateOutputDir=.\dev1
+droidmateOutputDirPath=.\dev1
+exploreInteractively=false
+extractAdditionalData=false
+extractData=false
+extractSaturationCharts=false
+extractSummaries=true
+getValidGuiSnapshotRetryAttempts=10
+getValidGuiSnapshotRetryDelay=2000
+logLevel=trace
+logWidgets=false
+monitorApk=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk
+monitorServerStartQueryInterval=2000
+monitorServerStartTimeout=20000
+monitorTcpPort=59776
+outputAppGuardCharts=false
+processUiaTestCasesLogs=false
+randomSeed=-270105064818720322
+removeHardCodedApis=true
+resetEveryNthExplorationForward=0
+saturationChartsHours=2.0
+softReset=false
+splitCharts=false
+timeLimit=0
+uiaTestCasesLogsDirPath=.\uia_test_cases_logs
+uiautomatorDaemonJar=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar
+uiautomatorDaemonServerStartQueryInterval=2000
+uiautomatorDaemonServerStartTimeout=20000
+uiautomatorDaemonTcpPort=59778
+uiautomatorDaemonWaitForGuiToStabilize=true
+uiautomatorDaemonWaitForWindowUpdateTimeout=1200
+uninstallApk=true
+useApkFixturesDir=false
+useDeprecatedExplorationLogic=false
+widgetIndexes=[]
+widgetUniqueStringWithFieldPrecedence=true
+
+End of configuration dump
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Working dir:   C:\my\local\repos\chair\droidmate\dev\droidmate
+
+JVM arguments: [-ea, -DlogsDir=temp_dir_for_tests/logs, -Didea.launcher.port=7542, -Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 14.1.1\bin, -Dfile.encoding=windows-1252]
+
+Configuration dump:
+
+aaptCommand=c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe
+actionsLimit=10
+adbCommand=c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe
+alwaysClickFirstWidget=false
+androidSdkDir=c:\Program Files (x86)\Android\android-sdk
+apksDirName=apks
+apksDirPath=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\test\fixtures\apks
+apksLimit=0
+apksNames=[MonitoredApkFixture-debug-inlined.apk]
+appGuardApisList=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\AppGuardApisList.txt
+appGuardOnlyApis=true
+args={-useApkFixturesDir,true,-apksNames,[MonitoredApkFixture-debug-inlined.apk],-widgetIndexes,[0, 1],-droidmateOutputDirPath,temp_dir_for_tests,-waitForWindowUpdateTimeout,50}
+clearPackageRetryAttempts=5
+clearPackageRetryDelay=1000
+compareRuns=false
+delayAfterLaunchingActivity=5000
+deployRawApks=false
+deviceIndex=0
+displayHelp=false
+droidmateOutputDir=temp_dir_for_tests
+droidmateOutputDirPath=temp_dir_for_tests
+exploreInteractively=false
+extractAdditionalData=false
+extractData=false
+extractSaturationCharts=false
+extractSummaries=true
+getValidGuiSnapshotRetryAttempts=10
+getValidGuiSnapshotRetryDelay=2000
+logLevel=trace
+logWidgets=false
+monitorApk=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk
+monitorServerStartQueryInterval=2000
+monitorServerStartTimeout=20000
+monitorTcpPort=59776
+outputAppGuardCharts=false
+processUiaTestCasesLogs=false
+randomSeed=564750529962053454
+removeHardCodedApis=true
+resetEveryNthExplorationForward=0
+saturationChartsHours=2.0
+softReset=false
+splitCharts=false
+timeLimit=0
+uiaTestCasesLogsDirPath=.\uia_test_cases_logs
+uiautomatorDaemonJar=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar
+uiautomatorDaemonServerStartQueryInterval=2000
+uiautomatorDaemonServerStartTimeout=20000
+uiautomatorDaemonTcpPort=59778
+uiautomatorDaemonWaitForGuiToStabilize=true
+uiautomatorDaemonWaitForWindowUpdateTimeout=50
+uninstallApk=true
+useApkFixturesDir=true
+useDeprecatedExplorationLogic=false
+widgetIndexes=[0, 1]
+widgetUniqueStringWithFieldPrecedence=true
+
+End of configuration dump
+
+--------------------------------------------------------------------------------
+Used input apks file paths:
+
+C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\test\fixtures\apks\MonitoredApkFixture-debug-inlined.apk
+
+--------------------------------------------------------------------------------
+Run start  timestamp: 2015 Oct 01 16:30:56
+Run finish timestamp: 2015 Oct 01 16:32:24
+DroidMate ran for: 1 minutes, 27.932 seconds

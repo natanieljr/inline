@@ -1,0 +1,351 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DependencyInjectionContainer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.inject</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DependencyInjectionContainer (org.droidmate.frontend.inject)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DependencyInjectionContainer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/ 17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.3%
+  </span>
+  <span class="absValue">
+    (69/ 79)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">DependencyInjectionContainer$_getInjector_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">DependencyInjectionContainer$this$2$isSetup</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/ 18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (70/ 80)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.inject
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.*
+<i>14</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>15</i>&nbsp;import org.droidmate.configuration.Configurator
+<i>16</i>&nbsp;import org.droidmate.configuration.IConfiguration
+<i>17</i>&nbsp;import org.droidmate.device.IAndroidDevice
+<i>18</i>&nbsp;import org.droidmate.device.IAndroidDeviceDeployer
+<i>19</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>20</i>&nbsp;import org.droidmate.robot.AndroidDeviceWithRobot
+<i>21</i>&nbsp;import org.droidmate.robot.AndroidDeviceWithRobotDeployer
+<i>22</i>&nbsp;import org.droidmate.robot.RobotConfiguration
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;class DependencyInjectionContainer implements IDependencyInjectionContainer
+<i>25</i>&nbsp;{
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  private Injector injector
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  private boolean setupAllowedToBeIgnoredOnce              = false
+<i>30</i>&nbsp;  private boolean setupAllowedToOverrideCachedInjectorOnce = false
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;  private List&lt;String&gt; addedArgs = []</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  @Override
+<i>35</i>&nbsp;  &lt;T&gt; T get(Class&lt;T&gt; targetClass)
+<i>36</i>&nbsp;  {
+<b class="fc"><i>37</i>&nbsp;    if (!isSetup() &amp;&amp; !addedArgs.isEmpty())</b>
+<b class="fc"><i>38</i>&nbsp;      setup()</b>
+<i>39</i>&nbsp;
+<b class="fc"><i>40</i>&nbsp;    assertIsSetupAndHasNoAddedArgs()</b>
+<i>41</i>&nbsp;
+<b class="fc"><i>42</i>&nbsp;    Object targetClassInstance = getInstance(targetClass, injector)</b>
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;    return targetClassInstance as T</b>
+<i>45</i>&nbsp;  }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  @Override
+<i>48</i>&nbsp;  void setup(String[] args, Map&lt;Class, Class&gt; bindingOverrides = [:])
+<i>49</i>&nbsp;  {
+<b class="fc"><i>50</i>&nbsp;    assert args != null</b>
+<b class="fc"><i>51</i>&nbsp;    assert bindingOverrides != null</b>
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;    assert !(setupAllowedToBeIgnoredOnce &amp;&amp; setupAllowedToOverrideCachedInjectorOnce)</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;    if (setupAllowedToBeIgnoredOnce &amp;&amp; injector == null)</b>
+<b class="nc"><i>56</i>&nbsp;      throw new DroidmateException(&quot;Setup was allowed to be ignored, but it doesn&#39;t have to, as there is no injector cached.&quot;)</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;    if (setupAllowedToBeIgnoredOnce)</b>
+<i>59</i>&nbsp;    {
+<b class="fc"><i>60</i>&nbsp;      setupAllowedToBeIgnoredOnce = false</b>
+<b class="fc"><i>61</i>&nbsp;      return</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;    assert !setupAllowedToBeIgnoredOnce</b>
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;    if (injector != null)</b>
+<b class="fc"><i>67</i>&nbsp;      if (!setupAllowedToOverrideCachedInjectorOnce)</b>
+<b class="nc"><i>68</i>&nbsp;        throw new DroidmateException(&quot;A call was made to &quot; +</b>
+<b class="nc"><i>69</i>&nbsp;          &quot;${DependencyInjectionContainer.simpleName}.setup(args, bindingOverrides), &quot; +</b>
+<b class="nc"><i>70</i>&nbsp;          &quot;but the call receiver has already a cached injector, which would cause the parameters to the method call be &quot; +</b>
+<b class="nc"><i>71</i>&nbsp;          &quot;ignored. Thus, the call is forbidden.\n&quot; +</b>
+<b class="nc"><i>72</i>&nbsp;          &quot;If you want to allow for this call to happen while there is a cached injector &quot; +</b>
+<b class="nc"><i>73</i>&nbsp;          &quot;present, effectively ignoring args of this call, please first call .allowOnceToIgnoreSetup().\n&quot; +</b>
+<i>74</i>&nbsp;          &quot;If, on the other hand, you want to allow the call to .setup() to *override* the cached injector, &quot; +
+<i>75</i>&nbsp;          &quot;please first call .allowOnceToOverrideCachedInjectorWithSetup().&quot;)
+<i>76</i>&nbsp;      else
+<i>77</i>&nbsp;      {
+<b class="fc"><i>78</i>&nbsp;        clearInjector()</b>
+<b class="fc"><i>79</i>&nbsp;        setupAllowedToOverrideCachedInjectorOnce = false</b>
+<i>80</i>&nbsp;      }
+<i>81</i>&nbsp;
+<b class="fc"><i>82</i>&nbsp;    assert injector == null</b>
+<b class="fc"><i>83</i>&nbsp;    assert !setupAllowedToBeIgnoredOnce</b>
+<i>84</i>&nbsp;
+<b class="fc"><i>85</i>&nbsp;    def mergedArgs = mergeAddedArgs(args)</b>
+<b class="fc"><i>86</i>&nbsp;    addedArgs.clear()</b>
+<b class="fc"><i>87</i>&nbsp;    def configs = Configurator.configure(mergedArgs)</b>
+<b class="fc"><i>88</i>&nbsp;    injector = createInjector(configs, bindingOverrides)</b>
+<i>89</i>&nbsp;  }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;  @Override
+<i>93</i>&nbsp;  void allowOnceToIgnoreSetup()
+<i>94</i>&nbsp;  {
+<b class="fc"><i>95</i>&nbsp;    this.setupAllowedToBeIgnoredOnce = true</b>
+<i>96</i>&nbsp;  }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;  @Override
+<i>99</i>&nbsp;  void allowOnceToOverrideCachedInjectorWithSetup()
+<i>100</i>&nbsp;  {
+<b class="fc"><i>101</i>&nbsp;    this.setupAllowedToOverrideCachedInjectorOnce = true</b>
+<i>102</i>&nbsp;  }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;  String[] mergeAddedArgs(String[] args) {
+<i>105</i>&nbsp;
+<b class="fc"><i>106</i>&nbsp;    assert (args as List).disjoint(addedArgs)</b>
+<b class="fc"><i>107</i>&nbsp;    return ((args as List) + (addedArgs as List))</b>
+<i>108</i>&nbsp;  }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;  @Override
+<i>111</i>&nbsp;  void addArgs(String[] args)
+<i>112</i>&nbsp;  {
+<b class="fc"><i>113</i>&nbsp;    addedArgs += args as List</b>
+<b class="fc"><i>114</i>&nbsp;    clearInjector()</b>
+<i>115</i>&nbsp;  }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;  @Override
+<i>118</i>&nbsp;  Reader getUserInputReader()
+<i>119</i>&nbsp;  {
+<b class="fc"><i>120</i>&nbsp;    assertIsSetupAndHasNoAddedArgs()</b>
+<i>121</i>&nbsp;
+<b class="fc"><i>122</i>&nbsp;    return injector.getInstance(Key.get(Reader, UserInputReader)) as Reader</b>
+<i>123</i>&nbsp;  }
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;  @Override
+<i>127</i>&nbsp;  PrintWriter getProgramOutputWriter()
+<i>128</i>&nbsp;  {
+<b class="fc"><i>129</i>&nbsp;    assertIsSetupAndHasNoAddedArgs()</b>
+<i>130</i>&nbsp;
+<b class="fc"><i>131</i>&nbsp;    return injector.getInstance(Key.get(PrintWriter, ProgramOutputPrintWriter)) as PrintWriter</b>
+<i>132</i>&nbsp;  }
+<i>133</i>&nbsp;
+<i>134</i>&nbsp;  @Override
+<i>135</i>&nbsp;  void clearInjector()
+<i>136</i>&nbsp;  {
+<b class="fc"><i>137</i>&nbsp;    injector = null</b>
+<i>138</i>&nbsp;  }
+<i>139</i>&nbsp;
+<i>140</i>&nbsp;  protected void assertIsSetupAndHasNoAddedArgs()
+<i>141</i>&nbsp;  {
+<b class="fc"><i>142</i>&nbsp;    assert isSetup(): &quot;The ${DependencyInjectionContainer.simpleName} is not setup. &quot; +</b>
+<i>143</i>&nbsp;      &quot;You can set it up by calling the setup() method&quot;
+<i>144</i>&nbsp;
+<b class="fc"><i>145</i>&nbsp;    assert addedArgs.isEmpty()</b>
+<i>146</i>&nbsp;  }
+<i>147</i>&nbsp;
+<i>148</i>&nbsp;  private boolean isSetup()
+<i>149</i>&nbsp;  {
+<b class="fc"><i>150</i>&nbsp;    return injector != null</b>
+<i>151</i>&nbsp;  }
+<i>152</i>&nbsp;
+<i>153</i>&nbsp;  protected static getInstance(Class targetClass, Injector injector)
+<i>154</i>&nbsp;  {
+<b class="fc"><i>155</i>&nbsp;    def targetClassInstance</b>
+<i>156</i>&nbsp;    try
+<i>157</i>&nbsp;    {
+<b class="fc"><i>158</i>&nbsp;      targetClassInstance = injector.getInstance(targetClass)</b>
+<i>159</i>&nbsp;    } catch (ProvisionException | ConfigurationException e)
+<i>160</i>&nbsp;    {
+<b class="nc"><i>161</i>&nbsp;      throw new DroidmateException(&quot;Google Guice dependency injection container failed while resolving instance of &quot;</b>
+<i>162</i>&nbsp;        + targetClass.simpleName, e)
+<i>163</i>&nbsp;    }
+<i>164</i>&nbsp;
+<i>165</i>&nbsp;    // doc-assert: Assert.noHelpWasDisplayed(droidmate.config)
+<b class="fc"><i>166</i>&nbsp;    return targetClassInstance</b>
+<i>167</i>&nbsp;  }
+<i>168</i>&nbsp;
+<i>169</i>&nbsp;  protected static Injector createInjector(List&lt;IConfiguration&gt; configs, Map&lt;Class, Class&gt; bindingOverrides = [:])
+<i>170</i>&nbsp;  {
+<b class="fc"><i>171</i>&nbsp;    validateConfigsAndBindingOverrides(configs, bindingOverrides)</b>
+<i>172</i>&nbsp;
+<b class="fc"><i>173</i>&nbsp;    List&lt;AbstractDroidmateGuiceModule&gt; modules = configureGuiceModules(configs, bindingOverrides)</b>
+<i>174</i>&nbsp;
+<b class="fc"><i>175</i>&nbsp;    Injector injector = getInjector(modules, bindingOverrides)</b>
+<i>176</i>&nbsp;
+<b class="fc"><i>177</i>&nbsp;    assert injector != null</b>
+<b class="fc"><i>178</i>&nbsp;    return injector</b>
+<i>179</i>&nbsp;  }
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;  protected static void validateConfigsAndBindingOverrides(
+<i>182</i>&nbsp;    List&lt;IConfiguration&gt; configs,
+<i>183</i>&nbsp;    Map&lt;Class, Class&gt; bindingOverrides = [:])
+<i>184</i>&nbsp;  {
+<b class="fc"><i>185</i>&nbsp;    assert configs?.size() &gt;= 1</b>
+<b class="fc"><i>186</i>&nbsp;    assert configs[0] instanceof Configuration</b>
+<b class="fc"><i>187</i>&nbsp;    assert bindingOverrides != null</b>
+<i>188</i>&nbsp;  }
+<i>189</i>&nbsp;
+<i>190</i>&nbsp;  protected static List&lt;AbstractDroidmateGuiceModule&gt; configureGuiceModules(List&lt;IConfiguration&gt; configs, Map&lt;Class, Class&gt; bindingOverrides)
+<i>191</i>&nbsp;  {
+<b class="fc"><i>192</i>&nbsp;    validateConfigsAndBindingOverrides(configs, bindingOverrides)</b>
+<i>193</i>&nbsp;
+<b class="fc"><i>194</i>&nbsp;    Configuration config = configs[0] as Configuration</b>
+<i>195</i>&nbsp;
+<b class="fc"><i>196</i>&nbsp;    if (config.withRobot)</b>
+<i>197</i>&nbsp;    {
+<b class="fc"><i>198</i>&nbsp;      assert configs.size() &gt;= 2</b>
+<b class="fc"><i>199</i>&nbsp;      assert configs[1] instanceof RobotConfiguration</b>
+<i>200</i>&nbsp;
+<b class="fc"><i>201</i>&nbsp;      RobotConfiguration robotConfig = configs[1] as RobotConfiguration</b>
+<i>202</i>&nbsp;
+<b class="fc"><i>203</i>&nbsp;      bindingOverrides.spread()</b>
+<b class="fc"><i>204</i>&nbsp;      if (!bindingOverrides.containsKey(IAndroidDeviceDeployer))</b>
+<b class="fc"><i>205</i>&nbsp;        bindingOverrides &lt;&lt; [(IAndroidDeviceDeployer): AndroidDeviceWithRobotDeployer]</b>
+<i>206</i>&nbsp;
+<b class="fc"><i>207</i>&nbsp;      if (!bindingOverrides.containsKey(IAndroidDevice))</b>
+<b class="fc"><i>208</i>&nbsp;        bindingOverrides &lt;&lt; [(IAndroidDevice): AndroidDeviceWithRobot]</b>
+<i>209</i>&nbsp;
+<b class="fc"><i>210</i>&nbsp;      def droidmateGuiceModule = new DroidmateGuiceModule(config, bindingOverrides)</b>
+<b class="fc"><i>211</i>&nbsp;      def robotGuiceModule = new RobotGuiceModule(robotConfig, bindingOverrides)</b>
+<b class="fc"><i>212</i>&nbsp;      return [droidmateGuiceModule, robotGuiceModule]</b>
+<i>213</i>&nbsp;
+<i>214</i>&nbsp;    } else
+<i>215</i>&nbsp;    {
+<b class="fc"><i>216</i>&nbsp;      def droidmateGuiceModule = new DroidmateGuiceModule(config, bindingOverrides)</b>
+<b class="fc"><i>217</i>&nbsp;      return [droidmateGuiceModule]</b>
+<i>218</i>&nbsp;    }
+<i>219</i>&nbsp;  }
+<i>220</i>&nbsp;
+<i>221</i>&nbsp;  protected static Injector getInjector(List&lt;AbstractDroidmateGuiceModule&gt; modules, Map&lt;Class, Class&gt; bindingOverrides)
+<i>222</i>&nbsp;  {
+<b class="fc"><i>223</i>&nbsp;    Injector injector</b>
+<i>224</i>&nbsp;    try
+<i>225</i>&nbsp;    {
+<b class="fc"><i>226</i>&nbsp;      injector = Guice.createInjector(modules)</b>
+<i>227</i>&nbsp;    } catch (CreationException e)
+<i>228</i>&nbsp;    {
+<b class="nc"><i>229</i>&nbsp;      throw new DroidmateException(&quot;Google Guice dependency injection container failed while creating injector &quot; +</b>
+<b class="nc"><i>230</i>&nbsp;        &quot;using following modules: &quot; + modules*.class.simpleName.join(&quot;\n&quot;), e)</b>
+<i>231</i>&nbsp;    }
+<i>232</i>&nbsp;
+<b class="fc"><i>233</i>&nbsp;    assert modules.inject(0, { int sum, def module -&gt; sum + module.appliedBindingOverrides.size() }) == bindingOverrides.size() : &quot;Some of the binding overrides haven&#39;t been applied. Possible cause: the Module configuration doesn&#39;t allow for overriding the missing bindings.&quot;</b>
+<i>234</i>&nbsp;
+<b class="fc"><i>235</i>&nbsp;    return injector</b>
+<i>236</i>&nbsp;  }
+<i>237</i>&nbsp;
+<i>238</i>&nbsp;
+<i>239</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

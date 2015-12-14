@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExplorationDriver</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExplorationDriver (org.droidmate.exploration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExplorationDriver</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.1%
+  </span>
+  <span class="absValue">
+    (16/ 17)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExplorationDriver$$FastClassByGuice$$fb839249</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.1%
+  </span>
+  <span class="absValue">
+    (16/ 17)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.assistedinject.Assisted
+<i>15</i>&nbsp;import groovy.transform.TypeChecked
+<i>16</i>&nbsp;import org.droidmate.exploration.abstractgui.GuiTransition
+<i>17</i>&nbsp;import org.droidmate.exploration.abstractgui.IExplorationStrategy
+<i>18</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>19</i>&nbsp;import org.droidmate.utils.Apk
+<i>20</i>&nbsp;import org.slf4j.Logger
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;@TypeChecked
+<i>23</i>&nbsp;public class ExplorationDriver implements IExplorationDriver
+<i>24</i>&nbsp;{
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  // MBStr implement detector of widgets that are &quot;clickable&quot; but are not in UiautomatorWindowDump.supportedWidgetClasses
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  /* MBStr implement the &quot;Exploration strategies to implement&quot;
+<i>29</i>&nbsp;     Implement Exploration Strategies incrementally, each one tested and more advanced than the previous one:
+<i>30</i>&nbsp;     [Start / 02.01.14]
+<i>31</i>&nbsp;     [DONE 05.01.14] Click randomly on button elements,
+<i>32</i>&nbsp;     [DONE 07.01.14] Handle &quot;nothing to click&quot; situation by terminating exploration;
+<i>33</i>&nbsp;     [DONE 09.01.14] Handle crashes (&quot;app has stopped&quot;) by disbanding the dialog and restarting the app if needed;
+<i>34</i>&nbsp;     [DONE 10.01.14] Handle going out-of-scope (e.g. firing up browser) by clicking back button;
+<i>35</i>&nbsp;     [DONE 13.01.14] Click in a sequence on button elements, never twice; terminate on no clickable widgets;
+<i>36</i>&nbsp;     [DONE 14.01.14] Add handling of other element types than button;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;     [DONE 21.01.14] Recognize different gui states (activities / GUI screens) and click on all supported widgets in each
+<i>39</i>&nbsp;     state. Assume the yet-unexplored widgets are always available for transition.
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;     [DONE 23.01.14] Transitioning through back button to previous activity.
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;     [DONE 23.01.14] Transitioning through back button click when the app went out of scope
+<i>44</i>&nbsp;     (e.g. displayed google play store);
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;     [DONE 23.01.14] Transitioning through app restart (e.g. after crash) by sending appropriate intent;
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;     [DONE 24.01.14] Enable transitioning to widget on a nonactive GUI state.
+<i>49</i>&nbsp;     The transitioning should happen through widgets.
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;     [DONE 24.01.14] Enable transitioning to widget on a nonactive GUI state.
+<i>52</i>&nbsp;     The transitioning should happen through &quot;back&quot; button.
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;     [DONE 24.01.14] Handle multiple failed attempts of returning to the app by abandoning exploration
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;     [DONE 26.01.14] Enable transitioning to widget on a nonactive GUI state through shortest path.
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;     [DONE 27.01.14] Transitioning to current activity from previous, reached after app crash.
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;     [DONE 27.01.14] Handle unexpected state encounter when transitioning to widget on a different GUI state.
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;     [DONE 27.01.14] Enforce in ExplorationDriver the exploration bound of max number of GUI transitions.
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;     [TO-DO] Implement android device simulator and do all-encompassing test of the exploration strategy
+<i>65</i>&nbsp;       [TO-DO] Test case: test the exploration strategy on the window dumps from test subject app activities.
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  */
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;  private final Apk exploredApk
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;  private final IExplorationStrategy strategy
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;  @InjectLogger
+<i>74</i>&nbsp;  private static Logger log;
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;  @Inject
+<i>77</i>&nbsp;  ExplorationDriver(@Assisted Apk exploredApk, IExplorationStrategy strategy)
+<i>78</i>&nbsp;  {
+<b class="fc"><i>79</i>&nbsp;    this.exploredApk = exploredApk</b>
+<b class="fc"><i>80</i>&nbsp;    this.strategy = strategy</b>
+<b class="fc"><i>81</i>&nbsp;    this.strategy.resetForNewApp()</b>
+<i>82</i>&nbsp;  }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;  @Override
+<i>86</i>&nbsp;  ExplorationAction compute(IDeviceGuiSnapshot guiSnapshot)
+<i>87</i>&nbsp;  {
+<b class="fc"><i>88</i>&nbsp;    assert guiSnapshot != null</b>
+<b class="fc"><i>89</i>&nbsp;    GuiTransition guiTransition = strategy.provideTransition(guiSnapshot.guiState)</b>
+<b class="fc"><i>90</i>&nbsp;    log.debug(&quot;Obtained GuiTransition from IExplorationStrategy: $guiTransition&quot;)</b>
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;    ExplorationAction explorationAction = null</b>
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    /*
+<i>95</i>&nbsp;      Design alternative 14.01.14:
+<i>96</i>&nbsp;      The large if-else-if could be handled by inheritance on GuiTransition (e.g. ClickBackGuiTransition) and dynamic dispatch by
+<i>97</i>&nbsp;      GuiTransition subclass for call: ExplorationDriver.toExplorationAction(GuiTransition)
+<i>98</i>&nbsp;    */
+<i>99</i>&nbsp;
+<b class="fc"><i>100</i>&nbsp;    if (guiTransition.isWidgetTransition())</b>
+<b class="fc"><i>101</i>&nbsp;      explorationAction = new GuiExplorationAction(guiSnapshot.toGuiAction(guiTransition))</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;    else if (guiTransition.isClickBackTransition())</b>
+<b class="fc"><i>104</i>&nbsp;      explorationAction = GuiExplorationAction.createClickBackGuiExplorationAction()</b>
+<i>105</i>&nbsp;
+<b class="fc"><i>106</i>&nbsp;    else if (guiTransition.isLaunchMainActivityTransition())</b>
+<b class="fc"><i>107</i>&nbsp;      explorationAction = ExplorationAction.createLaunchMainActivityAction(exploredApk.launchableActivityComponentName)</b>
+<i>108</i>&nbsp;
+<b class="fc"><i>109</i>&nbsp;    else if (guiTransition.isNoneTransition())</b>
+<b class="fc"><i>110</i>&nbsp;      explorationAction = ExplorationAction.createTerminateAction()</b>
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;    else
+<b class="nc"><i>113</i>&nbsp;      assert false: &quot;Unsupported ${GuiTransition.simpleName} transitionCommand. The command: ${guiTransition.transitionCommand}&quot;</b>
+<i>114</i>&nbsp;
+<b class="fc"><i>115</i>&nbsp;    return explorationAction</b>
+<i>116</i>&nbsp;  }
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

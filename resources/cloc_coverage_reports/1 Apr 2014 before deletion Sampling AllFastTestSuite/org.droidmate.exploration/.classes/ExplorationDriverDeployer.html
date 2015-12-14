@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExplorationDriverDeployer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExplorationDriverDeployer (org.droidmate.exploration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExplorationDriverDeployer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExplorationDriverDeployer$$FastClassByGuice$$533f7d3d</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.transform.TypeChecked
+<i>16</i>&nbsp;import org.droidmate.common.DeviceResponse
+<i>17</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>18</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>19</i>&nbsp;import org.droidmate.utils.Apk
+<i>20</i>&nbsp;import org.droidmate.utils.Assert
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;import org.slf4j.Logger
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;@Singleton
+<i>25</i>&nbsp;@TypeChecked
+<i>26</i>&nbsp;public class ExplorationDriverDeployer implements IExplorationDriverDeployer
+<i>27</i>&nbsp;{
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  private final Configuration             config
+<i>30</i>&nbsp;  private final IExplorationDriverFactory driverFactory
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  @InjectLogger
+<i>33</i>&nbsp;  private static Logger log;
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;  @Inject
+<i>36</i>&nbsp;  ExplorationDriverDeployer(Configuration config, IExplorationDriverFactory driverFactory)
+<i>37</i>&nbsp;  {
+<b class="fc"><i>38</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>39</i>&nbsp;    this.driverFactory = driverFactory</b>
+<i>40</i>&nbsp;  }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  @Override
+<i>43</i>&nbsp;  void with(Apk exploredApk, IDeviceGuiSnapshot initialGuiSnapshot, Closure computationWithExplorationDriver)
+<i>44</i>&nbsp;  {
+<b class="fc"><i>45</i>&nbsp;    assert exploredApk?.file</b>
+<b class="fc"><i>46</i>&nbsp;    assert initialGuiSnapshot != null</b>
+<b class="fc"><i>47</i>&nbsp;    Assert.checkClosureFirstParameterSignature(computationWithExplorationDriver, IExplorationDriver)</b>
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;    final driver = driverFactory.create(exploredApk, initialGuiSnapshot)</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    // WISH handle here possibility of interactive exploration by decorating like so:
+<i>52</i>&nbsp;    /*
+<i>53</i>&nbsp;    final driver2 = [ compute: {DeviceResponse resp -&gt;
+<i>54</i>&nbsp;      println &quot;handle the interactivity &gt;here&lt; (that is, where the println instruction is)&quot;; return driver.compute(resp)}
+<i>55</i>&nbsp;    ] as IExplorationDriver
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    // WISH merge two existing cmd line params for the interactivity into one
+<i>58</i>&nbsp;
+<b class="fc"><i>59</i>&nbsp;    computationWithExplorationDriver(driver)</b>
+<i>60</i>&nbsp;    // WISH and what if the call above throws an Exception? Probably we can ignore that as we do right now.
+<i>61</i>&nbsp;    // If needed, here the driver wrapUp should happen.
+<i>62</i>&nbsp;  }
+<i>63</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

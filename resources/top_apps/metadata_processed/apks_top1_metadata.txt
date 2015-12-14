@@ -1,0 +1,28 @@
+# minDate: 2014-01-22 (inferred from apk metadata) 
+# maxDate: 2015-05-26 (inferred from apk metadata) 
+Books & Reference       |     Top Free | 1 | 2014-07-09 | /jacobs/APKs/an/anim/animaonl/animaonline.android.wikiexplorer/1.5.5/animaonline.android.wikiexplorer.apk                          
+Business                |     Top Free | 1 | 2015-02-25 | /jacobs/APKs/co/com./com.infr/com.infraware.office.link/6.0.9/com.infraware.office.link.apk                                        
+Comics                  |     Top Free | 1 | 2014-02-02 | /jacobs/APKs/ar/arli/arlind.S/arlind.Shqip/2.0/arlind.Shqip.apk                                                                    
+Communication           |     Top Free | 1 | 2014-03-19 | /jacobs/APKs/co/com./com.skyp/com.skype.raider/4.7.0.43514/com.skype.raider.apk                                                    
+Education               |     Top Free | 1 | 2014-08-21 | /jacobs/APKs/co/com./com.duol/com.duolingo/2.7.2/com.duolingo.apk                                                                  
+Entertainment           |     Top Free | 1 | 2014-02-24 | /jacobs/APKs/co/com./com.outf/com.outfit7.talkingangelafree/2.2/com.outfit7.talkingangelafree.apk                                  
+Finance                 |     Top Free | 1 | 2015-03-10 | /jacobs/APKs/co/com./com.payp/com.paypal.android.p2pmobile/5.11.3/com.paypal.android.p2pmobile.apk                                 
+Health & Fitness        |     Top Free | 1 | 2014-08-22 | /jacobs/APKs/co/com./com.cayn/com.caynax.a6w/8.1/com.caynax.a6w.apk                                                                
+Libraries & Demo        |     Top Free | 1 | 2014-09-11 | /jacobs/APKs/ch/ch.t/ch.three/ch.threema.qrscannerplugin/1.1/ch.threema.qrscannerplugin.apk                                        
+Lifestyle               |     Top Free | 1 | 2014-08-19 | /jacobs/APKs/co/com./com.ebay/com.ebay.kleinanzeigen/5.0.3/com.ebay.kleinanzeigen.apk                                              
+Live Wallpaper          |     Top Free | 1 | 2014-10-15 | /jacobs/APKs/co/com./com.pics/com.picsart.studio/4.6.12/com.picsart.studio.apk                                                     
+Media & Video           |     Top Free | 1 | 2014-02-18 | /jacobs/APKs/co/com./com.zatt/com.zattoo.player/1.4.3/com.zattoo.player.apk                                                        
+Medical                 |     Top Free | 1 | 2014-08-16 | /jacobs/APKs/co/com./com.bavi/com.baviux.pillreminder/2.1.2/com.baviux.pillreminder.apk                                            
+Music & Audio           |     Top Free | 1 | 2014-09-04 | /jacobs/APKs/co/com./com.spot/com.spotify.music/1.4.0.631/com.spotify.music.apk                                                    
+News & Magazines        |     Top Free | 1 | 2014-07-03 | /jacobs/APKs/co/com./com.ng.d/com.ng.dailynews/1.13/com.ng.dailynews.apk                                                           
+Personalization         |     Top Free | 1 | 2015-05-09 | /jacobs/APKs/ne/net./net.zedg/net.zedge.android/4.10.2/net.zedge.android.apk                                                       
+Photography             |     Top Free | 1 | 2014-08-02 | /jacobs/APKs/co/com./com.alma/com.almalence.opencam/3.24/com.almalence.opencam.apk                                                 
+Productivity            |     Top Free | 1 | 2014-08-30 | /jacobs/APKs/co/com./com.adob/com.adobe.reader/11.5.0.1/com.adobe.reader.apk                                                       
+Shopping                |     Top Free | 1 | 2014-11-20 | /jacobs/APKs/co/com./com.ebay/com.ebay.mobile/2.8.2.1/com.ebay.mobile.apk                                                          
+Social                  |     Top Free | 1 | 2015-03-06 | /jacobs/APKs/co/com./com.face/com.facebook.katana/28.0.0.20.16/com.facebook.katana.apk                                             
+Sports                  |     Top Free | 1 | 2014-03-14 | /jacobs/APKs/co/com./com.frog/com.frogsparks.mytrails/1.4.5/com.frogsparks.mytrails.apk                                            
+Tools                   |     Top Free | 1 | 2014-08-02 | /jacobs/APKs/co/com./com.goog/com.google.android.apps.translate/3.0.10/com.google.android.apps.translate.apk                       
+Transportation          |     Top Free | 1 | 2015-04-17 | /jacobs/APKs/de/de.h/de.hafas/de.hafas.android.db/15.04.p06.00/de.hafas.android.db.apk                                             
+Travel & Local          |     Top Free | 1 | 2014-08-02 | /jacobs/APKs/co/com./com.goog/com.google.earth/7.1.3.1255/com.google.earth.apk                                                     
+Weather                 |     Top Free | 1 | 2015-05-22 | /jacobs/APKs/co/com./com.wett/com.wetter.androidclient/2.3.1/com.wetter.androidclient.apk                                          
+Widgets                 |     Top Free | 1 | 2014-08-30 | /jacobs/APKs/co/com./com.face/com.facebook.katana/16.0.0.20.15/com.facebook.katana.apk                                             

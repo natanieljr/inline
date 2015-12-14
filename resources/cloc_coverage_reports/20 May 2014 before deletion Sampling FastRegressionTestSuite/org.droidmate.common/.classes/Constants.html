@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Constants</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.common</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Constants (org.droidmate.common)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Constants</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.common;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;/** Holds constants used by at least two of projects composing DroidMate. The projects are: aut-addon,
+<i>14</i>&nbsp; * uiautomator-daemon and DroidMate itself.
+<i>15</i>&nbsp; */
+<b class="nc"><i>16</i>&nbsp;public class Constants</b>
+<i>17</i>&nbsp;{
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;  // Why this is constant and not a cmd line parameter? See comment in Configuration class.
+<i>20</i>&nbsp;  public static final int AUTADDON_SERVER_PORT  = 59777;
+<i>21</i>&nbsp;  public static final int UIADAEMON_SERVER_PORT = 59778;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  public static final String AUTADDON_SERVER_START_TAG = &quot;autaddon_server_start_tag&quot;;
+<i>24</i>&nbsp;  public static final String AUTADDON_SERVER_START_MSG = &quot;AutAddon server started successfully&quot;;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  public static final String UIADAEMON_SERVER_START_TAG = &quot;uiautomator-daemon_server_start_tag&quot;;
+<i>27</i>&nbsp;  public static final String UIADAEMON_SERVER_START_MSG = &quot;UiAutomator Daemon server started successfully&quot;;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  // WISH instead of just msg, a new exception type should be defined for such situation. This should be RUNTIME
+<i>30</i>&nbsp;  // (undeclared in source) exception type.
+<i>31</i>&nbsp;  public static final String EXCEPTION_MSG_MISSING_ASSERTION = &quot;This exception should never be possible to reach, &quot; +
+<i>32</i>&nbsp;    &quot;because it should have been prevented by appropriate assertion checks. If the exception was thrown, &quot; +
+<i>33</i>&nbsp;    &quot;please inform the code maintenance team about it. You are awesome!&quot;;
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;  // WISH this should be in Assert class (with static methods only) but I am not sure if I won&#39;t need it on the A(V)Ds
+<i>36</i>&nbsp;  public static final String ASSERTION_MSG_MISSING_ASSERTION = &quot;This assertion should never be possible to reach, &quot; +
+<i>37</i>&nbsp;    &quot;because it should have been prevented by appropriate assertion checks before it. If the exception was thrown, &quot; +
+<i>38</i>&nbsp;    &quot;please inform the code maintenance team about it. You are awesome!&quot;;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  // WISH these constants should live in DeviceCommand class
+<i>41</i>&nbsp;  public static final String DEVICE_COMMAND_LIST_ACTIVITIES_COMPONENT_NAMES       = &quot;list_activities_component_names&quot;;
+<i>42</i>&nbsp;  public static final String DEVICE_COMMAND_GET_UIAUTOMATOR_WINDOW_HIERARCHY_DUMP = &quot;get_uiautomator_window_hierarchy_dump&quot;;
+<i>43</i>&nbsp;  public static final String DEVICE_COMMAND_GET_COVERAGE                          = &quot;get_coverage&quot;;
+<i>44</i>&nbsp;  public static final String DEVICE_COMMAND_GET_IS_ORIENTATION_LANDSCAPE          = &quot;get_is_orientation_landscape&quot;;
+<i>45</i>&nbsp;  public static final String DEVICE_COMMAND_PERFORM_ACTION                        = &quot;perform_action&quot;;
+<i>46</i>&nbsp;  public static final String DEVICE_COMMAND_STOP_AUTADDON                         = &quot;stop_aut_addon&quot;;
+<i>47</i>&nbsp;  public static final String DEVICE_COMMAND_STOP_UIADAEMON                        = &quot;stop_uiadaemon&quot;;
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  public static final String ANDROID_MENU_PACKAGE_NAME  = &quot;com.android.launcher&quot;;
+<i>51</i>&nbsp;  public static final String ANDROID_MENU_ACTIVITY_NAME = &quot;Home&quot;;
+<i>52</i>&nbsp;  /**
+<i>53</i>&nbsp;   * Method name to be called when initializing {@code UiAutomatorDaemon} through adb.&lt;br/&gt;
+<i>54</i>&nbsp;   * &lt;br/&gt;
+<i>55</i>&nbsp;   * Name format according to help obtained by issuing {@code adb shell uiautomator runtest} in terminal.
+<i>56</i>&nbsp;   */
+<i>57</i>&nbsp;  public static final String UIADAEMON_INIT_METHOD_NAME = &quot;org.droidmate.uiautomatordaemon.UiAutomatorDaemon#init&quot;;
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  // WISH there should be a dedicated enum named GuiActionCommand.
+<i>60</i>&nbsp;  // WISH this should live on GuiAction class
+<i>61</i>&nbsp;  public static final String GUI_ACTION_COMMAND_CLICK_BACK = &quot;click_back&quot;;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  public static final String UIADAEMON_PARAM_WAIT_FOR_IDLE = &quot;wait_for_idle&quot;;
+<i>64</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

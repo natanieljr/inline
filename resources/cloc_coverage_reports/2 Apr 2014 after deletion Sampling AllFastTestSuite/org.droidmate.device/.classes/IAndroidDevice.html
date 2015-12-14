@@ -1,0 +1,165 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IAndroidDevice</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.device</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IAndroidDevice (org.droidmate.device)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IAndroidDevice$clearLogcat$11</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$clearLogcat$16</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$forwardPort$4</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$getCoverageLogs$0</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$getGuiSnapshot</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$getGuiSnapshot$19</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$installApk$13</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$installApk$18</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$performActionOnDevice$1</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$performActionOnDevice$7</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$pushJar$5</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$removeJar$10</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$startMainActivity$14</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$startMainActivity$8</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$startUiaDaemon$6</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$stopAutAddonServer$2</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$stopUiaDaemon$3</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$stopUiaDaemon$9</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$uninstallApk$12</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$uninstallApk$17</td>
+  </tr>
+  <tr>
+    <td class="name">IAndroidDevice$waitForAutAddonServerResponse$15</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.device
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.common.DeviceResponse
+<i>14</i>&nbsp;import org.droidmate.common.guimodel.GuiAction
+<i>15</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>16</i>&nbsp;import org.droidmate.exploration.ExplorationAction
+<i>17</i>&nbsp;import org.droidmate.exploration.IDeviceGuiSnapshot
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;/**
+<i>20</i>&nbsp; * @see org.droidmate.device.AndroidDevice
+<i>21</i>&nbsp; */
+<i>22</i>&nbsp;public interface IAndroidDevice
+<i>23</i>&nbsp;{
+<i>24</i>&nbsp;  IDeviceGuiSnapshot getGuiSnapshot() throws DroidmateException
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  DeviceResponse performActionOnDevice(ExplorationAction explorationAction) throws DroidmateException
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  DeviceResponse listActivitiesComponentNames() throws DroidmateException
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  List&lt;String&gt; getCoverageLogs()
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  void forwardPort(int port) throws DroidmateException
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  void pushJar(File jar) throws DroidmateException
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  void removeJar(File jar) throws DroidmateException
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;  void installApk(File apk) throws DroidmateException
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  void uninstallApk(String apkPackageName, boolean warnAboutFailure) throws DroidmateException
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  void startMainActivity(String launchableActivityName) throws DroidmateException
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;  void clearLogcat() throws DroidmateException
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;  void waitForAutAddonServerResponse() throws DroidmateException
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;  void stopAutAddonServer() throws DroidmateException
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;  void startUiaDaemon() throws DroidmateException
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;  void stopUiaDaemon() throws DroidmateException
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;  void runUiautomatorTests(String uiautomatorJarsPaths, String uiautomatorMethodOrClassName) throws DroidmateException
+<i>55</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

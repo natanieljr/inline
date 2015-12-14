@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ApkInstrumenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.instrumentation</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ApkInstrumenter (org.droidmate.instrumentation)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApkInstrumenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.5%
+  </span>
+  <span class="absValue">
+    (21/ 22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ApkInstrumenter$$FastClassByGuice$$bd956b79</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.5%
+  </span>
+  <span class="absValue">
+    (21/ 22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.instrumentation
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.transform.TypeChecked
+<i>16</i>&nbsp;import org.droidmate.filesystem.IApkContextFilesProvider
+<i>17</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>18</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>19</i>&nbsp;import org.droidmate.exceptions.InstrumentationException
+<i>20</i>&nbsp;import org.droidmate.frontend.inject.IApkFactory
+<i>21</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>22</i>&nbsp;import org.droidmate.utils.Apk
+<i>23</i>&nbsp;import org.droidmate.utils.IApkToolWrapper
+<i>24</i>&nbsp;import org.droidmate.utils.IJarsignerWrapper
+<i>25</i>&nbsp;import org.droidmate.utils.IZipalignWrapper
+<i>26</i>&nbsp;import org.slf4j.Logger
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;/**
+<i>29</i>&nbsp; * @see ApkInstrumenter#instrumentOrRetrieveApk(org.droidmate.utils.Apk)
+<i>30</i>&nbsp; */
+<i>31</i>&nbsp;@Singleton
+<i>32</i>&nbsp;@TypeChecked
+<i>33</i>&nbsp;public class ApkInstrumenter implements IApkInstrumenter
+<i>34</i>&nbsp;{
+<i>35</i>&nbsp;  private Configuration config;
+<i>36</i>&nbsp;  private IApkContextFilesProvider apkArtifactsProvider;
+<i>37</i>&nbsp;  private IBytecodeInstrumenter bytecodeInstrumenter;
+<i>38</i>&nbsp;  private IManifestInstrumenter manifestInstrumenter;
+<i>39</i>&nbsp;  private IApkToolWrapper apkToolWrapper;
+<i>40</i>&nbsp;  private IJarsignerWrapper jarsignerWrapper;
+<i>41</i>&nbsp;  private IZipalignWrapper zipalignWrapper;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;  @InjectLogger
+<i>44</i>&nbsp;  private static Logger log;
+<i>45</i>&nbsp;  private final IApkFactory apkFactory
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  @Inject
+<i>48</i>&nbsp;  ApkInstrumenter(Configuration config, IApkContextFilesProvider apkArtifactsProvider,
+<i>49</i>&nbsp;                  IBytecodeInstrumenter bytecodeInstrumenter,
+<i>50</i>&nbsp;                  IManifestInstrumenter manifestInstrumenter,
+<i>51</i>&nbsp;                  IApkToolWrapper apkToolProxy,
+<i>52</i>&nbsp;                  IJarsignerWrapper jarsignerProxy,
+<i>53</i>&nbsp;                  IZipalignWrapper zipalignWrapper,
+<i>54</i>&nbsp;                  IApkFactory apkFactory)
+<i>55</i>&nbsp;  {
+<b class="fc"><i>56</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>57</i>&nbsp;    this.apkArtifactsProvider = apkArtifactsProvider;</b>
+<b class="fc"><i>58</i>&nbsp;    this.bytecodeInstrumenter = bytecodeInstrumenter;</b>
+<b class="fc"><i>59</i>&nbsp;    this.manifestInstrumenter = manifestInstrumenter;</b>
+<b class="fc"><i>60</i>&nbsp;    this.apkToolWrapper = apkToolProxy;</b>
+<b class="fc"><i>61</i>&nbsp;    this.jarsignerWrapper = jarsignerProxy;</b>
+<b class="fc"><i>62</i>&nbsp;    this.zipalignWrapper = zipalignWrapper;</b>
+<b class="fc"><i>63</i>&nbsp;    this.apkFactory = apkFactory</b>
+<i>64</i>&nbsp;  }
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;  /**
+<i>67</i>&nbsp;   * &lt;p&gt;
+<i>68</i>&nbsp;   * Instruments the {@code apk}. For DroidMate to do its magic on the {@code apk}, it has to modify its dalvik bytecode
+<i>69</i>&nbsp;   * and manifest file. To further this end, the method orchestrates following actions:
+<i>70</i>&nbsp;   *
+<i>71</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>72</i>&nbsp;   * - the apk is decoded (unpacked) using {@link #apkToolWrapper};&lt;br/&gt;
+<i>73</i>&nbsp;   * - the bytecode of the apk is instrumented using {@link #bytecodeInstrumenter};&lt;br/&gt;
+<i>74</i>&nbsp;   * - the manifest of the apk is instrumented using {@link #manifestInstrumenter};&lt;br/&gt;
+<i>75</i>&nbsp;   * - the apk is rebuilt with {@link #apkToolWrapper};&lt;br/&gt;
+<i>76</i>&nbsp;   * - then it is signed with debug key using {@link #jarsignerWrapper};&lt;br/&gt;
+<i>77</i>&nbsp;   * - then it is zipaligned using {@link #zipalignWrapper} and returned.&lt;br/&gt;
+<i>78</i>&nbsp;   *
+<i>79</i>&nbsp;   * &lt;/p&gt;
+<i>80</i>&nbsp;   *
+<i>81</i>&nbsp;   * As of 01 Dec &#39;13 the instrumentation is only partially implemented.
+<i>82</i>&nbsp;   *
+<i>83</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>84</i>&nbsp;   * &lt;i&gt;This doc was last reviewed on 01 Dec &#39;13.&lt;/i&gt;
+<i>85</i>&nbsp;   * &lt;/p&gt;
+<i>86</i>&nbsp;   */
+<i>87</i>&nbsp;  // WISH this method should be only callable from withing the Apk class, as it modifies its files state and
+<i>88</i>&nbsp;  // the apk.decodedApkFileStructure should be accessible only internally.
+<i>89</i>&nbsp;  @Override
+<i>90</i>&nbsp;  public void instrumentApk(Apk apk) throws InstrumentationException
+<i>91</i>&nbsp;  {
+<b class="fc"><i>92</i>&nbsp;    log.info(&quot;Instrumenting {}&quot;, apk.getName());</b>
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;    assert apk?.isFile();</b>
+<b class="fc"><i>95</i>&nbsp;    assert !apk.isInstrumented</b>
+<b class="fc"><i>96</i>&nbsp;    assert !apk.instrumentedApk?.exists() : &quot;The apk being instrumented shouldn&#39;t have its instrumented version already present.&quot;</b>
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    try
+<i>99</i>&nbsp;    {
+<i>100</i>&nbsp;      // Override the original bytecode file (classes.dex) with instrumented version.
+<i>101</i>&nbsp;      // The backup of the original bytecode is preserved in apk.decodedApkFileStructure.bytecodeOriginalBackup.
+<b class="fc"><i>102</i>&nbsp;      bytecodeInstrumenter.instrument(apk, apk.decodedApkFileStructure.bytecode, apk.decodedApkFileStructure.bytecode);</b>
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;      // Override the original android manifest file (AndroidManifest.xml) with instrumented version.
+<b class="fc"><i>105</i>&nbsp;      manifestInstrumenter.instrument(apk.decodedApkFileStructure.manifest, apk.decodedApkFileStructure.manifest);</b>
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;      // Rebuild the apk with the instrumented file contents.
+<b class="fc"><i>108</i>&nbsp;      apkToolWrapper.build(apk.decodedApkFileStructure.rootDir, apk.instrumentedApk);</b>
+<i>109</i>&nbsp;
+<b class="fc"><i>110</i>&nbsp;      jarsignerWrapper.signWithDebugKey(apk.instrumentedApk);</b>
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;      // doc-assert: instrumentedApk is signed with the debug key.
+<i>113</i>&nbsp;
+<b class="fc"><i>114</i>&nbsp;      zipalignWrapper.zipalign(apk.instrumentedApk, apk.instrumentedApk);</b>
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;      // doc-assert: instrumentedApk is signed with the debug key and zipaligned.
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;    } catch (DroidmateException e)
+<i>119</i>&nbsp;    {
+<b class="nc"><i>120</i>&nbsp;      throw new InstrumentationException(&quot;Instrumenting apk failed.&quot;, e);</b>
+<i>121</i>&nbsp;    }
+<b class="fc"><i>122</i>&nbsp;    log.trace(&quot;DONE instrumenting .apk {}&quot;, apk.getName());</b>
+<i>123</i>&nbsp;
+<b class="fc"><i>124</i>&nbsp;    assert apk.instrumentedApk?.file</b>
+<b class="fc"><i>125</i>&nbsp;    assert apk.instrumentedApk?.isInstrumented</b>
+<b class="fc"><i>126</i>&nbsp;    assert !(apk.instrumentedApk?.absolutePath == apk.absolutePath)</b>
+<i>127</i>&nbsp;  }
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

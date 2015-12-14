@@ -1,0 +1,24 @@
+spawarotti@SPAWARKA /c/my/SEChair/droidmate/repos/droidmate/dev/droidmate/scripts (old_exploration_logic_deletion)
+$ dm.sh cloc
+Timestamp: 22 May 2014 20:51:17
+
+Number of nonempty lines in .java and .groovy files of DroidMate sources:
+
+core src   : 11244
+core test  :  4316
+misc src   :   922
+             -----
+total      : 16482
+
+----------
+
+Commands executed:
+
+core src:
+find "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/core/src" -iregex ".*\.\(java\|groovy\)" | xargs cat | sed '/^\s*$/d' | wc -l
+
+core test:
+find "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/core/src/test" -iregex ".*\.\(java\|groovy\)" | xargs cat | sed '/^\s*$/d' | wc -l
+
+misc src:
+find "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/aut-addon/src" "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/common/src" "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/uiautomator-daemon/src" -iregex ".*\.\(java\|groovy\)" | xargs cat | sed '/^\s*$/d' | wc -l

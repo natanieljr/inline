@@ -1,0 +1,88 @@
+False positives:
+
+at.markushi.expensemanager
+
+com.adobe.reader
+
+com.antivirus
+         None! |    0m 15s    3 TId: 1159 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 15s    3 background                                                   TId: 1159 java.net.Socket: void <init>(java.net.Proxy)
+
+com.cleanmaster.security
+         None! |    1m  8s    6 TId: 2116 android.app.NotificationManager: void notify(java.lang.String,int,android.app.Notification)
+         None! |    0m 14s    2 click:[res:id/layout_main]                                   TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    0m 14s    2 click:[res:id/layout_main]                                   TId:    1 android.net.wifi.WifiManager: android.net.wifi.WifiInfo getConnectionInfo()
+         None! |    0m 14s    2 click:[res:id/layout_main]                                   TId:    1 android.net.wifi.WifiManager: int getWifiState()
+         None! |    0m 14s    2 click:[res:id/layout_main]                                   TId:    1 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://ks.cm.antivirus.config.security
+         None! |    0m 15s    3 click:[res:id/oprator_finish]                                TId:    1 android.os.PowerManager$WakeLock: void acquire()
+         None! |    0m 22s    4 click:[res:id/dialog_btn_report]                             TId:    1 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://ks.cm.antivirus.config.security
+         None! |    0m 26s    4 click:[res:id/dialog_btn_report]                             TId:    1 android.net.wifi.WifiManager: android.net.wifi.WifiInfo getConnectionInfo()
+         None! |    0m 26s    4 click:[res:id/dialog_btn_report]                             TId:    1 android.net.wifi.WifiManager: int getWifiState()
+         None! |    0m 35s    4 click:[res:id/dialog_btn_report]                             TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getNetworkInfo(int)
+         None! |    1m  8s    6 background                                                   TId: 2116 android.app.NotificationManager: void notify(java.lang.String,int,android.app.Notification)
+
+com.ebay.mobile
+         None! |    0m 29s    7 TId: 2350 android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 30s    7 TId:    1 android.os.PowerManager$WakeLock: void acquire()
+         None! |    0m 30s    7 TId: 2315 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.ebay.mobile.providers.itemcacheprovider/saved_search
+         None! |    0m 30s    7 TId: 2351 android.os.PowerManager$WakeLock: void release(int)
+         None! |    0m 30s    7 TId: 2348 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.ebay.mobile.providers.itemcacheprovider/local_notifications
+         None! |    0m 30s    7 TId: 2363 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/local_notifications
+         None! |    0m 32s    7 TId: 2350 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/saved_search
+         None! |    0m 10s    2 click:[res:id/accept_btn]                                    TId:    1 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 10s    2 click:[res:id/accept_btn]                                    TId:    1 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 10s    2 click:[res:id/accept_btn]                                    TId:    1 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 13s    3 background                                                   TId: 2339 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 14s    4 enterText:[res:id/sign_in_username_entry]                    TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    0m 29s    7 enterText:[res:id/home_search_bar]                           TId:    1 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 29s    7 enterText:[res:id/home_search_bar]                           TId:    1 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 29s    7 background                                                   TId: 2350 android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 30s    7 enterText:[res:id/home_search_bar]                           TId:    1 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://com.ebay.mobile.providers.itemcacheprovider/name_value
+         None! |    0m 30s    7 enterText:[res:id/home_search_bar]                           TId:    1 android.os.PowerManager$WakeLock: void acquire()
+         None! |    0m 30s    7 background                                                   TId: 2315 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.ebay.mobile.providers.itemcacheprovider/saved_search
+         None! |    0m 30s    7 background                                                   TId: 2351 android.os.PowerManager$WakeLock: void release(int)
+         None! |    0m 30s    7 background                                                   TId: 2348 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.ebay.mobile.providers.itemcacheprovider/local_notifications
+         None! |    0m 30s    7 background                                                   TId: 2363 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/local_notifications
+         None! |    0m 32s    7 background                                                   TId: 2350 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://com.ebay.mobile.providers.itemcacheprovider/saved_search
+
+com.estrongs.android.taskmanager
+         None! |    0m  3s    2 TId: 2440 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m  3s    2 background                                                   TId: 2440 java.net.Socket: void <init>(java.net.Proxy)
+
+com.frank_weber.forex2
+
+com.indeed.android.jobsearch
+         None! |    0m 21s   10 click:[dsc:Territory Business Manager, Escalon P...H.J. Heinz Company - New York, NY1 day ago Link] TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+
+com.picsart.studio
+         None! |    0m 29s    6 TId: 2710 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.providers.media.documents/document/image%3A3836
+         None! |    0m 29s    6 TId: 2710 android.content.ContentResolver: java.io.InputStream openInputStream(android.net.Uri) uri: content://com.android.providers.media.documents/document/image%3A3836
+         None! |    0m 23s    4 click:[res:id/galleryButtonId]                               TId:    1 android.content.ContentResolver: void registerContentObserver(android.net.Uri,boolean,android.database.ContentObserver) uri: content://com.picsart.studio.provider/user.update
+         None! |    0m 23s    4 click:[res:id/galleryButtonId]                               TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    0m 23s    4 background                                                   TId: 2694 android.content.ContentResolver: int bulkInsert(android.net.Uri,android.content.ContentValues[]) uri: content://com.picsart.studio.provider/notifications
+         None! |    0m 29s    6 background                                                   TId: 2710 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.providers.media.documents/document/image%3A3836
+         None! |    0m 29s    6 background                                                   TId: 2710 android.content.ContentResolver: java.io.InputStream openInputStream(android.net.Uri) uri: content://com.android.providers.media.documents/document/image%3A3836
+
+com.rhmsoft.fm
+
+com.snapchat.android
+         None! |    0m 24s    5 TId: 1181 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 24s    5 background                                                   TId: 1181 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 27s    5 TId: 1178 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 27s    5 background                                                   TId: 1178 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 26s    5 TId: 1171 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 26s    5 background                                                   TId: 1171 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    1m 21s   16 l-click:[res:id/status]                                      TId:    1 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/media
+         None! |    0m 24s    5 TId: 1190 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 24s    5 background                                                   TId: 1190 java.net.Socket: void <init>(java.net.Proxy)
+
+de.barcoo.android
+         None! |    0m  6s    1 TId: 3016 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m  6s    1 <reset>                                                      TId: 3016 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m  9s    2 background                                                   TId: 3016 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 19s    6 unlabeled                                                    TId:    1 android.location.LocationManager: void requestSingleUpdate(android.location.Criteria,android.app.PendingIntent)
+
+org.mozilla.firefox
+         None! |    0m  5s    2 click:[res:id/url_bar_title]                                 TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    0m  7s    3 background                                                   TId: 3071 android.app.NotificationManager: void notify(java.lang.String,int,android.app.Notification)
+

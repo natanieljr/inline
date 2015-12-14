@@ -1,0 +1,95 @@
+--------------------------------------------------------------------------------
+
+Working dir:   C:\my\local\repos\sechair\droidmate\dev\droidmate
+
+JVM arguments: [-ea, -Didea.launcher.port=7533, -Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 14.1.4\bin, -Dfile.encoding=UTF-8]
+
+Configuration dump:
+
+aaptCommand=c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe
+actionsLimit=10
+adbCommand=c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe
+alwaysClickFirstWidget=false
+androidSdkDir=c:\Program Files (x86)\Android\android-sdk
+apksDirName=apks/inlined
+apksDirPath=apks\inlined
+apksLimit=0
+apksNames=[]
+appGuardApisList=C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\appguard_apis.txt
+appGuardOnlyApis=true
+args={-apksDir=apks/inlined,-resetEvery=15,-timeLimit=60,-softReset=true,-randomSeed=0}
+clearPackageRetryAttempts=5
+clearPackageRetryDelay=1000
+compareRuns=false
+delayAfterLaunchingActivity=5000
+deployRawApks=false
+deviceIndex=0
+displayHelp=false
+droidmateOutputDir=.\dev1
+droidmateOutputDirPath=.\dev1
+exploreInteractively=false
+extractAdditionalData=false
+extractData=false
+extractSaturationCharts=false
+extractSummaries=true
+getValidGuiSnapshotRetryAttempts=10
+getValidGuiSnapshotRetryDelay=2000
+logLevel=trace
+logWidgets=false
+monitorApk=C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk
+monitorServerStartQueryInterval=2000
+monitorServerStartTimeout=20000
+monitorTcpPort=59776
+outputAppGuardCharts=false
+processUiaTestCasesLogs=false
+randomSeed=0
+removeHardCodedApis=true
+resetEveryNthExplorationForward=15
+saturationChartsHours=2.0
+socketTimeout=180000
+softReset=true
+splitCharts=false
+timeLimit=60
+uiaTestCasesLogsDirPath=.\uia_test_cases_logs
+uiautomatorDaemonJar=C:\my\local\repos\sechair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar
+uiautomatorDaemonServerStartQueryInterval=2000
+uiautomatorDaemonServerStartTimeout=20000
+uiautomatorDaemonTcpPort=59778
+uiautomatorDaemonWaitForGuiToStabilize=true
+uiautomatorDaemonWaitForWindowUpdateTimeout=1200
+uninstallApk=true
+useApkFixturesDir=false
+widgetIndexes=[]
+widgetUniqueStringWithFieldPrecedence=true
+
+End of configuration dump
+
+--------------------------------------------------------------------------------
+Used input apks file paths:
+
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\animaonline.android.wikiexplorer_v1.5.5-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\arlind.Shqip_v2.0-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.adobe.reader_v11.5.0.1-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.almalence.opencam_v3.24-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.baviux.pillreminder_v2.1.2-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.duolingo_v2.7.2-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.ebay.kleinanzeigen_v5.0.3-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.ebay.mobile_v2.8.2.1-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.frogsparks.mytrails_v1.4.5-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.google.android.apps.translate_v3.0.10-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.google.earth_v7.1.3.1255-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.infraware.office.link_v6.0.9-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.ng.dailynews_v1.13-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.outfit7.talkingangelafree_v2.2-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.paypal.android.p2pmobile_v5.11.3-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.picsart.studio_v4.6.12-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.spotify.music_v1.4.0.631-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.wetter.androidclient_v2.3.1-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\com.zattoo.player_v1.4.3-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\de.hafas.android.db_v15.04.p06.00-inlined.apk
+C:\my\local\repos\sechair\droidmate\dev\droidmate\apks\inlined\net.zedge.android_v4.10.2-inlined.apk
+
+--------------------------------------------------------------------------------
+Run start  timestamp: 2015 Dec 02 16:10:14
+Run finish timestamp: 2015 Dec 02 16:47:49
+DroidMate ran for: 37 minutes, 34.798 seconds

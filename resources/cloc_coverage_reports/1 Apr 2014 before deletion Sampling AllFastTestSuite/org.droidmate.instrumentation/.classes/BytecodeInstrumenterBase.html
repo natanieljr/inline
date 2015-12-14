@@ -1,0 +1,275 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BytecodeInstrumenterBase</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.instrumentation</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BytecodeInstrumenterBase (org.droidmate.instrumentation)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BytecodeInstrumenterBase</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    8.3%
+  </span>
+  <span class="absValue">
+    (2/ 24)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.instrumentation
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.android.dx.io.DexBuffer
+<i>14</i>&nbsp;import com.android.dx.merge.CollisionPolicy
+<i>15</i>&nbsp;import com.android.dx.merge.DexMerger
+<i>16</i>&nbsp;import com.google.inject.Inject
+<i>17</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>18</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>19</i>&nbsp;import org.droidmate.exceptions.InstrumentationException
+<i>20</i>&nbsp;import org.droidmate.utils.Apk
+<i>21</i>&nbsp;import org.droidmate.utils.Utils
+<i>22</i>&nbsp;import org.slf4j.Logger
+<i>23</i>&nbsp;import org.slf4j.LoggerFactory
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;/**
+<i>26</i>&nbsp; * &lt;p&gt;
+<i>27</i>&nbsp; * Instruments the bytecode. The &lt;i&gt;entire apk&lt;/i&gt; instrumentation goal is described in
+<i>28</i>&nbsp; * {@link ApkInstrumenter#instrumentApk(java.io.File)}.
+<i>29</i>&nbsp; *
+<i>30</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>31</i>&nbsp; * The bytecode instrumentation has to:&lt;br/&gt;
+<i>32</i>&nbsp; * - attach to the apk bytecode the bytecode of aut-addon;&lt;br/&gt;
+<i>33</i>&nbsp; * - insert in the apk bytecode (Android) activities calls to the aut-addon, so it executes when the apk is run;&lt;br/&gt;
+<i>34</i>&nbsp; * - interweave all the apk bytecode with logging instructions, allowing to gather the code coverage from dynamic
+<i>35</i>&nbsp; * runs of the apk;
+<i>36</i>&nbsp; *
+<i>37</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>38</i>&nbsp; * Implementation-wise, instrumentation is composed of two stages:
+<i>39</i>&nbsp; *
+<i>40</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>41</i>&nbsp; * - The bytecode of the apk is modified with implementation of this class;&lt;br/&gt;
+<i>42</i>&nbsp; * - the modified bytecode is merged with bytecode of aut-addon referenced by
+<i>43</i>&nbsp; * {@link Configuration#autAddonBytecode autAddonBytecode} of {@link BytecodeInstrumenterBase#config config};
+<i>44</i>&nbsp; *
+<i>45</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>46</i>&nbsp; * &lt;b&gt;Note on dev state as of 14 sep &#39;13&lt;/b&gt;&lt;br/&gt;
+<i>47</i>&nbsp; * Right now bytecode instrumentation is work in progress.
+<i>48</i>&nbsp; *
+<i>49</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>50</i>&nbsp; * Previously DroidMate was using ASMDEX to modify the
+<i>51</i>&nbsp; * aut-addon. To make DroidMate run with ASMDEX, run it with appropriate argument for
+<i>52</i>&nbsp; * {@link Configuration#PARAMETER_NAME_INSTRUMENTATION_FRAMEWORK INSTRUMENTATION_FRAMEWORK}
+<i>53</i>&nbsp; * The ASMDEX instrumentation is in
+<i>54</i>&nbsp; * {@link org.droidmate.instrumentation.asmdex.BytecodeInstrumenterAsmdex BytecodeInstrumenterAsmdex}. It is
+<i>55</i>&nbsp; * incomplete, see the class comment for details.
+<i>56</i>&nbsp; *
+<i>57</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>58</i>&nbsp; * Now DroidMate uses Soot, as in
+<i>59</i>&nbsp; * {@link org.droidmate.instrumentation.soot.BytecodeInstrumenterSoot BytecodeInstrumenterSoot}.
+<i>60</i>&nbsp; * It is work in progress, see the class comment for details. As the Soot instrumentation will mature,
+<i>61</i>&nbsp; * the autaddon merging bytecode implementation will be reworked. Soot can merge the autaddon .class files instead of
+<i>62</i>&nbsp; * .dex files, so no .dex merging using {@code DexMerger} from Android SDK will be necessary.
+<i>63</i>&nbsp; *
+<i>64</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>65</i>&nbsp; * &lt;i&gt;This doc was last reviewed on 14 Sep &#39;13&lt;/i&gt;
+<i>66</i>&nbsp; *
+<i>67</i>&nbsp; * &lt;/p&gt;
+<i>68</i>&nbsp; * @see
+<i>69</i>&nbsp; * org.droidmate.instrumentation.asmdex.BytecodeInstrumenterAsmdex BytecodeInstrumenterAsmdex
+<i>70</i>&nbsp; * @see
+<i>71</i>&nbsp; * org.droidmate.instrumentation.soot.BytecodeInstrumenterSoot BytecodeInstrumenterSoot
+<i>72</i>&nbsp; */
+<i>73</i>&nbsp;public abstract class BytecodeInstrumenterBase implements IBytecodeInstrumenter
+<i>74</i>&nbsp;{
+<i>75</i>&nbsp;  protected final Configuration config;
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;  // Cannot use @InjectLogger annotation because it is an abstract class.
+<b class="fc"><i>78</i>&nbsp;  private static Logger log = LoggerFactory.getLogger(BytecodeInstrumenterBase);</b>
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;  @Inject
+<i>81</i>&nbsp;  public BytecodeInstrumenterBase(Configuration config)
+<i>82</i>&nbsp;  {
+<b class="fc"><i>83</i>&nbsp;    this.config = config;</b>
+<i>84</i>&nbsp;  }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;  /* Architectural comment 6 Dec 2013 - BytecodeInstrumenterBase problems
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;     All right, so I see problems with the &quot;instrument&quot; method of this interface. It would be nice if it would take
+<i>89</i>&nbsp;     as input a bytecode file and returned as output a bytecode file and that&#39;s all. However, it also needs to know:
+<i>90</i>&nbsp;     - the activity name, to know to which onCreate() method insert calls to aut-addon
+<i>91</i>&nbsp;     - the File handle to which instrumentation data will be output as an XML report.
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;     So the method actually would have to have signature like:
+<i>94</i>&nbsp;     (input bytecode, main activity name, xml instr report file name) -&gt; output bytecode
+<i>95</i>&nbsp;     OR
+<i>96</i>&nbsp;     (input bytecode, main activity name) -&gt; (output bytecode, instr report object data)
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;     But with it we would allow too much freedom. In reality, all the params and the output are related to one apk.
+<i>99</i>&nbsp;     I don&#39;t think I will need a use case in which some of the inputs/outputs pertain to more than one apk.
+<i>100</i>&nbsp;     Actually, the method can have signature of:
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;     (apk) -&gt; ()
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;     and set/assert appropriate fields of given apk. If the apk needs more report files/data or activity names,
+<i>105</i>&nbsp;     it shall be provided with collections instead of single files.
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;     ------
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;     // WISH move this comment to DroidmateSceneTransformer and mark as &quot;design rationale&quot;
+<i>110</i>&nbsp;     Another thing: XML report generation.
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;     Currently the internal bytecode transformation, immediately sends data to instrumentation report and as soon
+<i>113</i>&nbsp;     as it is done, the reporter outputs the data to xml file on hdd.
+<i>114</i>&nbsp;
+<i>115</i>&nbsp;     The disadvantage is that this class depends
+<i>116</i>&nbsp;     on instrumentation reporter, instead of just returning object presentation of the gathered data.
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;     The upside is that the class doesn&#39;t have to maintain the object presentation: it just immediately fires the data
+<i>119</i>&nbsp;     at instr. reporter and forgets about it. Secondly, the data gets persisted as soon as possible, being immune to
+<i>120</i>&nbsp;     program crashes. Yes, it could be also persisted during program crash as part of exception handling process, but
+<i>121</i>&nbsp;     this would be more complex.
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;     Overall I like the current design as it perseveres the code locality &amp; simplicity. The cost is increased coupling,
+<i>124</i>&nbsp;     but I can live with that.
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;   */
+<i>127</i>&nbsp;
+<i>128</i>&nbsp;  /**
+<i>129</i>&nbsp;   * &lt;p&gt;
+<i>130</i>&nbsp;   * Instruments {@code inputClassesDex}, writing the result to file location {@code outputClassesDex}.
+<i>131</i>&nbsp;   * The {@code apk} file is queried for information required during instrumentation.
+<i>132</i>&nbsp;   *
+<i>133</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>134</i>&nbsp;   * &lt;i&gt;This doc was last reviewed on 08 Oct 2013.&lt;/i&gt;
+<i>135</i>&nbsp;   * &lt;/p&gt;
+<i>136</i>&nbsp;   */
+<i>137</i>&nbsp;  // WISH instead of entire apk, only the required metadata should be passed (main activity name)
+<i>138</i>&nbsp;  @Override
+<i>139</i>&nbsp;  public void instrument(Apk apk, File inputClassesDex, File outputClassesDex) throws InstrumentationException
+<i>140</i>&nbsp;  {
+<b class="nc"><i>141</i>&nbsp;    log.trace(&quot;Instrumenting dalvik bytecode:&quot;)</b>
+<b class="nc"><i>142</i>&nbsp;    log.trace(&quot;Input classes.dex file path: {}&quot;, inputClassesDex)</b>
+<b class="nc"><i>143</i>&nbsp;    log.trace(&quot;Instrumented (output) classes.dex file path: {}&quot;, outputClassesDex)</b>
+<i>144</i>&nbsp;
+<b class="nc"><i>145</i>&nbsp;    assert apk?.file</b>
+<b class="nc"><i>146</i>&nbsp;    assert inputClassesDex?.file</b>
+<b class="nc"><i>147</i>&nbsp;    assert outputClassesDex != null</b>
+<b class="nc"><i>148</i>&nbsp;    assert true : &quot;outputClassesDex may or may not exist&quot;</b>
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;    try
+<i>151</i>&nbsp;    {
+<i>152</i>&nbsp;
+<b class="nc"><i>153</i>&nbsp;      assert config?.autAddonBytecode != null;</b>
+<i>154</i>&nbsp;
+<b class="nc"><i>155</i>&nbsp;      log.trace(&quot;AutAddon classes.dex file path: {}&quot;, config.autAddonBytecode);</b>
+<i>156</i>&nbsp;
+<b class="nc"><i>157</i>&nbsp;      instrumentInternal(apk, inputClassesDex, outputClassesDex);</b>
+<i>158</i>&nbsp;
+<i>159</i>&nbsp;      // WISH this check here violates LSP (L in SOLID). Instead, the bytecode merging should happen in
+<i>160</i>&nbsp;      // BytecodeInstrumenterAsmdex. When this is done, the BytecodeInstrumenterBase class can be removed.
+<b class="nc"><i>161</i>&nbsp;      if (!config.instrumentationFrameworkIsSoot())</b>
+<b class="nc"><i>162</i>&nbsp;        mergeDexBytecode(outputClassesDex, config.autAddonBytecode, outputClassesDex);</b>
+<i>163</i>&nbsp;
+<b class="nc"><i>164</i>&nbsp;      log.trace(&quot;Bytecode instrumented successfully.&quot;);</b>
+<i>165</i>&nbsp;
+<i>166</i>&nbsp;    } catch (DroidmateException e)
+<i>167</i>&nbsp;    {
+<b class="nc"><i>168</i>&nbsp;      throw new InstrumentationException(&quot;Instrumenting bytecode failed.&quot;, e);</b>
+<i>169</i>&nbsp;    }
+<i>170</i>&nbsp;
+<b class="nc"><i>171</i>&nbsp;    assert outputClassesDex?.file</b>
+<i>172</i>&nbsp;  }
+<i>173</i>&nbsp;
+<i>174</i>&nbsp;  protected abstract void instrumentInternal(Apk apk, File inputClassesDex, File outputClassesDex) throws
+<i>175</i>&nbsp;    InstrumentationException;
+<i>176</i>&nbsp;
+<i>177</i>&nbsp;  private static void mergeDexBytecode(File inputDex1, File inputDex2, File outputDex) throws IOException
+<i>178</i>&nbsp;  {
+<i>179</i>&nbsp;
+<b class="nc"><i>180</i>&nbsp;    DexBuffer inputDexBuffer1 = new DexBuffer(inputDex1);</b>
+<b class="nc"><i>181</i>&nbsp;    DexBuffer inputDexBuffer2 = new DexBuffer(inputDex2);</b>
+<b class="nc"><i>182</i>&nbsp;    DexMerger dexMerger = new DexMerger(inputDexBuffer1, inputDexBuffer2, CollisionPolicy.FAIL);</b>
+<i>183</i>&nbsp;
+<b class="nc"><i>184</i>&nbsp;    System.setOut(Utils.NULL_PRINT_STREAM); // DexMerger.merge prints out to stdout, so we mute it.</b>
+<b class="nc"><i>185</i>&nbsp;    DexBuffer mergedDex = dexMerger.merge();</b>
+<b class="nc"><i>186</i>&nbsp;    System.setOut(Utils.STDOUT_PRINT_STREAM); // Unmute stdout.</b>
+<i>187</i>&nbsp;
+<b class="nc"><i>188</i>&nbsp;    mergedDex.writeTo(outputDex);</b>
+<i>189</i>&nbsp;  }
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;
+<i>192</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IntentExplorationAction</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IntentExplorationAction (org.droidmate.exploration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">IntentExplorationAction</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.3%
+  </span>
+  <span class="absValue">
+    (14/ 15)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">IntentExplorationAction$_from_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$_from_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$_from_closure4</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$_toString_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$canEqual$1</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$from$0</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$getParams$3</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$getType$2</td>
+  </tr>
+  <tr>
+    <td class="name">IntentExplorationAction$toString</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (18/ 20)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import groovy.transform.EqualsAndHashCode
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;// WISH this and GuiExplorationAction should be able to execute itself on instance of IAndroidDevice.
+<i>16</i>&nbsp;@EqualsAndHashCode
+<i>17</i>&nbsp;class IntentExplorationAction extends ExplorationAction
+<i>18</i>&nbsp;{
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;  public static final String TYPE_LAUNCH_MAIN_ACTIVITY                = &quot;launch_main_activity&quot;
+<i>21</i>&nbsp;  public static final String PARAM_LAUNCHABLE_ACTIVITY_COMPONENT_NAME = &quot;name&quot;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  final String              type
+<i>24</i>&nbsp;  final Map&lt;String, String&gt; params
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  IntentExplorationAction(String type, Map&lt;String, String&gt; params)
+<i>27</i>&nbsp;  {
+<b class="fc"><i>28</i>&nbsp;    this.type = type</b>
+<b class="fc"><i>29</i>&nbsp;    this.params = params</b>
+<i>30</i>&nbsp;
+<b class="fc"><i>31</i>&nbsp;    assert !type?.empty</b>
+<b class="fc"><i>32</i>&nbsp;    assert params != null</b>
+<i>33</i>&nbsp;  }
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;  @Override
+<i>36</i>&nbsp;  boolean isTerminated()
+<i>37</i>&nbsp;  {
+<b class="fc"><i>38</i>&nbsp;    return false</b>
+<i>39</i>&nbsp;  }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  @Override
+<i>43</i>&nbsp;  public String toString()
+<i>44</i>&nbsp;  {
+<b class="fc"><i>45</i>&nbsp;    return ([type.toString()] + params.collect { it.key + &quot;:&quot; + it.value }).join(&quot; &quot;)</b>
+<i>46</i>&nbsp;  }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  public static IntentExplorationAction from(String sourceStr)
+<i>50</i>&nbsp;  {
+<b class="fc"><i>51</i>&nbsp;    List&lt;String&gt; tokenizedSource = sourceStr.tokenize(&quot; &quot;)</b>
+<b class="fc"><i>52</i>&nbsp;    String intentType = tokenizedSource.head()</b>
+<b class="fc"><i>53</i>&nbsp;    List&lt;String&gt; intentParams = tokenizedSource.tail()</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;    if (!(intentType in [TYPE_LAUNCH_MAIN_ACTIVITY]))</b>
+<b class="nc"><i>56</i>&nbsp;      return null</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;    List&lt;List&lt;String&gt;&gt; keyValuePairs = intentParams.collect { it.tokenize(&quot;:&quot;) }</b>
+<i>59</i>&nbsp;
+<b class="fc"><i>60</i>&nbsp;    keyValuePairs.each {</b>
+<b class="fc"><i>61</i>&nbsp;      assert it.size() == 2: &quot;Tried to construct ${IntentExplorationAction.simpleName} having an intent &quot; +</b>
+<b class="nc"><i>62</i>&nbsp;        &quot;parameter key-value pair of different size than 2 (one for key, one for value). Maybe the parameter value contains &quot; +</b>
+<i>63</i>&nbsp;        &quot;space, which is unsupported as of 9 Jan 2014? The offending key-value pair: $it&quot;
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;    Map&lt;String, String&gt; intentParamsMap = keyValuePairs.collectEntries { k, v -&gt; [k, v] }</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;    return new IntentExplorationAction(intentType, intentParamsMap)</b>
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;  }
+<i>71</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UiautomatorWindowDump</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UiautomatorWindowDump (org.droidmate.exploration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UiautomatorWindowDump</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (27/ 27)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$_getGuiState_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$_getGuiState_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$parseBounds</td>
+  </tr>
+  <tr>
+    <td class="name">UiautomatorWindowDump$toString$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/ 32)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import groovy.transform.TypeChecked
+<i>14</i>&nbsp;import groovy.transform.TypeCheckingMode
+<i>15</i>&nbsp;import groovy.util.slurpersupport.GPathResult
+<i>16</i>&nbsp;import org.droidmate.common.guimodel.GuiAction
+<i>17</i>&nbsp;import org.droidmate.exploration.abstractgui.GuiState
+<i>18</i>&nbsp;import org.droidmate.exploration.abstractgui.GuiTransition
+<i>19</i>&nbsp;import org.droidmate.exploration.abstractgui.Widget
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;import java.awt.*
+<i>22</i>&nbsp;import java.util.List
+<i>23</i>&nbsp;import java.util.regex.Matcher
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;/**
+<i>26</i>&nbsp; * &lt;p&gt;
+<i>27</i>&nbsp; * &lt;i&gt; --- This doc was last reviewed on 04 Jan 2014.&lt;/i&gt;
+<i>28</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>29</i>&nbsp; *
+<i>30</i>&nbsp; * Represents the GUI snapshot returned by uiautomator.
+<i>31</i>&nbsp; *
+<i>32</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>33</i>&nbsp; *
+<i>34</i>&nbsp; * About uiautomator dump:&lt;br/&gt;
+<i>35</i>&nbsp; * http://developer.android.com/tools/help/uiautomator/index.html#table1
+<i>36</i>&nbsp; *
+<i>37</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>38</i>&nbsp; *
+<i>39</i>&nbsp; * Example bash scripts on how to get the dump on Windows:&lt;br/&gt;
+<i>40</i>&nbsp; *
+<i>41</i>&nbsp; * &lt;pre&gt;
+<i>42</i>&nbsp; * function dump_gui {*   adb shell uiautomator dump # should dump to: /storage/emulated/legacy/window_dump.xml
+<i>43</i>&nbsp; *   adb pull storage/emulated/legacy/window_dump.xml ./window_dump.xml
+<i>44</i>&nbsp; *}*
+<i>45</i>&nbsp; * # pre-condition: a device is running and connected through adb.
+<i>46</i>&nbsp; * function vis_dump_gui {*   echo &quot;After the GUI starts, please select the device to the left and click on the appropriate
+<i>47</i>&nbsp; * button above it&quot;
+<i>48</i>&nbsp; *   echo &quot;to dump the GUI.&quot;
+<i>49</i>&nbsp; *   $COMSPEC /c monitor.bat
+<i>50</i>&nbsp; *}&lt;/pre&gt;
+<i>51</i>&nbsp; * The monitor.bat from examples above should live in path like:&lt;br/&gt;
+<i>52</i>&nbsp; * c:\Program Files (x86)\Android\android-sdk\tools\monitor.bat
+<i>53</i>&nbsp; */
+<i>54</i>&nbsp;@TypeChecked
+<i>55</i>&nbsp;class UiautomatorWindowDump implements IDeviceGuiSnapshot
+<i>56</i>&nbsp;{
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;  private final String windowHierarchyDump
+<i>59</i>&nbsp;
+<b class="fc"><i>60</i>&nbsp;  public static final List&lt;String&gt; supportedAndroidWidgetClasses = [</b>
+<i>61</i>&nbsp;    &quot;android.view.View&quot;,
+<i>62</i>&nbsp;    &quot;android.widget.RadioGroup&quot;,
+<i>63</i>&nbsp;    &quot;android.widget.EditText&quot;,
+<i>64</i>&nbsp;    &quot;android.widget.ListView&quot;,
+<i>65</i>&nbsp;    &quot;android.widget.TableLayout&quot;,
+<i>66</i>&nbsp;    &quot;android.widget.LinearLayout&quot;,
+<i>67</i>&nbsp;    &quot;android.widget.Button&quot;,
+<i>68</i>&nbsp;    &quot;android.widget.CheckBox&quot;,
+<i>69</i>&nbsp;    &quot;android.widget.Switch&quot;,
+<i>70</i>&nbsp;    &quot;android.widget.ImageView&quot;,
+<i>71</i>&nbsp;    &quot;android.widget.ImageButton&quot;,
+<i>72</i>&nbsp;    &quot;android.widget.Spinner&quot;,
+<i>73</i>&nbsp;    &quot;android.widget.RadioButton&quot;,
+<i>74</i>&nbsp;    &quot;android.widget.ToggleButton&quot;
+<i>75</i>&nbsp;  ]
+<i>76</i>&nbsp;  // WISH to support later (from je.fit): android.widget:{RadioGroup|EditTest|ListView|TableLayout|TextView|LinearLayout},
+<i>77</i>&nbsp;  // WISH to support later (from je.fit): android.view.View
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;  UiautomatorWindowDump(String windowHierarchyDump)
+<i>81</i>&nbsp;  {
+<b class="fc"><i>82</i>&nbsp;    this.windowHierarchyDump = windowHierarchyDump</b>
+<i>83</i>&nbsp;  }
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;  @Override
+<i>86</i>&nbsp;  String getPackageName()
+<i>87</i>&nbsp;  {
+<b class="fc"><i>88</i>&nbsp;    int startIndex = windowHierarchyDump.indexOf(&quot;package=\&quot;&quot;);</b>
+<b class="fc"><i>89</i>&nbsp;    int endIndex = windowHierarchyDump.indexOf(&#39;&quot;&#39;, startIndex + &quot;package=\&quot;&quot;.length());</b>
+<b class="fc"><i>90</i>&nbsp;    return windowHierarchyDump.substring(startIndex + &quot;package=\&quot;&quot;.length(), endIndex);</b>
+<i>91</i>&nbsp;  }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;  @TypeChecked(TypeCheckingMode.SKIP)
+<i>94</i>&nbsp;  @Override
+<i>95</i>&nbsp;  GuiState getGuiState()
+<i>96</i>&nbsp;  {
+<b class="fc"><i>97</i>&nbsp;    GPathResult hierarchy = new XmlSlurper().parseText(windowHierarchyDump)</b>
+<b class="fc"><i>98</i>&nbsp;    assert hierarchy.name() == &quot;hierarchy&quot;</b>
+<i>99</i>&nbsp;
+<b class="fc"><i>100</i>&nbsp;    String topNodePackage = hierarchy.node[0]?.@package?.text()</b>
+<b class="fc"><i>101</i>&nbsp;    assert !topNodePackage.empty</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;    List buttonNodes = hierarchy.depthFirst().findAll { it.@class.text() in supportedAndroidWidgetClasses  &amp;&amp; it.@clickable.text() == &quot;true&quot;}</b>
+<b class="fc"><i>104</i>&nbsp;    List&lt;Widget&gt; widgets = buttonNodes.collect {</b>
+<b class="fc"><i>105</i>&nbsp;      new Widget(</b>
+<b class="fc"><i>106</i>&nbsp;        text: it.@text.text(),</b>
+<b class="fc"><i>107</i>&nbsp;        clazz: it.@class.text(),</b>
+<b class="fc"><i>108</i>&nbsp;        bounds: parseBounds(it.@bounds.text())</b>
+<i>109</i>&nbsp;      )
+<i>110</i>&nbsp;    }
+<b class="fc"><i>111</i>&nbsp;    return new GuiState(topNodePackage, widgets)</b>
+<i>112</i>&nbsp;  }
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;  @Override
+<i>115</i>&nbsp;  GuiAction toGuiAction(GuiTransition guiTransition)
+<i>116</i>&nbsp;  {
+<b class="fc"><i>117</i>&nbsp;    final guiAction = new GuiAction(</b>
+<b class="fc"><i>118</i>&nbsp;      guiTransition.transitionWidget.center().x as int,</b>
+<b class="fc"><i>119</i>&nbsp;      guiTransition.transitionWidget.center().y as int)</b>
+<i>120</i>&nbsp;
+<b class="fc"><i>121</i>&nbsp;    assert guiAction != null</b>
+<b class="fc"><i>122</i>&nbsp;    return guiAction</b>
+<i>123</i>&nbsp;  }
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;/**
+<i>126</i>&nbsp; * Parses &lt;b&gt;bounds&lt;/b&gt; string of form {@code [Xlow , Ylow][Xhigh , Yhigh]} into a list of form [Xlow,XHigh,Ylow,YHigh]
+<i>127</i>&nbsp; */
+<i>128</i>&nbsp;  public static Rectangle parseBounds(String windowHierarchyDumpBounds)
+<i>129</i>&nbsp;  {
+<b class="fc"><i>130</i>&nbsp;    assert windowHierarchyDumpBounds?.size() &gt; 0</b>
+<i>131</i>&nbsp;
+<i>132</i>&nbsp;    Matcher boundsMatcher =
+<i>133</i>&nbsp;    // The input is of form &quot;[xLow,yLow][xHigh,yHigh]&quot; and the regex below will capture four groups: xLow yLow xHigh yHigh
+<b class="fc"><i>134</i>&nbsp;      windowHierarchyDumpBounds =~ /\[(\p{Digit}+),(\p{Digit}+)\]\[(\p{Digit}+),(\p{Digit}+)\]/</b>
+<b class="fc"><i>135</i>&nbsp;    assert boundsMatcher.matches() : &quot;The window hierarchy bounds matcher didn&#39;t match to $windowHierarchyDumpBounds&quot;</b>
+<i>136</i>&nbsp;
+<b class="fc"><i>137</i>&nbsp;    List&lt;String&gt; matchedGroups = boundsMatcher[0] as List&lt;String&gt;</b>
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;    int lowX = matchedGroups[1] as int</b>
+<b class="fc"><i>140</i>&nbsp;    int lowY = matchedGroups[2] as int</b>
+<b class="fc"><i>141</i>&nbsp;    int highX = matchedGroups[3] as int</b>
+<b class="fc"><i>142</i>&nbsp;    int highY = matchedGroups[4] as int</b>
+<i>143</i>&nbsp;
+<b class="fc"><i>144</i>&nbsp;    return new Rectangle(lowX, lowY, highX - lowX, highY - lowY);</b>
+<i>145</i>&nbsp;  }
+<i>146</i>&nbsp;
+<i>147</i>&nbsp;  @Override
+<i>148</i>&nbsp;  public String toString()
+<i>149</i>&nbsp;  {
+<b class="fc"><i>150</i>&nbsp;    return windowHierarchyDump</b>
+<i>151</i>&nbsp;  }
+<i>152</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

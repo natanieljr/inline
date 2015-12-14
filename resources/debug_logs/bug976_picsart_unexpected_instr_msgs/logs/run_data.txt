@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------
+Configuration dump:
+
+aaptCommand=c:\Program Files (x86)\Android\android-sdk\build-tools\19.1.0\aapt.exe
+actionsLimit=10
+adbCommand=c:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe
+alwaysClickFirstWidget=false
+androidSdkDir=c:\Program Files (x86)\Android\android-sdk
+apksDirName=apks/inlined
+apksDirPath=apks\inlined
+apksLimit=0
+apksNames=[]
+appGuardApisList=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\AppGuardApisList.txt
+appGuardOnlyApis=true
+args={-apksDir=apks/inlined,-resetEvery=15,-timeLimit=60,-softReset=true,-randomSeed=0}
+attemptsToObtainValidGuiSnapshot=10
+compareRuns=false
+delayAfterLaunchingActivity=5000
+delayBetweenAttemptsToObtainValidGuiSnapshot=2000
+deployRawApks=false
+deviceIndex=0
+displayHelp=false
+droidmateOutputDir=.\dev1
+droidmateOutputDirPath=.\dev1
+exploreInteractively=false
+extractAdditionalData=false
+extractData=false
+extractSaturationCharts=false
+extractSummaries=true
+logLevel=trace
+logWidgets=false
+monitorApk=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\monitor.apk
+monitorServerStartQueryInterval=2000
+monitorServerStartTimeout=20000
+monitorTcpPort=59776
+outputAppGuardCharts=false
+processUiaTestCasesLogs=false
+randomSeed=0
+removeHardCodedApis=true
+resetEveryNthExplorationForward=15
+saturationChartsHours=2.0
+secondsLimit=<null>
+softReset=true
+splitCharts=false
+timeLimit=60
+uiaTestCasesLogsDirPath=.\uia_test_cases_logs
+uiautomatorDaemonJar=C:\my\local\repos\chair\droidmate\dev\droidmate\projects\core\build\resources\main\uiautomator-daemon.jar
+uiautomatorDaemonServerStartQueryInterval=2000
+uiautomatorDaemonServerStartTimeout=20000
+uiautomatorDaemonTcpPort=59778
+uiautomatorDaemonWaitForGuiToStabilize=true
+uiautomatorDaemonWaitForWindowUpdateTimeout=1200
+uninstallApk=true
+useApkFixturesDir=false
+useDeprecatedExplorationLogic=false
+widgetIndexes=[]
+widgetUniqueStringWithFieldPrecedence=true
+
+End of configuration dump
+
+--------------------------------------------------------------------------------
+Used input apks file paths:
+
+C:\my\local\repos\chair\droidmate\dev\droidmate\apks\inlined\com.picsart.studio-inlined.apk
+
+--------------------------------------------------------------------------------
+Run start  timestamp: 2015 Sep 01 16:12:35
+Run finish timestamp: 2015 Sep 01 16:14:33
+DroidMate ran for: 1 minutes, 58.660 seconds

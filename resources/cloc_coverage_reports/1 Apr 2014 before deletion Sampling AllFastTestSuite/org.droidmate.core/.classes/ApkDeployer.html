@@ -1,0 +1,411 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ApkDeployer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.core</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ApkDeployer (org.droidmate.core)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApkDeployer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90.7%
+  </span>
+  <span class="absValue">
+    (39/ 43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ApkDeployer$$FastClassByGuice$$3a253e38</td>
+  </tr>
+  <tr>
+    <td class="name">ApkDeployer$_withDeployedApk_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ApkDeployer$_withDeployedApk_closure1_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.8%
+  </span>
+  <span class="absValue">
+    (45/ 49)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.core
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import groovy.transform.TypeChecked
+<i>16</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>17</i>&nbsp;import org.droidmate.device.IAndroidDevice
+<i>18</i>&nbsp;import org.droidmate.exceptions.ApkDeploymentException
+<i>19</i>&nbsp;import org.droidmate.exceptions.ApkUndeploymentException
+<i>20</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>21</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>22</i>&nbsp;import org.droidmate.utils.Apk
+<i>23</i>&nbsp;import org.droidmate.utils.Assert
+<i>24</i>&nbsp;import org.slf4j.Logger
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;/**
+<i>27</i>&nbsp; * @see org.droidmate.core.IApkDeployer#withDeployedApk(org.droidmate.device.IAndroidDevice, Apk, boolean, groovy.lang.Closure)
+<i>28</i>&nbsp; */
+<i>29</i>&nbsp;@Singleton
+<i>30</i>&nbsp;@TypeChecked
+<i>31</i>&nbsp;public class ApkDeployer implements IApkDeployer
+<i>32</i>&nbsp;{
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  private final Configuration config
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  @InjectLogger
+<i>37</i>&nbsp;  private static Logger log;
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  @Inject
+<i>40</i>&nbsp;  ApkDeployer(Configuration config)
+<i>41</i>&nbsp;  {
+<b class="fc"><i>42</i>&nbsp;    this.config = config;</b>
+<i>43</i>&nbsp;  }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;  /**
+<i>46</i>&nbsp;   * &lt;p&gt;
+<i>47</i>&nbsp;   * Deploys the {@code apk} on the A(V)D, executes the {@code closure} and undeploys the apk from
+<i>48</i>&nbsp;   * the AVD.
+<i>49</i>&nbsp;   *
+<i>50</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>51</i>&nbsp;   * The A(V)D is accessible through {@code device}.
+<i>52</i>&nbsp;   *
+<i>53</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>54</i>&nbsp;   * The deployment consists of:&lt;br/&gt;
+<i>55</i>&nbsp;   * - installing the apk on the A(V)D;&lt;br/&gt;
+<i>56</i>&nbsp;   * - optionally starting the main activity of the app if {@code startMainActivity} is
+<i>57</i>&nbsp;   * true;&lt;br/&gt;
+<i>58</i>&nbsp;   * - optionally waiting for the aut-addon server start message to arrive at logcat if {@code startMainAcitvity} is
+<i>59</i>&nbsp;   * true and DroidMate wasn&#39;t configured to deploy raw apks. This is because aut-addon server is attached to the
+<i>60</i>&nbsp;   * deployed apk when apks are instrumented (not raw) and it sends the message when the main activity is started.
+<i>61</i>&nbsp;   *
+<i>62</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>63</i>&nbsp;   * The undeployment consists of doing the deployment cleanup steps in reverse order. First the aut-addon server is
+<i>64</i>&nbsp;   * stopped if necessary, main activity is not cleaned up in any way and finally apk is uninstalled.
+<i>65</i>&nbsp;   *
+<i>66</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>67</i>&nbsp;   * If the apk fails to deploy a warning is issued and execution continues. If apk fails to undeploy,
+<i>68</i>&nbsp;   * {@link ApkUndeploymentException is thrown}.
+<i>69</i>&nbsp;   *
+<i>70</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>71</i>&nbsp;   * &lt;i&gt;This doc was last reviewed on 14 September 2013.&lt;/i&gt;
+<i>72</i>&nbsp;   * &lt;/p&gt;
+<i>73</i>&nbsp;   */
+<i>74</i>&nbsp;  @Override
+<i>75</i>&nbsp;  public void withDeployedApk(IAndroidDevice device, Apk apk, boolean startMainActivity, Closure closure) throws
+<i>76</i>&nbsp;    ApkDeploymentException, ApkUndeploymentException
+<i>77</i>&nbsp;  {
+<b class="fc"><i>78</i>&nbsp;    log.debug(&quot;Deploying apk {}.&quot;, apk.name);</b>
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;    assert device != null</b>
+<b class="fc"><i>81</i>&nbsp;    assert apk?.file</b>
+<b class="fc"><i>82</i>&nbsp;    Assert.checkClosureFirstParameterSignature(closure, Apk)</b>
+<b class="fc"><i>83</i>&nbsp;    assert apk.isInstrumented ^ config.deployRawApks</b>
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    // Deployment of apk on device will read some information from logcat, so it has to be cleared to ensure the
+<i>86</i>&nbsp;    // anticipated commands are not matched against logcat messages from previous deployments.
+<b class="fc"><i>87</i>&nbsp;    device.clearLogcat()</b>
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    /* &quot;Resource cascade&quot;. Design loosely based on: http://groovy.codehaus.org/Loan+my+Resource+Pattern
+<i>90</i>&nbsp;     */
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;    withInstalledApk(device, apk, config.noApkUninstall) { String launchableActivityName -&gt;</b>
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;      /* This withResourceIf call optionally wraps the closure given to it as the 3rd param
+<i>95</i>&nbsp;       * (the one with another withResourceIf in it) with a call of a closure given in 2nd param.
+<i>96</i>&nbsp;       *
+<i>97</i>&nbsp;       * The closure in 2nd param ensures that:
+<i>98</i>&nbsp;       *   - before the 3rd param closure gets executed, main activity (named &quot;launchableActivityName&quot;) will be started
+<i>99</i>&nbsp;       *   - after the closure finishes execution, the activity will be stopped.
+<i>100</i>&nbsp;       *
+<i>101</i>&nbsp;       * The wrapping is optional and happens only if the 1st param, startMainActivity, is set to true.
+<i>102</i>&nbsp;       *
+<i>103</i>&nbsp;       */
+<b class="fc"><i>104</i>&nbsp;      withResourceIf(</b>
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;        // Query method param to decide if to start main activity.
+<i>107</i>&nbsp;        startMainActivity,
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;        // The optionally executed start/stop main activity named &quot;launchableActivityName&quot; wrapper.
+<b class="fc"><i>110</i>&nbsp;        this.&amp;withStartedMainActivity.curry(device, launchableActivityName),</b>
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;        // This is the closure optionally wrapped in start/stop main activity.
+<i>113</i>&nbsp;        {
+<i>114</i>&nbsp;
+<i>115</i>&nbsp;          /*
+<i>116</i>&nbsp;           * The logic behind this call is obviously the same as the outer withResourceIf call. However, when the call
+<i>117</i>&nbsp;           * is made, we are already in environment where the main activity with &quot;launchableActivityName&quot; was started,
+<i>118</i>&nbsp;           * if startMainActivity flag was set to true.
+<i>119</i>&nbsp;           *
+<i>120</i>&nbsp;           * The call in 2nd param ensures that:
+<i>121</i>&nbsp;           *   - before the 3rd param closure operationsOnDeployedApk gets executed,
+<i>122</i>&nbsp;           *   the the aut-addon will get started.
+<i>123</i>&nbsp;           *   - after the closure finishes execution, the aut-addon will be stopped.
+<i>124</i>&nbsp;           *
+<i>125</i>&nbsp;           * The wrapping is optional and happens only if the 1st param is set to true, that is, only if
+<i>126</i>&nbsp;           * startMainActivity is set to true and instrumented apks have been deployed.
+<i>127</i>&nbsp;           */
+<b class="fc"><i>128</i>&nbsp;          withResourceIf(</b>
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;            // Do not start aut-addon if we didn&#39;t asked to start main activity or deployed raw apks.
+<b class="fc"><i>131</i>&nbsp;            startMainActivity &amp;&amp; !config.deployRawApks,</b>
+<i>132</i>&nbsp;
+<i>133</i>&nbsp;            // The optionally executed start/stop aut-addon wrapper.
+<b class="fc"><i>134</i>&nbsp;            this.&amp;withStartedAutAddon.curry(device),</b>
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;            // This is the closure optionally wrapped in start/stop main activity by outer &quot;withResourceIf&quot;.
+<i>137</i>&nbsp;            // and optionally wrapped in start/stop aut-addon by inner &quot;withResourceIf&quot;
+<i>138</i>&nbsp;            //
+<i>139</i>&nbsp;            // Here we actually execute the parametrized operations on the deployed apk.
+<b class="fc"><i>140</i>&nbsp;            closure.curry(apk)</b>
+<i>141</i>&nbsp;            // At this point (after the above-given closure returns) the aut-addon will be stopped if it was started.
+<i>142</i>&nbsp;
+<i>143</i>&nbsp;          )
+<i>144</i>&nbsp;        } // At this point main activity will be stopped if it was started.
+<i>145</i>&nbsp;      ) // /outer withResourceIf
+<i>146</i>&nbsp;    } // At this point the apk will be uninstalled from the device.
+<i>147</i>&nbsp;
+<b class="fc"><i>148</i>&nbsp;    log.debug(&quot;Undeployed apk {}.&quot;, apk.name)</b>
+<i>149</i>&nbsp;  }
+<i>150</i>&nbsp;
+<i>151</i>&nbsp;  private static void withResourceIf(boolean predicate, Closure resourceClosure, Closure computationClosure)
+<i>152</i>&nbsp;  {
+<b class="fc"><i>153</i>&nbsp;    assert resourceClosure != null</b>
+<b class="fc"><i>154</i>&nbsp;    assert computationClosure != null</b>
+<b class="fc"><i>155</i>&nbsp;    Assert.checkClosureFirstParameterSignature(resourceClosure, Closure)</b>
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;    if (predicate)</b>
+<b class="fc"><i>158</i>&nbsp;      resourceClosure(computationClosure)</b>
+<i>159</i>&nbsp;    else
+<b class="fc"><i>160</i>&nbsp;      computationClosure()</b>
+<i>161</i>&nbsp;  }
+<i>162</i>&nbsp;
+<i>163</i>&nbsp;
+<i>164</i>&nbsp;  private static void withInstalledApk(IAndroidDevice device, Apk apk, Boolean noApkUninstall, Closure closure)
+<i>165</i>&nbsp;    throws ApkDeploymentException, ApkUndeploymentException, DroidmateException
+<i>166</i>&nbsp;  {
+<b class="fc"><i>167</i>&nbsp;    log.debug(&quot;Installing apk {}.&quot;, apk.name);</b>
+<i>168</i>&nbsp;
+<b class="fc"><i>169</i>&nbsp;    assert device != null</b>
+<b class="fc"><i>170</i>&nbsp;    assert apk?.file</b>
+<b class="fc"><i>171</i>&nbsp;    Assert.checkClosureFirstParameterSignature(closure, String)</b>
+<i>172</i>&nbsp;
+<b class="fc"><i>173</i>&nbsp;    String apkPackageName, launchableActivityComponentName</b>
+<i>174</i>&nbsp;    try
+<i>175</i>&nbsp;    {
+<b class="fc"><i>176</i>&nbsp;      apkPackageName = apk.packageName;</b>
+<i>177</i>&nbsp;      // WISH report IntelliJ bug ?
+<i>178</i>&nbsp;      //noinspection GroovyUnusedAssignment
+<b class="fc"><i>179</i>&nbsp;      launchableActivityComponentName = apk.launchableActivityComponentName;</b>
+<i>180</i>&nbsp;
+<b class="fc"><i>181</i>&nbsp;      if (!noApkUninstall)</b>
+<i>182</i>&nbsp;      {
+<i>183</i>&nbsp;        // The apk is uninstalled before installation to ensure any cache will be purged.
+<b class="fc"><i>184</i>&nbsp;        device.uninstallApk(apkPackageName, /* warnAboutFailure  = */ false)</b>
+<i>185</i>&nbsp;      }
+<i>186</i>&nbsp;
+<b class="fc"><i>187</i>&nbsp;      device.installApk(apk)</b>
+<i>188</i>&nbsp;    }
+<i>189</i>&nbsp;    catch (DroidmateException e)
+<i>190</i>&nbsp;    {
+<b class="fc"><i>191</i>&nbsp;      throw new ApkDeploymentException(e);</b>
+<i>192</i>&nbsp;    }
+<i>193</i>&nbsp;
+<i>194</i>&nbsp;    try
+<i>195</i>&nbsp;    {
+<b class="fc"><i>196</i>&nbsp;      closure(launchableActivityComponentName);</b>
+<i>197</i>&nbsp;    } finally
+<i>198</i>&nbsp;    {
+<i>199</i>&nbsp;      try
+<i>200</i>&nbsp;      {
+<b class="fc"><i>201</i>&nbsp;        if (!noApkUninstall)</b>
+<i>202</i>&nbsp;        {
+<b class="fc"><i>203</i>&nbsp;          device.uninstallApk(apkPackageName, /* warnAboutFailure = */ true)</b>
+<i>204</i>&nbsp;        }
+<i>205</i>&nbsp;      } catch (DroidmateException e)
+<i>206</i>&nbsp;      {
+<b class="fc"><i>207</i>&nbsp;        throw new ApkUndeploymentException(e);</b>
+<i>208</i>&nbsp;      }
+<i>209</i>&nbsp;    };
+<i>210</i>&nbsp;
+<i>211</i>&nbsp;  }
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;  private static void withStartedMainActivity(IAndroidDevice device, String launchableActivityName, Closure&lt;Void&gt; closure)
+<i>214</i>&nbsp;    throws ApkDeploymentException, ApkUndeploymentException, DroidmateException
+<i>215</i>&nbsp;  {
+<i>216</i>&nbsp;    try
+<i>217</i>&nbsp;    {
+<b class="fc"><i>218</i>&nbsp;      log.debug(&quot;Starting main activity of the device. The activity: {}.&quot;, launchableActivityName);</b>
+<b class="fc"><i>219</i>&nbsp;      device.startMainActivity(launchableActivityName)</b>
+<i>220</i>&nbsp;
+<i>221</i>&nbsp;    } catch (DroidmateException e)
+<i>222</i>&nbsp;    {
+<b class="nc"><i>223</i>&nbsp;      throw new ApkDeploymentException(e)</b>
+<i>224</i>&nbsp;    }
+<i>225</i>&nbsp;
+<i>226</i>&nbsp;    try
+<i>227</i>&nbsp;    {
+<b class="fc"><i>228</i>&nbsp;      closure()</b>
+<i>229</i>&nbsp;    } finally
+<i>230</i>&nbsp;    {
+<i>231</i>&nbsp;      try
+<i>232</i>&nbsp;      {
+<i>233</i>&nbsp;        // WISH to implement stopping apk. Here probably the &quot;app has crashed&quot; will have to be handled.
+<b class="fc"><i>234</i>&nbsp;        log.debug(&quot;Stopping apk activity&quot;);</b>
+<i>235</i>&nbsp;
+<i>236</i>&nbsp;      } catch (DroidmateException e)
+<i>237</i>&nbsp;      {
+<i>238</i>&nbsp;        // WISH add suppressed exception: catch block will be required for this
+<b class="nc"><i>239</i>&nbsp;        throw new ApkUndeploymentException(e);</b>
+<i>240</i>&nbsp;      }
+<i>241</i>&nbsp;    }
+<i>242</i>&nbsp;  }
+<i>243</i>&nbsp;
+<i>244</i>&nbsp;
+<i>245</i>&nbsp;  private static void withStartedAutAddon(IAndroidDevice device, Closure closure) throws
+<i>246</i>&nbsp;    ApkDeploymentException, ApkUndeploymentException, DroidmateException
+<i>247</i>&nbsp;  {
+<i>248</i>&nbsp;    try
+<i>249</i>&nbsp;    {
+<b class="fc"><i>250</i>&nbsp;      device.waitForAutAddonServerResponse()</b>
+<i>251</i>&nbsp;
+<i>252</i>&nbsp;    } catch (DroidmateException e)
+<i>253</i>&nbsp;    {
+<b class="nc"><i>254</i>&nbsp;      throw new ApkDeploymentException(e);</b>
+<i>255</i>&nbsp;    }
+<i>256</i>&nbsp;
+<i>257</i>&nbsp;    try
+<i>258</i>&nbsp;    {
+<b class="fc"><i>259</i>&nbsp;      closure();</b>
+<i>260</i>&nbsp;    }
+<i>261</i>&nbsp;    catch (DroidmateException | RuntimeException e)
+<i>262</i>&nbsp;    {
+<i>263</i>&nbsp;
+<b class="fc"><i>264</i>&nbsp;      log.warn(&quot;The closure called within the .withStartedAutAddon() block threw an exception: &quot;, e)</b>
+<b class="fc"><i>265</i>&nbsp;      throw e</b>
+<i>266</i>&nbsp;    } finally
+<i>267</i>&nbsp;    {
+<i>268</i>&nbsp;      try
+<i>269</i>&nbsp;      {
+<b class="fc"><i>270</i>&nbsp;        device.stopAutAddonServer();</b>
+<i>271</i>&nbsp;
+<i>272</i>&nbsp;      } catch (DroidmateException e)
+<i>273</i>&nbsp;      {
+<b class="nc"><i>274</i>&nbsp;        throw new ApkUndeploymentException(e);</b>
+<i>275</i>&nbsp;      }
+<i>276</i>&nbsp;    }
+<i>277</i>&nbsp;  }
+<i>278</i>&nbsp;
+<i>279</i>&nbsp;
+<i>280</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

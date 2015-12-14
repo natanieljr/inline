@@ -1,0 +1,290 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SerializableTCPServerBase</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.common</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SerializableTCPServerBase (org.droidmate.common)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SerializableTCPServerBase</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 27)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SerializableTCPServerBase$ServerRunnable</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 39)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 66)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.common;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import android.util.Log;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import java.io.*;
+<i>16</i>&nbsp;import java.net.ServerSocket;
+<i>17</i>&nbsp;import java.net.Socket;
+<i>18</i>&nbsp;import java.net.SocketTimeoutException;
+<i>19</i>&nbsp;import java.util.concurrent.CountDownLatch;
+<i>20</i>&nbsp;
+<b class="nc"><i>21</i>&nbsp;public abstract class SerializableTCPServerBase&lt;ServerInputT extends Serializable, ServerOutputT extends Serializable&gt;</b>
+<i>22</i>&nbsp;{
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;  private int port;
+<i>25</i>&nbsp;  ServerSocket serverSocket;
+<i>26</i>&nbsp;  private CountDownLatch countDownLatch;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  private String serverStartMessageTag;
+<i>29</i>&nbsp;  private String serverStartMessage;
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;  private final static String thisClassName = CommonUtils.getClassNameSuffix(SerializableTCPServerBase.class.getName());</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;  protected SerializableTCPServerBase(String serverStartMessageTag, String serverStartMessage)
+<b class="nc"><i>34</i>&nbsp;  {</b>
+<b class="nc"><i>35</i>&nbsp;    this.serverStartMessageTag = serverStartMessageTag;</b>
+<b class="nc"><i>36</i>&nbsp;    this.serverStartMessage = serverStartMessage;</b>
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;  }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  protected abstract ServerOutputT OnServerRequest(ServerInputT input, Exception serverBaseEx);
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  protected abstract boolean shouldCloseServerSocket(ServerInputT serverInput);
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;  public void start(int port) throws InterruptedException
+<i>45</i>&nbsp;  {
+<b class="nc"><i>46</i>&nbsp;    start(port, null);</b>
+<i>47</i>&nbsp;  }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  public void start(int port, CountDownLatch countDownLatch) throws InterruptedException
+<i>50</i>&nbsp;  {
+<i>51</i>&nbsp;
+<b class="nc"><i>52</i>&nbsp;    this.countDownLatch = countDownLatch;</b>
+<i>53</i>&nbsp;    try
+<i>54</i>&nbsp;    {
+<b class="nc"><i>55</i>&nbsp;      this.port = port;</b>
+<b class="nc"><i>56</i>&nbsp;      ServerRunnable serverRunnable = new ServerRunnable();</b>
+<b class="nc"><i>57</i>&nbsp;      Thread serverThread = new Thread(serverRunnable);</b>
+<i>58</i>&nbsp;
+<b class="nc"><i>59</i>&nbsp;      synchronized (serverRunnable)</b>
+<i>60</i>&nbsp;      {
+<b class="nc"><i>61</i>&nbsp;        assert (serverSocket == null);</b>
+<b class="nc"><i>62</i>&nbsp;        serverThread.start();</b>
+<b class="nc"><i>63</i>&nbsp;        serverRunnable.wait();</b>
+<b class="nc"><i>64</i>&nbsp;        assert (serverSocket != null);</b>
+<b class="nc"><i>65</i>&nbsp;      }</b>
+<b class="nc"><i>66</i>&nbsp;      Log.i(serverStartMessageTag, serverStartMessage);</b>
+<b class="nc"><i>67</i>&nbsp;    } catch (InterruptedException e)</b>
+<i>68</i>&nbsp;    {
+<b class="nc"><i>69</i>&nbsp;      throw e;</b>
+<b class="nc"><i>70</i>&nbsp;    }</b>
+<i>71</i>&nbsp;  }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;  public void close()
+<i>74</i>&nbsp;  {
+<i>75</i>&nbsp;    try
+<i>76</i>&nbsp;    {
+<b class="nc"><i>77</i>&nbsp;      serverSocket.close();</b>
+<b class="nc"><i>78</i>&nbsp;    } catch (IOException e)</b>
+<i>79</i>&nbsp;    {
+<b class="nc"><i>80</i>&nbsp;      Log.wtf(thisClassName, &quot;Failed to close SerializableTCPServerBase.&quot;);</b>
+<b class="nc"><i>81</i>&nbsp;    }</b>
+<b class="nc"><i>82</i>&nbsp;    if (countDownLatch != null)</b>
+<b class="nc"><i>83</i>&nbsp;      countDownLatch.countDown();</b>
+<i>84</i>&nbsp;  }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;  public boolean isClosed()
+<i>87</i>&nbsp;  {
+<b class="nc"><i>88</i>&nbsp;    return serverSocket.isClosed();</b>
+<i>89</i>&nbsp;  }
+<i>90</i>&nbsp;
+<b class="nc"><i>91</i>&nbsp;  private class ServerRunnable implements Runnable</b>
+<i>92</i>&nbsp;  {
+<i>93</i>&nbsp;
+<b class="nc"><i>94</i>&nbsp;    private final String serverRunnableClassName = CommonUtils</b>
+<i>95</i>&nbsp;      .getClassNameSuffix(ServerRunnable.class.getName()) + port;
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    public void run()
+<i>98</i>&nbsp;    {
+<i>99</i>&nbsp;
+<b class="nc"><i>100</i>&nbsp;      Log.d(serverRunnableClassName, &quot;Started ServerRunnable.&quot;);</b>
+<i>101</i>&nbsp;      try
+<i>102</i>&nbsp;      {
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;        // Synchronize to ensure the parent thread will continue only after the &quot;server&quot; field is instantiated.
+<b class="nc"><i>105</i>&nbsp;        synchronized (this)</b>
+<i>106</i>&nbsp;        {
+<b class="nc"><i>107</i>&nbsp;          serverSocket = new ServerSocket(port);</b>
+<b class="nc"><i>108</i>&nbsp;          this.notify();</b>
+<b class="nc"><i>109</i>&nbsp;        }</b>
+<i>110</i>&nbsp;
+<b class="nc"><i>111</i>&nbsp;        while (!serverSocket.isClosed())</b>
+<i>112</i>&nbsp;        {
+<i>113</i>&nbsp;
+<b class="nc"><i>114</i>&nbsp;          Log.d(serverRunnableClassName, String.format(&quot;Accepting socket from client on port %s...&quot;, port));</b>
+<b class="nc"><i>115</i>&nbsp;          Socket clientSocket = serverSocket.accept();</b>
+<b class="nc"><i>116</i>&nbsp;          Log.v(serverRunnableClassName, &quot;Socket accepted.&quot;);</b>
+<i>117</i>&nbsp;
+<b class="nc"><i>118</i>&nbsp;          ObjectOutputStream output = new ObjectOutputStream(clientSocket.getOutputStream());</b>
+<i>119</i>&nbsp;
+<i>120</i>&nbsp;          /*
+<i>121</i>&nbsp;           * Flushing done to prevent client blocking on input stream creation.
+<i>122</i>&nbsp;           *
+<i>123</i>&nbsp;           * References:
+<i>124</i>&nbsp;           * 1. http://stackoverflow.com/questions/8088557/getinputstream-blocks
+<i>125</i>&nbsp;           * 2. Search for: &quot;Note - The ObjectInputStream constructor blocks until&quot; in:
+<i>126</i>&nbsp;           * http://docs.oracle.com/javase/7/docs/platform/serialization/spec/input.html
+<i>127</i>&nbsp;           */
+<b class="nc"><i>128</i>&nbsp;          output.flush();</b>
+<i>129</i>&nbsp;
+<b class="nc"><i>130</i>&nbsp;          ObjectInputStream input = new ObjectInputStream(clientSocket.getInputStream());</b>
+<i>131</i>&nbsp;
+<b class="nc"><i>132</i>&nbsp;          ServerInputT serverInput = null;</b>
+<i>133</i>&nbsp;
+<b class="nc"><i>134</i>&nbsp;          Exception serverInputReadEx = null;</b>
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;          try
+<i>137</i>&nbsp;          {
+<i>138</i>&nbsp;            //noinspection unchecked
+<b class="nc"><i>139</i>&nbsp;            serverInput = (ServerInputT) input.readObject();</b>
+<i>140</i>&nbsp;
+<b class="nc"><i>141</i>&nbsp;          } catch (ClassNotFoundException e)</b>
+<i>142</i>&nbsp;          {
+<b class="nc"><i>143</i>&nbsp;            serverInputReadEx = handleInputReadObjectException(input, e);</b>
+<b class="nc"><i>144</i>&nbsp;          } catch (IOException e)</b>
+<i>145</i>&nbsp;          {
+<b class="nc"><i>146</i>&nbsp;            serverInputReadEx = handleInputReadObjectException(input, e);</b>
+<b class="nc"><i>147</i>&nbsp;          }</b>
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;          ServerOutputT serverOutput;
+<b class="nc"><i>150</i>&nbsp;          serverOutput = OnServerRequest(serverInput, serverInputReadEx);</b>
+<b class="nc"><i>151</i>&nbsp;          output.writeObject(serverOutput);</b>
+<b class="nc"><i>152</i>&nbsp;          clientSocket.close();</b>
+<i>153</i>&nbsp;
+<b class="nc"><i>154</i>&nbsp;          if (shouldCloseServerSocket(serverInput))</b>
+<b class="nc"><i>155</i>&nbsp;            close();</b>
+<b class="nc"><i>156</i>&nbsp;        }</b>
+<i>157</i>&nbsp;
+<b class="nc"><i>158</i>&nbsp;        Log.i(serverRunnableClassName, &quot;Closed ServerRunnable.&quot;);</b>
+<i>159</i>&nbsp;
+<b class="nc"><i>160</i>&nbsp;      } catch (SocketTimeoutException e)</b>
+<i>161</i>&nbsp;      {
+<b class="nc"><i>162</i>&nbsp;        Log.e(serverRunnableClassName, &quot;Closing ServerRunnable due to a timeout.&quot;, e);</b>
+<b class="nc"><i>163</i>&nbsp;        close();</b>
+<b class="nc"><i>164</i>&nbsp;      } catch (IOException e)</b>
+<i>165</i>&nbsp;      {
+<b class="nc"><i>166</i>&nbsp;        Log.e(serverRunnableClassName, &quot;Exception was thrown while operating DroidmateServer&quot;, e);</b>
+<b class="nc"><i>167</i>&nbsp;      }</b>
+<i>168</i>&nbsp;    }
+<i>169</i>&nbsp;
+<i>170</i>&nbsp;    private Exception handleInputReadObjectException(ObjectInputStream input, Exception e) throws IOException
+<i>171</i>&nbsp;    {
+<i>172</i>&nbsp;      Exception serverInputReadEx;
+<b class="nc"><i>173</i>&nbsp;      Log.e(serverRunnableClassName, &quot;Exception was thrown while reading input sent to DroidmateServer from &quot; +</b>
+<i>174</i>&nbsp;        &quot;client through socket.&quot;, e);
+<b class="nc"><i>175</i>&nbsp;      serverInputReadEx = e;</b>
+<b class="nc"><i>176</i>&nbsp;      input.close();</b>
+<b class="nc"><i>177</i>&nbsp;      return serverInputReadEx;</b>
+<i>178</i>&nbsp;    }
+<i>179</i>&nbsp;  }
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-20 17:11</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IRobotController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.robot</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IRobotController (org.droidmate.robot)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IRobotController$calibrate$0</td>
+  </tr>
+  <tr>
+    <td class="name">IRobotController$connect</td>
+  </tr>
+  <tr>
+    <td class="name">IRobotController$disconnect$2</td>
+  </tr>
+  <tr>
+    <td class="name">IRobotController$moveDown$4</td>
+  </tr>
+  <tr>
+    <td class="name">IRobotController$moveToCoordinates$3</td>
+  </tr>
+  <tr>
+    <td class="name">IRobotController$moveToMinXY$1</td>
+  </tr>
+  <tr>
+    <td class="name">IRobotController$moveUp$5</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.robot;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.exceptions.RobotException;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public interface IRobotController
+<i>16</i>&nbsp;{
+<i>17</i>&nbsp;  boolean connect() throws RobotException;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;  void moveToMinXY(boolean isLandscapeOrientation) throws RobotException;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;  void moveToCoordinates(int x, int y, int speed, boolean isLandscapeOrientation) throws RobotException;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  void moveToMappedCoordinates(float mappedX, float mappedY, int speed, boolean isLandscapeOrientation)
+<i>24</i>&nbsp;  throws RobotException;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  void moveDown() throws RobotException;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  void moveUp() throws RobotException;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  void disconnect();
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  void moveToMaxXY(boolean isLandscapeOrientation) throws RobotException;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  void moveToBackButton(boolean isLandscapeOrientation) throws RobotException;
+<i>35</i>&nbsp;  
+<i>36</i>&nbsp;  void calibrate() throws RobotException;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;  void runRaw(String command) throws RobotException;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

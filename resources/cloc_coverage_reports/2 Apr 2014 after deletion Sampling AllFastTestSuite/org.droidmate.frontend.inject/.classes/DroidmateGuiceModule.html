@@ -1,0 +1,238 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DroidmateGuiceModule</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.inject</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DroidmateGuiceModule (org.droidmate.frontend.inject)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DroidmateGuiceModule</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (39/ 39)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">DroidmateGuiceModule$1</td>
+  </tr>
+  <tr>
+    <td class="name">DroidmateGuiceModule$2</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (39/ 39)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.inject
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.TypeLiteral
+<i>14</i>&nbsp;import com.google.inject.assistedinject.FactoryModuleBuilder
+<i>15</i>&nbsp;import com.google.inject.matcher.Matchers
+<i>16</i>&nbsp;import org.droidmate.common.Constants
+<i>17</i>&nbsp;import org.droidmate.common.DeviceCommand
+<i>18</i>&nbsp;import org.droidmate.common.DeviceResponse
+<i>19</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>20</i>&nbsp;import org.droidmate.core.*
+<i>21</i>&nbsp;import org.droidmate.device.*
+<i>22</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>23</i>&nbsp;import org.droidmate.exploration.*
+<i>24</i>&nbsp;import org.droidmate.exploration.abstractgui.*
+<i>25</i>&nbsp;import org.droidmate.filesystem.*
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;import org.droidmate.report.*
+<i>28</i>&nbsp;import org.droidmate.utils.*
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;import static org.droidmate.configuration.InstrumentationFrameworkName.ASMDEX
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;// Note on architecture design:
+<i>33</i>&nbsp;// &quot;Modules should be atomic; a grouping of bindings that an application is likely to want either all of or none of.&quot;
+<i>34</i>&nbsp;// from: https://groups.google.com/forum/#!topic/google-guice/uc3mb8Vbd7E
+<i>35</i>&nbsp;// http://stackoverflow.com/questions/483087/overriding-binding-in-guice
+<i>36</i>&nbsp;public class DroidmateGuiceModule extends AbstractDroidmateGuiceModule
+<i>37</i>&nbsp;{
+<i>38</i>&nbsp;  protected final Configuration config;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  public DroidmateGuiceModule(Configuration config, Map&lt;Class, Class&gt; bindingOverrides)
+<i>41</i>&nbsp;  {
+<b class="fc"><i>42</i>&nbsp;    super(bindingOverrides)</b>
+<b class="fc"><i>43</i>&nbsp;    assert config != null</b>
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;    this.config = config;</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  // WISH region-ize the bindings according to packages
+<i>50</i>&nbsp;  @Override
+<i>51</i>&nbsp;  void configureWithValidationOfBindingOverrides()
+<i>52</i>&nbsp;  {
+<b class="fc"><i>53</i>&nbsp;    assert config != null</b>
+<b class="fc"><i>54</i>&nbsp;    assert bindingOverrides != null</b>
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    // Handling of intelligent field-injection of loggers. See the instantiated class comment for details.
+<b class="fc"><i>57</i>&nbsp;    bindListener(Matchers.any(), new SLF4JTypeListener());</b>
+<i>58</i>&nbsp;
+<b class="fc"><i>59</i>&nbsp;    bind(Configuration).toInstance(config);</b>
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    /* IConfigurator is not bind here; instead it is instantiated before dependency injection takes place.
+<i>62</i>&nbsp;    It is used to obtain Configuration instance, which is used before dependency injection takes place,
+<i>63</i>&nbsp;    as the Configuration instance is required to define which modules shall be bind during dependency injection
+<i>64</i>&nbsp;    (see remainder of this method for how configuration is used to resolve bindings).
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    bind(IConfigurator).to(Configurator);
+<i>67</i>&nbsp;    */
+<i>68</i>&nbsp;
+<b class="fc"><i>69</i>&nbsp;    bind(IDroidmate).to(Droidmate)</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    // Layers on top of OS services.
+<b class="fc"><i>72</i>&nbsp;    bind(ISysCmdExecutor).to(SysCmdExecutor)</b>
+<b class="fc"><i>73</i>&nbsp;    bind(IFilesystemProxy).to(FilesystemProxy)</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    // File system access layers, using IFilesystemProxy.
+<b class="fc"><i>76</i>&nbsp;    overriddableBinding(IApkContextFilesProvider, ApkContextFilesProvider)</b>
+<b class="fc"><i>77</i>&nbsp;    bind(IRunFilesProvider).to(RunFilesProvider)</b>
+<b class="fc"><i>78</i>&nbsp;    overriddableBinding(ITempDirProvider, TempDirProvider)</b>
+<b class="fc"><i>79</i>&nbsp;    bind(IUiautomatorTestJarsProvider).to(UiautomatorTestJarsProvider)</b>
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;    // Tools from Android SDK.
+<b class="fc"><i>83</i>&nbsp;    bind(IAaptWrapper).to(AaptWrapper);</b>
+<b class="fc"><i>84</i>&nbsp;    overriddableBinding(IAdbWrapper, AdbWrapper);</b>
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    //region org.droidmate.report: Generating reports from DroidMate run.
+<i>87</i>&nbsp;
+<b class="fc"><i>88</i>&nbsp;    bind(IInstrumentationXmlReporter).to(InstrumentationXmlReporter);</b>
+<i>89</i>&nbsp;    // Dependency for the above-given class
+<b class="fc"><i>90</i>&nbsp;    bind(File)</b>
+<i>91</i>&nbsp;      .annotatedWith(InstrumentationXmlReportSkeleton)
+<i>92</i>&nbsp;      .toInstance(config.instrumentationReportSkeleton)
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;    bind(IExplorationXmlReporter).to(ExplorationXmlReporter);</b>
+<i>95</i>&nbsp;    // Dependency for the above-given class
+<b class="fc"><i>96</i>&nbsp;    bind(File)</b>
+<i>97</i>&nbsp;      .annotatedWith(ExplorationXmlReportSkeleton)
+<i>98</i>&nbsp;      .toInstance(config.explorationReportSkeleton)
+<i>99</i>&nbsp;
+<b class="fc"><i>100</i>&nbsp;    bind(IApkXmlReporter).to(ApkXmlReporter);</b>
+<b class="fc"><i>101</i>&nbsp;    bind(IRunXmlReporter).to(RunXmlReporter);</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;    bind(IReportGenerator).to(ReportGenerator)</b>
+<i>104</i>&nbsp;    //endregion
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;    // Classes dealing with Android (Virtual) Device.
+<b class="fc"><i>107</i>&nbsp;    overriddableBinding(IApkDeployer, ApkDeployer)</b>
+<b class="fc"><i>108</i>&nbsp;    overriddableBinding(IDeviceCommandSender, DeviceCommandSender)</b>
+<b class="fc"><i>109</i>&nbsp;    overriddableBinding(IAndroidDeviceDeployer, AndroidDeviceDeployer)</b>
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    // Uncategorized // WISH to categorize
+<b class="fc"><i>112</i>&nbsp;    bind(IGuiExplorator).to(GuiExplorator)</b>
+<b class="fc"><i>113</i>&nbsp;    bind(IExplorationDriverDeployer).to(ExplorationDriverDeployer)</b>
+<b class="fc"><i>114</i>&nbsp;    overriddableBinding(IExplorationActionSerializer, ExplorationActionSerializer)</b>
+<b class="fc"><i>115</i>&nbsp;    bind(IDroidmateCommandHandler).to(DroidmateCommandHandler)</b>
+<b class="fc"><i>116</i>&nbsp;    overriddableBinding(IExplorationStrategy, EmptyExplorationStrategy)</b>
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;    // Guice n00b tip: http://stackoverflow.com/questions/6142177/how-do-i-configure-google-guice-using-a-generic-interface
+<b class="fc"><i>119</i>&nbsp;    bind(new TypeLiteral&lt;ISerializableTCPClient&lt;DeviceCommand, DeviceResponse&gt;&gt;() {})</b>
+<b class="fc"><i>120</i>&nbsp;      .to(new TypeLiteral&lt;SerializableTCPClient&lt;DeviceCommand, DeviceResponse&gt;&gt;() {})</b>
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    // This line of code is based on:
+<i>123</i>&nbsp;    // http://stackoverflow.com/questions/3466568
+<i>124</i>&nbsp;    // /check-if-class-exists-in-java-classpath-without-running-its-static-initializer
+<i>125</i>&nbsp;    final explorationDriverImplementationClass = Class.forName(
+<b class="fc"><i>126</i>&nbsp;      config.EXPLORATION_DRIVER_CLASS_PACKAGE + &quot;.&quot; + config.explorationDriverClassName) as Class&lt;? extends IExplorationDriver&gt;</b>
+<i>127</i>&nbsp;
+<b class="fc"><i>128</i>&nbsp;    install(new FactoryModuleBuilder()</b>
+<i>129</i>&nbsp;      .implement(IExplorationDriver, explorationDriverImplementationClass)
+<i>130</i>&nbsp;      .build(IExplorationDriverFactory))
+<i>131</i>&nbsp;
+<b class="fc"><i>132</i>&nbsp;    overriddableFactoryBinding(IApkContext, ApkContext, IApkContextFactory)</b>
+<i>133</i>&nbsp;
+<b class="fc"><i>134</i>&nbsp;    install(new FactoryModuleBuilder()</b>
+<b class="fc"><i>135</i>&nbsp;      .implement(IAndroidDevice, overriddableClass(IAndroidDevice))</b>
+<i>136</i>&nbsp;      .build(IAndroidDeviceFactory))
+<i>137</i>&nbsp;
+<i>138</i>&nbsp;    // This has nothing to do with Guice factories, I just kept the naming convention.
+<b class="fc"><i>139</i>&nbsp;    bind(IApkFactory).to(ApkFactory)</b>
+<i>140</i>&nbsp;  }
+<i>141</i>&nbsp;}
+<i>142</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

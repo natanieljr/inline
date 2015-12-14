@@ -1,0 +1,212 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BytecodeInstrumenterAsmdex</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.instrumentation.asmdex</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BytecodeInstrumenterAsmdex (org.droidmate.instrumentation.asmdex)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BytecodeInstrumenterAsmdex</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.instrumentation.asmdex;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.common.io.Files;
+<i>14</i>&nbsp;import com.google.inject.Inject;
+<i>15</i>&nbsp;import com.google.inject.Singleton;
+<i>16</i>&nbsp;import org.droidmate.configuration.Configuration;
+<i>17</i>&nbsp;import org.droidmate.exceptions.InstrumentationException;
+<i>18</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger;
+<i>19</i>&nbsp;import org.droidmate.instrumentation.BytecodeInstrumenterBase;
+<i>20</i>&nbsp;import org.droidmate.utils.Apk;
+<i>21</i>&nbsp;import org.ow2.asmdex.ApplicationReader;
+<i>22</i>&nbsp;import org.ow2.asmdex.ApplicationVisitor;
+<i>23</i>&nbsp;import org.ow2.asmdex.ApplicationWriter;
+<i>24</i>&nbsp;import org.ow2.asmdex.Opcodes;
+<i>25</i>&nbsp;import org.slf4j.Logger;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;import java.io.File;
+<i>28</i>&nbsp;import java.io.IOException;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;import static com.google.common.base.Preconditions.checkState;
+<i>31</i>&nbsp;import static org.droidmate.configuration.InstrumentationFrameworkName.ASMDEX;
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;/**
+<i>34</i>&nbsp; * &lt;p&gt;
+<i>35</i>&nbsp; * Implementation of {@link BytecodeInstrumenterBase} based on ASMDEX [1].
+<i>36</i>&nbsp; *
+<i>37</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>38</i>&nbsp; * &lt;b&gt;Note on dev state as of 14 sep &#39;13&lt;/b&gt;&lt;br/&gt;
+<i>39</i>&nbsp; * This instrumentation is incomplete and obsolete, but working (sometimes :)). It inserts call to the autaddon (to be
+<i>40</i>&nbsp; * attached by the base class) but it doesn&#39;t insert code coverage logging instructions. Also, the call to autaddon
+<i>41</i>&nbsp; * is very hackish and might not work for many apps. Still, by running DroidMate with this instrumentation, you can
+<i>42</i>&nbsp; * successfully establish TCP connection with autaddon on many apks.
+<i>43</i>&nbsp; *
+<i>44</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>45</i>&nbsp; * [1] http://asm.ow2.org/doc/tutorial-asmdex.html
+<i>46</i>&nbsp; *
+<i>47</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>48</i>&nbsp; * &lt;i&gt;This doc was last reviewed on 14 Sep &#39;13&lt;/i&gt;
+<i>49</i>&nbsp; *
+<i>50</i>&nbsp; * &lt;/p&gt;
+<i>51</i>&nbsp; */
+<b class="nc"><i>52</i>&nbsp;@Singleton</b>
+<i>53</i>&nbsp;public class BytecodeInstrumenterAsmdex extends BytecodeInstrumenterBase
+<i>54</i>&nbsp;{
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;  @InjectLogger
+<i>57</i>&nbsp;  private static Logger log;
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  @Inject
+<i>60</i>&nbsp;  public BytecodeInstrumenterAsmdex(Configuration config)
+<i>61</i>&nbsp;  {
+<b class="nc"><i>62</i>&nbsp;    super(config);</b>
+<i>63</i>&nbsp;  }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;  @Override
+<i>66</i>&nbsp;  public void instrumentInternal(Apk apk, File inputClassesDex, File outputClassesDex) throws InstrumentationException
+<i>67</i>&nbsp;  {
+<b class="nc"><i>68</i>&nbsp;    log.debug(&quot;Instrumenting .dex file with ASMDEX-based instrumenter.&quot;);</b>
+<i>69</i>&nbsp;
+<b class="nc"><i>70</i>&nbsp;    assert config != null;</b>
+<b class="nc"><i>71</i>&nbsp;    checkState(config.instrumentationFrameworkName == ASMDEX);</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    // Required by ASMDEX internals.
+<b class="nc"><i>74</i>&nbsp;    int api = Opcodes.ASM4;</b>
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    // Construct the application visitors
+<b class="nc"><i>77</i>&nbsp;    ApplicationWriter appWriter = new ApplicationWriter();</b>
+<b class="nc"><i>78</i>&nbsp;    ApplicationVisitor appVisitor = new DroidmateApplicationAdapter(api, appWriter);</b>
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    // Visit the inputClassesDex with visitors.
+<i>81</i>&nbsp;    ApplicationReader appReader;
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    try
+<i>84</i>&nbsp;    {
+<b class="nc"><i>85</i>&nbsp;      appReader = new ApplicationReader(api, inputClassesDex);</b>
+<b class="nc"><i>86</i>&nbsp;    } catch (IOException e)</b>
+<i>87</i>&nbsp;    {
+<b class="nc"><i>88</i>&nbsp;      throw new InstrumentationException(&quot;ASMDEX instrumenter failed with IOException while instantiating &quot; +</b>
+<i>89</i>&nbsp;        &quot;ApplicationReader&quot;, e);
+<b class="nc"><i>90</i>&nbsp;    }</b>
+<i>91</i>&nbsp;
+<b class="nc"><i>92</i>&nbsp;    appReader.accept(appVisitor, 0);</b>
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    try
+<i>95</i>&nbsp;    {
+<b class="nc"><i>96</i>&nbsp;      Files.write(appWriter.toByteArray(), outputClassesDex);</b>
+<b class="nc"><i>97</i>&nbsp;    } catch (IOException e)</b>
+<i>98</i>&nbsp;    {
+<b class="nc"><i>99</i>&nbsp;      throw new InstrumentationException(&quot;ASMDEX instrumenter failed with IOException while writing out the &quot; +</b>
+<i>100</i>&nbsp;        &quot;instrumented bytecode to output file.&quot;, e);
+<b class="nc"><i>101</i>&nbsp;    }</b>
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;  }
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;//  private static void applyRegisterShiftInstrumentations(File inputClassesDex, File outputClassesDex)
+<i>107</i>&nbsp;//      throws IOException {
+<i>108</i>&nbsp;//
+<i>109</i>&nbsp;//    int api = Opcodes.ASM4;
+<i>110</i>&nbsp;//    ApplicationReader ar = new ApplicationReader(api, inputClassesDex);
+<i>111</i>&nbsp;//    ApplicationWriter aw = new ApplicationWriter();
+<i>112</i>&nbsp;//    ApplicationVisitor ab = new RegisterShiftApplicationAdapter(api, aw);
+<i>113</i>&nbsp;//
+<i>114</i>&nbsp;//    ar.accept(ab, 0);
+<i>115</i>&nbsp;//    Files.write(aw.toByteArray(), outputClassesDex);
+<i>116</i>&nbsp;//
+<i>117</i>&nbsp;//  }
+<i>118</i>&nbsp;//
+<i>119</i>&nbsp;//  private static void applyExecutionTracerInstrumentations(File outputClassesDex, File instrumentedClassesDex)
+<i>120</i>&nbsp;//      throws IOException {
+<i>121</i>&nbsp;//    int api = Opcodes.ASM4;
+<i>122</i>&nbsp;//
+<i>123</i>&nbsp;//    ApplicationReader ar = new ApplicationReader(api, outputClassesDex);
+<i>124</i>&nbsp;//    ApplicationWriter aw = new ApplicationWriter();
+<i>125</i>&nbsp;//    ApplicationVisitor ab = new ExecutionPathApplicationAdapter(api, aw);
+<i>126</i>&nbsp;//    ar.accept(ab, 0);
+<i>127</i>&nbsp;//    Files.write(aw.toByteArray(), instrumentedClassesDex);
+<i>128</i>&nbsp;//  }
+<i>129</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IApkContext</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.core</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IApkContext (org.droidmate.core)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IApkContext$anyInstrumentationReportExists$10</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$deleteObsoleteArtifacts$12</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getApkFile</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getApkXmlReportFile$5</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getDecodedApkFileStructure$16</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getDecodedContentsDir$2</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getExplorationActionsFile$3</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getExplorationXmlReportFile$4</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getInstrumentationXmlReportFile$1</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getInstrumentedApk$0</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getLaunchableActivityComponentName$8</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getPackageName$9</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getPreviousExplorationActions$15</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getPreviousExplorationActionsFile$6</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getPreviousInstrumentationXmlReportFile$11</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getPreviouslyInstrumentedApk$14</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$getStampedDirs$7</td>
+  </tr>
+  <tr>
+    <td class="name">IApkContext$previouslyInstrumentedApkExists$13</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.core
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.instrumentation.DecodedApkFileStructure
+<i>14</i>&nbsp;import org.droidmate.utils.Apk
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;// WISH report intellij bug: in groovy, getPackageName getClassName and getFieldName do not underline as unused
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;public interface IApkContext
+<i>19</i>&nbsp;{
+<i>20</i>&nbsp;  File getApkFile()
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;  Apk getInstrumentedApk()
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;  Apk getPreviouslyInstrumentedApk()
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  boolean previouslyInstrumentedApkExists()
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  String getPackageName()
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  String getLaunchableActivityName()
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  String getLaunchableActivityComponentName()
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  List&lt;File&gt; getStampedDirs()
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  File getInstrumentationXmlReportFile()
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;  // WISH create an ExplorationXmlReport class
+<i>39</i>&nbsp;  File getExplorationXmlReportFile()
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  File getApkXmlReportFile()
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;  File getExplorationActionsFile()
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;  File getDecodedContentsDir()
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  File getPreviousInstrumentationXmlReportFile()
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  File getPreviousExplorationActionsFile()
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;  List getPreviousExplorationActions()
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;  DecodedApkFileStructure getDecodedApkFileStructure()
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;  void deleteObsoleteArtifacts(Map&lt;String, Boolean&gt; retainSwitches)
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;  boolean anyInstrumentationReportExists()
+<i>58</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

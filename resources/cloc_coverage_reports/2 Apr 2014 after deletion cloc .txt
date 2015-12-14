@@ -1,0 +1,22 @@
+Timestamp: 02 Apr 2014 13:45:07
+
+Number of nonempty lines in .java and .groovy files of DroidMate sources:
+
+core src   : 12110
+core test  :  4025
+misc src   :  1088
+             -----
+total      : 17223
+
+----------
+
+Commands executed:
+
+core src:
+find "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/core/src" -iregex ".*\.\(java\|groovy\)" | xargs cat | sed '/^\s*$/d' | wc -l
+
+core test:
+find "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/core/src/test" -iregex ".*\.\(java\|groovy\)" | xargs cat | sed '/^\s*$/d' | wc -l
+
+misc src:
+find "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/aut-addon/src" "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/common/src" "C:/my/SEChair/droidmate/repos/droidmate/dev/droidmate/projects/uiautomator-daemon/src" -iregex ".*\.\(java\|groovy\)" | xargs cat | sed '/^\s*$/d' | wc -l

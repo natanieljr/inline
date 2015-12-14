@@ -1,0 +1,280 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: GuiTransitionChooser</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration.abstractgui</a> ]
+</div>
+
+<h1>Coverage Summary for Class: GuiTransitionChooser (org.droidmate.exploration.abstractgui)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GuiTransitionChooser</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.8%
+  </span>
+  <span class="absValue">
+    (61/ 65)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GuiTransitionChooser$$FastClassByGuice$$1faf6d42</td>
+  </tr>
+  <tr>
+    <td class="name">GuiTransitionChooser$chooseWidgetAndGetGuiTransitionPath$0</td>
+  </tr>
+  <tr>
+    <td class="name">GuiTransitionChooser$getSpecialCaseGuiTransition$1</td>
+  </tr>
+  <tr>
+    <td class="name">GuiTransitionChooser$processDeterministicModel</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.8%
+  </span>
+  <span class="absValue">
+    (61/ 65)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration.abstractgui
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import org.droidmate.exceptions.UnexpectedAbstractGuiModelException
+<i>16</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>17</i>&nbsp;import org.slf4j.Logger
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import static org.droidmate.logging.Markers.MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;@Singleton
+<i>23</i>&nbsp;class GuiTransitionChooser implements IGuiTransitionChooser
+<i>24</i>&nbsp;{
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  @InjectLogger
+<i>28</i>&nbsp;  private static Logger log;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  public static int guiStatesLimit      = 50
+<i>31</i>&nbsp;  public static int guiTransitionsLimit = 50
+<i>32</i>&nbsp;  public static int guiTransitionsLeft  = guiTransitionsLimit
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  final IWidgetChooser      widgetChooser
+<i>35</i>&nbsp;  final int                 specialCaseGuiStateAttemptLimit = 3
+<i>36</i>&nbsp;        int                 specialCaseGuiStateAttemptsLeft = specialCaseGuiStateAttemptLimit
+<b class="fc"><i>37</i>&nbsp;        List&lt;GuiTransition&gt; guiTransitionPathToFollow       = []</b>
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;  @Inject
+<i>40</i>&nbsp;  GuiTransitionChooser(IWidgetChooser widgetChooser)
+<i>41</i>&nbsp;  {
+<b class="fc"><i>42</i>&nbsp;    this.widgetChooser = widgetChooser</b>
+<i>43</i>&nbsp;  }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;  @Override
+<i>46</i>&nbsp;  GuiTransition choose(IPartialGuiModel model)
+<i>47</i>&nbsp;  {
+<b class="fc"><i>48</i>&nbsp;    assert model != null</b>
+<i>49</i>&nbsp;
+<b class="fc"><i>50</i>&nbsp;    GuiTransition retGuiTr</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;    if (!model?.isDeterministic())</b>
+<i>54</i>&nbsp;    {
+<b class="fc"><i>55</i>&nbsp;      String msg = &quot;Detected non-deterministic model! Returning none-transition.&quot;</b>
+<b class="fc"><i>56</i>&nbsp;      log.warn(msg); log.warn(MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS, msg)</b>
+<b class="fc"><i>57</i>&nbsp;      retGuiTr = GuiTransition.createNoneGuiTransition()</b>
+<i>58</i>&nbsp;    } else
+<i>59</i>&nbsp;    {
+<b class="fc"><i>60</i>&nbsp;      if (model.knownGuiStates.size() &gt; guiStatesLimit)</b>
+<i>61</i>&nbsp;      {
+<b class="fc"><i>62</i>&nbsp;        String msg = &quot;Exceeded the model GUI states size limit of $guiStatesLimit! Returning none-transition.&quot;</b>
+<b class="fc"><i>63</i>&nbsp;        log.warn(msg); log.warn(MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS, msg)</b>
+<b class="fc"><i>64</i>&nbsp;        retGuiTr = GuiTransition.createNoneGuiTransition()</b>
+<b class="fc"><i>65</i>&nbsp;      } else if (guiTransitionsLeft == 0)</b>
+<i>66</i>&nbsp;      {
+<b class="fc"><i>67</i>&nbsp;        String msg = &quot;Exceeded the GUI transitions conducted limit of $guiTransitionsLimit! Returning none-transition.&quot;</b>
+<b class="fc"><i>68</i>&nbsp;        log.warn(msg); log.warn(MARKER_ABSTRACT_GUI_MODEL_DIAGNOSTICS, msg)</b>
+<b class="fc"><i>69</i>&nbsp;        retGuiTr = GuiTransition.createNoneGuiTransition()</b>
+<i>70</i>&nbsp;      } else
+<b class="fc"><i>71</i>&nbsp;        retGuiTr = processDeterministicModel(model)</b>
+<i>72</i>&nbsp;    }
+<i>73</i>&nbsp;
+<b class="fc"><i>74</i>&nbsp;    guiTransitionsLeft--</b>
+<b class="fc"><i>75</i>&nbsp;    log.debug(&quot;Chosen ${GuiTransition.simpleName}: $retGuiTr\n&quot;)</b>
+<b class="fc"><i>76</i>&nbsp;    assert retGuiTr != null</b>
+<b class="fc"><i>77</i>&nbsp;    return retGuiTr</b>
+<i>78</i>&nbsp;  }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;  @Override
+<i>81</i>&nbsp;  void resetForNewApp()
+<i>82</i>&nbsp;  {
+<b class="fc"><i>83</i>&nbsp;    guiTransitionsLeft = guiTransitionsLimit</b>
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;  }
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;  public GuiTransition processDeterministicModel(IPartialGuiModel model)
+<i>88</i>&nbsp;  {
+<b class="fc"><i>89</i>&nbsp;    assert model?.isDeterministic()</b>
+<i>90</i>&nbsp;
+<b class="fc"><i>91</i>&nbsp;    GuiTransition retGuiTr</b>
+<i>92</i>&nbsp;
+<b class="fc"><i>93</i>&nbsp;    if (!model.isSpecialCase())</b>
+<i>94</i>&nbsp;    {
+<b class="fc"><i>95</i>&nbsp;      specialCaseGuiStateAttemptsLeft = specialCaseGuiStateAttemptLimit</b>
+<i>96</i>&nbsp;
+<b class="fc"><i>97</i>&nbsp;      if (guiTransitionPathToFollow.empty)</b>
+<i>98</i>&nbsp;      {
+<b class="fc"><i>99</i>&nbsp;        guiTransitionPathToFollow = chooseWidgetAndGetGuiTransitionPath(model)</b>
+<i>100</i>&nbsp;      }
+<i>101</i>&nbsp;
+<b class="fc"><i>102</i>&nbsp;      log.debug(&quot;Following ${GuiTransition.simpleName} path. &quot; +</b>
+<b class="fc"><i>103</i>&nbsp;        &quot;Steps left (including current one): ${guiTransitionPathToFollow.size()}&quot;)</b>
+<b class="fc"><i>104</i>&nbsp;      retGuiTr = guiTransitionPathToFollow.remove(0)</b>
+<i>105</i>&nbsp;
+<b class="fc"><i>106</i>&nbsp;      if (model.lastGuiTransition?.isClickBackTransition() &amp;&amp; retGuiTr.isWidgetTransition() &amp;&amp; !(retGuiTr.transitionWidget in model.activeGuiState.widgets))</b>
+<b class="fc"><i>107</i>&nbsp;        throw new UnexpectedAbstractGuiModelException(&#39;While following path, clicked &quot;back&quot; button and encountered a GUI state that doesn\&#39;t contain the widget to be followed. DroidMate doesn\&#39;t know how to handle such situation.\n&#39; +</b>
+<i>108</i>&nbsp;          &quot;The widget to be followed: ${retGuiTr.transitionWidget}\n&quot; +
+<i>109</i>&nbsp;          &quot;The GUI state (not having the widget): ${model.activeGuiState}&quot;)
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    } else
+<i>112</i>&nbsp;    {
+<b class="fc"><i>113</i>&nbsp;      if (specialCaseGuiStateAttemptsLeft == 0)</b>
+<i>114</i>&nbsp;      {
+<b class="fc"><i>115</i>&nbsp;        log.debug(&quot;Ran out of attempts to get out of special case ${GuiTransition.simpleName}.&quot;)</b>
+<b class="fc"><i>116</i>&nbsp;        retGuiTr = GuiTransition.createNoneGuiTransition()</b>
+<i>117</i>&nbsp;      } else
+<i>118</i>&nbsp;      {
+<b class="fc"><i>119</i>&nbsp;        if (guiTransitionPathToFollow.empty)</b>
+<b class="fc"><i>120</i>&nbsp;          retGuiTr = getSpecialCaseGuiTransition(model)</b>
+<i>121</i>&nbsp;        else
+<b class="fc"><i>122</i>&nbsp;          throw new UnexpectedAbstractGuiModelException(&#39;While following path, encountered a GUI state that is out of scope &#39; +</b>
+<i>123</i>&nbsp;            &#39;of the app under exploration. DroidMate doesn\&#39;t know how to handle such situation.\n&#39;)
+<i>124</i>&nbsp;      }
+<b class="fc"><i>125</i>&nbsp;      specialCaseGuiStateAttemptsLeft--</b>
+<i>126</i>&nbsp;    }
+<b class="fc"><i>127</i>&nbsp;    return retGuiTr</b>
+<i>128</i>&nbsp;  }
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;  List&lt;GuiTransition&gt; chooseWidgetAndGetGuiTransitionPath(IPartialGuiModel model)
+<i>131</i>&nbsp;  {
+<b class="fc"><i>132</i>&nbsp;    log.debug(&quot;Choosing widget and getting ${GuiTransition.simpleName} path&quot;)</b>
+<i>133</i>&nbsp;
+<b class="fc"><i>134</i>&nbsp;    assert model?.widgets != null</b>
+<b class="fc"><i>135</i>&nbsp;    assert !model.outOfAppScope: &quot;Precondition failed: model is not in app scope.\n&quot; +</b>
+<b class="nc"><i>136</i>&nbsp;      &quot;The expected topNodePackageName (aut&#39;s): ${model.appPackageName}.\n&quot; +</b>
+<i>137</i>&nbsp;      &quot;The actual topNodePackageName: ${model.activePackageName}&quot;
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;    if (!widgetChooser.canChoose(model))</b>
+<i>140</i>&nbsp;    {
+<b class="fc"><i>141</i>&nbsp;      log.debug(&quot;No more widgets to be chosen.&quot;)</b>
+<b class="fc"><i>142</i>&nbsp;      return [GuiTransition.createNoneGuiTransition()]</b>
+<i>143</i>&nbsp;    }
+<i>144</i>&nbsp;
+<b class="fc"><i>145</i>&nbsp;    Widget chosenWidget = widgetChooser.choose(model)</b>
+<b class="fc"><i>146</i>&nbsp;    assert chosenWidget != null</b>
+<b class="fc"><i>147</i>&nbsp;    assert chosenWidget in model.knownGuiStates*.widgets.flatten()</b>
+<i>148</i>&nbsp;
+<b class="fc"><i>149</i>&nbsp;    List&lt;GuiTransition&gt; pathToChosenWidget = model.getPathTo(chosenWidget)</b>
+<i>150</i>&nbsp;
+<b class="fc"><i>151</i>&nbsp;    assert pathToChosenWidget != null</b>
+<b class="fc"><i>152</i>&nbsp;    return pathToChosenWidget</b>
+<i>153</i>&nbsp;  }
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;  static GuiTransition getSpecialCaseGuiTransition(IPartialGuiModel model)
+<i>156</i>&nbsp;  {
+<b class="fc"><i>157</i>&nbsp;    log.debug(&quot;Getting special case ${GuiTransition.simpleName}&quot;)</b>
+<i>158</i>&nbsp;
+<b class="fc"><i>159</i>&nbsp;    if (model.isHomeScreen())</b>
+<b class="fc"><i>160</i>&nbsp;      return new GuiTransition(GuiTransition.TRANSITION_LAUNCH_MAIN_ACTIVITY)</b>
+<i>161</i>&nbsp;
+<b class="fc"><i>162</i>&nbsp;    if (model.isAppHasStoppedDialogBox())</b>
+<i>163</i>&nbsp;    {
+<b class="fc"><i>164</i>&nbsp;      assert model.widgets.size() == 1: &quot;Expected that a GUI model having package of app-stopped-dialog will have exactly one &quot; +</b>
+<b class="nc"><i>165</i>&nbsp;        &quot;widget (an \&quot;OK\&quot; button). Instead, it has ${model.widgets.size()}&quot;</b>
+<i>166</i>&nbsp;
+<b class="fc"><i>167</i>&nbsp;      return new GuiTransition(model.widgets[0])</b>
+<i>168</i>&nbsp;    }
+<i>169</i>&nbsp;
+<b class="fc"><i>170</i>&nbsp;    if (model.isOutOfAppScope())</b>
+<b class="fc"><i>171</i>&nbsp;      return new GuiTransition(GuiTransition.TRANSITION_CLICK_BACK)</b>
+<i>172</i>&nbsp;
+<b class="nc"><i>173</i>&nbsp;    assert false: &quot;Encountered unknown special case of GUI model, so no GUI transition can be obtained.&quot;</b>
+<b class="nc"><i>174</i>&nbsp;    return null // to silence the compiler warning of &quot;no return statement&quot;</b>
+<i>175</i>&nbsp;  }
+<i>176</i>&nbsp;
+<i>177</i>&nbsp;
+<i>178</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ExplorationActionSerializer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.exploration</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ExplorationActionSerializer (org.droidmate.exploration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExplorationActionSerializer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86.4%
+  </span>
+  <span class="absValue">
+    (19/ 22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExplorationActionSerializer$$FastClassByGuice$$92c68949</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationActionSerializer$_deserialize_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.7%
+  </span>
+  <span class="absValue">
+    (11/ 12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationActionSerializer$_serialize_closure2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExplorationActionSerializer$_serialize_closure3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.8%
+  </span>
+  <span class="absValue">
+    (36/ 41)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.exploration
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Singleton
+<i>14</i>&nbsp;import groovy.transform.TypeChecked
+<i>15</i>&nbsp;import groovy.util.slurpersupport.GPathResult
+<i>16</i>&nbsp;import groovy.util.slurpersupport.NodeChildren
+<i>17</i>&nbsp;import org.droidmate.common.Constants
+<i>18</i>&nbsp;import org.droidmate.common.guimodel.GuiAction
+<i>19</i>&nbsp;import org.droidmate.report.XmlReportsConstants
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;import java.util.regex.Matcher
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;import static groovy.transform.TypeCheckingMode.SKIP
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;@TypeChecked(SKIP)
+<i>26</i>&nbsp;@Singleton
+<i>27</i>&nbsp;public class ExplorationActionSerializer implements IExplorationActionSerializer
+<i>28</i>&nbsp;{
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;  @Override
+<i>31</i>&nbsp;  List&lt;ExplorationAction&gt; deserialize(Reader source)
+<i>32</i>&nbsp;  {
+<b class="fc"><i>33</i>&nbsp;    List&lt;ExplorationAction&gt; deserializedActions = source.readLines().collect { String line -&gt;</b>
+<i>34</i>&nbsp;      /*
+<i>35</i>&nbsp;        Matches against pair of X Y int coordinates.
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;        N00b reference:
+<i>38</i>&nbsp;        http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+<i>39</i>&nbsp;        http://groovy.codehaus.org/Regular+Expressions
+<i>40</i>&nbsp;      */
+<b class="fc"><i>41</i>&nbsp;      Matcher coordsMatcher = line =~ /\s*(\b\d+\b \b\d+\b).*/</b>
+<b class="fc"><i>42</i>&nbsp;      if (coordsMatcher.matches())</b>
+<b class="fc"><i>43</i>&nbsp;        return ExplorationAction.from(coordsMatcher[0][1] as String)</b>
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;      // Matches against command string, skipping the trailing whitespace and comment that follows it, denoted by //
+<b class="fc"><i>46</i>&nbsp;      Matcher commandWithCommentMatcher = line =~ /(.*\b)(\s*\/\/)(.*)/</b>
+<b class="fc"><i>47</i>&nbsp;      if (commandWithCommentMatcher.matches())</b>
+<i>48</i>&nbsp;      {
+<b class="fc"><i>49</i>&nbsp;        String s = (commandWithCommentMatcher[0][1] as String).trim()</b>
+<b class="fc"><i>50</i>&nbsp;        return ExplorationAction.from(s)</b>
+<i>51</i>&nbsp;      }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;      // Matches against command string, skipping the trailing whitespace.
+<b class="fc"><i>54</i>&nbsp;      Matcher commandMatcher = line =~ /(.*\b).*/</b>
+<b class="fc"><i>55</i>&nbsp;      if (commandMatcher.matches())</b>
+<i>56</i>&nbsp;      {
+<b class="fc"><i>57</i>&nbsp;        String s = (commandMatcher[0][1] as String).trim()</b>
+<b class="fc"><i>58</i>&nbsp;        return ExplorationAction.from(s)</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;      }
+<i>61</i>&nbsp;
+<b class="nc"><i>62</i>&nbsp;      assert false: &quot;The &#39;$line&#39; (without &#39;&#39;) is not a valid string representation of ${GuiAction.simpleName}!&quot;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<b class="fc"><i>65</i>&nbsp;    deserializedActions &lt;&lt; ExplorationAction.createTerminateAction()</b>
+<i>66</i>&nbsp;
+<b class="fc"><i>67</i>&nbsp;    return deserializedActions</b>
+<i>68</i>&nbsp;  }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;  @Override
+<i>71</i>&nbsp;  String serialize(Reader source)
+<i>72</i>&nbsp;  {
+<b class="fc"><i>73</i>&nbsp;    final GPathResult droidMateExplorationReport = new XmlSlurper().parse(source)</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;    assert !(XmlReportsConstants.isCrashedReport(droidMateExplorationReport)):</b>
+<i>76</i>&nbsp;      &quot;The serializer was given in argument a failed report, which is forbidden&quot;
+<i>77</i>&nbsp;
+<b class="fc"><i>78</i>&nbsp;    NodeChildren explLogColl = droidMateExplorationReport.explorationLogs.explorationLog</b>
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;    assert explLogColl.size() &gt;= 2: &quot;There should be at least two explorationLog tags: one for initial state &quot; +</b>
+<b class="nc"><i>81</i>&nbsp;      &quot;without any exploration action and one for the final terminating exploration action.\n&quot; +</b>
+<b class="nc"><i>82</i>&nbsp;      &quot;Actual explLogColl elements: ${explLogColl.toString()}&quot;</b>
+<i>83</i>&nbsp;
+<b class="fc"><i>84</i>&nbsp;    assert explLogColl[0].explorationStatus == &quot;&quot;</b>
+<b class="fc"><i>85</i>&nbsp;    assert explLogColl[0].guiAction == &quot;&quot;</b>
+<b class="fc"><i>86</i>&nbsp;    assert explLogColl[0].intentAction == &quot;&quot;</b>
+<b class="fc"><i>87</i>&nbsp;    assert explLogColl[-1].explorationStatus.text() == ExplorationAction.createTerminateAction().toString()</b>
+<b class="fc"><i>88</i>&nbsp;    assert explLogColl[-1].guiAction == &quot;&quot;</b>
+<b class="fc"><i>89</i>&nbsp;    assert explLogColl[-1].intentAction == &quot;&quot;</b>
+<i>90</i>&nbsp;
+<b class="fc"><i>91</i>&nbsp;    if (explLogColl.size() == 2)</b>
+<b class="nc"><i>92</i>&nbsp;      return &quot;&quot;</b>
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;    assert explLogColl.size() &gt;= 3</b>
+<i>95</i>&nbsp;
+<b class="fc"><i>96</i>&nbsp;    List&lt;NodeChildren&gt; actionColl = explLogColl[1..-2].collect {</b>
+<i>97</i>&nbsp;
+<b class="fc"><i>98</i>&nbsp;      if (it.guiAction != &quot;&quot;)</b>
+<b class="fc"><i>99</i>&nbsp;        return it.guiAction</b>
+<i>100</i>&nbsp;
+<b class="fc"><i>101</i>&nbsp;      if (it.intentAction != &quot;&quot;)</b>
+<b class="fc"><i>102</i>&nbsp;        return it.intentAction</b>
+<i>103</i>&nbsp;
+<b class="nc"><i>104</i>&nbsp;      assert false : Constants.ASSERTION_MSG_MISSING_ASSERTION</b>
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;
+<b class="fc"><i>107</i>&nbsp;    StringBuilder output = new StringBuilder()</b>
+<i>108</i>&nbsp;
+<b class="fc"><i>109</i>&nbsp;    actionColl*.text().each { String actionText -&gt;</b>
+<b class="fc"><i>110</i>&nbsp;      ExplorationAction explorationAction = ExplorationAction.from(actionText)</b>
+<b class="fc"><i>111</i>&nbsp;      output &lt;&lt; explorationAction.toString() + &quot;\n&quot;</b>
+<i>112</i>&nbsp;    }
+<i>113</i>&nbsp;
+<b class="fc"><i>114</i>&nbsp;    return output.toString()</b>
+<i>115</i>&nbsp;  }
+<i>116</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

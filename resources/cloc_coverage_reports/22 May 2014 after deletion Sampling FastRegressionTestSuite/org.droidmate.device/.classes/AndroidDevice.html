@@ -1,0 +1,387 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AndroidDevice</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.device</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AndroidDevice (org.droidmate.device)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AndroidDevice</td>
+<td class="coverageStat">
+  <span class="percent">
+    54.2%
+  </span>
+  <span class="absValue">
+    (13/ 24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    52.2%
+  </span>
+  <span class="absValue">
+    (36/ 69)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AndroidDevice$internalPerform</td>
+  </tr>
+  <tr>
+    <td class="name">AndroidDevice$this$2$issueCommand$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    54.2%
+  </span>
+  <span class="absValue">
+    (13/ 24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    52.2%
+  </span>
+  <span class="absValue">
+    (36/ 69)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.device
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.assistedinject.Assisted
+<i>15</i>&nbsp;import groovy.util.logging.Slf4j
+<i>16</i>&nbsp;import org.droidmate.common.DeviceCommand
+<i>17</i>&nbsp;import org.droidmate.common.DeviceResponse
+<i>18</i>&nbsp;import org.droidmate.common.UiautomatorWindowHierarchyDumpDeviceResponse
+<i>19</i>&nbsp;import org.droidmate.device.datatypes.*
+<i>20</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>21</i>&nbsp;import org.droidmate.frontend.configuration.Configuration
+<i>22</i>&nbsp;import org.droidmate.lowlevel.androidsdk.IAdbWrapper
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;import static org.droidmate.common.Constants.*
+<i>25</i>&nbsp;import static org.droidmate.common.NoDeviceResponse.getNoDeviceResponse
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;/**
+<i>28</i>&nbsp; * &lt;p&gt;
+<i>29</i>&nbsp; * &lt;i&gt; --- This doc was last reviewed on 21 Dec 2013.&lt;/i&gt;
+<i>30</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>31</i>&nbsp; * Provides programmatic access to Android (Virtual) Device. The instance of this class should be available only as a parameter
+<i>32</i>&nbsp; * in {@code closure} passed to
+<i>33</i>&nbsp; * {@link AndroidDeviceDeployer#withSetupDevice(groovy.lang.Closure)
+<i>34</i>&nbsp; * AndroidDeviceDeployer.withSetupDevice(closure)}, thus guaranteeing invariant of this class:
+<i>35</i>&nbsp; *
+<i>36</i>&nbsp; * &lt;/p&gt;&lt;p&gt;
+<i>37</i>&nbsp; * CLASS INVARIANT: the A(V)D accessed by a instance of this class is setup and available for duration of the instance existence.
+<i>38</i>&nbsp; *
+<i>39</i>&nbsp; * &lt;/p&gt;
+<i>40</i>&nbsp; */
+<i>41</i>&nbsp;@Slf4j
+<i>42</i>&nbsp;public class AndroidDevice implements IAndroidDevice
+<i>43</i>&nbsp;{
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;  private final String serialNumber;
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  private final Configuration config;
+<i>48</i>&nbsp;  private final IDeviceCommandSender commandSender;
+<i>49</i>&nbsp;  private final IAdbWrapper adbWrapper;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;  @Inject
+<i>52</i>&nbsp;  protected AndroidDevice(
+<i>53</i>&nbsp;    @Assisted String serialNumber, Configuration config, IDeviceCommandSender deviceCommandSender, IAdbWrapper adbWrapper)
+<i>54</i>&nbsp;  {
+<b class="fc"><i>55</i>&nbsp;    this.serialNumber = serialNumber</b>
+<b class="fc"><i>56</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>57</i>&nbsp;    this.commandSender = deviceCommandSender;</b>
+<b class="fc"><i>58</i>&nbsp;    this.adbWrapper = adbWrapper;</b>
+<i>59</i>&nbsp;  }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  @Override
+<i>64</i>&nbsp;  void forwardPort(int port)
+<i>65</i>&nbsp;  {
+<b class="fc"><i>66</i>&nbsp;    adbWrapper.forwardPort(serialNumber, port);</b>
+<i>67</i>&nbsp;  }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;  @Override
+<i>70</i>&nbsp;  void pushJar(File jar)
+<i>71</i>&nbsp;  {
+<b class="fc"><i>72</i>&nbsp;    adbWrapper.pushJar(serialNumber, jar)</b>
+<i>73</i>&nbsp;  }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;  @Override
+<i>76</i>&nbsp;  public IDeviceGuiSnapshot getGuiSnapshot() throws DroidmateException
+<i>77</i>&nbsp;  {
+<b class="nc"><i>78</i>&nbsp;    log.trace(&quot;Getting GUI snapshot&quot;)</b>
+<b class="nc"><i>79</i>&nbsp;    def response = this.issueCommand(</b>
+<b class="nc"><i>80</i>&nbsp;      new DeviceCommand(DEVICE_COMMAND_GET_UIAUTOMATOR_WINDOW_HIERARCHY_DUMP)) as UiautomatorWindowHierarchyDumpDeviceResponse</b>
+<i>81</i>&nbsp;
+<b class="nc"><i>82</i>&nbsp;    def outSnapshot = new UiautomatorWindowDump(response.windowHierarchyDump)</b>
+<b class="nc"><i>83</i>&nbsp;    log.trace(&quot;Snapshot package name: $outSnapshot.packageName&quot;)</b>
+<b class="nc"><i>84</i>&nbsp;    return outSnapshot</b>
+<i>85</i>&nbsp;  }
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;  @Override
+<i>88</i>&nbsp;  DeviceResponse perform(IAndroidDeviceAction action)
+<i>89</i>&nbsp;  {
+<b class="fc"><i>90</i>&nbsp;    assert action != null</b>
+<i>91</i>&nbsp;    //noinspection GroovyInArgumentCheck
+<b class="fc"><i>92</i>&nbsp;    assert action.class in [ClickGuiAction, AdbClearPackageAction, LaunchMainActivityDeviceAction]</b>
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    //noinspection GroovyAssignabilityCheck
+<b class="fc"><i>95</i>&nbsp;    return internalPerform(action)</b>
+<i>96</i>&nbsp;  }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;  DeviceResponse internalPerform(LaunchMainActivityDeviceAction action)
+<i>99</i>&nbsp;  {
+<b class="nc"><i>100</i>&nbsp;    startMainActivity(action.launchableActivityComponentName)</b>
+<b class="nc"><i>101</i>&nbsp;    return noDeviceResponse</b>
+<i>102</i>&nbsp;  }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;  DeviceResponse internalPerform(AdbClearPackageAction action)
+<i>105</i>&nbsp;  {
+<b class="fc"><i>106</i>&nbsp;    clearPackage(action.packageName)</b>
+<b class="fc"><i>107</i>&nbsp;    return noDeviceResponse</b>
+<i>108</i>&nbsp;  }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;  DeviceResponse internalPerform(ClickGuiAction action)
+<i>111</i>&nbsp;  {
+<b class="nc"><i>112</i>&nbsp;    return issueCommand(new DeviceCommand(DEVICE_COMMAND_PERFORM_ACTION, action.guiAction));</b>
+<i>113</i>&nbsp;  }
+<i>114</i>&nbsp;
+<i>115</i>&nbsp;  public DeviceResponse getIsDeviceOrientationLandscape() throws DroidmateException
+<i>116</i>&nbsp;  {
+<b class="nc"><i>117</i>&nbsp;    return this.issueCommand(new DeviceCommand(DEVICE_COMMAND_GET_IS_ORIENTATION_LANDSCAPE));</b>
+<i>118</i>&nbsp;  }
+<i>119</i>&nbsp;
+<i>120</i>&nbsp;  /**
+<i>121</i>&nbsp;   * &lt;p&gt;
+<i>122</i>&nbsp;   * Issues given {@code deviceCommand} to the A(V)D, obtains the device answer, checks for errors and return the
+<i>123</i>&nbsp;   * device response, unless there were errors along the way. Then it throws exception.
+<i>124</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>125</i>&nbsp;   * The issued command can be potentially handled either by aut-addon or uiautomator-daemon. This method resolves
+<i>126</i>&nbsp;   * who should be the recipient and sends the command using {@link #commandSender}.
+<i>127</i>&nbsp;   *
+<i>128</i>&nbsp;   * &lt;/p&gt;&lt;p&gt;
+<i>129</i>&nbsp;   * &lt;i&gt;This doc was last reviewed on 14 Sep &#39;13.&lt;/i&gt;
+<i>130</i>&nbsp;   * &lt;/p&gt;
+<i>131</i>&nbsp;   */
+<i>132</i>&nbsp;  private DeviceResponse issueCommand(DeviceCommand deviceCommand) throws DroidmateException
+<i>133</i>&nbsp;  {
+<b class="fc"><i>134</i>&nbsp;    DeviceResponse deviceResponse = null;</b>
+<i>135</i>&nbsp;
+<b class="fc"><i>136</i>&nbsp;    boolean autAddonHandlesCommand = autAddonHandlesCommand(deviceCommand);</b>
+<b class="fc"><i>137</i>&nbsp;    boolean uiaDaemonHandlesCommand = uiaDaemonHandlesCommand(deviceCommand);</b>
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;    if (!autAddonHandlesCommand &amp;&amp; !uiaDaemonHandlesCommand)</b>
+<b class="nc"><i>140</i>&nbsp;      throw new DroidmateException(String.format(&quot;Unhandled command of %s&quot;, deviceCommand.command));</b>
+<i>141</i>&nbsp;
+<b class="fc"><i>142</i>&nbsp;    if (autAddonHandlesCommand &amp;&amp; uiaDaemonHandlesCommand)</b>
+<b class="nc"><i>143</i>&nbsp;      throw new DroidmateException(String.format(&quot;Both AutAddon and UiAutomatorDaemon handle command %s. Only one of &quot; +</b>
+<i>144</i>&nbsp;        &quot;them should do it.&quot;, deviceCommand.command));
+<i>145</i>&nbsp;
+<b class="fc"><i>146</i>&nbsp;    assert !(autAddonHandlesCommand &amp;&amp; uiaDaemonHandlesCommand):</b>
+<b class="nc"><i>147</i>&nbsp;      &quot;The command ${deviceCommand.command} is being handled both by aut-addon and uiautomator-daemon. &quot; +</b>
+<i>148</i>&nbsp;        &quot;None of the device commands are supposed to be handled by bothe of them.&quot;;
+<i>149</i>&nbsp;
+<b class="fc"><i>150</i>&nbsp;    assert autAddonHandlesCommand || uiaDaemonHandlesCommand:</b>
+<b class="nc"><i>151</i>&nbsp;      &quot;The command ${deviceCommand.command} was not handled by either aut-addon or uiautomator-daemon. &quot; +</b>
+<i>152</i>&nbsp;        &quot;All device commands have to be handled by one of them.&quot;
+<i>153</i>&nbsp;
+<b class="fc"><i>154</i>&nbsp;    assert !(autAddonHandlesCommand &amp;&amp; config.deployRawApks): &quot;DroidMate shouldn&#39;t issue command to aut-addon if &quot; +</b>
+<i>155</i>&nbsp;      &quot;it has deployed raw (uninstrumented) apks to the device, as the aut-addon server won&#39;t be available.&quot;;
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;    if (autAddonHandlesCommand)</b>
+<b class="nc"><i>158</i>&nbsp;      deviceResponse = commandSender.sendCommand(deviceCommand, AUTADDON_SERVER_PORT);</b>
+<b class="fc"><i>159</i>&nbsp;    else if (uiaDaemonHandlesCommand)</b>
+<b class="fc"><i>160</i>&nbsp;      deviceResponse = commandSender.sendCommand(deviceCommand, UIADAEMON_SERVER_PORT);</b>
+<i>161</i>&nbsp;
+<b class="fc"><i>162</i>&nbsp;    assert deviceResponse != null;</b>
+<i>163</i>&nbsp;
+<b class="fc"><i>164</i>&nbsp;    checkForDeviceResponseThrowable(deviceResponse);</b>
+<i>165</i>&nbsp;
+<b class="fc"><i>166</i>&nbsp;    assert deviceResponse.throwable == null;</b>
+<i>167</i>&nbsp;
+<b class="fc"><i>168</i>&nbsp;    return deviceResponse;</b>
+<i>169</i>&nbsp;  }
+<i>170</i>&nbsp;
+<i>171</i>&nbsp;  private static void checkForDeviceResponseThrowable(DeviceResponse deviceResponse) throws DroidmateException
+<i>172</i>&nbsp;  {
+<b class="fc"><i>173</i>&nbsp;    if (deviceResponse.throwable != null)</b>
+<b class="nc"><i>174</i>&nbsp;      throw new DroidmateException(String.format(</b>
+<b class="nc"><i>175</i>&nbsp;        &quot;Device returned DeviceResponse with non-null throwable, indicating something exploded on the A(V)D. The exception is &quot; +</b>
+<i>176</i>&nbsp;          &quot;given as a cause of this one. If it doesn&#39;t have enough information, try inspecting the logcat output of the A(V)D.&quot;,
+<i>177</i>&nbsp;      ), deviceResponse.throwable);
+<i>178</i>&nbsp;  }
+<i>179</i>&nbsp;
+<i>180</i>&nbsp;  @Override
+<i>181</i>&nbsp;  public void stopUiaDaemon() throws DroidmateException
+<i>182</i>&nbsp;  {
+<b class="fc"><i>183</i>&nbsp;    log.trace(&quot;Stopping uiautomator-daemon.&quot;);</b>
+<b class="fc"><i>184</i>&nbsp;    this.issueCommand(new DeviceCommand(DEVICE_COMMAND_STOP_UIADAEMON));</b>
+<b class="fc"><i>185</i>&nbsp;    adbWrapper.waitForUiaDaemonToClose();</b>
+<b class="fc"><i>186</i>&nbsp;    log.trace(&quot;DONE stopping uiautomator-daemon.&quot;);</b>
+<i>187</i>&nbsp;
+<i>188</i>&nbsp;  }
+<i>189</i>&nbsp;
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;  @Override
+<i>192</i>&nbsp;  public void stopAutAddonServer() throws DroidmateException
+<i>193</i>&nbsp;  {
+<b class="nc"><i>194</i>&nbsp;    log.trace(&quot;Stopping aut-addon server.&quot;);</b>
+<i>195</i>&nbsp;
+<b class="nc"><i>196</i>&nbsp;    assert !config.deployRawApks: &quot;If raw apks have been deployed, no aut-addon server is available, &quot; +</b>
+<i>197</i>&nbsp;      &quot;so it cannot be stopped.&quot;;
+<i>198</i>&nbsp;
+<i>199</i>&nbsp;    try
+<i>200</i>&nbsp;    {
+<b class="nc"><i>201</i>&nbsp;      this.issueCommand(new DeviceCommand(DEVICE_COMMAND_STOP_AUTADDON));</b>
+<i>202</i>&nbsp;    } catch (DroidmateException e)
+<i>203</i>&nbsp;    {
+<b class="nc"><i>204</i>&nbsp;      if (e.getCause() instanceof EOFException)</b>
+<b class="nc"><i>205</i>&nbsp;        log.warn(&quot;An attempt to stop AutAddon resulted in a java.io.EOFException thrown by the TCP client. &quot;</b>
+<b class="nc"><i>206</i>&nbsp;          +</b>
+<i>207</i>&nbsp;          &quot;Possible cause: the application under test terminated abruptly thus killing the AutAddon server that &quot;
+<b class="nc"><i>208</i>&nbsp;          + &quot;was supposed to be reached through TCP. Continuing program execution assuming the AutAddon server &quot; +</b>
+<i>209</i>&nbsp;          &quot;stopped.&quot;);
+<i>210</i>&nbsp;      else
+<b class="nc"><i>211</i>&nbsp;        throw e;</b>
+<i>212</i>&nbsp;    }
+<b class="nc"><i>213</i>&nbsp;    log.trace(&quot;DONE stopping aut-addon server.&quot;);</b>
+<i>214</i>&nbsp;  }
+<i>215</i>&nbsp;
+<i>216</i>&nbsp;  @Override
+<i>217</i>&nbsp;  void startUiaDaemon()
+<i>218</i>&nbsp;  {
+<b class="fc"><i>219</i>&nbsp;    adbWrapper.startUiaDaemon(serialNumber);</b>
+<i>220</i>&nbsp;  }
+<i>221</i>&nbsp;
+<i>222</i>&nbsp;  @Override
+<i>223</i>&nbsp;  void clearLogcat()
+<i>224</i>&nbsp;  {
+<b class="nc"><i>225</i>&nbsp;    adbWrapper.clearLogcat(serialNumber)</b>
+<i>226</i>&nbsp;  }
+<i>227</i>&nbsp;
+<i>228</i>&nbsp;  @Override
+<i>229</i>&nbsp;  void installApk(File apk)
+<i>230</i>&nbsp;  {
+<b class="nc"><i>231</i>&nbsp;    adbWrapper.installApk(serialNumber, apk);</b>
+<i>232</i>&nbsp;  }
+<i>233</i>&nbsp;
+<i>234</i>&nbsp;  @Override
+<i>235</i>&nbsp;  void uninstallApk(String apkPackageName, boolean warnAboutFailure)
+<i>236</i>&nbsp;  {
+<b class="nc"><i>237</i>&nbsp;    adbWrapper.uninstallApk(serialNumber, apkPackageName, /* warnAboutFailure  = */ false)</b>
+<i>238</i>&nbsp;  }
+<i>239</i>&nbsp;
+<i>240</i>&nbsp;  @Override
+<i>241</i>&nbsp;  void startMainActivity(String launchableActivityName)
+<i>242</i>&nbsp;  {
+<b class="nc"><i>243</i>&nbsp;    adbWrapper.launchMainActivity(serialNumber, launchableActivityName)</b>
+<i>244</i>&nbsp;  }
+<i>245</i>&nbsp;
+<i>246</i>&nbsp;  @Override
+<i>247</i>&nbsp;  void clearPackage(String apkPackageName) throws DroidmateException
+<i>248</i>&nbsp;  {
+<b class="fc"><i>249</i>&nbsp;    adbWrapper.clearPackage(serialNumber, apkPackageName)</b>
+<i>250</i>&nbsp;  }
+<i>251</i>&nbsp;
+<i>252</i>&nbsp;  @Override
+<i>253</i>&nbsp;  void waitForAutAddonServerResponse()
+<i>254</i>&nbsp;  {
+<b class="nc"><i>255</i>&nbsp;    adbWrapper.waitForAutAddonServerResponse(serialNumber)</b>
+<i>256</i>&nbsp;  }
+<i>257</i>&nbsp;
+<i>258</i>&nbsp;  @Override
+<i>259</i>&nbsp;  void removeJar(File jar)
+<i>260</i>&nbsp;  {
+<b class="fc"><i>261</i>&nbsp;    adbWrapper.removeJar(serialNumber, config.uiautomatorDaemonJar)</b>
+<i>262</i>&nbsp;
+<i>263</i>&nbsp;  }
+<i>264</i>&nbsp;
+<i>265</i>&nbsp;  private static boolean uiaDaemonHandlesCommand(DeviceCommand deviceCommand)
+<i>266</i>&nbsp;  {
+<b class="fc"><i>267</i>&nbsp;    return deviceCommand.command in [</b>
+<i>268</i>&nbsp;      DEVICE_COMMAND_PERFORM_ACTION,
+<i>269</i>&nbsp;      DEVICE_COMMAND_STOP_UIADAEMON,
+<i>270</i>&nbsp;      DEVICE_COMMAND_GET_UIAUTOMATOR_WINDOW_HIERARCHY_DUMP,
+<i>271</i>&nbsp;      DEVICE_COMMAND_GET_IS_ORIENTATION_LANDSCAPE
+<i>272</i>&nbsp;    ]
+<i>273</i>&nbsp;  }
+<i>274</i>&nbsp;
+<i>275</i>&nbsp;  private static boolean autAddonHandlesCommand(DeviceCommand deviceCommand)
+<i>276</i>&nbsp;  {
+<b class="fc"><i>277</i>&nbsp;    return deviceCommand.command in [</b>
+<i>278</i>&nbsp;      DEVICE_COMMAND_STOP_AUTADDON
+<i>279</i>&nbsp;    ]
+<i>280</i>&nbsp;  }
+<i>281</i>&nbsp;
+<i>282</i>&nbsp;
+<i>283</i>&nbsp;  @Override
+<i>284</i>&nbsp;  public String toString()
+<i>285</i>&nbsp;  {
+<b class="nc"><i>286</i>&nbsp;    return &quot;AndroidDevice{&quot; +</b>
+<b class="nc"><i>287</i>&nbsp;      &quot;serialNumber=&#39;&quot; + serialNumber + &#39;\&#39;&#39; +</b>
+<i>288</i>&nbsp;      &#39;}&#39;;
+<i>289</i>&nbsp;  }
+<i>290</i>&nbsp;
+<i>291</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

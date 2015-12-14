@@ -1,0 +1,212 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RobotPathPlotterArc</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.robot</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RobotPathPlotterArc (org.droidmate.robot)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RobotPathPlotterArc</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (47/ 47)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.robot;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject;
+<i>14</i>&nbsp;import com.vividsolutions.jts.algorithm.Angle;
+<i>15</i>&nbsp;import com.vividsolutions.jts.geom.Coordinate;
+<i>16</i>&nbsp;import com.vividsolutions.jts.geom.LineString;
+<i>17</i>&nbsp;import com.vividsolutions.jts.geom.Point;
+<i>18</i>&nbsp;import com.vividsolutions.jts.util.GeometricShapeFactory;
+<i>19</i>&nbsp;import org.droidmate.configuration.Configuration;
+<i>20</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger;
+<i>21</i>&nbsp;import org.slf4j.Logger;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;import java.util.ArrayList;
+<i>24</i>&nbsp;import java.util.List;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;public class RobotPathPlotterArc implements IRobotPathPlotter
+<i>27</i>&nbsp;{
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  // 90 degrees
+<b class="fc"><i>30</i>&nbsp;  private static double quarterCircle = Angle.angle(new Coordinate(0, 1));</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  private Configuration config;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  public double lastPlottedArcLength;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  private RobotConfiguration robotConfig;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;  @InjectLogger
+<i>39</i>&nbsp;  private static Logger log;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  @Inject
+<i>42</i>&nbsp;  RobotPathPlotterArc(Configuration config, RobotConfiguration robotConfig)
+<b class="fc"><i>43</i>&nbsp;  {</b>
+<b class="fc"><i>44</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>45</i>&nbsp;    this.robotConfig = robotConfig;</b>
+<b class="fc"><i>46</i>&nbsp;  }</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;  @Override
+<i>49</i>&nbsp;  public List&lt;Pair&lt;Float, Float&gt;&gt; plot(float mappedStartX, float mappedStartY, float mappedEndX, float mappedEndY)
+<i>50</i>&nbsp;  {
+<b class="fc"><i>51</i>&nbsp;    ArrayList&lt;Pair&lt;Float, Float&gt;&gt; points = new ArrayList&lt;Pair&lt;Float, Float&gt;&gt;();</b>
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;    LineString arc = computeArc(</b>
+<i>54</i>&nbsp;        new Coordinate(mappedStartX, mappedStartY),
+<i>55</i>&nbsp;        new Coordinate(mappedEndX, mappedEndY),
+<i>56</i>&nbsp;      robotConfig.robotArcSegmentCount);
+<b class="fc"><i>57</i>&nbsp;    log.trace(&quot;Arc length: {}&quot;, arc.getLength());</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    // We iterate from 1, not 0, because we skip the starting point, equivalent to (mappedStartX, mappedStartY).
+<b class="fc"><i>60</i>&nbsp;    for (int i = 1; i &lt; arc.getNumPoints(); i++)</b>
+<i>61</i>&nbsp;    {
+<b class="fc"><i>62</i>&nbsp;      Point point = arc.getPointN(i);</b>
+<b class="fc"><i>63</i>&nbsp;      points.add(new Pair&lt;Float, Float&gt;((float) point.getX(), (float) point.getY()));</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;    lastPlottedArcLength = arc.getLength();</b>
+<b class="fc"><i>67</i>&nbsp;    return points;</b>
+<i>68</i>&nbsp;  }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;  private static LineString computeArc(Coordinate startPoint, Coordinate endPoint, int segmentCount)
+<i>71</i>&nbsp;  {
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;    double lowX = Math.min(startPoint.x, endPoint.x);</b>
+<b class="fc"><i>74</i>&nbsp;    double highX = Math.max(startPoint.x, endPoint.x);</b>
+<b class="fc"><i>75</i>&nbsp;    double deltaX = highX - lowX;</b>
+<i>76</i>&nbsp;
+<b class="fc"><i>77</i>&nbsp;    double lowY = Math.min(startPoint.y, endPoint.y);</b>
+<b class="fc"><i>78</i>&nbsp;    double highY = Math.max(startPoint.y, endPoint.y);</b>
+<b class="fc"><i>79</i>&nbsp;    double deltaY = highY - lowY;</b>
+<i>80</i>&nbsp;
+<b class="fc"><i>81</i>&nbsp;    GeometricShapeFactory gsf = new GeometricShapeFactory();</b>
+<b class="fc"><i>82</i>&nbsp;    gsf.setNumPoints(1 + segmentCount);</b>
+<b class="fc"><i>83</i>&nbsp;    gsf.setWidth(deltaX * 2);</b>
+<b class="fc"><i>84</i>&nbsp;    gsf.setHeight(deltaY * 2);</b>
+<i>85</i>&nbsp;
+<b class="fc"><i>86</i>&nbsp;    double centreX = 0;</b>
+<b class="fc"><i>87</i>&nbsp;    double centreY = 0;</b>
+<b class="fc"><i>88</i>&nbsp;    double startAng = -1;</b>
+<i>89</i>&nbsp;
+<b class="fc"><i>90</i>&nbsp;    if (startPoint.y == lowY)</b>
+<i>91</i>&nbsp;    {
+<b class="fc"><i>92</i>&nbsp;      if (endPoint.x == lowX)</b>
+<i>93</i>&nbsp;      {
+<b class="fc"><i>94</i>&nbsp;        startAng = 0; // 1st quarter</b>
+<b class="fc"><i>95</i>&nbsp;        centreX = lowX;</b>
+<b class="fc"><i>96</i>&nbsp;        centreY = lowY;</b>
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;      }
+<b class="fc"><i>99</i>&nbsp;      else if (endPoint.x == highX)</b>
+<i>100</i>&nbsp;      {
+<b class="fc"><i>101</i>&nbsp;        startAng = 3 * quarterCircle; // 4th quarter</b>
+<b class="fc"><i>102</i>&nbsp;        centreX = lowX;</b>
+<b class="fc"><i>103</i>&nbsp;        centreY = highY;</b>
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;      }
+<i>106</i>&nbsp;    }
+<b class="fc"><i>107</i>&nbsp;    else if (startPoint.y == highY)</b>
+<i>108</i>&nbsp;    {
+<b class="fc"><i>109</i>&nbsp;      if (endPoint.x == lowX)</b>
+<i>110</i>&nbsp;      {
+<b class="fc"><i>111</i>&nbsp;        startAng = quarterCircle; // 2nd quarter</b>
+<b class="fc"><i>112</i>&nbsp;        centreX = highX;</b>
+<b class="fc"><i>113</i>&nbsp;        centreY = lowY;</b>
+<i>114</i>&nbsp;      }
+<b class="fc"><i>115</i>&nbsp;      else if (endPoint.x == highX)</b>
+<i>116</i>&nbsp;      {
+<b class="fc"><i>117</i>&nbsp;        startAng = 2 * quarterCircle; // 3rd quarter</b>
+<b class="fc"><i>118</i>&nbsp;        centreX = highX;</b>
+<b class="fc"><i>119</i>&nbsp;        centreY = highY;</b>
+<i>120</i>&nbsp;      }
+<i>121</i>&nbsp;    }
+<i>122</i>&nbsp;
+<b class="fc"><i>123</i>&nbsp;    gsf.setCentre(new Coordinate(centreX, centreY));</b>
+<i>124</i>&nbsp;
+<b class="fc"><i>125</i>&nbsp;    LineString arc = gsf.createArc(startAng, quarterCircle);</b>
+<i>126</i>&nbsp;
+<b class="fc"><i>127</i>&nbsp;    return arc;</b>
+<i>128</i>&nbsp;  }
+<i>129</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-02 13:43</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+2015-12-01 18:00:48.925 INFO  org.droidmate.frontend.DroidmateFrontend Bootstrapping DroidMate: configuring from command line & injecting dependencies.
+2015-12-01 18:00:48.939 INFO  org.droidmate.frontend.DroidmateFrontend IMPORTANT: for detailed logs from DroidMate run, please see .\dev1\logs.
+2015-12-01 18:00:49.519 INFO  org.droidmate.frontend.DroidmateFrontend Welcome to DroidMate. Lie back, relax and enjoy.
+2015-12-01 18:00:49.524 INFO  org.droidmate.frontend.DroidmateFrontend Run start timestamp: Tue Dec 01 18:00:48 CET 2015
+2015-12-01 18:00:50.012 INFO  o.droidmate.tools.AndroidDeviceDeployer  withSetupDevice(deviceIndex: 0, computation)
+2015-12-01 18:00:52.483 INFO  org.droidmate.command.ExploreCommand     Processing 1 out of 1 apks: com.infraware.office.link_v6.0.9-inlined.apk
+2015-12-01 18:00:52.527 INFO  org.droidmate.tools.ApkDeployer          Reinstalling com.infraware.office.link_v6.0.9-inlined.apk
+2015-12-01 18:01:49.893 INFO  o.d.command.exploration.Exploration      run(com.infraware.office.link, device)
+2015-12-01 18:01:51.118 INFO  o.d.command.exploration.Exploration      Initial action: <ExplAct Reset app>
+2015-12-01 18:02:19.821 INFO  org.droidmate.tools.ApkDeployer          Uninstalling com.infraware.office.link_v6.0.9-inlined.apk
+2015-12-01 18:02:23.273 ERROR org.droidmate.frontend.ExceptionHandler  A fatal Throwable was thrown during DroidMate run. If you cannot diagnose and fix the problem yourself by inspecting the logs, this might a bug in the code. Sorry!
+In such case, please contact the DroidMate developer, Konrad Jamrozik, at jamrozik@st.cs.uni-saarland.de.
+Please include the output dir (by default set to .\dev1).
+A cookie for you, brave human.
+Assertion failed: 
+
+assert (!(guiSnapshot.guiState.isAppHasStoppedDialogBox()))
+       |  |           |        |
+       |  |           |        true
+       |  |           org.droidmate.device.datatypes.AppHasStoppedDialogBoxGuiState()
+       |  UiautomatorWindowDump{"App has stopped" dialog box. OK widget enabled: true}
+       false
+
+2015-12-01 18:02:23.280 ERROR org.droidmate.frontend.ExceptionHandler  Please see .\dev1\logs\exceptions.txt log for details.
+2015-12-01 18:02:23.285 WARN  org.droidmate.frontend.DroidmateFrontend DroidMate run finished, possibly prematurely, because a (subtype of) Throwable was propagated to main method. See previous logs for details on the Throwable.
+2015-12-01 18:02:23.287 INFO  org.droidmate.frontend.DroidmateFrontend Run finish timestamp: 2015 Dec 01 18:02:23. DroidMate ran for 1 minutes, 34.405 seconds.
+2015-12-01 18:02:23.288 INFO  org.droidmate.frontend.DroidmateFrontend By default, the results from the run can be found in .\dev1.
+2015-12-01 18:02:23.288 INFO  org.droidmate.frontend.DroidmateFrontend By default, for detailed diagnostics logs from the run, see .\dev1\logs directory.

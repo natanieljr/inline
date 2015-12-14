@@ -1,0 +1,204 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ZipalignWrapper</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ZipalignWrapper (org.droidmate.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ZipalignWrapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88%
+  </span>
+  <span class="absValue">
+    (22/ 25)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ZipalignWrapper$$FastClassByGuice$$49bd0a5b</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88%
+  </span>
+  <span class="absValue">
+    (22/ 25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.utils
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.Inject
+<i>14</i>&nbsp;import com.google.inject.Singleton
+<i>15</i>&nbsp;import org.droidmate.configuration.Configuration
+<i>16</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>17</i>&nbsp;import org.droidmate.exceptions.SysCmdExecutorException
+<i>18</i>&nbsp;import org.droidmate.frontend.inject.InjectLogger
+<i>19</i>&nbsp;import org.slf4j.Logger
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;import java.nio.file.Files
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;import static java.nio.file.StandardCopyOption.REPLACE_EXISTING
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;@Singleton
+<i>26</i>&nbsp;public class ZipalignWrapper implements IZipalignWrapper
+<i>27</i>&nbsp;{
+<i>28</i>&nbsp;  private final Configuration config;
+<i>29</i>&nbsp;  private final ISysCmdExecutor sysCmdExecutor;
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;  @InjectLogger
+<i>32</i>&nbsp;  private static Logger log;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  @Inject
+<i>35</i>&nbsp;  ZipalignWrapper(Configuration config, ISysCmdExecutor sysCmdExecutor)
+<i>36</i>&nbsp;  {
+<b class="fc"><i>37</i>&nbsp;    this.config = config;</b>
+<b class="fc"><i>38</i>&nbsp;    this.sysCmdExecutor = sysCmdExecutor;</b>
+<i>39</i>&nbsp;  }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;  @Override
+<i>42</i>&nbsp;  public void zipalign(File apkFile, File outputApkFile) throws DroidmateException
+<i>43</i>&nbsp;  {
+<b class="fc"><i>44</i>&nbsp;    log.debug(&quot;Zipaligning apk {}&quot;, apkFile.name);</b>
+<i>45</i>&nbsp;
+<b class="fc"><i>46</i>&nbsp;    assert config?.zipalignCommand != null;</b>
+<b class="fc"><i>47</i>&nbsp;    assert apkFile?.isFile();</b>
+<b class="fc"><i>48</i>&nbsp;    assert outputApkFile != null;</b>
+<i>49</i>&nbsp;
+<b class="fc"><i>50</i>&nbsp;    assert apkFile.absolutePath == outputApkFile.absolutePath || !outputApkFile.exists():</b>
+<b class="nc"><i>51</i>&nbsp;      &quot;We use zipalign to either overwrite the original apk with the zipaligned version or to create a new apk. In &quot; +</b>
+<i>52</i>&nbsp;        &quot;the latter case, we do not allow to overwrite an existing apk.&quot;;
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    /*
+<i>55</i>&nbsp;    Zipalign forbids for the output apk to be the same as the input apk, so if the method was called with output apk
+<i>56</i>&nbsp;    pointing to the same file as input apk, we handle the situation by using a temporary apk as an output of zipalign.
+<i>57</i>&nbsp;    The temporary apk then gets renamed to the input apk, overriding it.
+<i>58</i>&nbsp;    */
+<b class="fc"><i>59</i>&nbsp;    File tempOutputApk = null; // null denotes that by default we don&#39;t use temporary output apk.</b>
+<b class="fc"><i>60</i>&nbsp;    if (apkFile.absolutePath == outputApkFile.absolutePath)</b>
+<b class="fc"><i>61</i>&nbsp;      tempOutputApk = new File(outputApkFile.absolutePath + &quot;-temp_to_remove&quot;);</b>
+<i>62</i>&nbsp;
+<b class="fc"><i>63</i>&nbsp;    String commandDescription = String.format(&quot;Executing zipalign to zipalign apk %s.&quot;, apkFile.absolutePath);</b>
+<i>64</i>&nbsp;
+<b class="fc"><i>65</i>&nbsp;    try</b>
+<i>66</i>&nbsp;    {
+<i>67</i>&nbsp;      // this command is based on:
+<i>68</i>&nbsp;      // http://developer.android.com/tools/help/zipalign.html
+<b class="fc"><i>69</i>&nbsp;      sysCmdExecutor.execute(commandDescription, config.zipalignCommand,</b>
+<i>70</i>&nbsp;        &quot;-f&quot;, // overwrite existing output file
+<i>71</i>&nbsp;        &quot;-v&quot;, // verbose output
+<i>72</i>&nbsp;        &quot;4&quot;, // byte-alignment boundaries, has to be 4 (see reference above)
+<i>73</i>&nbsp;        apkFile.absolutePath, // path to input file
+<i>74</i>&nbsp;        // path to the output file
+<b class="fc"><i>75</i>&nbsp;        tempOutputApk == null ? // by default we don&#39;t use temporary output apk</b>
+<i>76</i>&nbsp;          outputApkFile.absolutePath :
+<i>77</i>&nbsp;          tempOutputApk.absolutePath
+<i>78</i>&nbsp;      );
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    } catch (SysCmdExecutorException e)
+<i>81</i>&nbsp;    {
+<b class="nc"><i>82</i>&nbsp;      throw new DroidmateException(e);</b>
+<i>83</i>&nbsp;    }
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    // WISH bind this &quot;if&quot; with related previous code block using a &quot;wrapIf&quot; construct. Then look into
+<i>86</i>&nbsp;    // the ApkDeployer and refactor the &quot;withResourceIf&quot; into &quot;wrapIf&quot;. &quot;wrapIf&quot; will probably live in core.Utils
+<i>87</i>&nbsp;    // class.
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    // If we had to use tempOutApk (read the comment at the tempOutApk definition), we do the necessary cleanup here.
+<b class="fc"><i>90</i>&nbsp;    if (tempOutputApk != null)</b>
+<i>91</i>&nbsp;    {
+<b class="fc"><i>92</i>&nbsp;      assert apkFile.absolutePath == outputApkFile.absolutePath;</b>
+<b class="fc"><i>93</i>&nbsp;      assert outputApkFile.exists();</b>
+<b class="fc"><i>94</i>&nbsp;      apkFile.delete();</b>
+<b class="fc"><i>95</i>&nbsp;      assert !outputApkFile.exists()</b>
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;      try
+<i>98</i>&nbsp;      {
+<b class="fc"><i>99</i>&nbsp;        Files.move(tempOutputApk.toPath(), apkFile.toPath(), REPLACE_EXISTING);</b>
+<i>100</i>&nbsp;      } catch (IOException e)
+<i>101</i>&nbsp;      {
+<b class="nc"><i>102</i>&nbsp;        throw new DroidmateException(&quot;zipalign wrapper failed to move temporary output apk file over the original &quot; +</b>
+<i>103</i>&nbsp;          &quot;input apk file.&quot;, e);
+<i>104</i>&nbsp;      }
+<i>105</i>&nbsp;
+<b class="fc"><i>106</i>&nbsp;      assert apkFile.absolutePath == outputApkFile.absolutePath;</b>
+<i>107</i>&nbsp;    }
+<i>108</i>&nbsp;
+<b class="fc"><i>109</i>&nbsp;    assert outputApkFile?.isFile();</b>
+<i>110</i>&nbsp;  }
+<i>111</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

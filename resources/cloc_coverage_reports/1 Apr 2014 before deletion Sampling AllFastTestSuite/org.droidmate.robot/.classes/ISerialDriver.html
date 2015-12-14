@@ -1,0 +1,92 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ISerialDriver</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.robot</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ISerialDriver (org.droidmate.robot)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ISerialDriver$close$3</td>
+  </tr>
+  <tr>
+    <td class="name">ISerialDriver$connect$0</td>
+  </tr>
+  <tr>
+    <td class="name">ISerialDriver$getSerialPortNames</td>
+  </tr>
+  <tr>
+    <td class="name">ISerialDriver$receive$2</td>
+  </tr>
+  <tr>
+    <td class="name">ISerialDriver$send$1</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.robot;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import org.droidmate.exceptions.RobotException;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import java.util.Vector;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;public interface ISerialDriver
+<i>18</i>&nbsp;{
+<i>19</i>&nbsp;  Vector&lt;String&gt; getSerialPortNames()
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;  void connect(String serialPortName) throws RobotException
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  void send(String string) throws RobotException
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;  String receive() throws RobotException
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  String receive(String expectedResponse) throws RobotException
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  void close()
+<i>30</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>

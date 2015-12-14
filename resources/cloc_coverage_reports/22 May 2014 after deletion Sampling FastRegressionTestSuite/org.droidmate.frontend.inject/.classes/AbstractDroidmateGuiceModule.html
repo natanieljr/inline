@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AbstractDroidmateGuiceModule</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.frontend.inject</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AbstractDroidmateGuiceModule (org.droidmate.frontend.inject)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AbstractDroidmateGuiceModule</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/ 18)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AbstractDroidmateGuiceModule$_closure1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AbstractDroidmateGuiceModule$overriddableClass</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013-2014 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.frontend.inject
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.google.inject.AbstractModule
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public abstract class AbstractDroidmateGuiceModule extends AbstractModule
+<i>16</i>&nbsp;{
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;  private Map&lt;Class, Class&gt; bindingOverrides        = null
+<i>19</i>&nbsp;  private Map&lt;Class, Class&gt; appliedBindingOverrides = [:]
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;  Map&lt;Class, Class&gt; getAppliedBindingOverrides()
+<i>22</i>&nbsp;  {
+<b class="fc"><i>23</i>&nbsp;    return appliedBindingOverrides</b>
+<i>24</i>&nbsp;  }
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;  public AbstractDroidmateGuiceModule(Map&lt;Class, Class&gt; bindingOverrides)
+<i>27</i>&nbsp;  {
+<b class="fc"><i>28</i>&nbsp;    assert bindingOverrides?.keySet()?.every {it instanceof Class}</b>
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;    this.bindingOverrides = bindingOverrides</b>
+<i>31</i>&nbsp;  }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;  public Class overriddableClass(Class classToBeOverridden, Class classDefault)
+<i>34</i>&nbsp;  {
+<b class="fc"><i>35</i>&nbsp;    if (bindingOverrides.keySet().contains(classToBeOverridden))</b>
+<i>36</i>&nbsp;    {
+<b class="fc"><i>37</i>&nbsp;      Class classOverride = bindingOverrides[classToBeOverridden]</b>
+<b class="fc"><i>38</i>&nbsp;      appliedBindingOverrides.put(classToBeOverridden, bindingOverrides[classToBeOverridden])</b>
+<b class="fc"><i>39</i>&nbsp;      return classOverride</b>
+<i>40</i>&nbsp;    } else
+<b class="fc"><i>41</i>&nbsp;      return classDefault</b>
+<i>42</i>&nbsp;  }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;  protected void overriddableBinding(Class classToBeBound, Class implementingClass)
+<i>45</i>&nbsp;  {
+<b class="fc"><i>46</i>&nbsp;    if (bindingOverrides.keySet().contains(classToBeBound))</b>
+<i>47</i>&nbsp;    {
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;      if (bindingOverrides[classToBeBound] instanceof Class)</b>
+<b class="fc"><i>50</i>&nbsp;        bind(classToBeBound).to(bindingOverrides[classToBeBound])</b>
+<i>51</i>&nbsp;      else
+<b class="fc"><i>52</i>&nbsp;        bind(classToBeBound).toInstance(bindingOverrides[classToBeBound])</b>
+<i>53</i>&nbsp;
+<b class="fc"><i>54</i>&nbsp;      appliedBindingOverrides.put(classToBeBound, bindingOverrides[classToBeBound])</b>
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    } else
+<b class="fc"><i>57</i>&nbsp;      bind(classToBeBound).to(implementingClass)</b>
+<i>58</i>&nbsp;  }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;  protected void overriddableAnnotatedBinding(Class classToBeBound, Class classToBeBoundAnnotation, Object implementingInstance)
+<i>61</i>&nbsp;  {
+<b class="fc"><i>62</i>&nbsp;    if (bindingOverrides.keySet().contains(classToBeBoundAnnotation))</b>
+<i>63</i>&nbsp;    {
+<b class="fc"><i>64</i>&nbsp;      bind(classToBeBound).annotatedWith(classToBeBoundAnnotation).toInstance(bindingOverrides[classToBeBoundAnnotation])</b>
+<b class="fc"><i>65</i>&nbsp;      appliedBindingOverrides.put(classToBeBoundAnnotation, bindingOverrides[classToBeBoundAnnotation])</b>
+<i>66</i>&nbsp;    } else
+<b class="fc"><i>67</i>&nbsp;      bind(classToBeBound).annotatedWith(classToBeBoundAnnotation).toInstance(implementingInstance)</b>
+<i>68</i>&nbsp;  }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;}
+<i>71</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-05-22 20:53</div>
+</div>
+</body>
+</html>

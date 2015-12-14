@@ -1,0 +1,165 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Apk</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.droidmate.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Apk (org.droidmate.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Apk</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (15/ 18)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Apk$setApkContext</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (15/ 18)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/*
+<i>2</i>&nbsp; Copyright (c) 2013 Saarland University Software Engineering Chair. All right reserved.
+<i>3</i>&nbsp;
+<i>4</i>&nbsp; Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
+<i>5</i>&nbsp;
+<i>6</i>&nbsp; This file is part of the &quot;DroidMate&quot; project.
+<i>7</i>&nbsp;
+<i>8</i>&nbsp; www.droidmate.org
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;package org.droidmate.utils
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import groovy.transform.TypeChecked
+<i>14</i>&nbsp;import org.apache.commons.io.FilenameUtils
+<i>15</i>&nbsp;import org.droidmate.core.IApkContext
+<i>16</i>&nbsp;import org.droidmate.exceptions.DroidmateException
+<i>17</i>&nbsp;import org.droidmate.filesystem.ApkContextFilesProvider
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;@TypeChecked
+<i>20</i>&nbsp;class Apk extends File
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;  public final boolean     isInstrumented
+<i>24</i>&nbsp;  @Delegate
+<i>25</i>&nbsp;  private      IApkContext apkContext
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;  private boolean contextSet = false;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;  /**
+<i>30</i>&nbsp;   * Gets the apk name without the {@code .apk} extension.
+<i>31</i>&nbsp;   */
+<i>32</i>&nbsp;  public String getNameWOExt()
+<i>33</i>&nbsp;  {
+<b class="fc"><i>34</i>&nbsp;    return FilenameUtils.removeExtension(this.name);</b>
+<i>35</i>&nbsp;  }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;  public void setApkContext(IApkContext apkContext)
+<i>38</i>&nbsp;  {
+<b class="fc"><i>39</i>&nbsp;    assert !contextSet: &quot;IApkContext has to be set exactly once, immediately after the instance is constructed.&quot;</b>
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;    if (!isInstrumented &amp;&amp; (absolutePath != apkContext.apkFile.absolutePath))</b>
+<b class="fc"><i>42</i>&nbsp;      throw new DroidmateException(</b>
+<b class="fc"><i>43</i>&nbsp;        &quot;Tried to set ${apkContext.class.simpleName} for ${Apk.simpleName} having different file path than &quot; +</b>
+<b class="fc"><i>44</i>&nbsp;          &quot;the one expected by the ${apkContext.class.simpleName}.\n&quot; +</b>
+<i>45</i>&nbsp;          &quot;Expected path: ${apkContext.apkFile.absolutePath}\n&quot; +
+<i>46</i>&nbsp;          &quot;Actual   path: ${absolutePath}.&quot;)
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;    if (isInstrumented &amp;&amp;</b>
+<b class="fc"><i>49</i>&nbsp;      (!(absolutePath.startsWith(apkContext.apkFile.parentFile.absolutePath)) ||</b>
+<b class="fc"><i>50</i>&nbsp;        !(this.parentFile.name == ApkContextFilesProvider.DIR_NAME_INSTRUMENTED)))</b>
+<b class="nc"><i>51</i>&nbsp;      throw new DroidmateException(</b>
+<b class="nc"><i>52</i>&nbsp;        &quot;Tried to set ${apkContext.class.simpleName} for ${Apk.simpleName} having different file path than &quot; +</b>
+<b class="nc"><i>53</i>&nbsp;          &quot;the one expected by the ${apkContext.class.simpleName}.\n&quot; +</b>
+<i>54</i>&nbsp;          &quot;Expected path: ${apkContext.apkFile.parentFile.absolutePath}$separator(...)$separator${ApkContextFilesProvider.DIR_NAME_INSTRUMENTED}$separator$name\n&quot; +
+<i>55</i>&nbsp;          &quot;Actual   path: ${absolutePath}.&quot;)
+<b class="fc"><i>56</i>&nbsp;    this.apkContext = apkContext</b>
+<b class="fc"><i>57</i>&nbsp;    contextSet = true</b>
+<i>58</i>&nbsp;  }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;  Apk(File sourceFile, boolean isInstrumented)
+<i>62</i>&nbsp;  {
+<b class="fc"><i>63</i>&nbsp;    super(sourceFile.absolutePath)</b>
+<i>64</i>&nbsp;
+<b class="fc"><i>65</i>&nbsp;    assert sourceFile?.name?.endsWith(&quot;.apk&quot;);</b>
+<i>66</i>&nbsp;
+<b class="fc"><i>67</i>&nbsp;    this.isInstrumented = isInstrumented</b>
+<b class="fc"><i>68</i>&nbsp;    this.apkContext = apkContext</b>
+<i>69</i>&nbsp;  }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2014-04-01 16:05</div>
+</div>
+</body>
+</html>
