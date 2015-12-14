@@ -1,0 +1,163 @@
+[
+  {
+    "comment": "Hi there,  Thanks for making a wonderful app like Knockr, bring convenience to many android phone users.  I would like to highlight a problem when using Knockr. Using this app will disable the LED notification light on my Samsung Note 3 as the notification light requires the screen to be off.  It will be great if you can solve this problem in the next update!  Thank you.",
+    "timestampMsec": 1399365563136,
+    "title": "Disabled LED notification light on Samsung Note 3",
+    "starRating": 3,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOGWL7GToFVhEM3zGn2NWB-J-2d7bwXlbn-k53EgK9_zUv0JupnVaNvgcER7lRf0b3KMjCgdtbo4nMeI8CE"
+  },
+  {
+    "comment": "It keeps the screen on and drains the battery on my HTC One M7. Please fix this issue that many users are having. I love the concept of this app.",
+    "timestampMsec": 1399422878273,
+    "title": "Screen staying on",
+    "starRating": 3,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOHkvri4oraS9vBYidyVtr820ZLlYixf0TX1S050fCN59OUaOqFFmijjo-_0drlctsr4_biHJsrkcgt2npY"
+  },
+  {
+    "comment": "Yes is a great app but could you update to turn off the button light as well when the screen is turn off thanks you :)",
+    "timestampMsec": 1399377278620,
+    "title": "Home and back button Light remain when screen is off on HTC One",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOFi8toK3USodvSMBSd32hW8C4yS6hsFFQNvicj8evZqXKE_IH2JEL5j0uAkB1ltpjFUPRvtaMq0lSWYlNY"
+  },
+  {
+    "comment": "Great app. But when using Toucher Pro,  you can still see the touch button on the black lockscreen.",
+    "timestampMsec": 1399411905033,
+    "title": "Note 3",
+    "starRating": 3,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOGHWUBFoB83dccHyGlRX58c68Eyiutvla3E6MvnL2Kj9G_BYTbgQeBj7qSgrKI_YYMsg1xETdfNK3T0CcU"
+  },
+  {
+    "comment": "Fixed on screen button issue but huge battery hog. Developer is quick, looking forward to improvements. Moto x",
+    "timestampMsec": 1399386668363,
+    "title": "Improvement",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOHJv-4Z43kty7HD3fB2YhJyBX_G6qxV_s2P2Ent8bnQA8QaJV-l-BUa5oqxEVjgM9DGz50lhrIuRVQymPQ"
+  },
+  {
+    "comment": "I gladly retract my previous bad review :). The app developers fixed the app very promptly! Works as described!",
+    "timestampMsec": 1399407132004,
+    "title": "Fixed problems",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOHP8-gKNVpMd6Wm0tWhgBmv83XPFD1RA0k8deWMO5yuiVosqW40lZyBTHi8qmPHMZmPpnqJIwUExKz4ePU"
+  },
+  {
+    "comment": "It works, but sometimes you can't turn on the phone with the power button, but other than that it's good stuff.",
+    "timestampMsec": 1399410404291,
+    "title": "Works",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOFIrDRKmTM0EbS-53XKaTfELC6vGpBMIA2R--8gPcSqxvBAERG_P5KSAUbu-WHcSj6e05Jg8XanECY_5_Q"
+  },
+  {
+    "comment": "Double tap works as expected. Perhaps you can turn off the capacitive button lights as well? Something like:   Field field = getWindow().getAttributes().getClass().getField(\"buttonBrightness\"); field.set(getWindow().getAttributes(), 0);",
+    "deviceName": "Motorola Droid RAZR",
+    "timestampMsec": 1399360172243,
+    "title": "Works great!",
+    "starRating": 5,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOG9HfqWfTQOcrBN1wPI5JK2bqgZXaUUxT7kIkfjMLcXnMmlw7OBq4eO1IezJXWiMnn9oFy2gpXVAKFACAA"
+  },
+  {
+    "comment": "It keeps my capacitive buttons on when I trigger the proximity sensor and it is a tad glitchy with the taps and power button but overall fast and very useful.",
+    "timestampMsec": 1399424325069,
+    "title": "Just what I needed!",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOEfoX--stGzmzShZViUFnxDGaQb-XlTb89SF9N0Rcx3lkEh58-3OgdXnNoVLW_ia_YPYkutnEH06AmtHRY"
+  },
+  {
+    "comment": "When charging the phone while screen is turned off , the red notification led does not turn on",
+    "timestampMsec": 1399362009965,
+    "title": "Note 3 SM-9005 bug",
+    "starRating": 3,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOG7WVP8cV6XqdC2mpEoCAfTdaVyPT8Ch1X2uD7tvy8C74cjC8QtedauDDsXgZoP3-HuZb851zVfGbGYqI8"
+  },
+  {
+    "comment": "This is truly a great app and it works flawlessly on Note 3 but I also use NILS Lockscreen and it doesn't shut the screen off when a alert/push msg comes through.  Battery drain but I love the idea so I still give 4 stars. Awesome work.",
+    "timestampMsec": 1399364974443,
+    "title": "Great App",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOFnw0yZccbBDSdt1QqbUPuYD45USy4VLTyY4x6i9BIqEANUpPURpRE-QnSB-zZe2lp2dwlN0R80CCRP14Y"
+  },
+  {
+    "comment": "doesnt work sometime until home button pressed when screen off",
+    "timestampMsec": 1399377813642,
+    "title": "good but",
+    "starRating": 4,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOGmCe2qMZyHFj1OsxM6-Vph9DX1DYDtQidKMudcmRlfSaCRMvrdYZozMWww-p4Ss6rfwY55pvLepWXabhI"
+  },
+  {
+    "comment": "For the most part, this app does not work on my Galaxy Note 3, but the potential is there. I am going to keep it and follow updates, and if it improves, I will gladly donate to the developer!",
+    "timestampMsec": 1399401872947,
+    "title": "Poor so far, but if it improves...",
+    "starRating": 2,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOEF-QXQgh2HotoGkAPkdCkW-VvVJRzLdZ9dljGDV_c3JkvY398GR4-0-4qqEGNzn7gLzq7YwZn83Ra1fd8"
+  },
+  {
+    "comment": "Please make this available for other types of screens. Then it gets 5 stars",
+    "timestampMsec": 1399426801612,
+    "title": "Love the idea",
+    "starRating": 3,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOGKsqTo07FDIYXxUCPUfIstYzBUhI1lqQdHE_wQjBcF0ypulP8VKZyjMn5GS5i-zwza8unWimsFzVPDhKY"
+  },
+  {
+    "comment": "I noticed the first 2 taps that should wake up the screen don't instead it turns on the capacitive button light and 2 more taps unlock it please fix this for S3 then I will rate it 5 stars",
+    "deviceName": "Samsung Galaxy S3",
+    "timestampMsec": 1399414437995,
+    "title": "Has potential",
+    "starRating": 3,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOGvAIqoF2lUT1w3An1ykQanrlJgFnxCRy61DVcmG5YmxFxfQmu-pSIG4FB2uDacGe0bsWVuLy91v5GD9vw"
+  },
+  {
+    "comment": "Double tap brings up on screen buttons only, double tap again turns screen on. I'm running cm11 on gs3.  Update: Thanks for the fix! Works perfect!",
+    "deviceName": "Samsung Galaxy S3",
+    "timestampMsec": 1399372254612,
+    "title": "Love the idea but",
+    "starRating": 5,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOGLQg7AbUap6F3K-C3UF5Qg56gqyB7RUNf7m1k_Dy4k4bA08NrKl8-ZLL3hYhbEl71Pv9_rtCIzNrufrCw"
+  },
+  {
+    "comment": "I m on galaxy note 2 GT N7100. Its taking tym 2 load . After 2nd attempt its working fine and its an awesum app ..saves a lotta tym . THANK YOU DEVELOPER FOR MAKING THIS APP 100STARS R LESS FOR THIS APP .. ONE REQ ITS LAGGING A BIT PLZ FIX IT OTHER WISE ITS ONE HELL OF AN APP.  REGARDS FAIZAN",
+    "timestampMsec": 1399359971695,
+    "title": "Awesum app..",
+    "starRating": 5,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOG3Tt3k9tOPdT2R2MNZXWWAK1DyZCNBICQjB0DvlEOB_fdfnOSwPtNG5tJJiTl5dwiwGC6JBZZXPD1zUhY"
+  },
+  {
+    "comment": "Make the LED notifications work on the note 3 and get 5 stars.  Almost there!",
+    "commentId": "gp:AOqpTOESavWMcVo-rnqZlCIvyjRy7HhUcE4n_rN79W46TxhQx6fd_9RfCeZDJTBreQDmCUV_yLtPLeDDxSrk6uc",
+    "timestampMsec": 1399372583277,
+    "documentVersion": "1.2",
+    "starRating": 3
+  },
+  {
+    "comment": "测试手机为一加，很慢。 Droid Ultra 用起来也蛋疼。",
+    "timestampMsec": 1399386924149,
+    "title": "反应慢",
+    "starRating": 2,
+    "documentVersion": "1.2",
+    "commentId": "gp:AOqpTOG4GlBVl39lKRcHPG0AOGYdJ5SZFIU4bBAjKIdZlMVv6jtg9oI0U-nalScSYxHZP0oJGTHs1Fbo4i4aICU"
+  },
+  {
+    "comment": "I love thise app great one but there is a little bug can u fix that please thanks",
+    "commentId": "gp:AOqpTOEnkjzr8MtZrNEjYZxUWG75uhayzcFSU-MQtc-0BGzyhLZF3X3ySvfPfN7jFlfQxAS9n8xFE2LtZYq6tuY",
+    "timestampMsec": 1399377108180,
+    "documentVersion": "1.2",
+    "starRating": 5
+  }
+]

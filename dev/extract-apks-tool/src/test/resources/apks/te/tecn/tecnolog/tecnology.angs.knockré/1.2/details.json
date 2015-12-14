@@ -1,0 +1,127 @@
+{
+  "reviewsUrl": "rev?doc=tecnology.angs.knockr",
+  "detailsReusable": true,
+  "docid": "tecnology.angs.knockr",
+  "backendDocid": "tecnology.angs.knockr",
+  "purchaseDetailsUrl": "details?doc=tecnology.angs.knockr",
+  "creator": "Angs Apps",
+  "image": [
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/w-2xVq3cXgwl8ytHcUQ4bFfdqnXZVSr9-CWsps-pcWrNM62djsqLDs0Nz77myNYFaBiZ",
+      "imageType": 4
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/ifnAka-LroBD5mtLqtgBwT_M3G27Xq6oZ97Os_C8UYOh5Nz5WhEwdnZ8W4wQyKC_VNUV",
+      "positionInSequence": 0,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/mM2T1qAXhk__QUFLd8Pkxy6yXUYhNI57ccmzFkA7k9J_4iVbVh9PhxPT3OdPgBt4s8c",
+      "positionInSequence": 1,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/eRFO0sfWHLsZCEd9Uk0Mo6ieVm3zJw49fsGT8cAheki8iSaN1awWhwJ7i8Ge5Vuxlw",
+      "imageType": 0
+    },
+    {
+      "imageUrl": "https://www.youtube.com/watch?v=zl8yLxWTW-o",
+      "imageType": 3
+    },
+    {
+      "imageUrl": "http://i.ytimg.com/vi/zl8yLxWTW-o/hqdefault.jpg",
+      "imageType": 13
+    }
+  ],
+  "title": "Knockr",
+  "shareUrl": "https://play.google.com/store/apps/details?id=tecnology.angs.knockr",
+  "docType": 1,
+  "backendId": 3,
+  "annotations": {
+    "sectionRelated": {
+      "browseUrl": "browse?c=3&rt=1&ctr=tecnology.angs.knockr",
+      "header": "Similar apps",
+      "listUrl": "rec?c=3&doc=tecnology.angs.knockr&rt=1"
+    },
+    "sectionMoreBy": {
+      "browseUrl": "browse?c=3&rt=4&ctr=tecnology.angs.knockr",
+      "header": "More by Angs Apps",
+      "listUrl": "rec?c=3&rt=4&doc=tecnology.angs.knockr"
+    },
+    "sectionCrossSell": {
+      "browseUrl": "browse?c=3&rt=2&ctr=tecnology.angs.knockr",
+      "header": "Users Also Installed",
+      "listUrl": "rec?c=3&doc=tecnology.angs.knockr&rt=2"
+    }
+  },
+  "aggregateRating": {
+    "oneStarRatings": 54,
+    "starRating": 3.837970495223999,
+    "threeStarRatings": 105,
+    "fourStarRatings": 125,
+    "commentCount": 345,
+    "twoStarRatings": 53,
+    "fiveStarRatings": 274,
+    "type": 2,
+    "ratingsCount": 611
+  },
+  "descriptionHtml": "***FOR OLED SCREENS ONLY******FOR OLED SCREENS ONLY***<br>***FOR OLED SCREENS ONLY******FOR OLED SCREENS ONLY***<p>Knockr allows users with OLED Screen devices, like the Samsung Galaxy S5 and Moto X, to quickly enter an app with gestures without having to turn the screen on.  OLED Screens make this possible because when the pixel is black that pixel is turned off, so when the whole screen is black the screen is turned off.<p>Gestures include:<br>Double Tap: Double tap the screen to open any app you choose or unlock the screen (if passcode is turned off)<p>Swipe Up, Down, Left, Right: Users can set each Swipe to open a separate app or unlock the screen (if passcode is turned off)<p>Long Press: Long press the screen to open any app you choose or unlock the screen (if passcode is turned off)<p>Volume Up when in Landscape:  Pressing the volume up button when the device is in Landscape will automatically open the camera<p>Known issues:<br>Power button doesn&#39;t turn screen on as expected.",
+  "details": {
+    "appDetails": {
+      "majorVersionNumber": 1,
+      "developerWebsite": "http://sites.google.com/site/angsapps/",
+      "appType": "APPLICATION",
+      "title": "",
+      "packageName": "tecnology.angs.knockr",
+      "permission": [
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "com.android.vending.BILLING"
+      ],
+      "contentRating": 1,
+      "developerName": "Angs Apps",
+      "versionString": "1.2",
+      "installationSize": 448939,
+      "developerEmail": "AngsTechonology@gmail.com",
+      "uploadDate": "May 5, 2014",
+      "file": [
+        {
+          "versionCode": 5,
+          "fileType": 0,
+          "size": 448939
+        }
+      ],
+      "versionCode": 5,
+      "recentChangesHtml": "**VERSION 1.2**<br>Fixed Boot on start.  If Knockr is turned on it will now start when device is turned on.<br>Fixed nav buttons showing on devices with On Screen Navigation",
+      "appCategory": [
+        "PERSONALIZATION"
+      ],
+      "numDownloads": "100+"
+    }
+  },
+  "detailsUrl": "details?doc=tecnology.angs.knockr",
+  "offer": [
+    {
+      "micros": 0,
+      "currencyCode": "USD",
+      "checkoutFlowRequired": false,
+      "offerType": 1,
+      "formattedAmount": "Free"
+    }
+  ],
+  "availability": {
+    "perdeviceavailabilityrestriction": [
+      {
+        "channelId": 5,
+        "deviceRestriction": 1,
+        "androidId": 4144875706041828972
+      }
+    ],
+    "restriction": 1,
+    "availableIfOwned": true
+  }
+}

@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="build_push_reset_run.sh ComIndeedAndroidJobsearch searchForJob" type="BashConfigurationType" factoryName="Bash" singleton="true">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="INTERPRETER_PATH" value="C:\Program Files (x86)\Git\bin\sh.exe " />
+    <option name="WORKING_DIRECTORY" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <option name="SCRIPT_NAME" value="C:\my\local\repos\chair\droidmate\dev\uia_manual_test_cases\build_push_reset_run.sh" />
+    <option name="PARAMETERS" value="ComIndeedAndroidJobsearch searchForJob com.indeed.android.jobsearch" />
+    <module name="" />
+    <envs />
+    <method>
+      <option name="Make" enabled="false" />
+    </method>
+  </configuration>
+</component>

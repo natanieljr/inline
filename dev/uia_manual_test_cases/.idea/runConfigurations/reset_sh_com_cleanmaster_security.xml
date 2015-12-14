@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="reset.sh com.cleanmaster.security" type="BashConfigurationType" factoryName="Bash" singleton="true">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="INTERPRETER_PATH" value="C:\Program Files (x86)\Git\bin\sh.exe " />
+    <option name="WORKING_DIRECTORY" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <option name="SCRIPT_NAME" value="C:\my\local\repos\chair\droidmate\dev\uia_manual_test_cases\reset.sh" />
+    <option name="PARAMETERS" value="com.cleanmaster.security" />
+    <module name="" />
+    <envs />
+    <method>
+      <option name="Make" enabled="false" />
+    </method>
+  </configuration>
+</component>

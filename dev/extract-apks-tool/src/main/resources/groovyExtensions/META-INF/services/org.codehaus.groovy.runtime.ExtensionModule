@@ -1,0 +1,3 @@
+moduleName = droidmate-extract-apks-tool-module
+moduleVersion = 1.0
+extensionClasses = org.droidmate.extract_apks_tool.IterableAndMapExtensions, org.droidmate.extract_apks_tool.IApkCollectionExtensions, org.droidmate.extract_apks_tool.PathExtensions

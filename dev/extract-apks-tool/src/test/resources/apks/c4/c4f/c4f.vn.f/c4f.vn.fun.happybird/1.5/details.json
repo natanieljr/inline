@@ -1,0 +1,168 @@
+{
+  "reviewsUrl": "rev?doc=c4f.vn.fun.happybird",
+  "detailsReusable": true,
+  "docid": "c4f.vn.fun.happybird",
+  "backendDocid": "c4f.vn.fun.happybird",
+  "purchaseDetailsUrl": "details?doc=c4f.vn.fun.happybird",
+  "creator": "CFF-VN",
+  "image": [
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/MNSs5Zcv_85bmpHgyG6LvK_SpAgAyL1Sw9gYPPaDvaAkYIDq_u0fbNUVD6pwyfsoHvE",
+      "imageType": 4
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/we0bf0hnnEf56hRItr8FMYlseYFYkONpsFEjBM2LXfi-aMXPLyTbMLwkCDjRAqDT1A",
+      "imageType": 2
+    },
+    {
+      "imageUrl": "http://www.youtube.com/watch?v=FWVLb6AfHUc&feature=youtu.be",
+      "imageType": 3
+    },
+    {
+      "imageUrl": "http://i.ytimg.com/vi/FWVLb6AfHUc/hqdefault.jpg",
+      "imageType": 13
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/Q7nR2cqbQ0I3kVehgoVeVzSPgxJIQ6k4AhAya7JITh66CuVdWXkf--qOzvm9RdwBI6c",
+      "positionInSequence": 0,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/FYMTElo5fiSiIC5hF0HkTjS6RA4UPawusriS480j0ni5ICwSBVsqK8Q-nvtrrmiHpnU",
+      "positionInSequence": 1,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/Jcg09BPTVIU4H3DIxbgwe2jACjlyhi1LhqL2B7bznH47P5PKnYqpAVAXKBIzpaUtGEJr",
+      "positionInSequence": 2,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/Rn30eG7bRBtELpC4rnC4po1KOdPJm1OLw2l03bxLpul25D6qZ3ovy6x-2NMjub0XwQ",
+      "positionInSequence": 3,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/CwHp7J2Gx7CO6K2irVXLOLwlFTjsAmBnXbaIDCJQPadYhsLZFfGwtWT3bgFYZxIu8g",
+      "positionInSequence": 4,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/spgJoGURsxbPNXPcHZNp7SKrWtOv9m5CJW0fjC7YA2Hjn46yvugG1dyWNo4qxK-oHg",
+      "positionInSequence": 5,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/r8TY3glfqNOstW4OqGkhD6v7JVM84yLVGhQSeLp61wV4LH1P-zmxYzspIJWu5maUoQ",
+      "positionInSequence": 6,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/cFPBe6IQLkWYaaUSwqgvC-XtFAGgdPiWxPSKAJB6JXUjt7JUyCgcF86qB7D1sbwsNZk",
+      "positionInSequence": 7,
+      "imageType": 1
+    }
+  ],
+  "title": "Floopy Floppy Bird",
+  "shareUrl": "https://play.google.com/store/apps/details?id=c4f.vn.fun.happybird",
+  "docType": 1,
+  "backendId": 3,
+  "annotations": {
+    "sectionRelated": {
+      "browseUrl": "browse?c=3&rt=1&ctr=c4f.vn.fun.happybird",
+      "header": "Similar apps",
+      "listUrl": "rec?c=3&doc=c4f.vn.fun.happybird&rt=1"
+    },
+    "sectionMoreBy": {
+      "browseUrl": "browse?c=3&rt=4&ctr=c4f.vn.fun.happybird",
+      "header": "More by CFF-VN",
+      "listUrl": "rec?c=3&rt=4&doc=c4f.vn.fun.happybird"
+    },
+    "sectionCrossSell": {
+      "browseUrl": "browse?c=3&rt=2&ctr=c4f.vn.fun.happybird",
+      "header": "Users Also Installed",
+      "listUrl": "rec?c=3&doc=c4f.vn.fun.happybird&rt=2"
+    }
+  },
+  "aggregateRating": {
+    "oneStarRatings": 11,
+    "starRating": 4.183907985687256,
+    "threeStarRatings": 4,
+    "fourStarRatings": 16,
+    "commentCount": 20,
+    "twoStarRatings": 1,
+    "fiveStarRatings": 55,
+    "type": 2,
+    "ratingsCount": 87
+  },
+  "descriptionHtml": "In the regret of Flappy Bird taking down from Google Play, Floppy Bird is coming to start new challenge with more fun, more charming, more addictive!!!<p>As Vietnamese developers, we are very proud of Dong Nguyen and his mega-popular game “Flappy Bird”. So with the desire of making a beautiful and attractive game, we would like to create Floppy Bird - a beautiful bird but fly exactly the same as the Dong Nguyen&#39;s Bird.<p>If you tried Flappy Bird, FlappyBird,Jumpy Bird, JumpyBird,Flyer Bird,Floppy Bird, I could ensure that it&#39;s the closest version of the legendary bird. Let&#39;s go, join with Floppy Bird to discover the new challenge game. <p>Now it&#39;s time for re-tapping and gain the best scores in the global ranking.",
+  "details": {
+    "appDetails": {
+      "majorVersionNumber": 1,
+      "developerWebsite": "http://floopybird.com",
+      "appType": "GAME",
+      "title": "",
+      "packageName": "c4f.vn.fun.happybird",
+      "permission": [
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.READ_PHONE_STATE",
+        "android.permission.GET_ACCOUNTS",
+        "android.permission.USE_CREDENTIALS",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ],
+      "contentRating": 1,
+      "developerName": "CFF-VN",
+      "versionString": "1.5",
+      "installationSize": 2225094,
+      "developerEmail": "tronglbnhanpt@gmail.com",
+      "uploadDate": "Feb 26, 2014",
+      "file": [
+        {
+          "versionCode": 5,
+          "fileType": 0,
+          "size": 2225094
+        }
+      ],
+      "versionCode": 5,
+      "recentChangesHtml": "The fastest keyword search on google play is: cff-vn<p>Version 1.5:<br>- Fix game speed on some galaxy mobiles. Now game runs at stable speed. Enjoy the game!<br>On some devices, there may be lag at start of game, after a few seconds game speed will be stable. Thanks for your patience<p>Version 1.4:<br>- Fix black screen on some cases<p>Version 1.2:<br>- Add sharing function. Let&#39;s share your score to your friends with g+,facebook,twitter,gmail.<br>Version 1.1:<br>- ...",
+      "appCategory": [
+        "ARCADE"
+      ],
+      "numDownloads": "5,000+"
+    }
+  },
+  "detailsUrl": "details?doc=c4f.vn.fun.happybird",
+  "offer": [
+    {
+      "micros": 0,
+      "currencyCode": "USD",
+      "checkoutFlowRequired": false,
+      "offerType": 1,
+      "formattedAmount": "Free"
+    }
+  ],
+  "availability": {
+    "perdeviceavailabilityrestriction": [
+      {
+        "channelId": 5,
+        "deviceRestriction": 1,
+        "androidId": 4144875706041828972
+      }
+    ],
+    "restriction": 1,
+    "availableIfOwned": true
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "reviewsUrl": "rev?doc=wp.wattpad",
+  "detailsReusable": true,
+  "docid": "wp.wattpad",
+  "backendDocid": "wp.wattpad",
+  "purchaseDetailsUrl": "details?doc=wp.wattpad",
+  "creator": "Wattpad.com",
+  "image": [
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/w_QycGXU5acuYl1QLpsmgfBBNsCuQw5RMhUkJ5ohHkkxJrhjM74r-lUwM2gTMHQyMEM",
+      "imageType": 4
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/YHARqGumvttsbEDEHTOq6lAGYbgxA2G3jt5NxsD69dOeDa4tCtv14yLj0HMu4CJCoWg",
+      "imageType": 2
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/2KTfdkwYNY7Cpa1ag7amOB8NzpwThhHBYJ3ePoIR7kwFozeo4uHjRAI6sr2h9Isgyw",
+      "positionInSequence": 0,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/l2KRAChp0bsfSqeFRdgP0Kbe3UJ4CRa_r8-k1JUtHWL9cZQs9ozOhwGvLiaswN_-S7c",
+      "positionInSequence": 1,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/8cB5sg_AJ1YkOZC2-SN8cuXpOQTiPA9oW2p5HaP1iUM1Hg_SPwdzJ_km3bHl8Uh4zBqh",
+      "positionInSequence": 2,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/HFf2ogopmnX-LsAdTr_i-QvU9mUi6V5z9QNMAb2qIZLlURenWFg1V6114x769G8IKcU",
+      "positionInSequence": 3,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/pl_JrxqnhASUzfr_KB-ujspWYWK-ZMZofKfnbotRI93Z4K4gdF2VUDBtxdRlF-2vijBt",
+      "positionInSequence": 4,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/K1UY-WIf0wiG_NsML4F53l7THCC0yeCno4NCrVYmRtAUm57mQ0ZPfHKEDQLZViU41Byu",
+      "positionInSequence": 5,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/GpAR2bWLrbxrUZErM0dOIQgRB5O2VaizsrnHDNNA8kDsM80aGEEebt1mqoEhktQdpJvm",
+      "positionInSequence": 6,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/XOmdls_7SHD8s_GW3wEWPqRC6COp3MOseNF6Iz7ACajp2a6MITXgu8aD3Wby6GGQWSM",
+      "positionInSequence": 7,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/M3NaTzPDGa6J4me_Ec0h1GDVKybM1-rVZWXbBJEkHppErA5cL8lNKyDSzGmYsBXKbS_O",
+      "positionInSequence": 8,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/iTkcP5u8JkoYOz7MWin6hGDKxSxkS7JjC9ygjXA7ZILwrw_V4X3Vrs-Xru634MDNL2M",
+      "positionInSequence": 9,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/0AGHj3F68C1Gaqd0p9RZ9KeSy3gQGXERksXsFCuefu5SmzlHMexbQLDpN8QdSAoRsBM",
+      "positionInSequence": 10,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/TqKu1xeq0hj6R7fHxpbcZ_bXFZiXS0i02JJr99ZuiKSTRFRt7-vW8lD0vnJmm4rpJFs",
+      "positionInSequence": 11,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/0WCAE8AShY6HiJTNKe2_RlGCCcuUZf1dWIN5YyLGX_H-YlBSIC8JMzo_AgbF75KugBeH",
+      "positionInSequence": 12,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/N0gVZ34D626YoY-gNPdnZvLdWjC02vFD5YV7_pWRCHYT8sg0egOw5mbR-OAcnF89Ao8A",
+      "positionInSequence": 13,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/yacqMwSyVidrWWe_yZHxkmDvhRTxNkfSlmFeB4oC20KepQP3G9yoWgr2_pdMwDZ1hXc",
+      "positionInSequence": 14,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/mI17XvJOwQCRBNn_vdz2QMFb64dBdc80DpdBvMERScGEKa5tN3uicuTjXBHqz5Xt9lA",
+      "positionInSequence": 15,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/zH4nVH06JmuaNIWE-qWLkj4SCkkkMHSJye28ANQZGTS4TFHVfdBgDgsBFFbtSikdXOUV",
+      "positionInSequence": 16,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/pc4vBxz9PK-v_BTkI5TJ07zHcx__Gpgs50qzDpnX5MytjDnrxm1iMFtQ30q_Hd6vJQ",
+      "positionInSequence": 17,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/9Pdzg5ehya0a5Mw8Wr-ML46D8Uocp8W5XhXwVW95Dfkv4dUjFGy5-zNlNj682Rn7Dz5l",
+      "positionInSequence": 18,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/EbLC7REbekYG4ZCzJQHW2mTmskuj3-xjUwOU0ZajVyePsj1W5BKNfHcRcYmOD5Crn25X",
+      "positionInSequence": 19,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/x64MP0-a4Lq_N67ycACgqjoJqjTyXd8-QMMPkRBGThYGRlD7aMBSaCjxNSdJiuXVjcOd",
+      "positionInSequence": 20,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh4.ggpht.com/DPpCAIMoaAFs_53rkgTwS50Q9OCChGEh07K9L0Jy3S_5XffJoH_leB65fnaOSWANoE6V",
+      "positionInSequence": 21,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/xMXTqXz7eqHL6qLc0F6IcrdIL2iWaL01MNus8kDo1mu0Lxy6JyJuz_81WR4_WUbx5w",
+      "positionInSequence": 22,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/oJ76OpUw-UWnXvbA0liNoAcKLMMaI4_RHo44RK_-AZHdYnGzgihSzWs5Z9xMEjcp4g",
+      "positionInSequence": 23,
+      "imageType": 1
+    },
+    {
+      "imageUrl": "http://www.youtube.com/watch?v=Ylv-aYAzucM",
+      "imageType": 3
+    },
+    {
+      "imageUrl": "http://i.ytimg.com/vi/Ylv-aYAzucM/hqdefault.jpg",
+      "imageType": 13
+    }
+  ],
+  "title": "Free Books & Stories - Wattpad",
+  "shareUrl": "https://play.google.com/store/apps/details?id=wp.wattpad",
+  "docType": 1,
+  "backendId": 3,
+  "annotations": {
+    "sectionRelated": {
+      "browseUrl": "browse?c=3&rt=1&ctr=wp.wattpad",
+      "header": "Similar apps",
+      "listUrl": "rec?c=3&doc=wp.wattpad&rt=1"
+    },
+    "privacyPolicyUrl": "http://www.wattpad.com/privacy",
+    "sectionMoreBy": {
+      "browseUrl": "browse?c=3&rt=4&ctr=wp.wattpad",
+      "header": "More by Wattpad.com",
+      "listUrl": "rec?c=3&rt=4&doc=wp.wattpad"
+    },
+    "sectionCrossSell": {
+      "browseUrl": "browse?c=3&rt=2&ctr=wp.wattpad",
+      "header": "Users Also Installed",
+      "listUrl": "rec?c=3&doc=wp.wattpad&rt=2"
+    }
+  },
+  "aggregateRating": {
+    "oneStarRatings": 9148,
+    "starRating": 4.511361598968506,
+    "threeStarRatings": 11682,
+    "fourStarRatings": 30665,
+    "commentCount": 80521,
+    "twoStarRatings": 4522,
+    "fiveStarRatings": 157202,
+    "type": 2,
+    "ratingsCount": 213219
+  },
+  "descriptionHtml": "★ ★ ★ ★ ★ Wattpad - Read over 20 million FREE ebooks &amp; stories<p>Join millions who love Wattpad - the world’s ever growing library of downloadable books and stories.  <p>Ranked one of the top 5 ebook reader apps for the last 3 years!<p>• Free ebooks and stories to read from the best of sci fi, fantasy, horror, mystery, romance, fan fiction, teen, thrillers, classics, poetry and so much more!<br>• Read popular ebooks &amp; books by classic authors; Moby Dick, Alice in Wonderland, Sherlock Holmes, The Art of War, by Sun Tzu, The Marvelous Land of Oz, Tales from Shakespeare, Romeo &amp; Juliet, Pride &amp; Prejudice and more.<br>• Connect with your favorite writers, including Margaret Atwood, Paulo Coelho, and thousands of aspiring writers from across the globe.<br>• Chat and comment about your top read ebooks while meeting other readers<br>• Get ebooks and story updates directly from authors and vote and comment on them with other readers<br>• Synchronize your Wattpad ebook library and read books on your phone, tablet and the web<br>• Wattpad also functions as a digital ebook writing app so that you can publish books you write for others to read<br>• Download fanfiction books &amp; stories about Anime, such as Naruto, and the Supernatural, such as Werewolves, Vampires Diaries and Twilight<br>• Write stories and cast celebrities as your characters, such as Lucy Hale, Harry Styles, Ian Somerhalder and Nina Dobrev<br>• Create and read free fanfiction ebooks &amp; stories about your favorite stars, like One Direction, Emblem3, Mindless Behavior, Justin Bieber and worldwide pop music stars such as Kpop&#39;s SNSD and TVXQ<p><br>Reviews:<p>Wattpad has received high ratings and was featured in publications like The New York Times, MacWorld, The Guardian and Washington Post. Here’s what people are saying:<p>★ &quot;Wattpad opens the doors and enlarges the view in places where the doors are closed and the view is restricted.&quot; - Margaret Atwood<br>★&quot;Connecting readers and writers — Publishers need to establish a direct relationship with their customers, and this is something Wattpad excels at.&quot;<br>- O&#39;Reilly Media<br>★ &quot;Wattpad is exciting because there is the opportunity to create content with depth.&quot; - Vincent Lam<br>★ &quot;I love Wattpad!!&quot; - Thousands of user reviews<p>Already love Wattpad?<p>→ What are you waiting for? Download our app! wattpad.com <br>→ Connect with us on Facebook (www.facebook.com/wattpad) and Follow Wattpad on Twitter (www.twitter.com/wattpad).",
+  "details": {
+    "appDetails": {
+      "majorVersionNumber": 1,
+      "developerWebsite": "http://www.wattpad.com",
+      "appType": "APPLICATION",
+      "title": "",
+      "packageName": "wp.wattpad",
+      "permission": [
+        "android.permission.INTERNET",
+        "android.permission.WAKE_LOCK",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.READ_PHONE_STATE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "wp.wattpad.permission.C2D_MESSAGE",
+        "android.permission.GET_ACCOUNTS",
+        "com.google.android.c2dm.permission.RECEIVE"
+      ],
+      "contentRating": 2,
+      "developerName": "Wattpad.com",
+      "versionString": "3.13.23",
+      "installationSize": 7143021,
+      "developerEmail": "support@wattpad.com",
+      "uploadDate": "Jan 22, 2014",
+      "file": [
+        {
+          "versionCode": 181,
+          "fileType": 0,
+          "size": 7143021
+        }
+      ],
+      "versionCode": 181,
+      "recentChangesHtml": "NEW IN VERSION 3.13.12:<br>✔ Fix for not receiving push notifications<br>✔ Fixes for inline commenting bugs<br>✔ Fix for some users getting logged out<p>NEW IN VERSION 3.13:<br>✔ Inline commenting<br>✔ Multi-select unarchiving<br>✔ Improved performance<br>✔ Bug fixes",
+      "appCategory": [
+        "BOOKS_AND_REFERENCE"
+      ],
+      "numDownloads": "10,000,000+"
+    }
+  },
+  "detailsUrl": "details?doc=wp.wattpad",
+  "offer": [
+    {
+      "micros": 0,
+      "currencyCode": "USD",
+      "checkoutFlowRequired": false,
+      "offerType": 1,
+      "formattedAmount": "Free"
+    }
+  ],
+  "availability": {
+    "perdeviceavailabilityrestriction": [
+      {
+        "channelId": 181,
+        "deviceRestriction": 1,
+        "androidId": 4144875706041828972
+      }
+    ],
+    "restriction": 1,
+    "availableIfOwned": true
+  }
+}

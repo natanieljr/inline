@@ -1,0 +1,43 @@
+group 'org.droidmate'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
+}
+
+mainClassName = "org.droidmate.extract_apks_tool.ExtractApksToolMain"
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy-all:2.4.5'
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+
+  compile 'com.google.jimfs:jimfs:1.0'
+  compile files("$rootDir/../droidmate/projects/lib-common/build/libs/lib-common.jar")
+
+  compile 'org.slf4j:slf4j-api:1.7.6'
+  compile 'ch.qos.logback:logback-classic:1.0.13'
+  compile 'ch.qos.logback:logback-core:1.0.13'
+
+  compile 'net.sf.jopt-simple:jopt-simple:4.9'
+
+  compile 'commons-io:commons-io:2.4'
+
+  runtime files(new File(sourceSets.main.resources.srcDirs.find(), "groovyExtensions"))
+
+  // Used when running the app from IDE.
+  runtime files(new File(sourceSets.main.resources.srcDirs.find(), "logback"))
+
+  // Used when running the app with a script when deployed with "gradlew installDist"
+  // Ensures that "$RES_DIR$/logback/logback.groovy" is added to classpath.
+  // We use "." instead of "logback" or "logback.groovy" because only "." ensures that logback.groovy is properly copied
+  // to $APP_DIR$/lib/logback when "gradlew installDist" is applied. Usage of "logback" results in copying logback.groovy
+  // directly to $APP_DIR$/lib.
+  runtime files(new File(sourceSets.main.resources.srcDirs.find(), "."))
+}

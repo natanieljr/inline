@@ -1,0 +1,127 @@
+{
+  "reviewsUrl": "rev?doc=ch.smalltech.ledflashlight.free",
+  "detailsReusable": true,
+  "docid": "ch.smalltech.ledflashlight.free",
+  "backendDocid": "ch.smalltech.ledflashlight.free",
+  "purchaseDetailsUrl": "details?doc=ch.smalltech.ledflashlight.free",
+  "creator": "smallte.ch",
+  "image": [
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "http://lh5.ggpht.com/X-5qNJ5l2g_urCNFiBNMLt7PD7xnqrY4zY8UoD0ey4VGpK5DcnFswYYZVQKI9MOh7XY",
+      "imageType": 4
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "http://lh4.ggpht.com/UV8fRHPEN8bwUDqQ-GtFynceFE9HbbN5N8Zm-R5hhUuCHFdhR7u_XcQstjyOO-bT",
+      "imageType": 2
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh3.ggpht.com/lMmaCTQavabzE667y9D6Wzp65UZEk0Bpx-Rrx8zUGhG32Xgz5_YnWPdoXurd4fBnWA",
+      "positionInSequence": 0,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh6.ggpht.com/VBb6ni5MCHA94lEvElWTFUqC2y1jHYffVid44byGtLYyOEkpuPFXF-3h9bqWilltLQ",
+      "positionInSequence": 1,
+      "imageType": 1
+    },
+    {
+      "supportsFifeUrlOptions": true,
+      "imageUrl": "https://lh5.ggpht.com/z7deB-ySMxtJj3Z2NWOWQe1hLIyD0h0KXR5YCXhQv2QCk2bFysWtejRTjXe-N1uDaK8",
+      "positionInSequence": 2,
+      "imageType": 1
+    }
+  ],
+  "title": "Flashlight HD LED",
+  "shareUrl": "https://play.google.com/store/apps/details?id=ch.smalltech.ledflashlight.free",
+  "docType": 1,
+  "backendId": 3,
+  "annotations": {
+    "sectionRelated": {
+      "browseUrl": "browse?c=3&rt=1&ctr=ch.smalltech.ledflashlight.free",
+      "header": "Similar apps",
+      "listUrl": "rec?c=3&doc=ch.smalltech.ledflashlight.free&rt=1"
+    },
+    "sectionMoreBy": {
+      "browseUrl": "browse?c=3&rt=4&ctr=ch.smalltech.ledflashlight.free",
+      "header": "More by smallte.ch",
+      "listUrl": "rec?c=3&rt=4&doc=ch.smalltech.ledflashlight.free"
+    },
+    "sectionCrossSell": {
+      "browseUrl": "browse?c=3&rt=2&ctr=ch.smalltech.ledflashlight.free",
+      "header": "Users Also Installed",
+      "listUrl": "rec?c=3&doc=ch.smalltech.ledflashlight.free&rt=2"
+    }
+  },
+  "aggregateRating": {
+    "oneStarRatings": 8180,
+    "starRating": 4.540689468383789,
+    "threeStarRatings": 13329,
+    "fourStarRatings": 43997,
+    "commentCount": 116975,
+    "twoStarRatings": 4245,
+    "fiveStarRatings": 183041,
+    "type": 2,
+    "ratingsCount": 252792
+  },
+  "descriptionHtml": "There are many flashlight apps, so why get this one ?<p>- Brightest and most powerful light possible<p>- It is simple and well designed<br>- launch it and get light instantly by pressing one button<br>- uses the integrated FlashLight<br>- also uses your full screen as a light source (works on all devices)<br>- add a widget for quick access<p>Try it. It&#39;s simply the best at what it does.<p>This app is compatible with most phones including  those on which other apps do not work. This includes for example : Droid Bionic, X2, Motorola RAZR, Sony Xperia Arc, HTC Wildfire, LG Optimus Black / 3D/ Ally, Motorola Defy, Milestone, Samsung Galaxy Nexus, SHARP... and much more !",
+  "details": {
+    "appDetails": {
+      "majorVersionNumber": 1,
+      "developerWebsite": "http://www.smallte.ch",
+      "appType": "APPLICATION",
+      "title": "",
+      "packageName": "ch.smalltech.ledflashlight.free",
+      "permission": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.CAMERA",
+        "android.permission.FLASHLIGHT",
+        "android.permission.WAKE_LOCK"
+      ],
+      "contentRating": 1,
+      "developerName": "smallte.ch",
+      "versionString": "1.61",
+      "installationSize": 3077306,
+      "developerEmail": "support@smallte.ch",
+      "uploadDate": "Dec 21, 2013",
+      "file": [
+        {
+          "versionCode": 161,
+          "fileType": 0,
+          "size": 3077306
+        }
+      ],
+      "versionCode": 161,
+      "recentChangesHtml": "- NEW: shows battery level<p>- Redesigned settings<br>- Better Test Tool UI<br>- Various compatibility and stability fixes",
+      "appCategory": [
+        "TOOLS"
+      ],
+      "numDownloads": "10,000,000+"
+    }
+  },
+  "detailsUrl": "details?doc=ch.smalltech.ledflashlight.free",
+  "offer": [
+    {
+      "micros": 0,
+      "currencyCode": "CHF",
+      "checkoutFlowRequired": false,
+      "offerType": 1,
+      "formattedAmount": "Free"
+    }
+  ],
+  "availability": {
+    "perdeviceavailabilityrestriction": [
+      {
+        "channelId": 161,
+        "deviceRestriction": 1,
+        "androidId": 4144875706041828972
+      }
+    ],
+    "restriction": 1,
+    "availableIfOwned": true
+  }
+}
