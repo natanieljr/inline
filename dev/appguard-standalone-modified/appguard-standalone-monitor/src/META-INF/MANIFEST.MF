@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: bcprov-jdk15on-150.jar appguard-spongycastle.jar
+Main-Class: com.srt.appguard.Main
+

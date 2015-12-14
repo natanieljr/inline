@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="appguard-standalone:jar as appguard-inliner">
+    <output-path>$PROJECT_DIR$/../droidmate/projects/apk-inliner/src/main/resources</output-path>
+    <root id="archive" name="appguard-inliner.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/appguard-standalone-monitor-app/gen/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="appguard-standalone" />
+      <element id="module-output" name="appguard-standalone-monitor" />
+      <element id="module-output" name="appguard-standalone-loader" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/appguard-standalone/libs/appguard-spongycastle.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
