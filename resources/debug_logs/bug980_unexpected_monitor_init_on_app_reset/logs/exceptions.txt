@@ -2,7 +2,7 @@
 Please contact the DroidMate developer, Konrad Jamrozik, at jamrozik@st.cs.uni-saarland.de.
 Please include the output dir (by default set to .\dev1).
 A cookie for you, brave human.
-org.codehaus.groovy.runtime.powerassert.PowerAssertionError: assert messages.empty
+assert messages.empty
        |        |
        |        false
        [10-14 14:24:37.871 I/Monitor_init(28665): Monitor constructed successfully., 10-14 14:24:38.871 I/Monitor_init(28665): Monitor initialized for package com.ebay.mobile]
