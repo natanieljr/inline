@@ -1,4 +1,14 @@
 No spam:
 
 Log tag:     ^(?!.*(ThrottleService|StrictMode|BluetoothAdapter|Trace|SurfaceFlinger|AudioTrack|logwrapper|SecondaryTablController|ConnectivityService|Netd|iptables|FrameworkListener|MediaFocusControl|AlarmClock|MediaScanner|SoundPool|AudioService|memtrack|InputMethodManagerService|GeckoHealth|NetworkScheduler\.SchedulerReceiver|GeofencerStateMachine|ResourceType|AccessibilityNodeInfoDumper|GoogleURLConnFactory|ConfigFetchService|Keyboard\.Facilitator|GOOGLEHELP|PeopleContactsSync|Icing|SQLiteConnectionPool|GAv4|Finsky|Instrumentation|Quickoffice|ChimeraCfgMgr|ChimeraModuleLdr|InputDispatcher|keystore|chromium|WifiStateMachine|AudioManagerAndroid|InteractionController|PhoneStatusBar|QueryController|ConfigService|Documents|PackageBroadcastService|LatinIME|StatsUtilsManager|InputAttributes|jdwp|IInputConnectionWrapper|RichInputConnection|AccountUtils|LocationSettingsChecker|libEGL|OpenGLRenderer|BluetoothManagerService|qtaguid|Decoder|InputReader|VoicemailCleanupService|BackupManagerService|gH_MetricsDatabase|PeriodicStatsRecorder|AwContents|GAV3|Vision|GCMBaseIntentService|GCMRegistrar|EventLogService|Ads|GAV2|dalvikvm-heap)).*$
-Log Message: ^(?!.*(memtrack module|ServiceRecord|GC_CONCURRENT|GC_EXPLICIT|GC_FOR_ALLOC|in package com\.google\.android\.gms|com\.google\.android\.googlequicksearchbox|libnativehelper\.so|com\.android\.vending|CheckJNI is OFF)).*$
+
+Log Message: 
+^(?!.*(memtrack module|ServiceRecord|GC_CONCURRENT|GC_EXPLICIT|GC_FOR_ALLOC|in package com\.google\.android\.gms|com\.google\.android\.googlequicksearchbox|libnativehelper\.so|com\.android\.vending|CheckJNI is OFF)).*$
+
+ActivityManager + dm:
+
+Log tag: ActivityManager|Monitor*|org\.droidmate*|UiAutomatorTestRunner*|AndroidRuntime
+
+For GREP
+Nat464Xlat|Tethering|EntropyMixer|wpa_supplicant|ProcessStatsService|GCM|ConnectivityService|
+MobileConnectivityChangeReceiver|SystemUpdateService|libgps|ThrottleService|StrictMode|BluetoothAdapter|SurfaceFlinger|AudioTrack|logwrapper|SecondaryTablController|ConnectivityService|Netd|iptables|FrameworkListener|MediaFocusControl|AlarmClock|MediaScanner|SoundPool|AudioService|memtrack|InputMethodManagerService|GeckoHealth|NetworkScheduler\.SchedulerReceiver|GeofencerStateMachine|ResourceType|AccessibilityNodeInfoDumper|GoogleURLConnFactory|ConfigFetchService|Keyboard\.Facilitator|GOOGLEHELP|PeopleContactsSync|Icing|SQLiteConnectionPool|GAv4|Finsky|Instrumentation|Quickoffice|ChimeraCfgMgr|ChimeraModuleLdr|InputDispatcher|keystore|chromium|WifiStateMachine|AudioManagerAndroid|InteractionController|PhoneStatusBar|QueryController|ConfigService|Documents|PackageBroadcastService|LatinIME|StatsUtilsManager|InputAttributes|jdwp|IInputConnectionWrapper|RichInputConnection|AccountUtils|LocationSettingsChecker|libEGL|OpenGLRenderer|BluetoothManagerService|qtaguid|Decoder|InputReader|VoicemailCleanupService|BackupManagerService|gH_MetricsDatabase|PeriodicStatsRecorder|AwContents|GAV3|Vision|GCMBaseIntentService|GCMRegistrar|EventLogService|Ads|GAV2|dalvikvm-heap
