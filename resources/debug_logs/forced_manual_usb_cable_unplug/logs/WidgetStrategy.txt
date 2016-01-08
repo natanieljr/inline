@@ -1,5 +1,0 @@
-2015-10-01 16:31:21.903 DEBUG Encountered NEW widget context:
-WC:[seenCount=0, package=org.droidmate.fixtures.apks.monitored
-WI: bl? 0 act#: 0 lcc#: 0 Wdgt:Button/"API: URL.openConnection()"/"org.droidmate.fixtures.apks.monitored:id/button_api"/[185,161]
-WI: bl? 0 act#: 0 lcc#: 0 Wdgt:Button/"Launch Activity 2"/"org.droidmate.fixtures.apks.monitored:id/button_activity2"/[185,225]
-WI: bl? 0 act#: 0 lcc#: 0 Wdgt:Button/"Launch Home"/"org.droidmate.fixtures.apks.monitored:id/button_home"/[185,289]]
