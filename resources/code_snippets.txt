@@ -1,0 +1,18 @@
+  @Test
+  void test()
+  {
+    int linesCount = 0
+
+    def List<String> out = []
+    new File("temp.txt").readLines().each {
+      linesCount++;
+      String abbrevLine = it.dropWhile { it == '\"' as Character }.takeWhile { it != "(" } as String
+
+      if (abbrevLine.empty)
+        abbrevLine = "_empty_"
+      out.add(abbrevLine)
+
+      if (linesCount % 10000 == 0) println linesCount
+    }
+    new File("temp_out.txt").write(out.join("\n"))
+  }

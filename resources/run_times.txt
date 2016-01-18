@@ -1,0 +1,5 @@
+On 123 apps from "top5" set with args={-apksDir=apks/top5_inlined,-resetEvery=30,-timeLimit=120,-randomSeed=0}
+DroidMate ran for 4 hours, 40 minutes, 6.117 seconds.
+
+On 123 apps from "top5" set with args={-apksDir=apks/top5_inlined,-resetEvery=20,-timeLimit=90,-randomSeed=0}
+DroidMate ran for 4 hours, 40 minutes, 6.117 seconds.
