@@ -25,8 +25,6 @@ public class ExtractApksToolMainTest
     Path apksRootDir = fs.getPath(ApksRepo.apksRootDir)
     copyDirsWithApksInFileTree(new ResourcePath("apks").path, apksRootDir)
 
-    Files.createDirectories(apksRootDir)
-
     // Act 1
     ExtractApksToolMain.main(fs, new Configuration([Configuration.pn_top, "1,100"] as String[]))
 
