@@ -1,5 +1,5 @@
   @Test
-  void test()
+  void extractLogcatLogPrefixes()
   {
     int linesCount = 0
 
