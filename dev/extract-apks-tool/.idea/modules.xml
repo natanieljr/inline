@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/extract-apks-tool.iml" filepath="$PROJECT_DIR$/extract-apks-tool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/extract-apks-tool.iml" filepath="$PROJECT_DIR$/.idea/modules/extract-apks-tool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/extract_apks_tool_main.iml" filepath="$PROJECT_DIR$/.idea/modules/extract_apks_tool_main.iml" group="extract-apks-tool" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/extract_apks_tool_test.iml" filepath="$PROJECT_DIR$/.idea/modules/extract_apks_tool_test.iml" group="extract-apks-tool" />
     </modules>
   </component>
 </project>

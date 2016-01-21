@@ -1,7 +1,7 @@
 package org.droidmate.extract_apks_tool
 
+import com.github.konrad_jamrozik.ResourcePath
 import com.google.common.jimfs.Jimfs
-import org.droidmate.common.ResourcePath
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -12,7 +12,6 @@ import java.nio.file.FileSystem
 import java.nio.file.Files
 import java.nio.file.Path
 import java.time.LocalDate
-
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(JUnit4)
