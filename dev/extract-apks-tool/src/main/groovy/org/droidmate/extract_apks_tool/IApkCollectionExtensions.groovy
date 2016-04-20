@@ -58,7 +58,5 @@ class IApkCollectionExtensions
   public static Collection<IApk> sortByTop(Collection<IApk> self, ICategory category)
   {
     self.sort {it.getMinRankWithDateForCategory(category).first}
-
-
   }
 }

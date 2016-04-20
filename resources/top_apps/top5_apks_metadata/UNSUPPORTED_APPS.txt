@@ -1,0 +1,8 @@
+These apps do not work with DroidMate. [] denotes reason for not working:
+
+[1] com.google.android.keep_v2.3.02-inlined.apk
+[1] com.google.earth_v7.1.3.1255-inlined.apk
+[2] de.schildbach.oeffi_v8.67-inlined.apk
+
+[1] Google system apps, cannot be reinstalled
+[2] More than one launchable activity
