@@ -104,7 +104,10 @@ public class MonitorLoader {
 					continue;
 				}
 				
-				System.out.println("Extracting " + name + " to " + target.getAbsolutePath());
+				target.getParentFile().mkdirs();
+				if (!target.getParentFile().isDirectory())
+					throw new IOException("Failed to mkdirs: "+target.getParentFile().getAbsolutePath());
+				System.out.println("Extracting " + name + " to: " + target.getAbsolutePath());
 				final FileOutputStream out = new FileOutputStream(target);
 
 				int read;
