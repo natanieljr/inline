@@ -21,6 +21,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -219,12 +220,21 @@ public class AppDexLoader {
 		}
 	}
 
-	private static Object[] makeDexElements(Class<?> dexPathListClass, ArrayList<File> files, File optDir) throws NoSuchMethodException,
+	private static Object[] makeDexElements(Class<?> dexPathListClass, ArrayList<File> files,
+																					File optDir) throws NoSuchMethodException,
 			IllegalAccessException, InvocationTargetException {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+		// API 23+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+		{
+			Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+			makeDexElementsMethod.setAccessible(true);
+			return (Object[]) makeDexElementsMethod.invoke(null, files, optDir, new ArrayList<IOException>());
+		// API 21+
+		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makeDexElements", ArrayList.class, File.class, ArrayList.class);
 			makeDexElementsMethod.setAccessible(true);
 			return (Object[]) makeDexElementsMethod.invoke(null, files, optDir, new ArrayList<IOException>());
+		// Others
 		} else {
 			Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makeDexElements", ArrayList.class, File.class);
 			makeDexElementsMethod.setAccessible(true);

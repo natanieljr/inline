@@ -37,7 +37,7 @@ public class MonitorLoader {
 			if (monitorClass != null) {
 				// Create Monitor instance
 				monitorInstance = monitorClass.newInstance();
-				
+
 				final Method initMethod = monitorClass.getDeclaredMethod("init", Context.class);
 				initMethod.invoke(monitorInstance, context);
 			}
@@ -61,7 +61,7 @@ public class MonitorLoader {
 		if (!odexDir.exists()) {
 			odexDir.mkdirs();
 		}
-		
+
 		File libsDir = new File(getFilesDir(context), "appguard_monitor_libs");
 		if (!libsDir.exists()) {
 			libsDir.mkdirs();
@@ -93,7 +93,7 @@ public class MonitorLoader {
 			ZipEntry entry = in.getNextEntry();
 			while (entry != null) {
 				final String name = entry.getName();
-				
+
 				final File target;
 				if (Build.CPU_ABI != null && name.startsWith("lib/" + Build.CPU_ABI)) {
 					target = new File(libsDir, name.substring(4 + Build.CPU_ABI.length()));
@@ -103,7 +103,7 @@ public class MonitorLoader {
 					entry = in.getNextEntry();
 					continue;
 				}
-				
+
 				target.getParentFile().mkdirs();
 				if (!target.getParentFile().isDirectory())
 					throw new IOException("Failed to mkdirs: "+target.getParentFile().getAbsolutePath());
@@ -115,19 +115,19 @@ public class MonitorLoader {
 				while ((read = in.read(buf)) != -1) {
 					out.write(buf, 0, read);
 				}
-				
+
 				out.close();
 				in.closeEntry();
-				
+
 				entry = in.getNextEntry();
 			}
-			
+
 			in.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private String getLibraryPath(String libsDir) {
 		StringBuilder libraryPath = new StringBuilder();
 		if (Build.CPU_ABI != null) {
