@@ -1,5 +1,6 @@
 # minDate: 2014-01-22 (inferred from apk metadata) 
 # maxDate: 2015-05-26 (inferred from apk metadata) 
+Category | Category kind | Highest position in the store | Date of the highest position | File path to the app (encodes app version)
 Books & Reference       |     Top Free | 1 | 2014-07-09 | /jacobs/APKs/an/anim/animaonl/animaonline.android.wikiexplorer/1.5.5/animaonline.android.wikiexplorer.apk                                                                                                                                                                      
 Books & Reference       |     Top Free | 1 | 2015-04-19 | /jacobs/APKs/co/com./com.mega/com.megalol.quotes/1.42/com.megalol.quotes.apk                                                                                                                                                                                                   
 Books & Reference       |     Top Free | 2 | 2015-02-05 | /jacobs/APKs/co/com./com.audi/com.audible.application/1.7.0/com.audible.application.apk                                                                                                                                                                                        
