@@ -8,14 +8,24 @@ README by Konrad Jamrozik.
    
 HOW TO BUILD:   
 
-1. Open in IntelliJ this dir:
+1. Delete manually this dir:
+
+C:\my\local\repos\sechair\droidmate-private\dev\appguard-standalone-modified\out
+
+2. Open in IntelliJ this dir:
     
 C:\my\local\repos\sechair\droidmate-private\dev\appguard-standalone-modified
 
-2. Build -> Build Artifacts... -> Rebuild // Check the output path of the artifact is correct!
+3. Build -> Rebuild project
 
-3. Extract from C:\my\local\repos\sechair\droidmate-private\dev\appguard-standalone-modified\out\production\appguard-standalone-loader\appguard-standalone-loader.apk
+4. Build -> Build Artifacts... -> Edit. 
+Check the output path of the artifact is:
+C:\my\local\repos\github\droidmate\dev\droidmate\projects\apk-inliner\src\main\resources
+
+5. Build -> Build Artifacts... -> Rebuild
+
+6. Extract from C:\my\local\repos\sechair\droidmate-private\dev\appguard-standalone-modified\out\production\appguard-standalone-loader\appguard-standalone-loader.apk
    the "classes.dex" file. Rename it to "appguard-loader.dex" and put it in C:\my\local\repos\github\droidmate\dev\droidmate\projects\apk-inliner\src\main\resources
    
-4. Do clean DroidMate rebuild. Test if it work by running testDevice.
+4. Do clean DroidMate rebuild (gradlew clean build). Test if it works by running testDevice_api23.
 
