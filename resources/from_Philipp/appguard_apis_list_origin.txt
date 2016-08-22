@@ -4,6 +4,6 @@ MonitorInitalizer.java. Turns out this file is already present in an email he se
 
 Contents of it can be found in: C:\my\local\repos\chair\droidmate\resources\from_Philipp\Instrumentation_wrappers_11_Aug_2015
 and the file in:
-C:\my\local\repos\chair\droidmate\resources\from_Philipp\Instrumentation_wrappers_11_Aug_2015\appguard-monitor\appguard-monitor\src\main\java\com\srt\appguard\monitor\MonitorInitializer.java
+C:\my\local\repos\sechair\droidmate-private\resources\from_Philipp\Instrumentation_wrappers_11_Aug_2015\appguard-monitor\appguard-monitor\src\main\java\com\srt\appguard\monitor\MonitorInitializer.java
 
 I extracted the appguard_apis.txt from the MonitorInitalizer.java using some manual processing.
