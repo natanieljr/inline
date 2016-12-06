@@ -8,7 +8,7 @@
 # NOTE: Konrad manually added the following:
 # - return type
 # - static/instance token to determine staticness
-# - missing methods found in Android doc. Se comments below for details.
+# - missing methods found in Android doc. See comments below for details.
 
 #
 # CAMERA:

@@ -1,0 +1,260 @@
+==============================================================
+droidmate-run:com.snapchat.android 5.0.34.6
+==============================================================
+
+Total run time:       210m 22s
+Total actions count: 4214 (including the final action terminating exploration)
+Total resets count:   147 (including the initial action)
+
+--------------------------------------------------------------
+Unique API calls count observed in the run: 32
+
+Below follows a list of first calls to unique APIs. It is to be read as follows:
+<time of logging the unique API for the first time> <index of action that triggered the call> <the API call data>
+
+ Other         | This           API signature
+         None! |    0m  7s    1 TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.util.chat.SecureChatService]
+         None! |    0m  7s    1 TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, component=com.snapchat.android/.util.chat.SecureChatService]
+   0m  4s    1 |    0m  7s    1 TId:  326 org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)
+   0m  5s    1 |    0m  7s    1 TId:  326 java.net.Socket: void <init>()
+   0m 25s    5 |    0m  7s    1 TId:  328 android.hardware.Camera: android.hardware.Camera open(int)
+         None! |    0m  8s    1 TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+   0m  4s    1 |    0m  8s    1 TId:  331 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+   0m 24s    5 |    0m  8s    1 TId:  340 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.REGISTER, package=com.google.android.gms]
+   0m 46s   13 |    0m  9s    1 TId:    1 android.content.ContextWrapper: void unbindService(android.content.ServiceConnection)
+   0m 27s    5 |    0m 26s    5 TId:  340 java.net.URL: java.net.URLConnection openConnection()
+   0m 27s    5 |    0m 26s    5 TId:  346 java.net.URLConnection: void <init>(java.net.URL)
+         None! |    0m 26s    5 TId:  326 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 26s    5 TId:  368 java.net.Socket: void <init>(java.lang.String,int,java.net.InetAddress,int)
+         None! |    0m 37s    7 TId:  374 android.media.AudioRecord: void <init>(int,int,int,int,int)
+   9m 14s  190 |    1m  1s   17 TId:  360 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://media/external/images/media
+         None! |    1m  2s   17 TId:  360 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/thumbnails
+         None! |    1m  2s   17 TId:  360 android.content.ContentResolver: android.os.ParcelFileDescriptor openFileDescriptor(android.net.Uri,java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/thumbnails/<number>
+         None! |    1m  2s   17 TId:  360 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://media/external/images/thumbnails
+         None! |    1m  2s   17 TId:  360 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=///storage/emulated/0/Snapchat/<filename>.jpg, scheme=file, action=android.intent.action.MEDIA_SCANNER_SCAN_FILE]
+   6m 46s  142 |    2m 28s   45 TId:    1 android.webkit.WebView: void <init>(android.content.Context,android.util.AttributeSet,int,java.util.Map,boolean)
+   0m 36s    9 |    2m 44s   51 TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |    3m  7s   61 TId:    1 android.telephony.TelephonyManager: java.lang.String getLine1Number()
+   5m 20s  111 |    6m  9s  124 TId:  384 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.contacts/data/phones
+         None! |    8m 42s  177 TId:    1 android.app.Activity: void startActivityForResult(android.content.Intent,int,android.os.Bundle) intent: [data=//www.snapchat.com/beta, scheme=https, action=android.intent.action.VIEW]
+         None! |   26m 31s  549 TId:    1 android.app.Activity: void startActivityForResult(android.content.Intent,int,android.os.Bundle) intent: [data=, action=android.settings.LOCATION_SOURCE_SETTINGS, launchFlags=0x10000000]
+         None! |   26m 52s  551 TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, action=com.google.android.location.internal.GoogleLocationManagerService.START, package=com.google.android.gms]
+   3m  9s   65 |   36m 41s  753 TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getNetworkInfo(int)
+         None! |   53m  7s 1094 TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.RECEIVE, launchFlags=0x10, package=com.snapchat.android, component=com.snapchat.android/.notification.GcmIntentService]
+         None! |   53m  7s 1094 TId:    1 android.os.PowerManager$WakeLock: void acquire(long)
+         None! |   53m  7s 1094 TId:  515 android.os.PowerManager$WakeLock: void release(int)
+         None! |   53m  8s 1094 TId:  516 android.app.NotificationManager: void notify(java.lang.String,int,android.app.Notification)
+   8m 41s  183 |  153m  8s 3095 TId:    1 android.media.MediaPlayer: void release()
+
+--------------------------------------------------------------
+Unique [API call, event] pairs count observed in the run: 93
+
+Below follows a list of first calls to unique [API call, event] pairs. It is to be read as follows:
+<time of logging the unique API call from the unique [API call, event] for the first time> <index of action that triggered the call> <the event data> <the API call data>
+
+ Other         | This           Event                                                        API signature
+         None! |    0m  7s    1 <reset>                                                      TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.util.chat.SecureChatService]
+         None! |    0m  7s    1 <reset>                                                      TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, component=com.snapchat.android/.util.chat.SecureChatService]
+   0m  4s    1 |    0m  7s    1 <reset>                                                      TId:  326 org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)
+   0m  5s    1 |    0m  7s    1 <reset>                                                      TId:  326 java.net.Socket: void <init>()
+   1m 47s   35 |    0m  7s    1 <reset>                                                      TId:  328 android.hardware.Camera: android.hardware.Camera open(int)
+         None! |    0m  8s    1 <reset>                                                      TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+   0m  4s    1 |    0m  8s    1 <reset>                                                      TId:  331 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+   1m 47s   35 |    0m  8s    1 <reset>                                                      TId:  340 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.REGISTER, package=com.google.android.gms]
+  40m 24s  858 |    0m  9s    1 <reset>                                                      TId:    1 android.content.ContextWrapper: void unbindService(android.content.ServiceConnection)
+   0m 23s    5 |    0m 25s    5 background                                                   TId:  351 org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)
+   0m 23s    5 |    0m 25s    5 background                                                   TId:  351 java.net.Socket: void <init>()
+   0m 27s    5 |    0m 26s    5 background                                                   TId:  340 java.net.URL: java.net.URLConnection openConnection()
+   0m 27s    5 |    0m 26s    5 background                                                   TId:  346 java.net.URLConnection: void <init>(java.net.URL)
+         None! |    0m 26s    5 background                                                   TId:  326 java.net.Socket: void <init>(java.net.Proxy)
+         None! |    0m 26s    5 click:[res:id/log_in_button, txt:LOG IN]                     TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.util.chat.SecureChatService]
+         None! |    0m 26s    5 click:[res:id/log_in_button, txt:LOG IN]                     TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, component=com.snapchat.android/.util.chat.SecureChatService]
+         None! |    0m 26s    5 click:[res:id/log_in_button, txt:LOG IN]                     TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+   0m 11s    2 |    0m 26s    5 background                                                   TId:  331 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    0m 26s    5 background                                                   TId:  368 java.net.Socket: void <init>(java.lang.String,int,java.net.InetAddress,int)
+   0m 24s    5 |    0m 27s    5 background                                                   TId:  340 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.REGISTER, package=com.google.android.gms]
+         None! |    0m 37s    7 background                                                   TId:  374 android.media.AudioRecord: void <init>(int,int,int,int,int)
+   0m 25s    5 |    0m 39s    8 background                                                   TId:  328 android.hardware.Camera: android.hardware.Camera open(int)
+   9m 14s  190 |    1m  1s   17 background                                                   TId:  360 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://media/external/images/media
+         None! |    1m  2s   17 background                                                   TId:  360 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/thumbnails
+         None! |    1m  2s   17 background                                                   TId:  360 android.content.ContentResolver: android.os.ParcelFileDescriptor openFileDescriptor(android.net.Uri,java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/thumbnails/<number>
+         None! |    1m  2s   17 background                                                   TId:  360 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://media/external/images/thumbnails
+         None! |    1m  2s   17 background                                                   TId:  360 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=///storage/emulated/0/Snapchat/<filename>.jpg, scheme=file, action=android.intent.action.MEDIA_SCANNER_SCAN_FILE]
+         None! |    2m  1s   35 <reset>                                                      TId:  342 java.net.Socket: void <init>(java.lang.String,int,java.net.InetAddress,int)
+         None! |    2m 28s   45 click:[res:id/privacy_policy]                                TId:    1 android.webkit.WebView: void <init>(android.content.Context,android.util.AttributeSet,int,java.util.Map,boolean)
+         None! |    2m 44s   51 click:[res:id/settings_manage_additional_services]           TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |    3m  7s   61 click:[res:id/mobile_number]                                 TId:    1 android.telephony.TelephonyManager: java.lang.String getLine1Number()
+ 145m 35s 3042 |    4m 32s   90 click:[res:id/add_friends_back_button_area]                  TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    4m 38s   91 unlabeled                                                    TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |    6m  9s  124 click:[res:android:id/button1, txt:Okay]                     TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+   5m 20s  111 |    6m  9s  124 background                                                   TId:  384 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.contacts/data/phones
+         None! |    6m 33s  128 click:[res:id/camera_feed_button, txt:2]                     TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+   6m 46s  142 |    7m 28s  151 click:[res:id/support]                                       TId:    1 android.webkit.WebView: void <init>(android.content.Context,android.util.AttributeSet,int,java.util.Map,boolean)
+         None! |    8m 42s  177 click:[res:android:id/button1, txt:Count me in!]             TId:    1 android.app.Activity: void startActivityForResult(android.content.Intent,int,android.os.Bundle) intent: [data=//www.snapchat.com/beta, scheme=https, action=android.intent.action.VIEW]
+         None! |    8m 43s  177 click:[res:android:id/button1, txt:Count me in!]             TId:    1 android.content.ContextWrapper: void unbindService(android.content.ServiceConnection)
+         None! |    9m 10s  182 click:[res:id/story_button]                                  TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |    9m 13s  183 click:[res:id/my_friends_back_button_area]                   TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |   10m 27s  209 click:[res:id/camera_my_friends_button]                      TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |   11m 15s  228 click:[res:id/refresh_button]                                TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |   12m 40s  259 click:[res:id/send_to_action_bar_friend_button]              TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+  15m 30s  326 |   26m 31s  549 click:[res:android:id/button1, txt:Okay]                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   26m 31s  549 click:[res:android:id/button1, txt:Okay]                     TId:    1 android.app.Activity: void startActivityForResult(android.content.Intent,int,android.os.Bundle) intent: [data=, action=android.settings.LOCATION_SOURCE_SETTINGS, launchFlags=0x10000000]
+         None! |   26m 33s  549 click:[res:android:id/button1, txt:Okay]                     TId:    1 android.content.ContextWrapper: void unbindService(android.content.ServiceConnection)
+   0m 36s    9 |   26m 52s  551 click:[res:id/camera_take_snap_button]                       TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   26m 52s  551 click:[res:id/camera_take_snap_button]                       TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, action=com.google.android.location.internal.GoogleLocationManagerService.START, package=com.google.android.gms]
+         None! |   27m  8s  558 click:[res:id/camera_my_friends_button]                      TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   28m 34s  587 click:[res:id/checkbox]                                      TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   32m 11s  663 click:[res:id/add_friends_back_button_area]                  TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   32m 58s  678 click:[res:id/video_settings_button]                         TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   33m 21s  687 click:[res:id/settings_back_button_area]                     TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+   3m  9s   65 |   36m 41s  753 <reset>                                                      TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getNetworkInfo(int)
+         None! |   38m 37s  792 click:[res:id/camera_activity_layout]                        TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   39m  6s  804 unlabeled                                                    TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   40m  7s  823 click:[res:id/my_friends_list]                               TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   45m 51s  941 click:[res:id/snap_preview_relative_layout]                  TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   47m 46s  983 click:[res:android:id/list]                                  TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |   48m 51s 1005 click:[res:id/settings_filters_checkbox]                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   49m 30s 1014 click:[res:id/my_friends_list_item]                          TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   49m 36s 1017 click:[res:id/myfriends_action_bar_friend_button]            TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getNetworkInfo(int)
+         None! |   49m 36s 1017 click:[res:id/myfriends_action_bar_friend_button]            TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |   53m  7s 1094 click:[res:id/send_to_bottom_panel_send_button]              TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.RECEIVE, launchFlags=0x10, package=com.snapchat.android, component=com.snapchat.android/.notification.GcmIntentService]
+         None! |   53m  7s 1094 click:[res:id/send_to_bottom_panel_send_button]              TId:    1 android.os.PowerManager$WakeLock: void acquire(long)
+         None! |   53m  7s 1094 background                                                   TId:  515 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |   53m  7s 1094 background                                                   TId:  515 android.os.PowerManager$WakeLock: void release(int)
+         None! |   53m  8s 1094 background                                                   TId:  516 android.app.NotificationManager: void notify(java.lang.String,int,android.app.Notification)
+         None! |   59m 36s 1225 click:[res:id/picture_x]                                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   67m 21s 1379 click:[res:id/camera_feed_button, txt:2]                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   68m 42s 1398 click:[res:id/story_button]                                  TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   80m  6s 1624 click:[res:id/camera_switch_camera]                          TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   91m  0s 1851 click:[res:id/settings_front_facing_flash]                   TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |   91m  1s 1852 click:[res:id/settings_filters]                              TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  118m  9s 2403 click:[res:id/tabsLayout]                                    TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  119m 50s 2438 click:[res:id/camera_feed_button, txt:2]                     TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |  125m 52s 2557 click:[res:id/myfriends_action_bar_search_button, dsc:Go to the Friends page] TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  131m 44s 2672 click:[res:id/my_friends_back_button_area]                   TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  133m 13s 2705 click:[res:id/picture_save_pic]                              TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  139m 44s 2831 click:[res:android:id/text1, txt:Everyone]                   TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  141m  6s 2859 click:[res:id/myfriends_action_bar_friend_button]            TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  144m 13s 2921 click:[res:id/drawing_btn]                                   TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  148m 39s 3008 click:[res:id/camera_my_friends_button]                      TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |  153m  8s 3095 click:[res:id/feed_back_button_area]                         TId:    1 android.media.MediaPlayer: void release()
+         None! |  153m  8s 3095 click:[res:id/feed_back_button_area]                         TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |  163m  4s 3299 click:[res:id/camera_switch_camera]                          TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |  171m 59s 3464 click:[res:id/send_to_list]                                  TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  187m 10s 3755 click:[res:id/feed_back_button_area]                         TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  188m 59s 3797 l-click:[res:id/my_friends_list]                             TId:    1 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, component=com.snapchat.android/.service.SnapchatService]
+         None! |  190m  1s 3815 click:[res:id/feed_logo]                                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |  191m 55s 3850 click:[res:id/myfriends_action_bar_friend_button]            TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |  194m  8s 3897 <reset>                                                      TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+
+
+==============================================================
+droidmate-run:com.snapchat.android
+==============================================================
+
+Total run time:       210m 22s
+Total actions count: 4358 (including the final action terminating exploration)
+Total resets count:   149 (including the initial action)
+
+--------------------------------------------------------------
+Unique API calls count observed in the run: 25
+
+Below follows a list of first calls to unique APIs. It is to be read as follows:
+<time of logging the unique API for the first time> <index of action that triggered the call> <the API call data>
+
+ Other         | This           API signature
+   0m  8s    1 |    0m  4s    1 TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+   0m  7s    1 |    0m 23s    5 TId: 4608 org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)
+   0m  7s    1 |    0m 23s    5 TId: 4608 java.net.Socket: void <init>()
+   0m  8s    1 |    0m 24s    5 TId: 4610 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.REGISTER, package=com.google.android.gms]
+   0m  7s    1 |    0m 25s    5 TId: 4611 android.hardware.Camera: android.hardware.Camera open(int)
+         None! |    0m 25s    5 TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+   0m 26s    5 |    0m 27s    5 TId: 4617 java.net.URL: java.net.URLConnection openConnection()
+   0m 26s    5 |    0m 27s    5 TId: 4617 java.net.URLConnection: void <init>(java.net.URL)
+   2m 44s   51 |    0m 36s    9 TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |    0m 36s    9 TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, action=com.google.android.location.internal.GoogleLocationManagerService.START]
+  36m 41s  753 |    3m  9s   65 TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getNetworkInfo(int)
+         None! |    4m 42s   97 TId:    1 android.media.MediaRecorder: void setAudioSource(int)
+         None! |    4m 42s   97 TId:    1 android.media.MediaRecorder: void setVideoSource(int)
+   0m  7s    1 |    4m 54s  100 TId:    1 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/media
+   6m  9s  124 |    5m 20s  111 TId: 4623 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.contacts/data/phones
+   2m 28s   45 |    6m 46s  142 TId:    1 android.webkit.WebView: void <init>(android.content.Context,android.util.AttributeSet,int,java.util.Map,boolean)
+         None! |    8m  4s  168 TId:    1 android.widget.VideoView: void setVideoURI(android.net.Uri,java.util.Map)
+         None! |    8m  5s  168 TId:    1 android.media.MediaPlayer: void start()
+         None! |    8m 41s  183 TId:    1 android.media.MediaPlayer: void stop()
+ 153m  8s 3095 |    8m 41s  183 TId:    1 android.media.MediaPlayer: void release()
+   1m  1s   17 |    9m 14s  190 TId: 4641 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://media/external/images/media
+         None! |    9m 16s  191 TId: 4641 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://media/external/images/media/<number>
+         None! |   20m 56s  437 TId:    1 android.app.Activity: void startActivityForResult(android.content.Intent,int,android.os.Bundle) intent: [data=//www.snapchat.com/beta, scheme=http, action=android.intent.action.VIEW]
+         None! |   45m 45s  973 TId:    1 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=, action=com.snapchat.android.api.UploadMediaTask.MEDIA_SENT_ACTION]
+         None! |   53m 30s 1131 TId:    1 android.content.ContextWrapper: void sendOrderedBroadcast(android.content.Intent,java.lang.String) intent: [data=, action=com.snapchat.android.app.NOTIFICATION]
+
+--------------------------------------------------------------
+Unique [API call, event] pairs count observed in the run: 60
+
+Below follows a list of first calls to unique [API call, event] pairs. It is to be read as follows:
+<time of logging the unique API call from the unique [API call, event] for the first time> <index of action that triggered the call> <the event data> <the API call data>
+
+ Other         | This           Event                                                        API signature
+   0m  8s    1 |    0m  4s    1 <reset>                                                      TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+         None! |    0m 11s    2 click:[res:id/landing_page_login_button, txt:LOG IN]         TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+   0m 25s    5 |    0m 23s    5 background                                                   TId: 4608 org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)
+   0m 25s    5 |    0m 23s    5 background                                                   TId: 4608 java.net.Socket: void <init>()
+         None! |    0m 24s    5 click:[res:id/login_button, txt:LOG IN]                      TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getActiveNetworkInfo()
+   0m 27s    5 |    0m 24s    5 background                                                   TId: 4610 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.REGISTER, package=com.google.android.gms]
+   0m 39s    8 |    0m 25s    5 background                                                   TId: 4611 android.hardware.Camera: android.hardware.Camera open(int)
+         None! |    0m 25s    5 click:[res:id/login_button, txt:LOG IN]                      TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+   0m 26s    5 |    0m 27s    5 background                                                   TId: 4617 java.net.URL: java.net.URLConnection openConnection()
+   0m 26s    5 |    0m 27s    5 background                                                   TId: 4617 java.net.URLConnection: void <init>(java.net.URL)
+  26m 52s  551 |    0m 36s    9 click:[res:id/camera_take_snap_button]                       TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |    0m 36s    9 click:[res:id/camera_take_snap_button]                       TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |    0m 36s    9 click:[res:id/camera_take_snap_button]                       TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, action=com.google.android.location.internal.GoogleLocationManagerService.START]
+   0m  8s    1 |    1m 47s   35 <reset>                                                      TId: 4605 android.content.ContextWrapper: android.content.ComponentName startService(android.content.Intent) intent: [data=, action=com.google.android.c2dm.intent.REGISTER, package=com.google.android.gms]
+   0m  7s    1 |    1m 47s   35 <reset>                                                      TId: 4609 android.hardware.Camera: android.hardware.Camera open(int)
+         None! |    1m 47s   35 <reset>                                                      TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+   0m  7s    1 |    1m 47s   35 <reset>                                                      TId: 4610 org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)
+   0m  7s    1 |    1m 47s   35 <reset>                                                      TId: 4610 java.net.Socket: void <init>()
+  36m 41s  753 |    3m  9s   65 <reset>                                                      TId:    1 android.net.ConnectivityManager: android.net.NetworkInfo getNetworkInfo(int)
+         None! |    4m 42s   97 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.media.MediaRecorder: void setAudioSource(int)
+         None! |    4m 42s   97 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.media.MediaRecorder: void setVideoSource(int)
+         None! |    4m 54s  100 unlabeled                                                    TId:    1 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/media
+   6m  9s  124 |    5m 20s  111 background                                                   TId: 4623 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.contacts/data/phones
+         None! |    6m  7s  125 <reset>                                                      TId: 4621 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://com.android.contacts/data/phones
+   7m 28s  151 |    6m 46s  142 click:[res:id/support]                                       TId:    1 android.webkit.WebView: void <init>(android.content.Context,android.util.AttributeSet,int,java.util.Map,boolean)
+         None! |    7m 51s  162 click:[res:id/drawing_btn]                                   TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |    8m  4s  168 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |    8m  4s  168 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |    8m  4s  168 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.widget.VideoView: void setVideoURI(android.net.Uri,java.util.Map)
+         None! |    8m  4s  168 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.content.ContextWrapper: boolean bindService(android.content.Intent,android.content.ServiceConnection,int) intent: [data=, action=com.google.android.location.internal.GoogleLocationManagerService.START]
+         None! |    8m  5s  168 l-click:[res:id/camera_take_snap_button]                     TId:    1 android.media.MediaPlayer: void start()
+         None! |    8m  7s  169 click:[res:id/snap_preview_relative_layout]                  TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |    8m 12s  171 click:[res:id/unmuted_button]                                TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |    8m 17s  173 click:[res:id/toggle_caption_btn]                            TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |    8m 41s  183 click:[res:android:id/button1, txt:Add]                      TId:    1 android.media.MediaPlayer: void stop()
+         None! |    8m 41s  183 click:[res:android:id/button1, txt:Add]                      TId:    1 android.media.MediaPlayer: void release()
+         None! |    9m 12s  189 click:[res:android:id/button2, txt:Cancel]                   TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+   1m  1s   17 |    9m 14s  190 background                                                   TId: 4641 android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues) uri: content://media/external/images/media
+         None! |    9m 16s  191 background                                                   TId: 4641 android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[]) uri: content://media/external/images/media/<number>
+         None! |   13m 33s  281 click:[res:id/picture_send_pic]                              TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+  26m 31s  549 |   15m 30s  326 click:[res:android:id/button1, txt:Okay]                     TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   18m 37s  394 click:[res:id/picture_x]                                     TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |   20m 56s  437 click:[res:android:id/button1, txt:Count me in!]             TId:    1 android.app.Activity: void startActivityForResult(android.content.Intent,int,android.os.Bundle) intent: [data=//www.snapchat.com/beta, scheme=http, action=android.intent.action.VIEW]
+         None! |   23m 27s  488 click:[res:id/picture_save_pic]                              TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |   23m 37s  492 click:[res:id/picture_caption]                               TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |   27m 44s  586 click:[res:id/settings_smart_filters]                        TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+         None! |   33m  5s  699 click:[res:id/time_picker_button]                            TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |   33m 10s  701 click:[res:id/picture_caption, txt:@]                        TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |   45m 45s  973 unlabeled                                                    TId:    1 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=, action=com.snapchat.android.api.UploadMediaTask.MEDIA_SENT_ACTION]
+         None! |   49m 24s 1045 click:[res:id/picture_x]                                     TId:    1 android.media.MediaPlayer: void stop()
+         None! |   49m 24s 1045 click:[res:id/picture_x]                                     TId:    1 android.media.MediaPlayer: void release()
+         None! |   53m 30s 1131 unlabeled                                                    TId:    1 android.content.ContextWrapper: void sendOrderedBroadcast(android.content.Intent,java.lang.String) intent: [data=, action=com.snapchat.android.app.NOTIFICATION]
+         None! |   57m 53s 1220 click:[res:id/send_to_bottom_panel_send_button]              TId:    1 android.content.ContextWrapper: void sendOrderedBroadcast(android.content.Intent,java.lang.String) intent: [data=, action=com.snapchat.android.app.NOTIFICATION]
+         None! |   57m 53s 1220 click:[res:id/send_to_bottom_panel_send_button]              TId:    1 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=, action=com.snapchat.android.api.UploadMediaTask.MEDIA_SENT_ACTION]
+         None! |   62m 33s 1327 click:[res:id/settings_smart_filters_checkbox]               TId:    1 android.location.LocationManager: boolean isProviderEnabled(java.lang.String)
+   0m  7s    1 |   65m 58s 1393 <reset>                                                      TId:    1 android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal) uri: content://media/external/images/media
+         None! |  113m 17s 2372 click:[res:id/add_friends_activity_layout]                   TId:    1 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=, action=com.snapchat.android.api.UploadMediaTask.MEDIA_SENT_ACTION]
+         None! |  127m 31s 2667 click:[res:id/story_button]                                  TId:    1 android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)
+         None! |  133m 46s 2793 l-click:[res:id/send_to_action_bar_search_bar, txt:Search for friends] TId:    1 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=, action=com.snapchat.android.api.UploadMediaTask.MEDIA_SENT_ACTION]
+         None! |  174m 51s 3644 <reset>                                                      TId:    1 android.content.ContextWrapper: void sendBroadcast(android.content.Intent) intent: [data=, action=com.snapchat.android.api.UploadMediaTask.MEDIA_SENT_ACTION]
+
+
