@@ -4,28 +4,27 @@ Author: Konrad Jamrozik, jamrozik@st.cs.uni-saarland.de
 
 This is the metadata of the set of apps on which DroidMate stability was evaluated for the MOBILESoft 2016 demo paper.
 
-This list contains top free 5 apps from each of the 26 non-game categories from German Google App Store. The apps have been downloaded in period between 22 January 2014 and 26 May 2015, both inclusive.
+This list contains top free 5 apps from each of the 26 non-game categories from German Google App Store. 
+The apps have been downloaded in period between 22 January 2014 and 26 May 2015, both inclusive.
 
-There are 130 apps. After removing duplicates, we end up with 126 apps. After removing apps not supported by DroidMate, we end up with 117 apps, on which DroidMate was evaluated.
+For analysis on how well DroidMate supports the apps, see the .xlsx file in the same folder.
+
+The stats are as follows:
+Total non game categories: 26
+Total apps: 130 (26*5)
+App duplicates: 4 (126 apps remaining)
+Apps not supported by DroidMate (see below): 8 (118 apps remaining)
+
+There are 130 apps. After removing duplicates, we end up with 126 apps. 
+After removing apps not supported by DroidMate, we end up with 118 apps, on which DroidMate was evaluated.
 
 Following apps do not work with DroidMate, where [] denotes reason for not working:
 
-Apps:
-[1] com.google.android.keep_v2.3.02.apk
-[1] com.google.earth_v7.1.3.1255.apk
-[2] de.schildbach.oeffi_v8.67.apk
+Apps not supported by DroidMate
 [3] com.apusapps.launcher_v1.4.0.apk
-[4] ch.threema.qrscannerplugin_v1.1.apk
-[4] com.aviary.android.feather.plugins.borders.free_v1.1.apk
-[4] com.aviary.android.feather.plugins.stickers.free_stickers_v1.0.apk
-[4] com.dsi.ant.plugins.antplus_v3.1.0.apk
-[4] com.whatsapp.wallpaper_v2.apk
 
 Reason:
-[1] Google system apps, cannot be reinstalled
-[2] More than one launchable activity
 [3] Integrity check, detects bytecode manipulation
-[4] No launchable activity name present, nor app icon on the apps menu. The app is a plugin/extension.
 
 --------------------
 
