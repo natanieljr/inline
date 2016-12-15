@@ -15,11 +15,11 @@ ActivityManager + dm:
 Log tag: ActivityManager|Monitor*|org\.droidmate*|UiAutomatorTestRunner*|AndroidRuntime
 
 ====================================================
-device servers : uiautomator-daemon + monitor
+DroidMate monitor + uiad
 ====================================================
 
 Log tag:
-droidmate|SerializableTCPServerBase|Monitor|System\.out
+droidmate|AndroidRuntime|System\.out
 
 ====================================================
 ArtHook
