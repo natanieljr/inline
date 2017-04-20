@@ -27,5 +27,5 @@ C:\my\local\repos\github\droidmate\dev\droidmate\projects\apk-inliner\src\main\r
 6. Extract from C:\my\local\repos\sechair\droidmate-private\dev\appguard-standalone-modified\out\production\appguard-standalone-loader\appguard-standalone-loader.apk
    the "classes.dex" file. Rename it to "appguard-loader.dex" and put it in C:\my\local\repos\github\droidmate\dev\droidmate\projects\apk-inliner\src\main\resources
    
-4. Do clean DroidMate rebuild (gradlew clean build). Test if it works by running testDevice_api23.
+4. Do clean DroidMate rebuild (gradlew clean build). Test if it works by running gradle task testDevice_api23.
 
